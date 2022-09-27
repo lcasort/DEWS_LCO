@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.5.2.- Generación de formularios web en PHP. | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-75"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li><a href="3_lenguajes.html" class="daddy">3.- Lenguajes.</a>
+   <ul class="other-section">
+      <li><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li><a href="34_programacin_web_con_php.html" class="no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_caractersticas_del_lenguaje_php.html" class="current-page-parent daddy">4.- Características del lenguaje PHP.</a>
+   <ul>
+      <li><a href="41_elementos_del_lenguaje_php.html" class="daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul class="other-section">
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li><a href="416_cadenas_de_texto.html" class="no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li><a href="44_tipos_de_datos_compuestos.html" class="daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul class="other-section">
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li><a href="442_recorrer_arrays_ii.html" class="no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="45_formularios_web.html" class="current-page-parent daddy">4.5.- Formularios web.</a>
+      <ul>
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li id="active"><a href="452_generacin_de_formularios_web_en_php.html" class="active no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.5.2.- Generación de formularios web en PHP.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id175">
+<div class="iDevice emphasis0">
+<div id="ta175_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES02_CONT_R20_Verificacion.png" alt=" Icono que simboliza la acción de devolver información por un documento." title="Información devuelta por una página web." width="160" height="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> <a title="Anonima" href="http://www.openclipart.org/detail/114403" target="_blank" rel="noopener">Anonima</a></div>
+</div>
+<p>Vamos a volver sobre el ejemplo anterior, revisando los datos que se obtienen antes de mostrarlos. Concretamente, tienes que comprobar que el nombre no esté vacío, y que se haya seleccionado como mínimo uno de los módulos.</p>
+<p>Además, en el caso de que falte algún dato, deberás generar el formulario rellenando aquellos datos que el usuario haya introducido correctamente.</p>
+<p>Lo primero que tienes que hacer es la validación de los datos. En el ejemplo propuesto será algo así como:</p>
+<p> </p>
+<div class="codigo elemento_centrado" style="width: 47.25em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>if (!empty($_POST['modulos']) &amp;&amp; !empty($_POST['nombre'])) {
+
+     // Aquí se incluye el código a ejecutar cuando los datos son correctos
+
+}
+
+else {
+
+     // Aquí generamos el formulario, indicando los datos incorrectos
+
+     //   y rellenando los valores correctamente introducidos
+
+}</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Para que el usuario no pierda, después de enviar el formulario, los datos correctamente introducidos, utiliza el atributo <code>value</code> en las entradas de texto (utilizamos la función isset para comprobar que la variable que queremos mostrar existe, para que no nos muestre un mensaje de error si es la primera vez que se carga la página y todavía no ha enviado nada el formulario):</p>
+<div class="codigo elemento_centrado" style="width: 54.4em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>Nombre del alumno:
+
+        &lt;input type="text" name="nombre" value="&lt;?php if (isset ($_POST['nombre'])) echo $_POST['nombre'];?&gt;" /&gt;</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Y el atributo <code>checked</code> en las casillas de verificación:</p>
+<div class="codigo elemento_centrado" style="width: 36.25em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;input type="checkbox" name="modulos[]" value="DWES"
+
+     &lt;?php
+
+          if(in_array("DWES",$_POST['modulos']))
+
+               echo 'checked="checked"';
+
+     ?&gt;
+
+/&gt;</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Fíjate en el uso de la función <code>in_array</code> para buscar un elemento en un <span lang="en">array</span>.</p>
+<p>Para indicar al usuario los datos que no ha rellenado (o que ha rellenado de forma incorrecta), deberás comprobar si es la primera vez que se visualiza el formulario, o si ya se ha enviado. Se puede hacer por ejemplo de la siguiente forma:</p>
+<div class="codigo elemento_centrado" style="width: 56.05em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>Nombre del alumno:
+
+&lt;input type="text" name="nombre" value="&lt;?php echo $_POST['nombre'];?&gt;" /&gt;
+
+&lt;?php
+
+     if (isset($_POST['enviar']) &amp;&amp; empty($_POST['nombre']))
+
+          echo "&lt;span style='{color:red}'&gt; &lt;-- Debe introducir un nombre!!&lt;/span&gt;"
+
+?&gt;&lt;br /&gt;</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Revisa el documento con el ejemplo completo, fijándote en las partes que hemos comentado anteriormente.</p>
+<div class="enlace_centrado"><strong>Consulta el Anexo XI que contiene el Documento con el ejemplo anterior completo</strong></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id176">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta176_70" class="block iDevice_content">
+<p>Una forma de enviar informaci&oacute;n de una p&aacute;gina PHP a otra, es incluy&eacute;ndola en campos ocultos dentro de un formulario.</p>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id177">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-177_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion177_60" class="block question iDevice_content">
+<p><strong>¿Serviría el siguiente código para comprobar si se han recibido los datos de un formulario?</strong></p>
+<div class="codigo elemento_centrado" style="width: 18.65em;">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>if (count($_REQUEST)&gt;0)
+
+{
+
+    …
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i177_63" class="sr-av"><a href="#answer-177_63">Opción 1</a></label><input type="radio" name="option177_60" id="i177_63" class="exe-radio-option exe-radio-option-0-2-177_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-177_63"><div id="taans177_63" class="block iDevice_content">
+Sí.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i177_103" class="sr-av"><a href="#answer-177_103">Opción 2</a></label><input type="radio" name="option177_60" id="i177_103" class="exe-radio-option exe-radio-option-1-2-177_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-177_103"><div id="taans177_103" class="block iDevice_content">
+No. 
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b177_60" class="feedback js-hidden">
+<div id="taf177_63" class=" iDevice_content">
+Correcto. De esta forma se comprueba si se ha enviado algún formulario. Habría que comprobar también si los datos que se han enviado son correctos.
+
+</div>
+</section>
+<section id="sa1b177_60" class="feedback js-hidden">
+<div id="taf177_103" class=" iDevice_content">
+Eso no es correcto. La función count comprueba el número de elementos que contiene el array, y $_REQUEST solo debe contener elementos si se han recibido datos de un formulario.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-177_63">Opción correcta</a><span> (<a href="#sa0b177_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-177_103">Incorrecto</a><span> (<a href="#sa1b177_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id178">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta178_67" class="block story iDevice_content">
+<p><strong>Modifica el ejercicio que mostraba la fecha en castellano, para que obtenga lo mismo a partir de un d&iacute;a, mes y a&ntilde;o introducido por el usuario. Antes de mostrar la fecha, se debe comprobar que es correcta. Utilizar la misma p&aacute;gina PHP para el formulario de introducci&oacute;n de datos y para mostrar la fecha obtenida en castellano. </strong></p>
+</section>
+<section id="taquesQuestion0b178" class="block iDevice_content">
+<p>Consultar las funciones <code>checkdate</code> y <code>mktime</code> en el manual de PHP.</p>
+</section>
+<form name="feedback-form-quesFeedback0b178" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b178text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b178" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b178" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Compara la soluci&oacute;n propuesta con la que has obtenido.</p>
+<div class="enlace_centrado"><strong>Consulta el Anexo XII con la Soluci&oacute;n propuesta.</strong></div></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

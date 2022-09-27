@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.1.6.- Cadenas de texto. | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-58"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li><a href="3_lenguajes.html" class="daddy">3.- Lenguajes.</a>
+   <ul class="other-section">
+      <li><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li><a href="34_programacin_web_con_php.html" class="no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_caractersticas_del_lenguaje_php.html" class="current-page-parent daddy">4.- Características del lenguaje PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="41_elementos_del_lenguaje_php.html" class="current-page-parent daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul>
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li id="active"><a href="416_cadenas_de_texto.html" class="active no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li><a href="44_tipos_de_datos_compuestos.html" class="daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul class="other-section">
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li><a href="442_recorrer_arrays_ii.html" class="no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li><a href="45_formularios_web.html" class="daddy">4.5.- Formularios web.</a>
+      <ul class="other-section">
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li><a href="452_generacin_de_formularios_web_en_php.html" class="no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="415_generacin_de_cdigo_html.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.1.6.- Cadenas de texto.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id119">
+<div class="iDevice emphasis0">
+<div id="ta119_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES02_CONT_R04_Texto.jpg" alt="Texto escrito en un papel." title="escribir" width="168" height="123" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> idITE=111597.</div>
+</div>
+<p>En PHP las cadenas de texto pueden usar tanto comillas simples como comillas dobles. Sin embargo hay una diferencia importante entre usar unas u otras. Cuando se pone una variable dentro de unas comillas dobles, se procesa y se sustituye por su valor. Así, el ejemplo anterior sobre el uso de <code>print</code> también podía haberse puesto de la siguiente forma:</p>
+<p> </p>
+<p> </p>
+<div class="" style="width: 34.6em;">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+$modulo="DWES";
+
+print "&lt;p&gt;Módulo: $modulo&lt;/p&gt;"
+
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<p> </p>
+<p>La variable <code>$modulo</code> se reconoce dentro de las comillas dobles, y se sustituye por el valor "<acronym title="Desarrollo Web en Entorno Servidor.">DWES</acronym>" antes de generar la salida. Si esto mismo lo hubieras hecho utilizando comillas simples, no se realizaría sustitución alguna.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id120">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta120_70" class="block iDevice_content">
+<p>Para que PHP distinga correctamente el texto que forma la cadena del nombre de la variable, a veces es necesario rodearla entre llaves.</p>
+<div class="highlighted-code language-php elemento_centrado" style="width: 26.9em;">
+<div class="texto_izquierda">
+<pre><code>print "&lt;p&gt;Módulo: ${modulo}&lt;/p&gt;"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id121">
+<div class="iDevice emphasis0">
+<div id="ta121_73" class="block iDevice_content">
+<p>Cuando se usan comillas simples, sólo se realizan dos sustituciones dentro de la cadena: cuando se encuentra la secuencia de caracteres <strong>\'</strong>, se muestra en la salida una comilla simple; y cuando se encuentra la secuencia <strong>\\</strong>, se muestra en la salida una barra invertida.</p>
+<p>Estas secuencias se conocen como <strong>secuencias de escape</strong>. En las cadenas que usan comillas dobles, además de la secuencia <strong>\\</strong>, se pueden usar algunas más, pero no la secuencia <strong>\'</strong>. En esta tabla puedes ver las secuencias de escape que se pueden utilizar, y cuál es su resultado.</p>
+<table class="tabla" style="border-width: 0px;" summary="Cuadro o tabla de nueve filas por dos columnas, de título “Secuencias de escape”, de modo que para cada secuencia nos indica su resultado correspondiente. Debe ser leída en filas de izquierda a derecha. " border="0"><caption>Secuencias de escape.</caption>
+<thead>
+<tr>
+<th scope="col">
+<p>Secuencia</p>
+</th>
+<th scope="col">
+<p>Resultado</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">
+<p align="center"><code>\\</code></p>
+</th>
+<td>
+<p>se muestra una barra invertida.</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\'</code></p>
+</th>
+<td>
+<p>se muestra una comilla simple.</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\"</code></p>
+</th>
+<td>
+<p>se muestra una comilla doble.</p>
+</td>
+</tr>
+<tr>
+<th scope="row"><code>\<code></code>n</code></th>
+<td>
+<p>se muestra un avance de línea (LF o 0x0A (10) en ASCII).</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\r</code></p>
+</th>
+<td>
+<p>se muestra un retorno de carro (CR o 0x0D (13) en ASCII).</p>
+</td>
+</tr>
+<tr>
+<th scope="row">\t</th>
+<td>
+<p>se muestra un tabulador horizontal (HT o 0x09 (9) en ASCII).</p>
+<p><strong>NOTA</strong>: HTML convertirá el tabulador en espacio salvo si se mete entre etiquetas &lt;pre&gt; y &lt;/pre&gt;</p>
+<p>ej: print "&lt;pre&gt; prueba prueba&lt;/pre&gt;";</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\v</code></p>
+</th>
+<td>
+<p>se muestra un tabulador vertical (VT o 0x0B (11) en ASCII).</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\f</code></p>
+</th>
+<td>
+<p>se muestra un avance de página (FF o 0x0C (12) en ASCII).</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p align="center"><code>\$</code></p>
+</th>
+<td>
+<p>se muestra un signo del dólar.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>En PHP tienes dos operadores exclusivos para trabajar con cadenas de texto. Con el operador de concatenación punto (.) puedes unir las dos cadenas de texto que le pases como operandos. El operador de asignación y concatenación (.=) concatena al argumento del lado izquierdo la cadena del lado derecho.</p>
+<div class=" elemento_centrado" style="width: 36.8em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+$a = "Módulo ";
+
+$b = $a . "DWES"; // ahora $b contiene "Módulo DWES"
+
+$a .= "DWES"; // ahora $a también contiene "Módulo DWES"
+
+?&gt; </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>En PHP tienes otra alternativa para crear cadenas: la sintaxis <strong>heredoc</strong>. Consiste en poner el operador &lt;&lt;&lt; seguido de un identificador de tu elección, y a continuación y empezando en la línea siguiente la cadena de texto, sin utilizar comillas. La cadena finaliza cuando escribes ese mismo identificador en una nueva línea. Esta línea de cierre no debe llevar más caracteres, <strong>ni siquiera espacios o sangría</strong> (debe escribirse a la izquierda del todo), salvo quizás un punto y coma después del identificador.</p>
+<div class=" elemento_centrado" style="width: 27.45em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+   $a = &lt;&lt;&lt;MICADENA
+
+Desarrollo de Aplicaciones Web&lt;br /&gt;
+
+Desarrollo Web en Entorno Servidor
+
+MICADENA;
+
+   print $a;
+
+?&gt; </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>El texto se procesa de igual forma que si fuera una cadena entre comillas dobles, sustituyendo variables y secuencias de escape. Si no quisieras que se realizara ninguna sustitución, debes poner el identificador de apertura entre comillas simples.</p>
+<div class=" elemento_centrado" style="width: 20.85em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$a = &lt;&lt;&lt;'MICADENA'
+
+... 
+
+MICADENA; </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="415_generacin_de_cdigo_html.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

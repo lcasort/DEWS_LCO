@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.4.2.- Recorrer arrays (II). | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-71"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li><a href="3_lenguajes.html" class="daddy">3.- Lenguajes.</a>
+   <ul class="other-section">
+      <li><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li><a href="34_programacin_web_con_php.html" class="no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_caractersticas_del_lenguaje_php.html" class="current-page-parent daddy">4.- Características del lenguaje PHP.</a>
+   <ul>
+      <li><a href="41_elementos_del_lenguaje_php.html" class="daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul class="other-section">
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li><a href="416_cadenas_de_texto.html" class="no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="44_tipos_de_datos_compuestos.html" class="current-page-parent daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul>
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li id="active"><a href="442_recorrer_arrays_ii.html" class="active no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li><a href="45_formularios_web.html" class="daddy">4.5.- Formularios web.</a>
+      <ul class="other-section">
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li><a href="452_generacin_de_formularios_web_en_php.html" class="no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="441_recorrer_arrays_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.4.2.- Recorrer arrays (II).</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id160">
+<div class="iDevice emphasis0">
+<div id="ta160_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES02_CONT_R16c_Recorrer_tabla.png" alt=" Punta de flecha sobre una cuadr&iacute;cula." title="recorrer tabla" height="160" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="Anonima" href="http://www.openclipart.org/detail/114859" target="_blank">Anonima</a></div>
+</div>
+<p>Pero en PHP tambi&eacute;n <strong>hay otra forma de recorrer los valores de un array</strong>. Cada array mantiene un <strong>puntero</strong> interno, que se puede utilizar con este fin. Utilizando funciones espec&iacute;ficas, podemos avanzar, retroceder o inicializar el puntero, as&iacute; como recuperar los valores del elemento (o de la pareja clave / elemento) al que apunta el puntero en cada momento. Algunas de estas funciones son:</p>
+<table class="tabla" style="border-width: 0px;" summary="Cuadro o tabla de siete filas por dos columnas, de t&iacute;tulo " border="0"><caption>Funciones para recorrer arrays.</caption>
+<thead>
+<tr><th scope="col">
+<p>Funci&oacute;n</p>
+</th><th scope="col">
+<p>Resultado</p>
+</th></tr>
+</thead>
+<tbody>
+<tr><th>
+<p>reset</p>
+</th>
+<td>
+<p>Sit&uacute;a el puntero interno al comienzo del array.</p>
+</td>
+</tr>
+<tr><th>
+<p>next</p>
+</th>
+<td>
+<p>Avanza el puntero interno una posici&oacute;n.</p>
+</td>
+</tr>
+<tr><th>
+<p>prev</p>
+</th>
+<td>
+<p>Mueve el puntero interno una posici&oacute;n hacia atr&aacute;s.</p>
+</td>
+</tr>
+<tr><th>
+<p>end</p>
+</th>
+<td>
+<p>Sit&uacute;a el puntero interno al final del array.</p>
+</td>
+</tr>
+<tr><th>
+<p>current</p>
+</th>
+<td>
+<p>Devuelve el elemento de la posici&oacute;n actual.</p>
+</td>
+</tr>
+<tr><th>
+<p>key</p>
+</th>
+<td>
+<p>Devuelve la clave de la posici&oacute;n actual.</p>
+</td>
+</tr>
+<tr><th>
+<p>each</p>
+</th>
+<td>
+<p>Devuelve un array con la clave y el elemento de la posici&oacute;n actual. Adem&aacute;s, avanza el puntero interno una posici&oacute;n.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id161">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta161_70" class="block iDevice_content">
+<p>
+Las funciones <strong><code>reset</code></strong>, <strong><code>next</code></strong>, <strong><code>prev</code></strong> y <strong><code>end</code></strong>, además de mover el puntero interno  devuelven, al igual que <strong><code>current</code></strong>, el valor del nuevo elemento en que se posiciona. Si al mover el  puntero te sales de los límites del array (por ejemplo, si ya estás en el  último elemento y haces un <code>next</code>), cualquiera de ellas devuelve <strong><span lang="en">false</span></strong>.  Sin embargo, al comprobar este valor devuelto no serás capaz de distinguir si  te has salido de los límites del array, o si estás en una posición válida del  array que contiene el valor &quot;<span lang="en">false</span>&quot;.
+</p>
+<p>
+La función <strong><code>key</code></strong> devuelve <strong><code>null</code></strong> si el puntero interno está fuera de los límites del array.
+</p>
+
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id162">
+<div class="iDevice emphasis0">
+<div id="ta162_73" class="block iDevice_content">
+<p>La función <code>each</code> devuelve un array con cuatro elementos. Los elementos <strong>0</strong> y <strong>'key'</strong> almacenan el valor de la clave en la posición actual del puntero interno. Los elementos <strong>1</strong> y <strong>'value'</strong> devuelven el valor almacenado.</p>
+<p>Si el puntero interno del array se ha pasado de los límites del array, la función each devuelve false, por lo que la puedes usar para crear un bucle que recorra el array de la siguiente forma:</p>
+<div class="" style="width: 47.25em;">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>while ($modulo = each($modulos)) {
+
+     print "El código del módulo ".$modulo[1]." es ".$modulo[0]."&lt;br /&gt;"
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id163">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta163_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b163" class="block iDevice_content">
+<p><strong> Haz una p&aacute;gina PHP que utilice estas funciones para crear una tabla como la del ejercicio anterior. </strong></p>
+</section>
+<form name="feedback-form-quesFeedback0b163" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b163text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b163" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b163" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Compara la soluci&oacute;n propuesta con la que has obtenido.</p>
+<div class="enlace_centrado"><strong>Consulta el Anexo V con la Soluci&oacute;n propuesta.</strong></div></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="441_recorrer_arrays_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

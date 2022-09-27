@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.4.- Programación web con PHP. | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-17"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_lenguajes.html" class="current-page-parent daddy">3.- Lenguajes.</a>
+   <ul>
+      <li><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li id="active"><a href="34_programacin_web_con_php.html" class="active no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li><a href="4_caractersticas_del_lenguaje_php.html" class="daddy">4.- Características del lenguaje PHP.</a>
+   <ul class="other-section">
+      <li><a href="41_elementos_del_lenguaje_php.html" class="daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul class="other-section">
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li><a href="416_cadenas_de_texto.html" class="no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li><a href="44_tipos_de_datos_compuestos.html" class="daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul class="other-section">
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li><a href="442_recorrer_arrays_ii.html" class="no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li><a href="45_formularios_web.html" class="daddy">4.5.- Formularios web.</a>
+      <ul class="other-section">
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li><a href="452_generacin_de_formularios_web_en_php.html" class="no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="33_programacin_web_con_java.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_caractersticas_del_lenguaje_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.4.- Programación web con PHP.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id39">
+<div class="iDevice emphasis0">
+<div id="ta39_73" class="block iDevice_content">
+<div class="elemento_izquierda">
+<div class="elemento_centrado"><img title="C&oacute;digo PHP" alt="Pantalla mostrando c&oacute;digo PHP" src="codePHP.jpg" class="elemento_izquierda" height="129" width="240" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="Imonk72" href="https://pixabay.com/es/c%C3%B3digo-codificaci%C3%B3n-web-desarrollo-944499/" target="_blank">Imonk72</a></div>
+</div>
+<p>&nbsp;PHP es un lenguaje de guiones de prop&oacute;sito general, pero dise&ntilde;ado para el desarrollo de p&aacute;ginas web din&aacute;micas utilizando c&oacute;digo embebido dentro del lenguaje de marcas. Su sintaxis est&aacute; basada en la de C / C++, y por lo tanto es muy similar a la de Java. Aunque lo puedes hacer de otras formas, los delimitadores recomendados para incluir c&oacute;digo PHP dentro de una p&aacute;gina web son <strong><code>&lt;?php</code></strong> y <strong><code>?&gt;</code></strong>.</p>
+<p>El c&oacute;digo se ejecuta por un entorno de ejecuci&oacute;n con el que se integra el servidor web (normalmente utilizando Apache con el m&oacute;dulo <code>mod_php</code>). La configuraci&oacute;n tanto del servidor web Apache, como de PHP, se realiza por medio de ficheros de configuraci&oacute;n. El de Apache es <code>httpd.conf</code>, y el de PHP es <strong><code>php.ini</code></strong>. Este fichero, <code>php.ini</code>, puede encontrarse en distintas ubicaciones. La funci&oacute;n <code>phpinfo()</code> que ejecutaste antes te informa, entre otras muchas cosas, del lugar en que se encuentra almacenado el fichero <code>php.ini</code> en tu ordenador. En nuestro caso es en <strong><code>/etc/php5/apache2/php.ini</code></strong>.</p>
+<p class="destacado">Dependiendo de c&oacute;mo se integre PHP con Apache, los cambios que realices en su fichero de configuraci&oacute;n se aplicar&aacute;n en un momento o en otro. Si como es nuestro caso, utilizamos <code>mod_php</code> para ejecutar PHP como un m&oacute;dulo de Apache, las opciones de configuraci&oacute;n de PHP se aplicar&aacute;n cada vez que se reinicie Apache. Por tanto, no te olvides de hacerlo cada vez que hagas cambios en <code>php.ini</code>. Por ejemplo: <code>sudo /etc/init.d/apache2 restart</code> o tambi&eacute;n <code>sudo service apache2 restart</code>.</p>
+<p>Algunas de las directivas m&aacute;s utilizadas que figuran en el fichero <code>php.ini</code> son:</p>
+<ul class="lista_verificacion">
+<li>
+<p><strong><code>short_open_tag</code></strong>. Indica si se pueden utilizar en PHP los delimitadores cortos <code>&lt;?</code> y <code>?&gt;</code>. Es preferible no usarlos, pues puede causarnos problemas si utilizamos p&aacute;ginas con XML. Para prohibir la utilizaci&oacute;n de estos delimitadores con PHP le asignamos a esta directiva el valor <span lang="en">Off</span>.</p>
+</li>
+<li>
+<p><strong><code>max_execution_time</code></strong>. Permite que puedas ajustar el n&uacute;mero m&aacute;ximo de segundos que podr&aacute; durar la ejecuci&oacute;n de un script PHP. Evita que el servidor se bloquee si se produce alg&uacute;n error en un script.</p>
+</li>
+<li>
+<p><strong><code>error_reporting</code></strong>. Indica qu&eacute; tipo de errores se mostrar&aacute;n en el caso de que se produzcan. Por ejemplo, si haces <strong><code>error_reporting = E_ALL</code></strong>, te mostrar&aacute; todos los tipos de errores. Si no quieres que te muestre los avisos pero s&iacute; otros tipos de errores, puedes hacer <strong><code>error_reporting = E_ALL &amp; ~E_NOTICE</code></strong>.</p>
+</li>
+<li>
+<p><strong><code>file_uploads</code></strong>. Indica si se pueden o no subir ficheros al servidor por HTTP.</p>
+</li>
+<li>
+<p><strong><code>upload_max_filesize</code></strong>. En caso de que se puedan subir ficheros por HTTP, puedes indicar el l&iacute;mite m&aacute;ximo permitido para el tama&ntilde;o de cada archivo. Por ejemplo, <code>upload_max_filesize = 1M</code>.</p>
+</li>
+</ul>
+<p>Iremos viendo otras directivas a lo largo del m&oacute;dulo cuando las vayamos necesitando. Realiza la siguiente actividad para comprobar si recuerdas las que acabamos de ver.</p>
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a class="paquete" href="DWES01_CONT_R022b_Animacion_Directivas_PHP.zip" target="_blank"><object type="application/x-shockwave-flash" data="lim2.swf?libro=dwes01_cont_r022b_animacion.lim" width="600" height="400" align="top"><param name="allowscriptaccess" value="always" /><param name="quality" value="high" /><param name="allowfullscreen" value="true" /><param name="flashvars" value="libro=dwes01_cont_r022b_animacion.lim" /><param name="src" value="lim2.swf?libro=dwes01_cont_r022b_animacion.lim" /></object></a></div>
+<div class="credenciales elemento_centrado">Para poder realizar la actividad descarga el paquete, descompr&iacute;melo y ejecuta el fichero dwes01_cont_r022b_animacion.html</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id41">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta41_47" class="block iDevice_content">
+<p>En la documentaci&oacute;n de PHP se incluye una lista completa de las directivas que se pueden utilizar en <code>php.ini</code>.</p>
+<div class="enlace_centrado"><a title="Enlace a la web de PHP en espa&ntilde;ol con la lista completa de directivas de php.ini." href="http://www.php.net/manual/es/ini.list.php">Lista completa de las directivas</a></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ClozefpdIdevice em_iDevice" id="id43">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta43_41" class="block instructions iDevice_content">
+<p><strong>Relaciona cada par&aacute;metro de la configuraci&oacute;n de PHP con su finalidad:</strong></p>
+</section>
+<section class="activity" id="activity-43_42">
+<form name="cloze-form-43_42" action="#" class="activity-form cloze-activity-form">
+<div id="cloze43_42">
+<input type="hidden" name="clozeFlag43_42.strictMarking" id="clozeFlag43_42.strictMarking" value="false"/>
+
+<input type="hidden" name="clozeFlag43_42.checkCaps" id="clozeFlag43_42.checkCaps" value="false"/>
+
+<input type="hidden" name="clozeFlag43_42.instantMarking" id="clozeFlag43_42.instantMarking" value="false"/>
+
+<input type="hidden" name="clozeVar43_42.feedbackId" id="clozeVar43_42.feedbackId" value="ta43_43"/>
+
+<table class="tabla" summary="Tabla en la que se deben relacionar parámetros de configuración de PHP con su finalidad respectiva."><caption>Ejercicio de relacionar</caption>
+<tbody>
+<tr><th scope="col">Parámetro</th><th scope="col">Relación</th><th scope="col">Finalidad</th></tr>
+<tr>
+<td>
+<p><code>file_uploads</code></p>
+</td>
+<td class="texto_centrado">
+<label for="clozeBlank43_42.0" class="sr-av">Rellenar huecos (1):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank43_42.0" style="width:1em" />
+<span style="display:none" id="clozeAnswer43_42.0">JXUwMDY5
+</span>
+</td>
+<td>1. Indica si se pueden subir ficheros al servidor web.</td>
+</tr>
+<tr>
+<td>
+<p><code>max_execution_time</code></p>
+</td>
+<td class="texto_centrado">
+<label for="clozeBlank43_42.1" class="sr-av">Rellenar huecos (2):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank43_42.1" style="width:1em" />
+<span style="display:none" id="clozeAnswer43_42.1">JXUwMDZj
+</span>
+</td>
+<td>2. Indica qué tipo de delimitadores se pueden usar para al código PHP.</td>
+</tr>
+<tr>
+<td>
+<p><code>upload_max_filesize</code></p>
+</td>
+<td class="texto_centrado">
+<label for="clozeBlank43_42.2" class="sr-av">Rellenar huecos (3):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank43_42.2" style="width:1em" />
+<span style="display:none" id="clozeAnswer43_42.2">JXUwMDZi
+</span>
+</td>
+<td>3. Limita el tamaño máximo de los ficheros que se suben al servidor.</td>
+</tr>
+<tr>
+<td>
+<p><code>short_open_tag</code></p>
+</td>
+<td class="texto_centrado">
+<label for="clozeBlank43_42.3" class="sr-av">Rellenar huecos (4):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank43_42.3" style="width:1em" />
+<span style="display:none" id="clozeAnswer43_42.3">JXUwMDZh
+</span>
+</td>
+<td>4. Limita el tiempo máximo de ejecución de un guión PHP.</td>
+</tr>
+</tbody>
+</table>
+<div class="block iDevice_buttons">
+<p>
+<input class="button" type="submit" name="submit43_42" value="Enviar"  id="submit43_42" />
+
+<input type="button" name="restart43_42" value="Reiniciar" style="display:none" id="restart43_42" onclick="$exe.cloze.restart('43_42')" />
+
+ 
+<input type="button" name="43_42showAnswersButton" value="Mostrar las respuestas" style="display:none" id="showAnswersButton43_42" onclick="$exe.cloze.fillInputs('43_42')" />
+
+<span class="js-hidden js-warning">Habilitar JavaScript</span>
+</p>
+</div>
+<div id="clozeScore43_42"></div>
+</div>
+</form>
+</section><section id="ta43_43" class="feedback js-feedback iDevice_content" style="display:none">
+<p>Hay muchos par&aacute;metros de configuraci&oacute;n en <code>php.ini</code>. &Eacute;stos son solo algunos de los m&aacute;s importantes.</p>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="33_programacin_web_con_java.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_caractersticas_del_lenguaje_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

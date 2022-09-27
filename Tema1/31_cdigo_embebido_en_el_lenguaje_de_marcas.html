@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.- Código embebido en el lenguaje de marcas. | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-12"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_lenguajes.html" class="current-page-parent daddy">3.- Lenguajes.</a>
+   <ul>
+      <li id="active"><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="active no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li><a href="34_programacin_web_con_php.html" class="no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li><a href="4_caractersticas_del_lenguaje_php.html" class="daddy">4.- Características del lenguaje PHP.</a>
+   <ul class="other-section">
+      <li><a href="41_elementos_del_lenguaje_php.html" class="daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul class="other-section">
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li><a href="416_cadenas_de_texto.html" class="no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li><a href="44_tipos_de_datos_compuestos.html" class="daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul class="other-section">
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li><a href="442_recorrer_arrays_ii.html" class="no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li><a href="45_formularios_web.html" class="daddy">4.5.- Formularios web.</a>
+      <ul class="other-section">
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li><a href="452_generacin_de_formularios_web_en_php.html" class="no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="3_lenguajes.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_herramientas_de_programacin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.- Código embebido en el lenguaje de marcas.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id26">
+<div class="iDevice emphasis0">
+<div id="ta26_73" class="block iDevice_content">
+<p>Cuando la web comenz&oacute; a evolucionar desde las p&aacute;ginas web est&aacute;ticas a las din&aacute;micas, una de las primeras tecnolog&iacute;as que se utilizaron fue la ejecuci&oacute;n de c&oacute;digo utilizando CGI. Los guiones CGI son programas est&aacute;ndar, que se ejecutan por el sistema operativo, pero que generan como salida el c&oacute;digo HTML de una p&aacute;gina web. Por tanto, los guiones CGI deben contener, mezcladas dentro de su c&oacute;digo, sentencias encargadas de generar la p&aacute;gina web.</p>
+<p>Por ejemplo, si quieres generar una p&aacute;gina web utilizando CGI a partir de un gui&oacute;n de sentencias en Linux, tienes que hacer algo como lo siguiente:</p>
+<p><a title="Ampliar imagen" href="DWES01_CONT_R10_Guion_bash_cgi.jpg"> <img alt="Gui&oacute;n escrito en bash que genera una p&aacute;gina web con un texto sencillo a partir de sentencias echo. " class="imagen_ampliable elemento_centrado" src="DWES01_CONT_R10_Guion_bash_cgi_miniatura.jpg" style="width: 192px; height: 140px;" title="Ejemplo de un gui&oacute;n bash. " height="140" width="192" /></a></p>
+<p>Esta es una de las principales formas de realizar p&aacute;ginas web din&aacute;micas: <strong>integrar las etiquetas HTML en el c&oacute;digo de los programas</strong>. Es decir, los programas como el gui&oacute;n anterior incluyen dentro de su c&oacute;digo sentencias de salida (echo en el caso anterior) que son las que incluyen el c&oacute;digo HTML de la p&aacute;gina web que se obtendr&aacute; cuando se ejecuten. De esta forma se programan, por ejemplo, los guiones CGI y los <span lang="en">servlets</span>.</p>
+<p>Un enfoque distinto consiste en<strong> integrar el c&oacute;digo del programa en medio de las etiquetas HTML de la p&aacute;gina web</strong>. De esta forma, el contenido que no var&iacute;a de la p&aacute;gina se puede introducir directamente en HTML, y el lenguaje de programaci&oacute;n se utilizar&aacute; para todo aquello que pueda variar de forma din&aacute;mica.</p>
+<p>Por ejemplo, puedes incluir dentro de una p&aacute;gina HTML un peque&ntilde;o c&oacute;digo en lenguaje PHP que muestre el nombre del servidor:</p>
+<p><a title="Ampliar imagen" href="DWES01_CONT_R11_Ejemplo_PHP.jpg"> <img alt="P&aacute;gina en HTML que contiene una l&iacute;nea de c&oacute;digo PHP que muestra el nombre del servidor web. " class="imagen_ampliable elemento_centrado" src="DWES01_CONT_R11_Ejemplo_PHP_miniatura.jpg" style="width: 192px; height: 52px;" title="Ejemplo de c&oacute;digo en lenguaje PHP." height="52" width="192" /></a></p>
+<p>Esta metodolog&iacute;a de programaci&oacute;n es la que se emplea en los lenguajes ASP, PHP y con las p&aacute;ginas JSP de Java EE.</p>
+<p>Los servlets de Java EE se diferencian de las p&aacute;ginas JSP en que los primeros son programas Java compilados y almacenados en el contenedor de servlets. Sin embargo, las p&aacute;ginas JSP contienen c&oacute;digo Java embebido en lenguaje HTML y se almacenan de forma individual en el servidor web. La primera vez que se necesita una p&aacute;gina JSP, se convierte a un servlet y &eacute;ste se guarda para ser utilizado en posteriores llamadas a la misma p&aacute;gina.</p>
+<p>En la arquitectura ASP.Net, cada p&aacute;gina se divide en dos ficheros: uno contiene las etiquetas HTML y otro el c&oacute;digo en el lenguaje de programaci&oacute;n utilizado. De esta forma se logra cierta independencia entre el aspecto de la aplicaci&oacute;n y la gesti&oacute;n del contenido din&aacute;mico. A partir de esos ficheros se obtiene un c&oacute;digo intermedio (<acronym title="Microsoft Intermediate Language." lang="en">MSIL</acronym> en la terminolog&iacute;a de la plataforma) que es lo que almacena el servidor.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id27">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-27_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion27_60" class="block question iDevice_content">
+<strong>La relación entre la forma de ejecución de un lenguaje, y el método para integrarse con las etiquetas HTML de una página web es: <br />
+</strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i27_63" class="sr-av"><a href="#answer-27_63">Opción 1</a></label><input type="radio" name="option27_60" id="i27_63" class="exe-radio-option exe-radio-option-0-4-27_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-27_63"><div id="taans27_63" class="block iDevice_content">
+Si el lenguaje integra en su código etiquetas HTML, entonces se trata de un lenguaje de guiones.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i27_125" class="sr-av"><a href="#answer-27_125">Opción 2</a></label><input type="radio" name="option27_60" id="i27_125" class="exe-radio-option exe-radio-option-1-4-27_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-27_125"><div id="taans27_125" class="block iDevice_content">
+Si las instrucciones del lenguaje se integran dentro de las etiquetas HTML de una página web, entonces se trata de un lenguaje de guiones.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i27_128" class="sr-av"><a href="#answer-27_128">Opción 3</a></label><input type="radio" name="option27_60" id="i27_128" class="exe-radio-option exe-radio-option-2-4-27_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-27_128"><div id="taans27_128" class="block iDevice_content">
+Si las instrucciones del lenguaje se integran dentro de las etiquetas HTML de una página web, entonces se trata de un lenguaje compilado.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i27_131" class="sr-av"><a href="#answer-27_131">Opción 4</a></label><input type="radio" name="option27_60" id="i27_131" class="exe-radio-option exe-radio-option-3-4-27_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-27_131"><div id="taans27_131" class="block iDevice_content">
+Es indistinto, no hay una relación directa.
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b27_60" class="feedback js-hidden">
+<div id="taf27_63" class=" iDevice_content">
+No es correcta porque existen lenguajes compilados, como Java en el caso de los servlets, que integran en su código etiquetas HTML.    
+
+</div>
+</section>
+<section id="sa1b27_60" class="feedback js-hidden">
+<div id="taf27_125" class=" iDevice_content">
+No es correcta porque existen lenguajes compilados, también como Java en el caso de las páginas JSP, que integra las instrucciones del lenguaje dentro de las etiquetas HTML de una página web.
+
+</div>
+</section>
+<section id="sa2b27_60" class="feedback js-hidden">
+<div id="taf27_128" class=" iDevice_content">
+No es correcta porque existen lenguajes de guiones como PHP, que integra las instrucciones del lenguaje dentro de las etiquetas HTML de una página web.
+
+</div>
+</section>
+<section id="sa3b27_60" class="feedback js-hidden">
+<div id="taf27_131" class=" iDevice_content">
+No existe una relación directa entre la forma en que se ejecuta un lenguaje, y cómo se integra con las etiquetas HTML de una página web.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-27_63">Incorrecto</a><span> (<a href="#sa0b27_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-27_125">Incorrecto</a><span> (<a href="#sa1b27_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-27_128">Incorrecto</a><span> (<a href="#sa2b27_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-27_131">Opción correcta</a><span> (<a href="#sa3b27_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="3_lenguajes.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_herramientas_de_programacin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

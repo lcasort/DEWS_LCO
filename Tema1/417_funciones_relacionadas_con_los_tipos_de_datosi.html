@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.1.7.- Funciones relacionadas con los tipos de datos(I). | DWES Tema 1 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-59"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES Tema 1</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Plataformas de programación web en entorno servidor. Características del lenguaje PHP.</a></li>
+   <li><a href="1_caractersticas_de_la_programacin_web.html" class="daddy">1.- Características de la programación web.</a>
+   <ul class="other-section">
+      <li><a href="11_pginas_web_estticas_y_dinmicas_i.html" class="daddy">1.1.- Páginas web estáticas y dinámicas (I).</a>
+      <ul class="other-section">
+         <li><a href="111_aplicaciones_web.html" class="no-ch">1.1.1.- Aplicaciones web.</a></li>
+      </ul>
+      </li>
+      <li><a href="12_ejecucin_de_cdigo_en_el_servidor_y_en_el_cliente.html" class="no-ch">1.2.- Ejecución de código en el servidor y en el cliente.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_tecnologas_para_programacin_web_del_lado_del_servidor.html" class="daddy">2.- Tecnologías para programación web del lado del servidor.</a>
+   <ul class="other-section">
+      <li><a href="21_arquitecturas_y_plataformas.html" class="no-ch">2.1.- Arquitecturas y plataformas.</a></li>
+      <li><a href="22_integracin_con_el_servidor_web.html" class="no-ch">2.2.- Integración con el servidor web.</a></li>
+   </ul>
+   </li>
+   <li><a href="3_lenguajes.html" class="daddy">3.- Lenguajes.</a>
+   <ul class="other-section">
+      <li><a href="31_cdigo_embebido_en_el_lenguaje_de_marcas.html" class="no-ch">3.1.- Código embebido en el lenguaje de marcas.</a></li>
+      <li><a href="32_herramientas_de_programacin.html" class="no-ch">3.2.- Herramientas de programación.</a></li>
+      <li><a href="33_programacin_web_con_java.html" class="no-ch">3.3.- Programación web con Java.</a></li>
+      <li><a href="34_programacin_web_con_php.html" class="no-ch">3.4.- Programación web con PHP.</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_caractersticas_del_lenguaje_php.html" class="current-page-parent daddy">4.- Características del lenguaje PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="41_elementos_del_lenguaje_php.html" class="current-page-parent daddy">4.1.- Elementos del lenguaje PHP.</a>
+      <ul>
+         <li><a href="411_variables_y_tipos_de_datos_en_php.html" class="no-ch">4.1.1.- Variables y tipos de datos en PHP.</a></li>
+         <li><a href="412_mbito_de_utilizacin_de_las_variables.html" class="no-ch">4.1.2.- Ámbito de utilización de las variables.</a></li>
+         <li><a href="413_variables_especiales_de_php.html" class="no-ch">4.1.3.- Variables especiales de PHP.</a></li>
+         <li><a href="414_expresiones_y_operadores.html" class="no-ch">4.1.4.- Expresiones y operadores.</a></li>
+         <li><a href="415_generacin_de_cdigo_html.html" class="no-ch">4.1.5.- Generación de código HTML.</a></li>
+         <li><a href="416_cadenas_de_texto.html" class="no-ch">4.1.6.- Cadenas de texto.</a></li>
+         <li id="active"><a href="417_funciones_relacionadas_con_los_tipos_de_datosi.html" class="active no-ch">4.1.7.- Funciones relacionadas con los tipos de datos(I).</a></li>
+         <li><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="no-ch">4.1.8.- Funciones relacionadas con los tipos de datos (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="42_estructuras_de_control.html" class="daddy">4.2.- Estructuras de control.</a>
+      <ul class="other-section">
+         <li><a href="421_condicionales.html" class="no-ch">4.2.1.- Condicionales.</a></li>
+         <li><a href="422_bucles.html" class="no-ch">4.2.2.- Bucles.</a></li>
+      </ul>
+      </li>
+      <li><a href="43_funciones.html" class="daddy">4.3.- Funciones.</a>
+      <ul class="other-section">
+         <li><a href="431_inclusin_de_ficheros_externos.html" class="no-ch">4.3.1.- Inclusión de ficheros externos.</a></li>
+         <li><a href="432_ejecucin_y_creacin_de_funciones.html" class="no-ch">4.3.2.- Ejecución y creación de funciones.</a></li>
+         <li><a href="433_argumentos.html" class="no-ch">4.3.3.- Argumentos.</a></li>
+      </ul>
+      </li>
+      <li><a href="44_tipos_de_datos_compuestos.html" class="daddy">4.4.- Tipos de datos compuestos.</a>
+      <ul class="other-section">
+         <li><a href="441_recorrer_arrays_i.html" class="no-ch">4.4.1.- Recorrer arrays (I).</a></li>
+         <li><a href="442_recorrer_arrays_ii.html" class="no-ch">4.4.2.- Recorrer arrays (II).</a></li>
+         <li><a href="443_funciones_relacionadas_con_los_tipos_de_datos_compuestos.html" class="no-ch">4.4.3.- Funciones relacionadas con los tipos de datos compuestos.</a></li>
+      </ul>
+      </li>
+      <li><a href="45_formularios_web.html" class="daddy">4.5.- Formularios web.</a>
+      <ul class="other-section">
+         <li><a href="451_procesamiento_de_la_informacin_devuelta_por_un_formulario_web.html" class="no-ch">4.5.1.- Procesamiento de la información devuelta por un formulario web.</a></li>
+         <li><a href="452_generacin_de_formularios_web_en_php.html" class="no-ch">4.5.2.- Generación de formularios web en PHP.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="anexo_i_utilizacin_de_la_funcin_print_en_php.html" class="no-ch">Anexo I.- Utilización de la función print en PHP.</a></li>
+   <li><a href="anexo_ii_solucin_propuesta_i.html" class="no-ch">Anexo II.- Solución propuesta I.</a></li>
+   <li><a href="anexo_iii_solucin_propuesta_ii.html" class="no-ch">Anexo III.- Solución propuesta II.</a></li>
+   <li><a href="anexo_iv_solucin_propuesta_iii.html" class="no-ch">Anexo IV.- Solución propuesta III.</a></li>
+   <li><a href="anexo_v_solucin_propuesta_iv.html" class="no-ch">Anexo V.- Solución propuesta IV.</a></li>
+   <li><a href="anexo_vi_solucin_propuesta_v.html" class="no-ch">Anexo VI.- Solución propuesta V.</a></li>
+   <li><a href="anexo_vii_cdigo_de_procesaphp.html" class="no-ch">Anexo VII.- Código de "procesa.php".</a></li>
+   <li><a href="anexo_viii_cdigo_necesario_para_procesar_los_datos.html" class="no-ch">Anexo VIII.- Código necesario para procesar los datos.</a></li>
+   <li><a href="anexo_ix_ejemplo_formulario_web_utilizando_request.html" class="no-ch">Anexo IX.- Ejemplo formulario web utilizando request.</a></li>
+   <li><a href="anexo_x_procesar_datos_en_la_misma_pgina_que_el_formulario.html" class="no-ch">Anexo X.- Procesar datos en la misma página que el formulario.</a></li>
+   <li><a href="anexo_xi_ejemplo_de_validacin.html" class="no-ch">Anexo XI.- Ejemplo de validación.</a></li>
+   <li><a href="anexo_xii_solucin_propuesta_vi.html" class="no-ch">Anexo XII.- Solución propuesta VI.</a></li>
+   <li><a href="anexo_xiii_instalacin_de_netbeans_para_php_en_linux.html" class="no-ch">Anexo XIII.- Instalación de NetBeans para PHP en Linux.</a></li>
+   <li><a href="anexo_xiv_instalacin_de_una_plataforma_lamp_en_ubuntu.html" class="no-ch">Anexo XIV.- Instalación de una plataforma LAMP en Ubuntu.</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="416_cadenas_de_texto.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.1.7.- Funciones relacionadas con los tipos de datos(I).</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id128">
+<div class="iDevice emphasis0">
+<div id="ta128_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES02_CONT_R06_Teclas.jpg" alt="Parte de un teclado de ordenador." title="teclas" width="192" height="140" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> idITE=112583.</div>
+</div>
+<p>En PHP existen funciones específicas para comprobar y establecer el tipo de datos de una variable, <code>gettype</code> obtiene el tipo de la variable que se le pasa como parámetro y devuelve una cadena de texto, que puede ser <strong><code>array</code></strong>, <strong><code>boolean</code></strong>, <strong><code>double</code></strong>, <strong><code>integer</code></strong>, <strong><code>object</code></strong>, <strong><code>string</code></strong>, <strong><code>null</code></strong>, <strong><code>resource</code></strong> o <strong><code>unknown<strong>type</strong></code></strong>.</p>
+<p>También podemos comprobar si la variable es de un tipo concreto utilizando una de las siguientes funciones: <strong><code>is_array()</code></strong>, <strong><code>is_bool()</code></strong>, <strong><code>is_float()</code></strong>, <strong><code>is_integer()</code></strong>, <strong><code>is_null()</code></strong>, <strong><code>is_numeric()</code></strong>, <strong><code>is_object()</code></strong>, <strong><code>is_resource()</code></strong>, <strong><code>is_scalar()</code></strong> e <strong><code>is_string()</code></strong>. Devuelven <span lang="en">true</span> si la variable es del tipo indicado.</p>
+<p>Análogamente, para establecer el tipo de una variable utilizamos la función <strong><code>settype</code></strong> pasándole como parámetros la variable a convertir, y una de las siguientes cadenas: <strong><code>boolean</code></strong>, <strong><code>integer</code></strong>, <strong><code>float</code></strong>, <strong><code>string</code></strong>, <strong><code>array</code></strong>, <strong><code>object</code></strong> o <strong><code>null</code></strong>. La función <strong><code>settype</code></strong> devuelve true si la conversión se realizó correctamente, o false en caso contrario.</p>
+<div class="" style="width: 48.35em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+$a = $b = "3.1416"; // asignamos a las dos variables la misma cadena de texto
+
+settype($b, "float"); // y cambiamos $b a tipo float
+
+print "\$a vale $a y es de tipo ".gettype($a);
+
+print "&lt;br /&gt;";
+
+print "\$b vale $b y es de tipo ".gettype($b);
+
+?&gt; </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>El resultado del código anterior es:</p>
+<div class="" style="width: 25.25em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$a vale 3.1416 y es de tipo string
+
+$b vale 3.1416 y es de tipo double </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Si lo único que te interesa es saber si una variable está definida y no es <strong><code>null</code></strong>, puedes usar la función <strong><code>isset</code></strong>. La función <strong><code>unset</code></strong> destruye la variable o variables que se le pasa como parámetro.</p>
+<div class="" style="width: 31.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+$a = "3.1416";
+
+if (isset($a)) // la variable $a está definida
+
+unset($a); //ahora ya no está definida
+
+?&gt; </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id129">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta129_70" class="block iDevice_content">
+<p>
+Es importante no confundir el que una variable esté definida o valga null, con que se considere como vacía debido al valor que contenga. Esto último es lo que nos indica la función empty. 
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/function.empty.php" title="Acceder al manual de PHP con información sobre la función empty." target="_self">Función <code>empty</code>.</a>
+</p>
+ 
+
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id130">
+<div class="iDevice emphasis0">
+<div id="ta130_73" class="block iDevice_content">
+<p>Existe también en PHP una función, <strong><code>define</code></strong>, con la que puedes definir constantes, esto es, identificadores a los que se les asigna un valor que no cambia durante la ejecución del programa.</p>
+<div class=" elemento_centrado" style="width: 54.95em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>bool &lt;strong&gt;define&lt;/strong&gt; ( string $identificador , mixed $valor [, bool $case_insensitive = false ] );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+<p>Los identificadores no van precedidos por el signo "$" y suelen escribirse en mayúsculas, aunque existe un tercer parámetro opcional, que si vale true hace que se reconozca el identificador independientemente de si está escrito en mayúsculas o en minúsculas.</p>
+<div class=" elemento_centrado" style="width: 53.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>&lt;?php
+
+define ("PI", 3.1416, true);
+
+print "El valor de PI es ".pi; //El identificador se reconoce tanto por PI como por pi
+
+?&gt;</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Sólo se permiten los siguientes tipos de valores para las constantes: <code>integer</code>, <code>float</code>, <code>string</code>, <code>boolean</code> y <code>null</code>.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id131">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-131_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion131_60" class="block question iDevice_content">
+<p><strong>¿Qué se muestra en pantalla al ejecutar el siguiente código?<br /></strong></p>
+<div class=" elemento_centrado" style="width: 31.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$a = "-3.1416";
+
+printf("La variable \'\$a\' vale %+.2f", $a); </code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i131_63" class="sr-av"><a href="#answer-131_63">Opción 1</a></label><input type="radio" name="option131_60" id="i131_63" class="exe-radio-option exe-radio-option-0-4-131_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-131_63"><div id="taans131_63" class="block iDevice_content">
+<p>La variable '$a' vale -3.14.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i131_80" class="sr-av"><a href="#answer-131_80">Opción 2</a></label><input type="radio" name="option131_60" id="i131_80" class="exe-radio-option exe-radio-option-1-4-131_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-131_80"><div id="taans131_80" class="block iDevice_content">
+<p>La variable '$a' vale +3.14.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i131_83" class="sr-av"><a href="#answer-131_83">Opción 3</a></label><input type="radio" name="option131_60" id="i131_83" class="exe-radio-option exe-radio-option-2-4-131_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-131_83"><div id="taans131_83" class="block iDevice_content">
+<p>La variable \'$a\' vale -3.14.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i131_86" class="sr-av"><a href="#answer-131_86">Opción 4</a></label><input type="radio" name="option131_60" id="i131_86" class="exe-radio-option exe-radio-option-3-4-131_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-131_86"><div id="taans131_86" class="block iDevice_content">
+<p>La variable \'$a\' vale +3.14.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b131_60" class="feedback js-hidden">
+<div id="taf131_63" class=" iDevice_content">
+<p>No es correcto. F&iacute;jate bien, &iquest;cu&aacute;les son las secuencias de escape que se pueden usar entre comillas dobles?</p>
+</div>
+</section>
+<section id="sa1b131_60" class="feedback js-hidden">
+<div id="taf131_80" class=" iDevice_content">
+<p>No es as&iacute;. F&iacute;jate bien, &iquest;cu&aacute;les son las secuencias de escape que se pueden usar entre comillas dobles? &iquest;Qu&eacute; significa el signo + en un especificador de conversi&oacute;n?</p>
+</div>
+</section>
+<section id="sa2b131_60" class="feedback js-hidden">
+<div id="taf131_83" class=" iDevice_content">
+<p>Efectivamente. Dentro de comillas dobles no se sustituye la secuencia de escape \'. Adem&aacute;s, el signo + en un especificador de conversi&oacute;n indica que se visualice el signo del n&uacute;mero aunque sea positivo, pero el signo nunca se cambia y siempre se muestra si el n&uacute;mero es negativo.</p>
+</div>
+</section>
+<section id="sa3b131_60" class="feedback js-hidden">
+<div id="taf131_86" class=" iDevice_content">
+<p>Incorrecto. F&iacute;jate bien, &iquest;qu&eacute; significa el signo + en un especificador de conversi&oacute;n?</p>
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-131_63">Incorrecto</a><span> (<a href="#sa0b131_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-131_80">Incorrecto</a><span> (<a href="#sa1b131_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-131_83">Opción correcta</a><span> (<a href="#sa2b131_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-131_86">Incorrecto</a><span> (<a href="#sa3b131_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="416_cadenas_de_texto.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="418_funciones_relacionadas_con_los_tipos_de_datos_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>
