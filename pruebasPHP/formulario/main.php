@@ -17,17 +17,17 @@
         </form>
         <?php 
     } else {
-        echo "Alumno: " . $_POST["name"];
-        echo "<br>";
+        echo "<p>Alumno: " . $_POST["name"] . "</p>";
         if(count($_POST["modulo"])>1) {
-            echo "Módulos:<br>";
+            echo "<p>Módulos:<br>";
         } else {
-            echo "Módulo: ";
+            echo "<p>Módulo:<br>";
         }
         
         foreach($_POST["modulo"] as $modulo) {
-            echo $modulo . "<br>";
+            echo "· " . $modulo . "<br>";
         }
+        echo "</p>";
     }
     ?>
 </body>
