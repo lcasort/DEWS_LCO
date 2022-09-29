@@ -7,25 +7,31 @@
 <body>
     <?php 
     if(empty($_POST) || empty($_POST["name"]) || empty($_POST["modulo"])) { ?>
-        <form method="post">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label for="name">Nombre alumno:</label><br>
+        <input type="text" id="name" name="name" value="<?php if(!empty($_POST["name"]) && isset($_POST['name'])) echo $_POST["name"]; ?>"><br>
         <?php
-        if(empty($_POST["name"])) { ?>
-            <input type="text" id="name" name="name"><br>
-        <?php
-        } else {
+        if (empty($_POST["name"]) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
-            <input type="text" id="name" name="name" value="<?php echo $_POST["name"]; ?>"><br>
+            <small>Debe rellenar este campo.</small><br>
         <?php
         }
         ?>
             
-            <label for="modulo[]">Módulo que cursa:</label><br>
-            <label><input type="checkbox" id="modulo" name="modulo[]" value="Desarrollo Web en Entorno Servidor"> Desarrollo Web en Entorno Servidor</label><br>
-            <label><input type="checkbox" id="modulo" name="modulo[]" value="Desarrollo Web en Entorno Cliente"> Desarrollo Web en Entorno Cliente</label><br>
-            <input type="submit" value="Enviar" />
+        <label for="modulo[]">Módulo que cursa:</label><br>
+        <label><input type="checkbox" id="modulo" name="modulo[]" value="Desarrollo Web en Entorno Servidor" <?php if(!empty($_POST["modulo"]) && in_array("Desarrollo Web en Entorno Servidor", $_POST["modulo"])) echo 'checked';?>> Desarrollo Web en Entorno Servidor</label><br>
+        <label><input type="checkbox" id="modulo" name="modulo[]" value="Desarrollo Web en Entorno Cliente" <?php if(!empty($_POST["modulo"]) && in_array("Desarrollo Web en Entorno Cliente", $_POST["modulo"])) echo 'checked';?>> Desarrollo Web en Entorno Cliente</label><br>
+            
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST["modulo"])) {
+        ?>
+            <small>Debe seleccionar al menos un campo.</small><br>
+        <?php
+        }
+        ?>   
+        <input type="submit" id="btnSubmit" name="btnSubmit" value="Enviar" />
         </form>
-        <?php 
+    <?php 
     } else {
         echo "<p>Alumno: " . $_POST["name"] . "</p>";
         if(count($_POST["modulo"])>1) {
