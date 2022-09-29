@@ -11,7 +11,7 @@
         <label for="name">Nombre alumno:</label><br>
         <input type="text" id="name" name="name" value="<?php if(!empty($_POST["name"]) && isset($_POST['name'])) echo $_POST["name"]; ?>"><br>
         <?php
-        if (empty($_POST["name"]) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['btnSubmit']) && empty($_POST["name"])) {
         ?>
             <small>Debe rellenar este campo.</small><br>
         <?php
@@ -23,7 +23,7 @@
         <label><input type="checkbox" id="modulo" name="modulo[]" value="Desarrollo Web en Entorno Cliente" <?php if(!empty($_POST["modulo"]) && in_array("Desarrollo Web en Entorno Cliente", $_POST["modulo"])) echo 'checked';?>> Desarrollo Web en Entorno Cliente</label><br>
             
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST["modulo"])) {
+        if (isset($_POST['btnSubmit']) && empty($_POST["modulo"])) {
         ?>
             <small>Debe seleccionar al menos un campo.</small><br>
         <?php
