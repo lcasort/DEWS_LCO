@@ -43,23 +43,22 @@
         </form>
     <?php 
     } else {
-        //2022-09-30T20:25
+        //2022-09-30T20:25  (Formato fecha que devuelve el input)
         if($_POST["departure"] === $_POST["now"]) {
             echo "<p>La salida del vuelo es ahora.</p>";
         } else {
             echo "<p>La salida del vuelo se realizará en: ";
-            $fecha_y_hora_now = explode("T", $_POST["now"]);
-            $fecha_now = explode("-", $fecha_y_hora_now[0]);
-            $hora_now = explode(":", $fecha_y_hora_now[1]);
-            $fecha_y_hora_vuelo = explode("T", $_POST["departure"]);
-            $fecha_vuelo = explode("-", $fecha_y_hora_vuelo[0]);
-            $hora_vuelo = explode(":", $fecha_y_hora_vuelo[1]);
-            $now = new DateTime($fecha_y_hora_now[0]);
-            $dep = new DateTime($fecha_y_hora_vuelo[0]);
-            echo $now->format('Y-m-d') . "\n";
-            echo $dep->format('Y-m-d') . "\n";
 
-            echo "</p>";
+            $fecha_y_hora_now = explode("T", $_POST["now"]);
+            $fecha_y_hora_vuelo = explode("T", $_POST["departure"]);
+
+            $datetime1 = new DateTime($fecha_y_hora_now[0] . ' ' . $fecha_y_hora_now[1] .':00');
+            $datetime2 = new DateTime($fecha_y_hora_vuelo[0] . ' ' . $fecha_y_hora_vuelo[1] .':00');
+
+            $interval = $datetime1->diff($datetime2);
+            $elapsed = $interval->format('%a días %h horas y %i minutos.');
+
+            echo $elapsed . "</p>";
         }
     }
     ?>
