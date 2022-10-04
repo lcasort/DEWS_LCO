@@ -1,0 +1,19 @@
+table, th, tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.bloque {
+    width: 350px;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+}
+
+.conjunto {
+    text-align: center;
+}
