@@ -15,6 +15,7 @@ function createTable($label) {
             break;
         default:
             require_once 'errors.php';
+            customError("Dificultad no disponible.");
     }
 
     $result = '<div class="bloque">';

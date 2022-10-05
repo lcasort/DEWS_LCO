@@ -1,7 +1,7 @@
 <?php
 
-function customError($errno, $errstr) {
-    echo "<b>Error:</b> [$errno] $errstr<br>";
+function customError($errstr) {
+    echo "<b>Error:</b> $errstr<br>";
     echo "Ending Script";
     die();
 }
