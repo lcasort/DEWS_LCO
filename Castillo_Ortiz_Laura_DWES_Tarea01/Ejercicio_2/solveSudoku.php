@@ -16,10 +16,10 @@
     createTable($label);
     ?>
 
-    <!-- Aquí van los campos de entrada para interactuar con el sudoku. -->
+    <!-- Aquí debemos incluir el form para poder interactuar con el sudoku -->
         <div class="form">
             <form action="" method="POST">
-                
+
             </form>
         </div>
     </div>
