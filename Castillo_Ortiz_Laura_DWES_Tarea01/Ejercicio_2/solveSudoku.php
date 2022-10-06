@@ -18,7 +18,7 @@
 
     <!-- Aquí debemos incluir el form para poder interactuar con el sudoku -->
         <div class="form">
-            <form action="" method="POST">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 
             </form>
         </div>
