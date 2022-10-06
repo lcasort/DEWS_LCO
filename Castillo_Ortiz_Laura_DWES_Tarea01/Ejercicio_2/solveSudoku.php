@@ -8,42 +8,37 @@
     <title>SUDOKU</title>
 </head>
 <body>
-<?php
+    <?php
     require 'initializeSudoku.php';
-    require 'declareSodukus.php';
+    require 'actions.php';
 
-    if(!isset($_POST['submit'])) {
+    if (!isset($_POST['insertar'])) {
         $label = $_POST['dificultad'];
-        global $sudoku;
-        if($_POST['dificultad']==='FÁCIL') {
-            $sudoku = $facil;
-        } elseif($_POST['dificultad']==='MEDIO') {
-            $sudoku = $medio;
-        } elseif($_POST['dificultad']==='DIFÍCIL') {
-            $sudoku = $dificil;
-        } else {
-            require_once 'errors.php';
-            customError("Dificultad no disponible.");
-        }
+
+        playSudokuInitialize($label);
     } else {
-        if(isset($_POST['submit'])) {
-            
-        }
+        $unsSudoku = unserialize(base64_decode($_POST['sudoku']));
+        print_r($unsSudoku);
+        // playSudoku($unsSudoku);
+        // insertar($_POST['row'], $_POST['column'], $_POST['number'], $unsSudoku);
     }
+
     
     ?>
 
     <!-- Aquí debemos incluir el form para poder interactuar con el sudoku -->
-    <?php 
-    createTable($sudoku);
-    ?>
-        <div class="form">
-            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-                <input type="number" min=1 max=9 name="row" />
-                <input type="number" min=1 max=9 name="column" />
-                <input type="number" min=1 max=9 name="number" />
-                <input type="hidden" name="sudoku" value="<?php $sudoku; ?>" />
-                <input type="submit" name="submit">Insertar</input>
+        
+                    <label for="row">Fila</label>
+                    <input type="number" min=1 max=9 name="row" />
+                    <label for="column">Columna</label>
+                    <input type="number" min=1 max=9 name="column" />
+                    <label for="number">Número</label>
+                    <input type="number" min=1 max=9 name="number" />
+                    
+                </div>
+                <div class="buttons">
+                    <input type="submit" name="insertar" value="Insertar" />
+                </div>
             </form>
         </div>
     </div>
