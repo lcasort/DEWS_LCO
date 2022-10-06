@@ -2,7 +2,7 @@
 
 echo '<div class="conjunto">';
 function createTable($label) {
-    require 'index0.php';
+    require_once 'declareSudoku.php';
     switch($label) {
         case 'FÁCIL':
             $tableData = $facil;
