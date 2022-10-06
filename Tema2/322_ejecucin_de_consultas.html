@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.2.2.- Ejecución de consultas. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-16"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="32_php_data_objects_pdo.html" class="current-page-parent daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul>
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li id="active"><a href="322_ejecucin_de_consultas.html" class="active no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="321_establecimiento_de_conexiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.2.2.- Ejecución de consultas.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id59">
+<div class="iDevice emphasis0">
+<div id="ta59_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R15_PDO_ejecutar.png" alt="S&iacute;mbolo de media rueda dentada junto a las letras PDO." title="Ejecutar consulta PDO." height="160" width="164" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+<p>Para ejecutar una consulta SQL utilizando PDO, debes diferenciar aquellas sentencias SQL que no devuelven como resultado un conjunto de datos, de aquellas otras que s&iacute; lo devuelven.</p>
+<p>En el caso de las consultas de acci&oacute;n, como <strong>INSERT</strong>, <strong>DELETE</strong> o <strong>UPDATE</strong>, el m&eacute;todo <code>exec</code> devuelve el n&uacute;mero de registros afectados.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="codigo elemento_centrado" style="width: 40.65em;">
+<div class="texto_izquierda">
+<pre><code>$registros = $dwes-&gt;exec('DELETE FROM stock WHERE unidades=0');</code>
+</pre>
+<pre><code>print "&lt;p&gt;Se han borrado $registros registros.&lt;/p&gt;";</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Si la consulta genera un conjunto de datos, como es el caso de SELECT, debes utilizar el m&eacute;todo <code><strong>query</strong></code>, que devuelve un objeto de la clase <code><strong>PDOStatement</strong></code>.</p>
+<div class="codigo elemento_centrado" style="width: 45.05em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$resultado = $dwes-&gt;query("SELECT producto, unidades FROM stock");</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Por defecto PDO trabaja en modo "autocommit", esto es, confirma de forma autom&aacute;tica cada sentencia que ejecuta el servidor. Para trabajar con transacciones, PDO incorpora tres m&eacute;todos:</p>
+<ul class="lista_verificacion">
+<li><code><strong>beginTransaction</strong></code>. Deshabilita el modo "autocommit" y comienza una nueva transacci&oacute;n, que finalizar&aacute; cuando ejecutes uno de los dos m&eacute;todos siguientes.</li>
+<li><code><strong>commit</strong></code>. Confirma la transacci&oacute;n actual.</li>
+<li><code><strong>rollback</strong></code>. Revierte los cambios llevados a cabo en la transacci&oacute;n actual.</li>
+</ul>
+<p>Una vez ejecutado un commit o un rollback, se volver&aacute; al modo de confirmaci&oacute;n autom&aacute;tica.</p>
+<div class="codigo elemento_centrado" style="width: 42.85em;">
+<div class="texto_izquierda">
+<pre><code>$ok = true;</code>
+</pre>
+<pre><code>$dwes-&gt;beginTransaction();</code>
+</pre>
+<pre><code>if($dwes-&gt;exec('DELETE &hellip;') == 0) $ok = false;</code>
+</pre>
+<pre><code>if($dwes-&gt;exec('UPDATE &hellip;') == 0) $ok = false;</code>
+</pre>
+<pre><code>&hellip;</code>
+</pre>
+<pre><code>if ($ok) $dwes-&gt;commit();  // Si todo fue bien confirma los cambios</code>
+</pre>
+<pre><code>else $dwes-&gt;rollback();   //  y si no, los revierte</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Ten en cuenta que no todos los motores no soportan transacciones. Tal es el caso, como ya viste, del motor MyISAM de MySQL. En este caso concreto, PDO ejecutar&aacute; el m&eacute;todo beginTransaction sin errores, pero naturalmente no ser&aacute; capaz de revertir los cambios si fuera necesario ejecutar un <code>rollback</code>.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id60">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta60_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b60" class="block iDevice_content">
+<p>
+De una forma similar al anterior ejercicio de transacciones, utiliza PDO para repartir entre las tiendas las tres unidades que figuran en stock del producto con código PAPYRE62GB.
+</p>
+
+</section>
+<form name="feedback-form-quesFeedback0b60" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b60text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b60" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b60" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>
+En esta ocasión, para comprobar si los cambios se hacen correctamente en la base de datos y confirmamos la transacción, se revisa el número de registros afectados por la ejecución de las consultas. Revisa el código de la página y comprueba que la segunda vez que intentas ejecutarlo no actualizará los datos, tal y como sucedía en el ejercicio equivalente de la extensión MySQLi.
+</p>
+<div class="enlace_centrado">
+ <a class="pdf" href="DWES03_CONT_R15b_Ejercicio_resuelto.pdf" title="Descargar solución al ejercicio de transacciones utilizando la extensión PDO. [pdf - X.XX MB]">Código con la solución al ejercicio propuesto</a>. <span class="tamano"> (X.XX MB) </span> 
+</div>
+</section>
+</form>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id61">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-61_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion61_60" class="block question iDevice_content">
+<strong>Si programas tu aplicación correctamente utilizando &quot;beginTransaction&quot; antes de realizar un cambio, ¿siempre será posible revertirlo utilizando &quot;rollback&quot;?</strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i61_63" class="sr-av"><a href="#answer-61_63">Opción 1</a></label><input type="radio" name="option61_60" id="i61_63" class="exe-radio-option exe-radio-option-0-2-61_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-61_63"><div id="taans61_63" class="block iDevice_content">
+Sí. 
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i61_126" class="sr-av"><a href="#answer-61_126">Opción 2</a></label><input type="radio" name="option61_60" id="i61_126" class="exe-radio-option exe-radio-option-1-2-61_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-61_126"><div id="taans61_126" class="block iDevice_content">
+No.
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b61_60" class="feedback js-hidden">
+<div id="taf61_63" class=" iDevice_content">
+Incorrecto. ¿Seguro? Piensa en qué sucede con los distintos motores de almacenamiento de MySQL, por ejemplo.
+
+</div>
+</section>
+<section id="sa1b61_60" class="feedback js-hidden">
+<div id="taf61_126" class=" iDevice_content">
+Correcto, no siempre; depende de si el motor de almacenamiento que estás utilizando soporta o no transacciones.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-61_63">Incorrecto</a><span> (<a href="#sa0b61_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-61_126">Opción correcta</a><span> (<a href="#sa1b61_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="321_establecimiento_de_conexiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

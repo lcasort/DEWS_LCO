@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.1.- Instalación y configuración. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-3"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li class="current-page-parent"><a href="2_mysql.html" class="current-page-parent daddy">2.- MySQL.</a>
+   <ul>
+      <li id="active"><a href="21_instalacin_y_configuracin.html" class="active no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="2_mysql.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="22_herramientas_de_administracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2.1.- Instalación y configuración.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id8">
+<div class="iDevice emphasis0">
+<div id="ta8_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R03_Configurar.png" alt="Llave inglesa sobre un fondo con d&iacute;gitos binarios." title="Configurar." height="160" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="An&oacute;nima." href="http://www.openclipart.org/detail/115555/ftkconfigure-by-anonymous." target="_blank">An&oacute;nima.</a></div>
+</div>
+<p>&nbsp;</p>
+<p>En la primera unidad ya viste c&oacute;mo pod&iacute;as instalar en un &uacute;nico paso una plataforma <strong><acronym title="Linux-Apache-MySQL-PHP">LAMP</acronym></strong> para desarrollar aplicaciones web en <strong>Ubuntu</strong>. En Linux, la instalaci&oacute;n de MySQL se divide b&aacute;sicamente en dos paquetes que puedes instalar de forma individual seg&uacute;n tus necesidades:</p>
+<ul class="lista_verificacion">
+<li><strong>mysql-server</strong>. Es el servidor en s&iacute;. Necesitas instalar este paquete para gestionar las bases de datos y permitir conexiones desde el equipo local o a trav&eacute;s de la red.</li>
+<li><strong>mysql-client</strong>. Son los programas cliente, necesarios para conectarse a un servidor MySQL. Solo necesitas instalarlos en aquel o aquellos equipos que se vayan a conectar al SGBD (en nuestro caso, las conexiones se realizar&aacute;n normalmente desde el mismo equipo en el que se ejecuta el servidor).</li>
+</ul>
+<p>Una vez instalado, puedes gestionar la ejecuci&oacute;n del servicio de la misma forma que cualquier otro servicio del sistema:</p>
+<div class="codigo elemento_centrado" style="width: 37.35em;">
+<div class="texto_izquierda">
+<pre><code>sudo service mysql status // tambi&eacute;n start, stop, restart</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>En una instalaci&oacute;n t&iacute;pica, el usuario root no tiene por defecto contrase&ntilde;a de acceso al servidor. Es importante asignarle una por razones de seguridad:</p>
+<div class="codigo elemento_centrado" style="width: 30.2em;">
+<div class="texto_izquierda">
+<pre><code>mysqladmin -u root password nueva-contrase&ntilde;a</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>El servidor se ejecuta por defecto en el Puerto <acronym title="Transmission Control Protocol." lang="en">TCP</acronym> 3306. Esto lo debes tener en cuenta para permitir el acceso a trav&eacute;s del cortafuegos en configuraciones en red.</p>
+<p>El fichero de configuraci&oacute;n del servidor MySQL se llama <strong>my.cnf</strong> y se encuentra alojado en <strong>/etc/mysql</strong>. Su contenido se divide en secciones. Las opciones que contiene cada una de las secciones afectan al comportamiento de un m&oacute;dulo concreto. Entre las secciones disponibles destacan:</p>
+<ul class="lista_verificacion">
+<li>[client]. Sus par&aacute;metros influyen sobre los distintos clientes que se conectan al servidor MySQL.</li>
+<li>[mysqld]. Contiene opciones relativas a la ejecuci&oacute;n del servidor.</li>
+</ul>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id9">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta9_47" class="block iDevice_content">
+<p>Adem&aacute;s del fichero global de configuraci&oacute;n, las opciones de ejecuci&oacute;n se pueden aplicar por l&iacute;nea de comandos y obtener de otros or&iacute;genes distintos. Puedes consultar m&aacute;s informaci&oacute;n en el manual en l&iacute;nea de MySQL.</p>
+<p class="enlace_centrado"><a title="Acceder a manual de referencia de MySQL." href="http://dev.mysql.com/doc/refman/5.7/en/index.html" target="_blank">Manual en l&iacute;nea de MySQL</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id10">
+<div class="iDevice emphasis0">
+<div id="ta10_73" class="block iDevice_content">
+<p>
+Entre los parámetros que puedes
+configurar en el fichero my.cnf tienes:
+</p>
+<ul class="lista_verificacion">
+	<li>
+	<strong>port</strong>. Indica el puerto TCP en el que
+	escuchará el servidor y con el que se establecerán las conexiones.</li>
+	<li>
+	<strong>user</strong>. Nombre del usuario que se utilizará
+	para ejecutar el servidor.</li>
+	<li>
+	<strong>datadir</strong>. Directorio del servidor en el
+	que se almacenarán las bases de datos.</li>
+</ul>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id11">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta11_47" class="block iDevice_content">
+<p>En la documentaci&oacute;n de MySQL tienes tambi&eacute;n informaci&oacute;n sobre todas las opciones de configuraci&oacute;n disponibles para ajustar su funcionamiento.</p>
+<p class="enlace_centrado"><a title="Acceder a opciones de configuraci&oacute;n de MySQL." href="http://dev.mysql.com/doc/refman/5.7/en/installing.html">Opciones de configuraci&oacute;n</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id92">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta92_151" class="block iDevice_content">
+<p>Si optas por utilizar MariaDB en lugar de MySQL, lo puedes descargar del sitio:</p>
+<p></p>
+<p style="text-align: center;"><a href="https://mariadb.com/downloads/" title="Enlace a web oficial de MariaDB">Descarga MariaDB</a></p>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="2_mysql.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="22_herramientas_de_administracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

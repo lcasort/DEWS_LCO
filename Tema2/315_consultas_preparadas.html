@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.5.- Consultas preparadas. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-13"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="31_extensin_mysqli.html" class="current-page-parent daddy">3.1.- Extensión MySQLi.</a>
+      <ul>
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li id="active"><a href="315_consultas_preparadas.html" class="active no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_php_data_objects_pdo.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.5.- Consultas preparadas.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id48">
+<div class="iDevice emphasis0">
+<div id="ta48_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R12_mysqli_procedimiento.png" alt="S&iacute;mbolo de obtenci&oacute;n de informaci&oacute;n de una base de datos junto a las letras mysqli." title="Obtener dataset MySQLi." height="172" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+<p>Cada vez que se env&iacute;a una consulta al servidor, &eacute;ste debe analizarla antes de ejecutarla. Algunas sentencias SQL, como las que insertan valores en una tabla, deben repetirse de forma habitual en un programa. Para acelerar este proceso, MySQL admite consultas preparadas. Estas consultas se almacenan en el servidor listas para ser ejecutadas cuando sea necesario.</p>
+<p>Para trabajar con consultas preparadas con la extensi&oacute;n MySQLi de PHP, debes utilizar la clase <code><strong>mysqli_stmt</strong></code>. Utilizando el m&eacute;todo <code><strong>stmt_init</strong></code> de la clase <code><strong>mysqli</strong></code> (o la funci&oacute;n <code><strong>mysqli_stmt_init</strong></code>) obtienes un objeto de dicha clase.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="codigo elemento_centrado" style="width: 38.45em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new mysqli('localhost', 'dwes', 'abc123.', 'dwes');</code>
+</pre>
+<pre><code>$consulta = $dwes-&gt;stmt_init();</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Los pasos que debes seguir para ejecutar una consulta preparada son:</p>
+<ul class="lista_verificacion">
+<li>Preparar la consulta en el servidor MySQL utilizando el m&eacute;todo <code><strong>prepare</strong></code> (funci&oacute;n <code><strong>mysqli_stmt_prepare</strong></code>).</li>
+<li>Ejecutar la consulta, tantas veces como sea necesario, con el m&eacute;todo <code><strong>execute</strong></code> (funci&oacute;n <code><strong>mysqli_stmt_execute</strong></code>).</li>
+<li>Una vez que ya no se necesita m&aacute;s, se debe ejecutar el m&eacute;todo <code><strong>close</strong></code> (funci&oacute;n <code><strong>mysqli_stmt_close</strong></code>).</li>
+</ul>
+<p>Por ejemplo, para preparar y ejecutar una consulta que inserta un nuevo registro en la tabla familia:</p>
+<div class="codigo elemento_centrado" style="width: 53.85em;">
+<div class="texto_izquierda">
+<pre><code>$consulta = $dwes-&gt;stmt_init();</code>
+</pre>
+<pre><code>$consulta-&gt;prepare('INSERT INTO familia (cod, nombre) VALUES ("TABLET", "Tablet PC")');</code>
+</pre>
+<pre><code>$consulta-&gt;execute();</code>
+</pre>
+<pre><code>$consulta-&gt;close();</code>
+</pre>
+<pre><code>$dwes-&gt;close();</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>El problema que ya habr&aacute;s observado, es que de poco sirve preparar una consulta de inserci&oacute;n de datos como la anterior, si los valores que inserta son siempre los mismos. Por este motivo las consultas preparadas admiten par&aacute;metros. Para preparar una consulta con par&aacute;metros, en lugar de poner los valores debes indicar con un signo de interrogaci&oacute;n su posici&oacute;n dentro de la sentencia SQL.</p>
+<div class="codigo elemento_centrado" style="width: 44.5em;">
+<div class="texto_izquierda">
+<pre><code>$consulta-&gt;prepare('INSERT INTO familia (cod, nombre) VALUES (?, ?)');</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Y antes de ejecutar la consulta tienes que utilizar el m&eacute;todo <code><strong>bind_param</strong></code> (o la funci&oacute;n <code><strong>mysqli_stmt_bind_param</strong></code>) para sustituir cada par&aacute;metro por su valor. El primer par&aacute;metro del m&eacute;todo bind_param es una cadena de texto en la que cada car&aacute;cter indica el tipo de un par&aacute;metro, seg&uacute;n la siguiente tabla.</p>
+<table class="tabla" summary="Cuadro o tabla de cuatro filas por dos columnas, de t&iacute;tulo 'Caracteres indicativos del tipo de los par&aacute;metros en una consulta preparada', de modo que para cada car&aacute;cter nos indica el tipo que representa. Debe ser le&iacute;da en filas de izquierda a derecha."><caption>Caracteres indicativos del tipo de los par&aacute;metros en una consulta preparada.</caption>
+<thead>
+<tr><th scope="col">Car&aacute;cter.</th><th scope="col">Tipo del par&aacute;metro.</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">I.</th>
+<td>N&uacute;mero entero.</td>
+</tr>
+<tr><th scope="row">D.</th>
+<td>N&uacute;mero real (doble precisi&oacute;n).</td>
+</tr>
+<tr><th scope="row">S.</th>
+<td>Cadena de texto.</td>
+</tr>
+<tr><th scope="row">B.</th>
+<td>Contenido en formato binario (<acronym title="Binary Large OBject." lang="en">BLOB</acronym>).</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>En el caso anterior, si almacenas los valores a insertar en sendas variables, puedes hacer:</p>
+<div class="codigo elemento_centrado" style="width: 44.5em;">
+<div class="texto_izquierda">
+<pre><code>$consulta = $dwes-&gt;stmt_init();</code>
+</pre>
+<pre><code>$consulta-&gt;prepare('INSERT INTO familia (cod, nombre) VALUES (?, ?)');</code>
+</pre>
+<pre><code>$cod_producto = "TABLET";</code>
+</pre>
+<pre><code>$nombre_producto = "Tablet PC";</code>
+</pre>
+<pre><code>$consulta-&gt;bind_param('ss', $cod_producto, $nombre_producto);</code>
+</pre>
+<pre><code>$consulta-&gt;execute();</code>
+</pre>
+<pre><code>$consulta-&gt;close();</code>
+</pre>
+<pre><code>$dwes-&gt;close();</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id49">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta49_70" class="block iDevice_content">
+<p>
+Cuando uses <code>bind_param</code> para enlazar los parámetros de una consulta preparada con sus  respectivos valores, deberás usar siempre variables como en el ejemplo  anterior. Si intentas utilizar literales, por ejemplo:
+</p>
+<div class="codigo elemento_centrado" style="width: 45.05em">
+<div class="texto_izquierda">
+<pre>
+<code>$consulta-&gt;bind_param('ss', 'TABLET', 'Tablet PC');  // Genera un error</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Obtendrás un error. El motivo es que los parámetros del método  bind_param se pasan por referencia. Aprenderás a usar paso de parámetros por  referencia en una unidad posterior.
+</p>
+
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id50">
+<div class="iDevice emphasis0">
+<div id="ta50_73" class="block iDevice_content">
+<p>
+El método <code>bind_param</code> permite tener una consulta preparada en el  servidor MySQL y ejecutarla tantas veces como quieras cambiando ciertos valores  cada vez. Además, en el caso de las consultas que devuelven valores, se puede  utilizar el método <code><strong>bind_result</strong></code> (función <code><strong>mysqli_stmt_bind_result</strong></code>) para  asignar a variables los campos que se obtienen tras la ejecución. Utilizando el  método <code><strong>fetch</strong></code> (<code><strong>mysqli_stmt_fetch</strong></code>) se recorren los registros devueltos.  Observa el siguiente código:
+</p>
+<div class="codigo elemento_centrado" style="width: 49.45em">
+<div class="texto_izquierda">
+<pre>
+<code>$consulta = $dwes-&gt;stmt_init();</code>
+</pre>
+<pre>
+<code>$consulta-&gt;prepare('SELECT producto, unidades FROM stock WHERE unidades&lt;2');</code>
+</pre>
+<pre>
+<code>$consulta-&gt;execute();</code>
+</pre>
+<pre>
+<code>$consulta-&gt;bind_result($producto, $unidades);</code>
+</pre>
+<pre>
+<code>while($consulta-&gt;fetch()) {</code>
+</pre>
+<pre>
+<code>	print &quot;&lt;p&gt;Producto $producto: $unidades unidades.&lt;/p&gt;&quot;;</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+<pre>
+<code>$consulta-&gt;close();</code>
+</pre>
+<pre>
+<code>$dwes-&gt;close();</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id51">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta51_48" class="block iDevice_content">
+<p>
+En el manual de PHP tienes más información sobre consultas preparadas y la clase <code>mysqli_stmt</code>.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/class.mysqli-stmt.php" title="Acceder a página del manual de PHP relativa a la clase mysqli_stmt y consultas preparadas." target="_self">Consultas preparas y la clase <code>mysqli_stmt</code></a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id52">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta52_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b52" class="block iDevice_content">
+<p>A partir de la p&aacute;gina web obtenida en el ejercicio anterior, a&ntilde;ade la opci&oacute;n de modificar el n&uacute;mero de unidades del producto en cada una de las tiendas. Utiliza una consulta preparada para la actualizaci&oacute;n de registros en la tabla stock. No es necesario tener en cuenta las tareas de inserci&oacute;n (no exist&iacute;an unidades anteriormente) y borrado (si el n&uacute;mero final de unidades es cero).</p>
+</section>
+<form name="feedback-form-quesFeedback0b52" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b52text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b52" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b52" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>En esta ocasi&oacute;n es necesario crear un nuevo formulario en la p&aacute;gina, en la secci&oacute;n donde se muestra el n&uacute;mero de unidades por tienda. Cuando se env&iacute;a ese formulario, hay que preparar la consulta y ejecutarla una vez por cada registro de la tabla stock (una vez por cada tienda en la que exista stock de ese producto). Revisa el c&oacute;digo de la soluci&oacute;n y pru&eacute;balo.</p>
+<div class="enlace_centrado"><a class="pdf" title="Descargar soluci&oacute;n al ejercicio de ejecuci&oacute;n de consultas preparadas utilizando la extensi&oacute;n MySQLi. [pdf - 0.01 MB]" href="DWES03_CONT_R12b_Ejercicio_resuelto.pdf">C&oacute;digo de la soluci&oacute;n al ejercicio propuesto (en PDF)</a>. <span class="tamano"> (0.01 MB) </span></div>
+<div class="enlace_centrado"><span class="tamano" style="font-size: small;"><a class="texto_centrado" title="Descargar soluci&oacute;n al ejercicio de ejecuci&oacute;n de consultas preparadas utilizando la extensi&oacute;n MySQLi." href="3_1_5_Stock_Unidades.php">C&oacute;digo de la soluci&oacute;n al ejercicio propuesto (en formato texto)</a></span></div></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_php_data_objects_pdo.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

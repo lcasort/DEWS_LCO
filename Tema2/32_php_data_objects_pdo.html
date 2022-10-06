@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.2.- PHP Data Objects (PDO). | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-14"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li id="active"><a href="32_php_data_objects_pdo.html" class="active daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul>
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="315_consultas_preparadas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="321_establecimiento_de_conexiones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.2.- PHP Data Objects (PDO).</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id53">
+<div class="iDevice emphasis0">
+<div id="ta53_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><a title="PDO phpinfo." href="DWES03_CONT_R13_PDO_phpinfo.jpg" target="_blank"><img src="DWES03_CONT_R13_PDO_phpinfo_miniatura.jpg" alt="Captura de pantalla obtenida de los resultados mostrados por la funci&oacute;n phpinfo, correspondientes a la secci&oacute;n relativa a la configuraci&oacute;n de la extensi&oacute;n PDO." title="PDO phpinfo." class="imagen_ampliable" height="156" width="200" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+</div>
+</div>
+<p><strong>Si vas a programar una aplicaci&oacute;n que utilice como sistema gestor de bases de datos MySQL</strong>, la extensi&oacute;n <strong>MySQLi</strong> que acabas de ver es una buena opci&oacute;n. Ofrece acceso a todas las caracter&iacute;sticas del motor de base de datos, a la vez que reduce los tiempos de espera en la ejecuci&oacute;n de sentencias.</p>
+<p>Sin embargo, <strong>si en el futuro tienes que cambiar el SGBD</strong> por otro distinto, tendr&aacute;s que volver a programar gran parte del c&oacute;digo de la misma. Por eso, antes de comenzar el desarrollo, es muy importante revisar las caracter&iacute;sticas espec&iacute;ficas del proyecto. En el caso de que exista la posibilidad, presente o futura, de utilizar otro servidor como almacenamiento, deber&aacute;s adoptar una capa de abstracci&oacute;n para el acceso a los datos. Existen varias alternativas como <acronym title="Open DataBase Connectivity." lang="en">ODBC</acronym>, pero sin duda la opci&oacute;n m&aacute;s recomendable en la actualidad es <strong>PDO</strong>.</p>
+<p>El objetivo es que si llegado el momento necesitas cambiar el servidor de base de datos, las modificaciones que debas realizar en tu c&oacute;digo sean m&iacute;nimas. Incluso es posible desarrollar aplicaciones preparadas para utilizar un almacenamiento u otro seg&uacute;n se indique en el momento de la ejecuci&oacute;n, pero &eacute;ste no es el objetivo principal de PDO. PDO no abstrae de forma completa el sistema gestor que se utiliza. Por ejemplo, no modifica las sentencias SQL para adaptarlas a las caracter&iacute;sticas espec&iacute;ficas de cada servidor. Si esto fuera necesario, habr&iacute;a que programar una capa de abstracci&oacute;n completa.</p>
+<p>La extensi&oacute;n PDO debe utilizar un driver o controlador espec&iacute;fico para el tipo de base de datos que se utilice. Para consultar los controladores disponibles en tu instalaci&oacute;n de PHP, puedes utilizar la informaci&oacute;n que proporciona la funci&oacute;n phpinfo.</p>
+<p>PDO se basa en las caracter&iacute;sticas de orientaci&oacute;n a objetos de PHP pero, al contrario que la extensi&oacute;n MySQLi, no ofrece un interface de programaci&oacute;n dual. Para acceder a las funcionalidades de la extensi&oacute;n tienes que emplear los objetos que ofrece, con sus m&eacute;todos y propiedades. No existen funciones alternativas.</p>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="315_consultas_preparadas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="321_establecimiento_de_conexiones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

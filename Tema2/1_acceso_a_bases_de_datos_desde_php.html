@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.- Acceso a bases de datos desde PHP. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-1"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li id="active"><a href="1_acceso_a_bases_de_datos_desde_php.html" class="active no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2_mysql.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">1.- Acceso a bases de datos desde PHP.</h1></header>
+<article class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id1">
+<div class="iDevice emphasis_casopracticofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Caso práctico</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta1_66" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R01b_Carlos.jpg" alt="Imagen de uno de los personajes del caso pr&aacute;ctico, correspondiente a Carlos." title="Carlos." height="132" width="192" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n propia</div>
+</div>
+<p><strong>Carlos es nuevo en el mundo de la programaci&oacute;n web</strong>. Adem&aacute;s, apenas ha trabajado con bases de datos, por lo que se asombra de la gran diversidad de opciones que existen en <acronym title="PHP Hypertext Processor.">PHP</acronym> para trabajar con datos almacenados en servidores de distintos tipos.</p>
+<p>Algunos de los gestores sobre los que lee mientras revisa la documentaci&oacute;n de <acronym title="PHP Hypertext Processor.">PHP</acronym> los conoce, otros simplemente le suenan, pero hay muchos de los que ni siquiera conoc&iacute;a su existencia. Sabe que debe centrarse en el servidor MySQL, que es el que usar&aacute;n para desarrollar la aplicaci&oacute;n, pero aun as&iacute; el volumen de informaci&oacute;n disponible es tan grande que le cuesta decidirse por d&oacute;nde empezar.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id2">
+<div class="iDevice emphasis0">
+<div id="ta2_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R01c_Simbolo_BD.png" alt="Símbolo de una base de datos: cilindro dividido en (tres) secciones." title="Símbolo base de datos." width="160" height="176" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> <a title="rg1024." href="http://www.openclipart.org/detail/94723/database-symbol-by-rg1024" target="_blank" rel="noopener">rg1024.</a></div>
+</div>
+<p>Una de las aplicaciones más frecuentes de <acronym title="PHP Hypertext Processor.">PHP</acronym> es generar un interface web para acceder y gestionar la información almacenada en una base de datos. Usando <acronym title="PHP Hypertext Processor.">PHP</acronym> podemos mostrar en una página web información extraída de la base de datos, o enviar sentencias al gestor de la base de datos para que elimine o actualice algunos registros.</p>
+<p><acronym title="PHP Hypertext Processor.">PHP</acronym> soporta más de 15 sistemas gestores de bases de datos: SQLite, Oracle, SQL Server, PostgreSQL, IBM DB2, MySQL, etc. Hasta la versión 5 de <acronym title="PHP Hypertext Processor.">PHP</acronym>, el acceso a las bases de datos se hacía principalmente utilizando extensiones específicas para cada sistema gestor de base de datos (extensiones nativas). Es decir, que si queríamos acceder a una base de datos de PostgreSQL, deberíamos instalar y utilizar la extensión de ese gestor en concreto. Las funciones y objetos a utilizar eran distintos para cada extensión.</p>
+<p>A partir de la versión 5 de <acronym title="PHP Hypertext Processor." lang="en">PHP</acronym> se introdujo en el lenguaje una extensión para acceder de una forma común a distintos sistemas gestores: <acronym title="PHP Data Objects." lang="en">PDO</acronym>. La gran ventaja de PDO está clara: podemos seguir utilizando una misma sintaxis aunque cambiemos el motor de nuestra base de datos. Por el contrario, en algunas ocasiones preferiremos seguir usando extensiones nativas en nuestros programas. Mientras PDO ofrece un conjunto común de funciones, las extensiones nativas normalmente ofrecen más potencia (acceso a funciones específicas de cada gestor de base de datos) y en algunos casos también mayor velocidad.</p>
+<p>De los distintos <acronym title="Sistemas Gestores de Bases de Datos.">SGBD</acronym> existentes, vas a aprender a utilizar MySQL. MySQL es un gestor de bases de datos relacionales de código abierto bajo licencia <acronym title="GNU is Not Unix." lang="en">GNU</acronym> <acronym title="General Public License." lang="en">GPL</acronym>. Es el gestor de bases de datos más empleado con el lenguaje PHP. Como ya vimos, es la letra "M" que figura en los acrónimos <acronym title="Apache, MySQL y PHP.">AMP</acronym> y <acronym title="X (para cualquiera de los diferentes sistemas operativos), Apache, MySQL, PHP, Perl.">XAMPP</acronym>.</p>
+<p>En esta unidad vas a ver cómo acceder desde PHP a bases de datos MySQL utilizando tanto PDO como la extensión nativa MySQLi. Previamente verás una pequeña introducción al manejo de MySQL, aunque para el seguimiento de esta unidad se supone que conoces el lenguaje <acronym title="Structured Query Language." lang="en">SQL</acronym> utilizado en la gestión de bases de datos relacionales.</p>
+<p>Además, para el acceso a las funcionalidades de ambas extensiones deberás utilizar objetos. Aunque más adelante verás todas las características que nos ofrece PHP para crear programas orientados a objetos, debemos suponer también en este punto un cierto conocimiento de programación orientada a objetos. Básicamente, debes saber cómo crear y utilizar objetos.</p>
+<p>En PHP se utiliza la palabra <code>new</code> para crear un nuevo objeto instanciando una clase:</p>
+<div class=" elemento_centrado" style="width: 13.15em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$a = new A();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+<p>Y para acceder a los miembros de un objeto, debes utilizar el operador flecha <code>-&gt;</code>:</p>
+<div class=" elemento_centrado" style="width: 12.6em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$a-&gt;fecha();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id3">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta3_48" class="block iDevice_content">
+<p>
+Es importante conocer las características más básicas de la utilización objetos en PHP.
+</p>
+<p class="enlace_centrado">
+<a href="http://www.desarrolloweb.com/articulos/1540.php" title="Acceder a 'desarrollo web' con información sobre cómo definir y utilizar clases en PHP." target="_self">Características más básicas</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2_mysql.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

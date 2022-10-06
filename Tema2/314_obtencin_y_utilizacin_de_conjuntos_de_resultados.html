@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.4.- Obtención y utilización de conjuntos de resultados. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-12"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="31_extensin_mysqli.html" class="current-page-parent daddy">3.1.- Extensión MySQLi.</a>
+      <ul>
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li id="active"><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="active no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="313_transacciones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="315_consultas_preparadas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.4.- Obtención y utilización de conjuntos de resultados.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id45">
+<div class="iDevice emphasis0">
+<div id="ta45_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R11_mysqli_dataset.png" alt=" Símbolo de obtención de información de una base de datos junto a las letras mysqli." title="Obtener dataset MySQLi." width="160" height="172" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> Elaboración Propia</div>
+</div>
+<p>Ya sabes que al ejecutar una consulta que devuelve datos obtienes un objeto de la clase <code><strong>mysqli_result</strong></code>. Esta clase sigue los criterios de ofrecer un interface de programación dual, es decir, una función por cada método con la misma funcionalidad que éste.</p>
+<p>Para trabajar con los datos obtenidos del servidor, tienes varias posibilidades:</p>
+<p><code><strong>fetch_array</strong></code> (función <strong><code>mysqli_fetch_array</code></strong>). Obtiene un registro completo del conjunto de resultados y lo almacena en un array. Por defecto <strong>el array contiene tanto claves numéricas como asociativas</strong>. Por ejemplo, para acceder al primer campo devuelto, podemos utilizar como clave el número 0 o su nombre indistintamente.</p>
+<p> </p>
+<div class="elemento_centrado" style="width: 53.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$resultado = $dwes-&gt;query('SELECT producto, unidades FROM stock WHERE unidades&lt;2');
+
+$stock = $resultado-&gt;fetch_array();  // Obtenemos el primer registro
+
+$producto = $stock['producto'];  // O también $stock[0];
+
+$unidades = $stock['unidades'];  // O también $stock[1];
+
+print "&lt;p&gt;Producto $producto: $unidades unidades.&lt;/p&gt;";</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>Este comportamiento por defecto se puede modificar utilizando un parámetro opcional, que puede tomar los siguientes valores:</p>
+<ul class="lista_verificacion">
+<li><strong>MYSQLI_NUM</strong>. Devuelve un array con claves numéricas.</li>
+<li><strong>MYSQLI_ASSOC</strong>. Devuelve un array asociativo.</li>
+<li><strong>MYSQLI_BOTH</strong>. Es el comportamiento <strong>por defecto</strong>, en el que devuelve un array con claves numéricas y asociativas.</li>
+</ul>
+<p><code><strong>fetch_assoc</strong></code> (función <code><strong>mysqli_fetch_assoc</strong></code>). Idéntico a fetch_array pasando como parámetro <strong>MYSQLI_ASSOC</strong>.</p>
+<p><code><strong>fetch_row</strong></code> (función <code><strong>mysqli_fetch_row</strong></code>). Idéntico a fetch_array pasando como parámetro <strong>MYSQLI_NUM</strong>.</p>
+<p><code><strong>fetch_object</strong></code> (función <strong><code>mysqli_fetch_object</code></strong>). Similar a los métodos anteriores, pero <strong>devuelve un objeto en lugar de un array</strong>. Las propiedades del objeto devuelto se corresponden con cada uno de los campos del registro.</p>
+<p>Parar recorrer todos los registros de un array, puedes hacer un bucle teniendo en cuenta que cualquiera de los métodos o funciones anteriores devolverá null cuando no haya más registros en el conjunto de resultados.</p>
+<div class="elemento_centrado" style="width: 53.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$resultado = $dwes-&gt;query('SELECT producto, unidades FROM stock WHERE unidades&lt;2');
+
+$stock = $resultado-&gt;fetch_object();
+
+while ($stock != null) {
+
+        print "&lt;p&gt;Producto $stock-&gt;producto: $stock-&gt;unidades unidades.&lt;/p&gt;";
+
+        $stock = $resultado-&gt;fetch_object();
+
+}</code><code><br /></code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>O simplificando el código:</p>
+<p></p>
+<div class="elemento_centrado" style="width: 53.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$resultado = $dwes-&gt;query('SELECT producto, unidades FROM stock WHERE unidades&lt;2');
+
+
+while ( $stock = $resultado-&gt;fetch_object() ) {
+
+        print "&lt;p&gt;Producto $stock-&gt;producto: $stock-&gt;unidades unidades.&lt;/p&gt;";
+
+}</code><code></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id46">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta46_47" class="block iDevice_content">
+<p>
+En el manual de PHP tienes más información sobre los métodos y propiedades de la clase <code><strong>mysqli_result</strong></code>.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/class.mysqli-result.php" title="Acceder a página del manual de PHP con información sobre la clase mysqli_result." target="_self">Clase mysqli_result</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id47">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta47_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b47" class="block iDevice_content">
+<p>Crea una p&aacute;gina web en la que se muestre el stock existente de un determinado producto en cada una de las tiendas. Para seleccionar el producto concreto utiliza un cuadro de selecci&oacute;n dentro de un formulario en esa misma p&aacute;gina. Puedes usar como base los siguientes ficheros.</p>
+<div class="enlace_centrado"><a class="paquete" title="Descargar ficheros para utilizar como base para el ejercicio. [pdf - 0.01 MB]" href="DWES03_CONT_R11b_plantillas.zip">&nbsp;Ficheros de base para resolver el ejercicio</a>. <span class="tamano"> (0.01 MB) </span></div>
+</section>
+<form name="feedback-form-quesFeedback0b47" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b47text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b47" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b47" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Revisa la soluci&oacute;n propuesta y verifica que los resultados que obtuviste son correctos.</p>
+<div class="enlace_centrado"><a class="pdf" title="Descargar soluci&oacute;n al ejercicio de ejecuci&oacute;n de consultas utilizando la extensi&oacute;n MySQLi. [pdf - 0.01 MB]" href="DWES03_CONT_R11c_Ejercicio_resuelto.pdf">Soluci&oacute;n propuesta</a>. <span class="tamano"> (0.01 MB) </span></div></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="313_transacciones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="315_consultas_preparadas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

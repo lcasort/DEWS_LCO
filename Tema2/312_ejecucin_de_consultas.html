@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.2.- Ejecución de consultas. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-10"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="31_extensin_mysqli.html" class="current-page-parent daddy">3.1.- Extensión MySQLi.</a>
+      <ul>
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li id="active"><a href="312_ejecucin_de_consultas.html" class="active no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="311_establecimiento_de_conexiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="313_transacciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.2.- Ejecución de consultas.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id38">
+<div class="iDevice emphasis0">
+<div id="ta38_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R10_mysqli_ejecutar.png" alt="Símbolo de media rueda dentada junto a las letras mysqli." title="Ejecutar consulta MySQLi." width="168" height="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> Elaboración Propia</div>
+</div>
+<p> </p>
+<p>La forma más inmediata de ejecutar una consulta, si utilizas esta extensión, es el método <code><strong>query</strong></code>, equivalente a la función <code><strong>mysqli_query</strong></code>. Si se ejecuta una consulta de acción que no devuelve datos (como una sentencia SQL de tipo <strong>UPDATE</strong>, <strong>INSERT</strong> o <strong>DELETE</strong>), la llamada devuelve true si se ejecuta correctamente o false en caso contrario. El número de registros afectados se puede obtener con la propiedad <code><strong>affected_rows</strong></code> (o con la función <code><strong>mysqli_affected_rows</strong></code>).</p>
+<p> </p>
+<p> </p>
+<div class="elemento_centrado" style="width: 43.4em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>@ $dwes = new mysqli('localhost', 'dwes', 'abc123.', 'dwes');
+
+$error = $dwes-&gt;connect_errno;
+
+if ($error == null) {
+
+    $resultado = $dwes-&gt;query('DELETE FROM stock WHERE unidades=0');
+
+    if ($resultado) {
+
+        print "&lt;p&gt;Se han borrado $dwes-&gt;affected_rows registros.&lt;/p&gt;";
+
+    }
+
+    $dwes-&gt;close();
+
+}</code></pre>
+</div>
+</div>
+<pre><code> </code></pre>
+</div>
+</div>
+<p> </p>
+<p>En el caso de ejecutar una sentencia SQL que sí devuelva datos (como un SELECT), éstos se devuelven en forma de un objeto resultado (de la clase <code><strong>mysqli_result</strong></code>). En el punto siguiente verás cómo se pueden manejar los resultados obtenidos.</p>
+<p>El método query tiene un parámetro opcional que afecta a cómo se obtienen internamente los resultados, pero no a la forma de utilizarlos posteriormente. En la opción por defecto, <strong>MYSQLI_STORE_RESULT</strong>, los resultados se recuperan todos juntos de la base de datos y se almacenan de forma local. Si cambiamos esta opción por el valor <strong>MYSQLI_USE_RESULT</strong>, los datos se van recuperando del servidor según se vayan necesitando.</p>
+<div class="elemento_centrado" style="width: 52.75em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$resultado = $dwes-&gt;query('SELECT producto, unidades FROM stock', MYSQLI_USE_RESULT);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id39">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta39_48" class="block iDevice_content">
+<p>
+Otra forma que puedes utilizar para ejecutar una consulta es  el método <code><strong>real_query</strong></code> (o  la función <code><strong>mysqli_real_query</strong></code>),  que siempre devuelve true o false según se haya ejecutado correctamente o no.  Si la consulta devuelve un conjunto de resultados, se podrán recuperar de forma  completa utilizando el método <code><strong>store_result</strong></code>,  o según vaya siendo necesario gracias al método <code><strong>use_result</strong></code>.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/mysqli.real-query.php" title="Acceder a página del manual de PHP relativa al método real_query." target="_self">Método real_query</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id40">
+<div class="iDevice emphasis0">
+<div id="ta40_73" class="block iDevice_content">
+<p>Es importante tener en cuenta que los resultados obtenidos se almacenarán en memoria mientras los estés usando. Cuando ya no los necesites, los puedes liberar con el método <code><strong>free</strong></code> de la clase <code><strong>mysqli_result</strong></code> (o con la función <code><strong>mysqli_free_result</strong></code>):</p>
+<div class="elemento_centrado" style="width: 20.3em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$resultado-&gt;free();
+
+</code></pre>
+</div>
+</div>
+<pre><code><br /><br /></code></pre>
+</div>
+</div>
+<p> </p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id41">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-41_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion41_60" class="block question iDevice_content">
+<strong>De las dos opciones que admite el método <code>query</code>, MYSQLI_STORE_RESULT y MYSQLI_USE_RESULT, ¿qué opción será recomendable utilizar para ejecutar una consulta que devuelva una enorme cantidad de datos? </strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i41_63" class="sr-av"><a href="#answer-41_63">Opción 1</a></label><input type="radio" name="option41_60" id="i41_63" class="exe-radio-option exe-radio-option-0-2-41_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-41_63"><div id="taans41_63" class="block iDevice_content">
+MYSQLI_STORE_RESULT.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i41_105" class="sr-av"><a href="#answer-41_105">Opción 2</a></label><input type="radio" name="option41_60" id="i41_105" class="exe-radio-option exe-radio-option-1-2-41_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-41_105"><div id="taans41_105" class="block iDevice_content">
+MYSQLI_USE_RESULT.
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b41_60" class="feedback js-hidden">
+<div id="taf41_63" class=" iDevice_content">
+Incorrecto. ¿Qué sucede con los datos cuándo se utiliza esta opción?
+
+</div>
+</section>
+<section id="sa1b41_60" class="feedback js-hidden">
+<div id="taf41_105" class=" iDevice_content">
+Efectivamente. Con esta opción se van obteniendo los datos del servidor a medida que se vayan necesitando. Si utilizaras la otra opción, los datos tendrían que transferirse todos juntos al ejecutar la consulta.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-41_63">Incorrecto</a><span> (<a href="#sa0b41_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-41_105">Opción correcta</a><span> (<a href="#sa1b41_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="311_establecimiento_de_conexiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="313_transacciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

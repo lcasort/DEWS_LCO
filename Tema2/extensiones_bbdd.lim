@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<lim version="3.30">
+    <config>
+        <licenza>Creative Commons CC BY NC SA</licenza>
+        <idioma>0</idioma>
+        <corfondo>1E73B4</corfondo>
+        <corbanda>80FF80</corbanda>
+        <cornavega>80FF80</cornavega>
+        <cormensaxes>000000</cormensaxes>
+        <cortexto>FFFFFF</cortexto>
+        <titulo>Extensiones de Bases de Datos</titulo>
+        <autor>Víctor M. Lourido Estévez</autor>
+        <informe>1</informe>
+        <botonson>0</botonson>
+        <maximizar>1</maximizar>
+        <desordenar>0</desordenar>
+        <correcto son="" modo="1" >!! PERFECTO !!</correcto>
+        <incorrecto son="" modo="1" >INCORRECTO - Inténtalo de nuevo.</incorrecto>
+    </config>
+    <libro>
+        <paxina id="1" >
+              <tipo>38</tipo>
+              <imaxe>DWES03_AUX_R01_Animacion_MySQL.jpg</imaxe>
+              <forma>3</forma>
+              <texto><![CDATA[
+<p align="center">
+<font color="#400040" face="PMingLiU" size="32"><b>Extensiones de<br>
+Bases de Datos</b></font><font color="#400040" face="PMingLiU" size="20"><b><br>
+y gestión de errores</font></b></p>
+]]></texto>
+              <ctexto>FFFFFF</ctexto>
+        </paxina>
+        <paxina id="2" >
+              <tipo>8</tipo>
+              <cabeceira>Extensión mysqli (1)</cabeceira>
+              <frase texto="¿Cuál es la forma procedimental para establecer conexiones utilizando mysqli?" son="">mysqli_connect</frase>
+              <frase texto="Si utilizas mysqli para establecer una conexión, ¿qué método usaras para utilizar otra base de datos?" son="">select_db</frase>
+              <frase texto="En mysqli, ¿de qué clase es el objeto que devuelve una llamada al método query?" son="">mysqli_result</frase>
+        </paxina>
+        <paxina id="3" >
+              <tipo>8</tipo>
+              <cabeceira>Extensión mysqli (2)</cabeceira>
+              <frase texto="En InnoDB por defecto cada consulta se incluye dentro de su propia transacción. ¿Cuál es el nombre de la función de mysqli que permite cambiar este comportamiento?" son="">mysqli_autocommit</frase>
+              <frase texto="En mysqli, ¿cuál debe ser el valor del parámetro del método fetch_array para que devuelva un array asociativo?" son="">MYSQLI_ASSOC</frase>
+              <frase texto="¿Qué clase debes utilizar si quieres ejecutar consultas preparadas en mysqli?" son="">mysqli_stmt</frase>
+        </paxina>
+        <paxina id="4" >
+              <tipo>10</tipo>
+              <cabeceira>PDO</cabeceira>
+              <pregunta res="getAttribute">¿Qué método se utiliza en PDO para obtener información del estado de la conexión?</pregunta>
+              <pregunta res="exec">¿Qué método se utiliza en PDO para ejecutar una consulta de tipo DELETE?</pregunta>
+              <pregunta res="beginTransaction">¿Qué método se utiliza en PDO para indicar que se quiere comenzar una nueva transacción?</pregunta>
+              <pregunta res="PDO::FETCH_NUM">¿Qué valor debemos pasarle al método fetch para que devuelva solamente un array numérico?</pregunta>
+        </paxina>
+        <paxina id="5" >
+              <tipo>10</tipo>
+              <cabeceira>Errores y manejo de excepciones</cabeceira>
+              <pregunta res="error_reporting">Parámetro de php.ini que indica qué errores se notificarán.</pregunta>
+              <pregunta res="set_error_handler">Nombre de la función de PHP que permite establecer un manejador de errores propio.</pregunta>
+              <pregunta res="catch">Instrucción que debe seguir a un bloque try.</pregunta>
+              <pregunta res="Exception">Clase base para manejar excepciones en PHP.</pregunta>
+        </paxina>
+    </libro>
+</lim>

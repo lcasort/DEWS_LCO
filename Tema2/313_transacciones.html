@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.3.- Transacciones. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-11"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li class="current-page-parent"><a href="31_extensin_mysqli.html" class="current-page-parent daddy">3.1.- Extensión MySQLi.</a>
+      <ul>
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li id="active"><a href="313_transacciones.html" class="active no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="312_ejecucin_de_consultas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.3.- Transacciones.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id42">
+<div class="iDevice emphasis0">
+<div id="ta42_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R10b_mysqli_transacciones.png" alt="Marca de verificación y equis junto a las letras mysqli." title="Transacciones MySQLi." width="200" height="96" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> Elaboración Propia</div>
+</div>
+<p>Como ya comentamos, si necesitas utilizar transacciones deberás asegurarte de que estén soportadas por el motor de almacenamiento que gestiona tus tablas en MySQL. Si utilizas InnoDB, por defecto cada consulta individual se incluye dentro de su propia transacción. Puedes gestionar este comportamiento con el método <code><strong>autocommit</strong></code> (función <code><strong>mysqli_autocommit</strong></code>).</p>
+<p> </p>
+<p> </p>
+<div class="elemento_centrado" style="width: 48.9em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>$dwes-&gt;autocommit(false);   // deshabilitamos el modo transaccional automático</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+<p>Al deshabilitar las transacciones automáticas, las siguientes operaciones sobre la base de datos iniciarán una transacción que deberás finalizar utilizando:</p>
+<ul class="lista_verificacion">
+<li><code><strong>commit</strong></code> (o la función <code><strong>mysqli_commit</strong></code>). Realizar una operación "commit" de la transacción actual, devolviendo true si se ha realizado correctamente o false en caso contrario.</li>
+<li><code><strong>rollback</strong></code> (o la función <code><strong>mysqli_rollback</strong></code>). Realizar una operación "rollback" de la transacción actual, devolviendo true si se ha realizado correctamente o false en caso contrario.</li>
+</ul>
+<div class="elemento_centrado" style="width: 48.9em;">
+<div class="texto_izquierda">
+<pre><code></code></pre>
+<div class="highlighted-code language-php">
+<div>
+<pre><code>…
+
+$dwes-&gt;query('DELETE FROM stock WHERE unidades=0');  // Inicia una transacción
+
+$dwes-&gt;query('UPDATE stock SET unidades=3 WHERE producto="STYLUSSX515W"');
+
+…
+
+$dwes-&gt;commit();  // Confirma los cambios
+
+</code></pre>
+</div>
+</div>
+<pre><code><br /></code> </pre>
+</div>
+</div>
+<p>Una vez finalizada esa transacción, comenzará otra de forma automática.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id43">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta43_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b43" class="block iDevice_content">
+<p>Seg&uacute;n la informaci&oacute;n que figura en la tabla stock de la base de datos dwes, la tienda 1 (CENTRAL) tiene 2 unidades del producto de c&oacute;digo 3DSNG y la tienda 3 (SUCURSAL2) ninguno. Suponiendo que los datos son esos (no hace falta que los compruebes en el c&oacute;digo), utiliza una transacci&oacute;n para mover una unidad de ese producto de la tienda 1 a la tienda 3.</p>
+</section>
+<form name="feedback-form-quesFeedback0b43" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b43text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b43" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b43" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Deber&aacute;s hacer una consulta de actualizaci&oacute;n (para poner unidades=1 en la tienda 1) y otra de inserci&oacute;n (pues no existe ning&uacute;n registro previo para la tienda 3). Observa el c&oacute;digo de la soluci&oacute;n. Comprueba que se ejecuta bien s&oacute;lo la primera vez, pues en ejecuciones posteriores ya no es posible insertar la misma fila en la tabla.</p>
+<div class="enlace_centrado"><a class="pdf" title="Descargar soluci&oacute;n al ejercicio de transacciones utilizando la extensi&oacute;n MySQLi. [pdf - 0.01 MB]" href="DWES03_CONT_R10c_Ejercicio_resuelto.pdf">C&oacute;digo de la soluci&oacute;n</a>. <span class="tamano"> (0.01 MB) </span></div></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id44">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-44_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion44_60" class="block question iDevice_content">
+<strong>En el modo de gestión de transacciones que se utiliza por defecto, ¿es posible revertir los cambios que se aplican al ejecutar una consulta de acción? </strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i44_63" class="sr-av"><a href="#answer-44_63">Opción 1</a></label><input type="radio" name="option44_60" id="i44_63" class="exe-radio-option exe-radio-option-0-2-44_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-44_63"><div id="taans44_63" class="block iDevice_content">
+No.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i44_110" class="sr-av"><a href="#answer-44_110">Opción 2</a></label><input type="radio" name="option44_60" id="i44_110" class="exe-radio-option exe-radio-option-1-2-44_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-44_110"><div id="taans44_110" class="block iDevice_content">
+Sí. 
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b44_60" class="feedback js-hidden">
+<div id="taf44_63" class=" iDevice_content">
+Correcto, el modo por defecto indica que se realice un &quot;commit&quot; automático por cada consulta, con lo cual es imposible revertir los cambios que se han realizado.
+
+</div>
+</section>
+<section id="sa1b44_60" class="feedback js-hidden">
+<div id="taf44_110" class=" iDevice_content">
+Incorrecto, revisa el funcionamiento del modo de gestión de transacciones que se aplica por defecto.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-44_63">Opción correcta</a><span> (<a href="#sa0b44_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-44_110">Incorrecto</a><span> (<a href="#sa1b44_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="312_ejecucin_de_consultas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

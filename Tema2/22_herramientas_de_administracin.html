@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.2.- Herramientas de administración. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-4"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li class="current-page-parent"><a href="2_mysql.html" class="current-page-parent daddy">2.- MySQL.</a>
+   <ul>
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li id="active"><a href="22_herramientas_de_administracin.html" class="active daddy">2.2.- Herramientas de administración.</a>
+      <ul>
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="21_instalacin_y_configuracin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="221_mysql_y_mysqladmin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2.2.- Herramientas de administración.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id12">
+<div class="iDevice emphasis0">
+<div id="ta12_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R04_Pinguino_ordenador.png" alt="Ping&uuml;ino sentado a una mesa y manejando un ordenador." title="Ping&uuml;ino al ordenador." height="180" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="Moini." href="http://www.openclipart.org/detail/132427/penguin-admin-by-moini." target="_blank">Moini.</a></div>
+</div>
+<p>&nbsp;</p>
+<p>Existen muchas herramientas que permiten establecer una conexi&oacute;n con un servidor MySQL para realizar tareas de administraci&oacute;n. Algunas herramientas se ejecutan en la l&iacute;nea de comandos, otras presentan un interface gr&aacute;fico basado en web o propio del sistema operativo en que se ejecuten. Unas se incluyen con el propio servidor, y otras es necesario obtenerlas e instalarlas de forma independiente. Las hay que est&aacute;n orientadas a alg&uacute;n prop&oacute;sito concreto y tambi&eacute;n que permiten realizar varias funciones de administraci&oacute;n.</p>
+<p>Con el servidor MySQL se incluyen algunas herramientas de administraci&oacute;n en l&iacute;nea de comandos, entre las que debes conocer:</p>
+<ul class="lista_verificacion">
+<li><strong>mysql</strong>. Permite conectarse a un servidor MySQL para ejecutar sentencias SQL.</li>
+<li><strong>mysqladmin</strong>. Es un cliente espec&iacute;fico para tareas de administraci&oacute;n.</li>
+<li><strong>mysqlshow</strong>. Muestra informaci&oacute;n sobre bases de datos y tablas.</li>
+</ul>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id13">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta13_47" class="block iDevice_content">
+<p>En la documentaci&oacute;n de MySQL tienes informaci&oacute;n sobre las distintas utilidades que incorpora.</p>
+<p class="enlace_centrado"><a title="Acceder a programas cliente y utilidades en la documentaci&oacute;n de MySQL." href="http://dev.mysql.com/doc/refman/5.7/en/programs-client.html">Utilidades que incorpora</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id14">
+<div class="iDevice emphasis0">
+<div id="ta14_73" class="block iDevice_content">
+<p>Estas herramientas comparten unas cuantas opciones relativas al establecimiento de la conexi&oacute;n con el servidor. Muchas de estas opciones tienen tambi&eacute;n una forma abreviada:</p>
+<ul class="lista_verificacion">
+<li><strong>--user=nombre_usuario (<em>-u nombre_usuario</em>)</strong>. Indica un nombre de usuario con permisos para establecer la conexi&oacute;n. Si no se especifica se usar&aacute; el nombre de usuario actual del sistema operativo.</li>
+<li><strong>--password=contrase&ntilde;a (<em>-pcontrase&ntilde;a</em>)</strong>. Contrase&ntilde;a asociada al nombre de usuario anterior. Si se utiliza la opci&oacute;n abreviada, debe figurar justo a continuaci&oacute;n de la letra p, sin espacios intermedios. Si es necesario introducir una contrase&ntilde;a y no se indica ninguna, se pedir&aacute; para establecer la conexi&oacute;n.</li>
+<li><strong>--host=equipo_servidor (<em>-h equipo_servidor</em>)</strong>. Nombre del equipo con el que se establecer&aacute; la conexi&oacute;n. Si no se indica nada, se usar&aacute; "localhost".</li>
+</ul>
+<p>Por ejemplo, para establecer una conexi&oacute;n al servidor local con la herramienta mysql, podemos hacer:</p>
+<div class="codigo elemento_centrado" style="width: 14.8em;">
+<div class="texto_izquierda">
+<pre><code>mysql &ndash;u root &ndash;p</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper RecomendacionfpdIdevice em_iDevice" id="id15">
+<div class="iDevice emphasis_recomendacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Recomendación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta15_50" class="block iDevice_content">
+Conviene no indicar nunca la contraseña en la
+misma línea de comandos. En caso de que la cuenta esté convenientemente
+protegida por una contraseña, es mejor utilizar solo la opción -p como en el
+ejemplo anterior. De esta forma, la herramienta solicita la introducción de la
+contraseña y ésta no queda almacenada en ningún registro como puede ser el
+historial de comandos del sistema.
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id16">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta16_48" class="block iDevice_content">
+<p>De entre el resto de herramientas de administración independientes que podemos utilizar con MySQL, podemos destacar dos:</p>
+<p><strong>MySQL <span lang="en">Workbench</span></strong> es una herramienta genérica con interface gráfico nativo que permite administrar tanto el servidor como las bases de datos que éste gestiona. Ha sido desarrollada por los creadores de MySQL y se ofrece en dos ediciones, una de ellas de código abierto bajo licencia GPL.</p>
+<p class="enlace_centrado"><a href="http://dev.mysql.com/doc/workbench/en/index.html" title="Acceder a herramienta de administración MySQL Workbench." target="_self">MySQL <span lang="en">Workbench</span></a>.</p>
+<p><strong>phpMyAdmin</strong> es una aplicación web muy popular para la administración de servidores MySQL. Presenta un interface web de administración programado en PHP bajo licencia GPL. Su objetivo principal es la administración de las bases de datos y la gestión de la información que maneja el servidor. Es la herramienta recomendada para este curso puesto que <strong>viene preinstalada con XAMPP</strong>.</p>
+<p class="enlace_centrado"><a href="http://www.phpmyadmin.net" title="Acceder a herramienta de administración phpMyAdmin." target="_self">phpMyAdmin</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ClozefpdIdevice em_iDevice" id="id17">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta17_41" class="block instructions iDevice_content">
+<strong>Relaciona cada herramienta de administración con el tipo de interface que utiliza: </strong>
+
+</section>
+<section class="activity" id="activity-17_42">
+<form name="cloze-form-17_42" action="#" class="activity-form cloze-activity-form">
+<div id="cloze17_42">
+<input type="hidden" name="clozeFlag17_42.strictMarking" id="clozeFlag17_42.strictMarking" value="false"/>
+
+<input type="hidden" name="clozeFlag17_42.checkCaps" id="clozeFlag17_42.checkCaps" value="false"/>
+
+<input type="hidden" name="clozeFlag17_42.instantMarking" id="clozeFlag17_42.instantMarking" value="false"/>
+
+<input type="hidden" name="clozeVar17_42.feedbackId" id="clozeVar17_42.feedbackId" value="ta17_43"/>
+
+<table class="tabla" summary="Tabla en la que se deben relacionar herramientas de administración de MySQL con el tipo de interface que utiliza cada una.">
+	<caption>Ejercicio de relacionar</caption>
+	<thead>
+		<tr>
+			<th scope="col">Herramienta.</th>
+			<th scope="col">Relación.</th>
+			<th scope="col">Tipo de interface.</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>MySQL <span lang="en">Workbench</span>.</td>
+			<td class="texto_centrado">  
+<label for="clozeBlank17_42.0" class="sr-av">Rellenar huecos (1):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank17_42.0" style="width:1em" />
+<span style="display:none" id="clozeAnswer17_42.0">JXUwMDZi
+</span>
+  </td>
+			<td>1. Línea de comandos.</td>
+		</tr>
+		<tr>
+			<td>mysql.</td>
+			<td class="texto_centrado">  
+<label for="clozeBlank17_42.1" class="sr-av">Rellenar huecos (2):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank17_42.1" style="width:1em" />
+<span style="display:none" id="clozeAnswer17_42.1">JXUwMDY5
+</span>
+  </td>
+			<td>2. Web.</td>
+		</tr>
+		<tr>
+			<td>phpMyAdmin.</td>
+			<td class="texto_centrado">  
+<label for="clozeBlank17_42.2" class="sr-av">Rellenar huecos (3):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank17_42.2" style="width:1em" />
+<span style="display:none" id="clozeAnswer17_42.2">JXUwMDZh
+</span>
+  </td>
+			<td>3. Nativo.</td>
+		</tr>
+		<tr>
+			<td>mysqladmin.</td>
+			<td class="texto_centrado">  
+<label for="clozeBlank17_42.3" class="sr-av">Rellenar huecos (4):</label>
+<input class="autocomplete-off" type="text" value="" id="clozeBlank17_42.3" style="width:1em" />
+<span style="display:none" id="clozeAnswer17_42.3">JXUwMDZj
+</span>
+  </td>
+			<td>4. Línea de comandos.</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="block iDevice_buttons">
+<p>
+<input class="button" type="submit" name="submit17_42" value="Enviar"  id="submit17_42" />
+
+<input type="button" name="restart17_42" value="Reiniciar" style="display:none" id="restart17_42" onclick="$exe.cloze.restart('17_42')" />
+
+ 
+<input type="button" name="17_42showAnswersButton" value="Mostrar las respuestas" style="display:none" id="showAnswersButton17_42" onclick="$exe.cloze.fillInputs('17_42')" />
+
+<span class="js-hidden js-warning">Habilitar JavaScript</span>
+</p>
+</div>
+<div id="clozeScore17_42"></div>
+</div>
+</form>
+</section><section id="ta17_43" class="feedback js-feedback iDevice_content" style="display:none">
+Es importante conocer las diferentes herramientas de administración de MySQL.
+
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="21_instalacin_y_configuracin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="221_mysql_y_mysqladmin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

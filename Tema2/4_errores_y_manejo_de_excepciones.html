@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.- Errores y manejo de excepciones. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-19"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li id="active"><a href="4_errores_y_manejo_de_excepciones.html" class="active daddy">4.- Errores y manejo de excepciones.</a>
+   <ul>
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="324_consultas_preparadas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_excepciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.- Errores y manejo de excepciones.</h1></header>
+<article class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id70">
+<div class="iDevice emphasis_casopracticofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Caso práctico</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta70_66" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R18_Advertencia.png" alt="S&iacute;mbolo de exclamaci&oacute;n sobre un tri&aacute;ngulo." title="S&iacute;mbolo advertencia." height="160" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="An&oacute;nima." href="http://www.openclipart.org/detail/114835/ftwarning-by-anonymous." target="_blank">An&oacute;nima.</a></div>
+</div>
+<p>En sus primeros pasos en la programaci&oacute;n en lenguaje PHP, <strong>Carlos se ha encontrado frecuentemente con peque&ntilde;os errores en el c&oacute;digo</strong>. En la mayor&iacute;a de las ocasiones los errores estaban causados por fallos de programaci&oacute;n. Pero en las recientes pruebas llevadas a cabo con bases de datos, se ha dado cuenta de que <strong>en algunas ocasiones se pueden producir fallos ajenos al programa.</strong></p>
+<p>Por ejemplo, puede obtener un error porque <strong>no est&eacute; disponible el servidor de bases de datos</strong> con el que se ha de conectar la aplicaci&oacute;n, o porque <strong>se acaba de borrar de la base de datos un registro al que estaba accediendo</strong>. En &eacute;stos, y muchos otros, casos es necesario que la aplicaci&oacute;n que desarrollen se comporte de forma s&oacute;lida y coherente. Es necesario estudiar a fondo las <strong>posibilidades que ofrece PHP para la gesti&oacute;n de errores.</strong></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id71">
+<div class="iDevice emphasis0">
+<div id="ta71_73" class="block iDevice_content">
+<p>A buen seguro que, conforme has ido resolviendo ejercicios o simplemente probando c&oacute;digo, te has encontrado con errores de programaci&oacute;n. Algunos son reconocidos por el entorno de desarrollo (NetBeans), y puedes corregirlos antes de ejecutar. Otros aparecen en el navegador en forma de mensaje de error al ejecutar el gui&oacute;n.<br /> PHP define una clasificaci&oacute;n de los errores que se pueden producir en la ejecuci&oacute;n de un programa y ofrece m&eacute;todos para ajustar el tratamiento de los mismos. Para hacer referencia a cada uno de los niveles de error, PHP define una serie de constantes. Cada nivel se identifica por una constante. Por ejemplo, la constante <strong>E_NOTICE</strong> hace referencia a avisos que pueden indicar un error al ejecutar el gui&oacute;n, y la constante <strong>E_ERROR</strong> engloba errores fatales que provocan que se interrumpa forzosamente la ejecuci&oacute;n.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id72">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta72_48" class="block iDevice_content">
+<p>
+La lista completa de constantes la puedes consultar en el manual de PHP, donde también se describe el tipo de errores que representa.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/errorfunc.constants.php" title="Acceder a constantes predefinidas en PHP para identificar los distintos niveles de error." target="_self">Lista completa de constantes en PHP</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id73">
+<div class="iDevice emphasis0">
+<div id="ta73_73" class="block iDevice_content">
+<p>
+La configuración inicial de cómo  se va a tratar cada error según su nivel se realiza en <strong>php.ini</strong> el fichero de configuración de PHP. Entre los principales  parámetros que puedes ajustar están:
+</p>
+<ul class="lista_verificacion">
+	<li><strong>error_reporting</strong>.  Indica qué tipos de errores se notificarán. Su valor se forma utilizando los  operadores a nivel de bit para combinar las constantes anteriores. Su valor  predeterminado es <strong>E_ALL &amp; ~E_NOTICE</strong> que indica que se notifiquen todos los errores (E_ALL) salvo los avisos en  tiempo de ejecución (E_NOTICE).</li>
+	<li><strong>display_errors</strong>.  En su valor por defecto (<strong>On</strong>), hace  que los mensajes se envíen a la salida estándar (y por lo tanto se muestren en  el navegador). Se debe desactivar (<strong>Off</strong>)  en los servidores que no se usan para desarrollo sino para producción.</li>
+</ul>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id74">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta74_47" class="block iDevice_content">
+<p>
+Existen otros parámetros que podemos utilizar en php.ini para ajustar el comportamiento de PHP cuando se produce un error.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/errorfunc.configuration.php" title="Acceder parámetros de configuración del tratamiento de errores en PHP." target="_self">Parámetros que podemos ajustar en php.ini</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id75">
+<div class="iDevice emphasis0">
+<div id="ta75_73" class="block iDevice_content">
+<p>
+Desde código, puedes usar la  función <code><strong>error_reporting</strong></code> con las constantes anteriores para establecer el  nivel de notificación en un momento determinado. Por ejemplo, si en algún lugar  de tu código figura una división en la que exista la posibilidad de que el  divisor sea cero, cuando esto ocurra obtendrás un mensaje de error en el  navegador. Para evitarlo, puedes desactivar la notificación de errores de nivel  E_WARNING antes de la división y restaurarla a su valor normal a continuación:
+</p>
+<div class="codigo elemento_centrado" style="width: 36.8em">
+<div class="texto_izquierda">
+<pre>
+<code>error_reporting(E_ALL &amp; ~E_NOTICE &amp; ~E_WARNING);</code>
+</pre>
+<pre>
+<code>$resultado = $dividendo / $divisor;</code>
+</pre>
+<pre>
+<code>error_reporting(E_ALL &amp; ~E_NOTICE);</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Al usar la función <code>error_reporting</code>  solo controlas qué tipo de errores va a notificar PHP. A veces puede ser  suficiente, pero para obtener más control sobre el proceso existe también la  posibilidad de reemplazar la gestión de los mismos por la que tú definas. Es  decir, puedes programar una función para que sea la que ejecuta PHP cada vez  que se produce un error. El nombre de esa función se indica utilizando <code><strong>set_error_handler</strong></code> y debe tener como mínimo dos parámetros obligatorios (el nivel del error y el  mensaje descriptivo) y hasta otros tres opcionales con información adicional  sobre el error (el nombre del fichero en que se produce, el número de línea, y  un volcado del estado de las variables en ese momento).
+</p>
+<div class="codigo elemento_centrado" style="width: 52.75em">
+<div class="texto_izquierda">
+<pre>
+<code>set_error_handler(&quot;miGestorDeErrores&quot;);</code>
+</pre>
+<pre>
+<code>$resultado = $dividendo / $divisor;</code>
+</pre>
+<pre>
+<code>restore_error_handler();</code>
+</pre>
+<pre>
+<code></code>
+</pre>
+<pre>
+<code>function miGestorDeErrores($nivel, $mensaje)</code>
+</pre>
+<pre>
+<code>{</code>
+</pre>
+<pre>
+<code>    switch($nivel) {</code>
+</pre>
+<pre>
+<code>        case E_WARNING:</code>
+</pre>
+<pre>
+<code>            echo &quot;Error de tipo WARNING: $mensaje.&lt;br /&gt;&quot;;</code>
+</pre>
+<pre>
+<code>            break;</code>
+</pre>
+<pre>
+<code>        default:</code>
+</pre>
+<pre>
+<code>            echo &quot;Error de tipo no especificado: $mensaje.&lt;br /&gt;&quot;;                </code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+La función <code><strong>restore_error_handler</strong></code> restaura el manejador de errores original de PHP (más concretamente, el que se  estaba usando antes de la llamada a <code>set_error_handler</code>).
+</p>
+
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="324_consultas_preparadas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_excepciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

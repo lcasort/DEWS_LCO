@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.2.1.- mysql y mysqladmin. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-5"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li class="current-page-parent"><a href="2_mysql.html" class="current-page-parent daddy">2.- MySQL.</a>
+   <ul>
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li class="current-page-parent"><a href="22_herramientas_de_administracin.html" class="current-page-parent daddy">2.2.- Herramientas de administración.</a>
+      <ul>
+         <li id="active"><a href="221_mysql_y_mysqladmin.html" class="active no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="22_herramientas_de_administracin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="222_phpmyadmin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2.2.1.- mysql y mysqladmin.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id18">
+<div class="iDevice emphasis0">
+<div id="ta18_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R05_Terminal_linux.png" alt="Ventana de terminal de Linux con l&iacute;nea de comandos." title="Terminal Linux." height="156" width="200" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;<a title="shokunin." href="http://www.openclipart.org/detail/76135/linux-terminal-window-by-shokunin." target="_blank">shokunin.</a></div>
+</div>
+<p>La forma m&aacute;s habitual de utilizar la herramienta <strong>mysql</strong> es en modo interactivo. Una vez te conectas al servidor MySQL, te presenta una l&iacute;nea de &oacute;rdenes. En esa l&iacute;nea de &oacute;rdenes puedes introducir sentencias SQL, que se ejecutar&aacute;n sobre la base de datos seleccionada, y algunos comandos especiales. Las sentencias SQL deben terminar en el car&aacute;cter ";". Entre los comandos especiales que puedes usar est&aacute;n:</p>
+<ul class="lista_verificacion">
+<li><strong>connect</strong>. Establece una conexi&oacute;n con un servidor MySQL.</li>
+<li><strong>use</strong>. Permite seleccionar una base de datos.</li>
+<li><strong>exit</strong> o <strong>quit</strong>. Termina la sesi&oacute;n interactiva con mysql.</li>
+<li><strong>help</strong>. Muestra una pantalla de ayuda con la lista de comandos disponibles.</li>
+</ul>
+<p>Por ejemplo, si cuando est&aacute;s utilizando la herramienta quieres seleccionar la base de datos "dwes", debes hacer:</p>
+<div class="codigo elemento_centrado" style="width: 14.25em;">
+<div class="texto_izquierda">
+<pre><code>mysql&gt; use dwes</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Las sentencias SQL que teclees a partir de ese instante se ejecutar&aacute;n sobre la base de datos "dwes".</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id19">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta19_48" class="block iDevice_content">
+<p>Para comprobar la sintaxis de las sentencias SQL admitidas por MySQL, puedes consultar la documentaci&oacute;n en l&iacute;nea.</p>
+<p class="enlace_centrado"><a title="Acceder a documentaci&oacute;n de la sintaxis admitida por MySQL para las sentencias SQL." href="http://dev.mysql.com/doc/refman/5.7/en/sql-syntax.html">Documentaci&oacute;n en l&iacute;nea</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id20">
+<div class="iDevice emphasis0">
+<div id="ta20_73" class="block iDevice_content">
+<p>Tambi&eacute;n puedes usar mysql en modo de <a class="glosario">procesamiento por lotes,<span><em>Procesamiento por lotes.</em>Ejecuci&oacute;n de un conjunto de tareas repetitivas o de forma consecutiva, sin la supervisi&oacute;n directa del usuario.</span></a> para ejecutar sobre un servidor MySQL todas las sentencias almacenadas en un fichero de texto (normalmente con extensi&oacute;n .sql). Por ejemplo:</p>
+<div class="codigo elemento_centrado" style="width: 31.3em;">
+<div class="texto_izquierda">
+<pre><code>mysql &ndash;u root &ndash;pabc123. &lt; crear_bd_dwes.sql</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id21">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta21_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b21" class="block iDevice_content">
+<p>Utiliza las sentencias SQL que contiene el siguiente fichero para crear la estructura de la base de datos "dwes" en tu instalación de MySQL.</p>
+<div class="enlace_centrado"><a href="dwes.sql" title="[sql - 1315 B]">Fichero por lotes de SQL para crear la base de datos "dwes".</a><span class="tamano"> </span><span class="exe-link-data file-size"> (sql - 1315 <abbr title="Bytes" lang="en">B</abbr>)</span></div>
+</section>
+<form name="feedback-form-quesFeedback0b21" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b21text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b21" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b21" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Utilizando la herramienta mysql ejecuta:</p>
+<div class="elemento_centrado" style="width: 22.5em;">
+<div class="texto_izquierda">
+<div class="highlighted-code language-php">
+<div>
+<pre><code>mysql –u root –p &lt; dwes.sql</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p> O como veremos en el apartado siguiente también puedes desde <a href="http://localhost/phpmyadmin">http://localhost/phpmyadmin</a> seleccionar la pestaña "SQL" y pegar el contenido del fichero para crear la base de datos.</p></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id22">
+<div class="iDevice emphasis0">
+<div id="ta22_73" class="block iDevice_content">
+<p>
+<strong>mysqladmin</strong> es una herramienta no interactiva orientada
+a tareas de administración del propio servidor. Las tareas concretas de
+administración a llevar a cabo, se indican mediante parámetros en la línea de
+comandos. Entre las tareas que puedes llevar a cabo con esta utilidad se
+encuentran:
+</p>
+<ul class="lista_verificacion">
+	<li>
+	crear y eliminar bases de datos.</li>
+	<li>
+	mostrar la configuración y el estado del
+	servidor.</li>
+	<li>
+	cambiar contraseñas.</li>
+	<li>
+	detener un servidor.</li>
+</ul>
+<p>
+Por ejemplo, si quieres mostrar
+información sobre el estado actual del servidor local, puedes utilizar el
+comando <strong>status</strong>:
+</p>
+<div class="codigo elemento_centrado" style="width: 25.25em">
+<div class="texto_izquierda">
+<pre>
+<code>mysqladmin –u root –pabc123. status</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id83">
+<div class="iDevice emphasis_debesconocerfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Debes conocer</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta83_48" class="block iDevice_content">
+<p>En la documentaci&oacute;n de MySQL tienes informaci&oacute;n sobre todos los comandos que admite mysqladmin y su significado.</p>
+<p class="enlace_centrado"><a title="Acceder a comandos admitidos por la herramienta de administraci&oacute;n mysqladmin." href="http://dev.mysql.com/doc/refman/5.7/en/mysqladmin.html">Comandos que admite mysqladmin</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id23">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-23_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion23_60" class="block question iDevice_content">
+<strong>Si quieres saber si en una tabla de una base de datos existe o no un registro, ¿qué herramienta en línea de comandos puedes usar?</strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i23_63" class="sr-av"><a href="#answer-23_63">Opción 1</a></label><input type="radio" name="option23_60" id="i23_63" class="exe-radio-option exe-radio-option-0-2-23_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-23_63"><div id="taans23_63" class="block iDevice_content">
+mysqladmin.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i23_85" class="sr-av"><a href="#answer-23_85">Opción 2</a></label><input type="radio" name="option23_60" id="i23_85" class="exe-radio-option exe-radio-option-1-2-23_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-23_85"><div id="taans23_85" class="block iDevice_content">
+mysql.
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b23_60" class="feedback js-hidden">
+<div id="taf23_63" class=" iDevice_content">
+No es correcto, revisa las tareas que permite llevar a cabo esta herramienta.
+
+</div>
+</section>
+<section id="sa1b23_60" class="feedback js-hidden">
+<div id="taf23_85" class=" iDevice_content">
+Efectivamente. La herramienta mysqladmin la puedes utilizar para realizar tareas administrativas, pero no para ejecutar consultas sobre el contenido de las bases de datos.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-23_63">Incorrecto</a><span> (<a href="#sa0b23_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-23_85">Opción correcta</a><span> (<a href="#sa1b23_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="22_herramientas_de_administracin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="222_phpmyadmin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<lim version="3.30">
+    <config>
+        <licenza>Creative Commons CC BY NC SA</licenza>
+        <idioma>0</idioma>
+        <corfondo>1E73B4</corfondo>
+        <corbanda>80FF80</corbanda>
+        <cornavega>80FF80</cornavega>
+        <cormensaxes>000000</cormensaxes>
+        <cortexto>FFFFFF</cortexto>
+        <titulo>Bases de Datos en PHP</titulo>
+        <autor>Víctor M. Lourido Estévez</autor>
+        <informe>1</informe>
+        <botonson>0</botonson>
+        <maximizar>1</maximizar>
+        <desordenar>0</desordenar>
+        <correcto son="" modo="1" >!! PERFECTO !!</correcto>
+        <incorrecto son="" modo="1" >INCORRECTO - Inténtalo de nuevo.</incorrecto>
+    </config>
+    <libro>
+        <paxina id="1" >
+              <tipo>38</tipo>
+              <imaxe>DWES03_AUX_R01_Animacion_MySQL.jpg</imaxe>
+              <forma>3</forma>
+              <texto><![CDATA[
+<p align="center">
+<font color="#400040" face="PMingLiU" size="46"><b>Bases de Datos<br>
+en PHP</font></b></p>
+]]></texto>
+              <ctexto>FFFFFF</ctexto>
+        </paxina>
+        <paxina id="2" >
+              <tipo>46</tipo>
+              <cabeceira>Motores de almacenamiento de MySQL</cabeceira>
+              <etiqueta texto="Se utiliza por defecto"  posy="2,4">InnoDB</etiqueta>
+              <etiqueta texto="Tablas transaccionales"  posy="1,3">MyISAM</etiqueta>
+              <etiqueta texto="Mayor velocidad"  posy="">-</etiqueta>
+              <etiqueta texto="Integridad referencial"  posy="">-</etiqueta>
+        </paxina>
+        <paxina id="3" >
+              <tipo>37</tipo>
+              <cabeceira>Herramientas de administración de MySQL</cabeceira>
+              <texto><![CDATA[1. Permite ejecutar sentencias SQL.
+2. Muestra información sobre bases de datos y tablas.
+3. En línea de comandos, específica para tareas de administración.
+4. Programada en lenguaje PHP.
+5. Comando de mysql para seleccionar una base de datos.
+6. Usuario administrador de MySQL, por defecto.
+]]></texto>
+              <completa>mysql</completa>
+              <completa>mysqlshow</completa>
+              <completa>mysqladmin</completa>
+              <completa>phpmyadmin</completa>
+              <completa>use</completa>
+              <completa>root</completa>
+        </paxina>
+    </libro>
+</lim>

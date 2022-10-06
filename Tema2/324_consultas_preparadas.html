@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.2.4.- Consultas preparadas. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-18"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="32_php_data_objects_pdo.html" class="current-page-parent daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul>
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li id="active"><a href="324_consultas_preparadas.html" class="active no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_errores_y_manejo_de_excepciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.2.4.- Consultas preparadas.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id65">
+<div class="iDevice emphasis0">
+<div id="ta65_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R17_PDO_procedimiento.png" alt="S&iacute;mbolo de obtenci&oacute;n de informaci&oacute;n de una base de datos sobre la que se encuentra media rueda dentada, y junto a las letras PDO." title="Ejecutar procedimiento PDO." height="176" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+<p>Al igual que con MySQLi, tambi&eacute;n utilizando PDO podemos preparar consultas parametrizadas en el servidor para ejecutarlas de forma repetida. El procedimiento es similar e incluso los m&eacute;todos a ejecutar tienen pr&aacute;cticamente los mismos nombres.</p>
+<p>Para preparar la consulta en el servidor MySQL, deber&aacute;s utilizar el m&eacute;todo <code><strong>prepare</strong></code> de la clase PDO. Este m&eacute;todo devuelve un objeto de la clase <code><strong>PDOStatement</strong></code>. Los par&aacute;metros se pueden marcar utilizando signos de interrogaci&oacute;n como en el caso anterior.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="codigo elemento_centrado" style="width: 48.9em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$consulta = $dwes-&gt;prepare('INSERT INTO familia (cod, nombre) VALUES (?, ?)');</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>O tambi&eacute;n utilizando par&aacute;metros con nombre, precedi&eacute;ndolos por el s&iacute;mbolo de dos puntos.</p>
+<div class="codigo elemento_centrado" style="width: 53.85em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$consulta = $dwes-&gt;prepare('INSERT INTO familia (cod, nombre) VALUES (:cod, :nombre)');</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Antes de ejecutar la consulta hay que asignar un valor a los par&aacute;metros utilizando el m&eacute;todo bindParam de la clase PDOStatement. Si utilizas signos de interrogaci&oacute;n para marcar los par&aacute;metros, el procedimiento es equivalente al m&eacute;todo bindColumn que acabamos de ver.</p>
+<div class="codigo elemento_centrado" style="width: 29.1em;">
+<div class="texto_izquierda">
+<pre><code>$cod_producto = "TABLET";</code>
+</pre>
+<pre><code>$nombre_producto = "Tablet PC";</code>
+</pre>
+<pre><code>$consulta-&gt;bindParam(1, $cod_producto);</code>
+</pre>
+<pre><code>$consulta-&gt;bindParam(2, $nombre_producto);</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Si utilizas par&aacute;metros con nombre, debes indicar ese nombre en la llamada a bindParam.</p>
+<div class="codigo elemento_centrado" style="width: 33.5em;">
+<div class="texto_izquierda">
+<pre><code>$consulta-&gt;bindParam(":cod", $cod_producto);</code>
+</pre>
+<pre><code>$consulta-&gt;bindParam(":nombre", $nombre_producto);</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id66">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta66_70" class="block iDevice_content">
+<p>Tal y como suced&iacute;a con la extensi&oacute;n MySQLi, cuando uses <code>bindParam</code> para asignar los par&aacute;metros de una consulta preparada, deber&aacute;s usar siempre variables como en el ejemplo anterior.</p>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id67">
+<div class="iDevice emphasis0">
+<div id="ta67_73" class="block iDevice_content">
+<p>
+Una vez preparada la consulta y enlazados los parámetros con sus valores, se ejecuta la consulta utilizando el método <code>execute</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 17.55em">
+<div class="texto_izquierda">
+<pre>
+<code>$consulta-&gt;execute();</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Alternativamente, es posible asignar los valores de los parámetros en el momento de ejecutar la consulta, utilizando un array (asociativo o con claves numéricas dependiendo de la forma en que hayas indicado los parámetros) en la llamada a <code>execute</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 42.3em">
+<div class="texto_izquierda">
+<pre>
+<code>$parametros = array(&quot;:cod&quot; =&gt; &quot;TABLET&quot;, &quot;:nombre&quot; =&gt; &quot;Tablet PC&quot;);</code>
+</pre>
+<pre>
+<code>$consulta-&gt;execute($parametros);</code>
+</pre>
+</div>
+</div>
+ 
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id68">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta68_47" class="block iDevice_content">
+<p>
+Puedes consultar la información sobre la utilización en PDO de consultas preparadas y la clase PDOStatement en el manual de PHP.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/class.pdostatement.php" title="Acceder a página del manual de PHP con información sobre la clase PDOStatement y consultas preparadas en PDO." target="_self">Consultas preparadas y la clase PDOStatement</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id69">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta69_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b69" class="block iDevice_content">
+<p>
+Modifica el ejercicio sobre consultas preparadas que realizaste con la extensión MySQLi, el que modificaba el número de unidades de un producto en las distintas tiendas, para que utilice ahora la extensión PDO.
+</p>
+
+</section>
+<form name="feedback-form-quesFeedback0b69" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b69text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b69" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b69" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>
+Como puedes comprobar, para obtener la solución se puede aprovechar la mayoría del código existente en el ejercicio anterior.
+</p>
+<div class="enlace_centrado">
+ <a class="pdf" href="DWES03_CONT_R17b_Ejercicio_resuelto.pdf" title="Descargar solución al ejercicio de consultas preparadas utilizando la extensión PDO. [pdf - 0.01 MB]">Solución al ejercicio propuesto</a>. <span class="tamano"> (0.01 MB) </span> 
+</div>
+</section>
+</form>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_errores_y_manejo_de_excepciones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

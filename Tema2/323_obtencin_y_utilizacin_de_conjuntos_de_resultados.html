@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.2.3.- Obtención y utilización de conjuntos de resultados. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-17"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="32_php_data_objects_pdo.html" class="current-page-parent daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul>
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li id="active"><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="active no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="322_ejecucin_de_consultas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="324_consultas_preparadas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.2.3.- Obtención y utilización de conjuntos de resultados.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id62">
+<div class="iDevice emphasis0">
+<div id="ta62_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R16_PDO_dataset.png" alt="S&iacute;mbolo de obtenci&oacute;n de informaci&oacute;n de una base de datos junto a las letras PDO." title="Obtener dataset PDO." height="176" width="160" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n propia</div>
+</div>
+<p>Al igual que con la extensi&oacute;n MySQLi, en PDO tienes varias posibilidades para tratar con el conjunto de resultados devuelto por el m&eacute;todo <code>query</code>. La m&aacute;s utilizada es el m&eacute;todo <code><strong>fetch</strong></code> de la clase PDOStatement. Este m&eacute;todo devuelve un registro del conjunto de resultados, o false si ya no quedan registros por recorrer.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="codigo elemento_centrado" style="width: 51.1em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$resultado = $dwes-&gt;query("SELECT producto, unidades FROM stock");</code>
+</pre>
+<pre><code>while ($registro = $resultado-&gt;fetch()) {</code>
+</pre>
+<pre><code>    echo "Producto ".$registro['producto'].": ".$registro['unidades']."&lt;br /&gt;";</code>
+</pre>
+<pre><code>}</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Por defecto, el m&eacute;todo <code>fetch</code> genera y devuelve a partir de cada registro un array con claves num&eacute;ricas y asociativas. Para cambiar su comportamiento, admite un par&aacute;metro opcional que puede tomar uno de los siguientes valores:</p>
+<ul class="lista_verificacion">
+<li><strong>PDO::FETCH_ASSOC</strong>. Devuelve solo un array asociativo.</li>
+<li><strong>PDO::FETCH_NUM</strong>. Devuelve solo un array con claves num&eacute;ricas.</li>
+<li><strong>PDO::FETCH_BOTH</strong>. Devuelve un array con claves num&eacute;ricas y asociativas. Es el comportamiento por defecto.</li>
+<li><strong>PDO::FETCH_OBJ</strong>. Devuelve un objeto cuyas propiedades se corresponden con los campos del registro.</li>
+</ul>
+<div class="codigo elemento_centrado" style="width: 48.9em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$resultado = $dwes-&gt;query("SELECT producto, unidades FROM stock");</code>
+</pre>
+<pre><code>while ($registro = $resultado-&gt;fetch(PDO::FETCH_OBJ)) {</code>
+</pre>
+<pre><code>    echo "Producto ".$registro-&gt;producto.": ".$registro-&gt;unidades."&lt;br /&gt;";</code>
+</pre>
+<pre><code>}</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul class="lista_verificacion">
+<li><strong>PDO::FETCH_LAZY</strong>. Devuelve tanto el objeto como el array con clave dual anterior.</li>
+<li><strong>PDO::FETCH_BOUND</strong>. Devuelve true y asigna los valores del registro a variables, seg&uacute;n se indique con el m&eacute;todo <code><strong>bindColumn</strong></code>. Este m&eacute;todo debe ser llamado una vez por cada columna, indicando en cada llamada el n&uacute;mero de columna (empezando en 1) y la variable a asignar.</li>
+</ul>
+<div class="codigo elemento_centrado" style="width: 45.05em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");</code>
+</pre>
+<pre><code>$resultado = $dwes-&gt;query("SELECT producto, unidades FROM stock");</code>
+</pre>
+<pre><code>$resultado-&gt;bindColumn(1, $producto);</code>
+</pre>
+<pre><code>$resultado-&gt;bindColumn(2, $unidades);</code>
+</pre>
+<pre><code>while ($registro = $resultado-&gt;fetch(PDO::FETCH_BOUND)) {</code>
+</pre>
+<pre><code>    echo "Producto ".$producto.": ".$unidades."&lt;br /&gt;";</code>
+</pre>
+<pre><code>}</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id63">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta63_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b63" class="block iDevice_content">
+<p>
+Modifica la página web que muestra el stock de un producto en las distintas tiendas, obtenida en un ejercicio anterior utilizando MySQLi, para que use PDO. Omite la gestión de errores, que veremos en el último punto de este tema.
+</p>
+
+</section>
+<form name="feedback-form-quesFeedback0b63" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b63text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b63" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b63" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>
+Comprueba en la solución propuesta los cambios realizados respecto a la solución del ejercicio equivalente que utilizaba MySQLi.
+</p>
+<div class="enlace_centrado">
+<a class="pdf" href="DWES03_CONT_R16b_Ejercicio_resuelto.pdf" title="Descargar solución al ejercicio de ejecución de consultas utilizando la extensión PDO. [pdf - 0.01 MB]">Solución propuesta</a>. <span class="tamano"> (0.01 MB) </span> 
+</div>
+</section>
+</form>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id64">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-64_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion64_60" class="block question iDevice_content">
+<strong>¿Cuál es el comportamiento por defecto del método &quot;fetch&quot;?</strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i64_63" class="sr-av"><a href="#answer-64_63">Opción 1</a></label><input type="radio" name="option64_60" id="i64_63" class="exe-radio-option exe-radio-option-0-2-64_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-64_63"><div id="taans64_63" class="block iDevice_content">
+Devuelve un array con claves numéricas y asociativas.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i64_131" class="sr-av"><a href="#answer-64_131">Opción 2</a></label><input type="radio" name="option64_60" id="i64_131" class="exe-radio-option exe-radio-option-1-2-64_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-64_131"><div id="taans64_131" class="block iDevice_content">
+Devuelve un array asociativo. 
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b64_60" class="feedback js-hidden">
+<div id="taf64_63" class=" iDevice_content">
+Efectivamente. Es similar a utilizar el parámetro <strong>&quot;PDO::FETCH_BOTH&quot;</strong>.
+
+</div>
+</section>
+<section id="sa1b64_60" class="feedback js-hidden">
+<div id="taf64_131" class=" iDevice_content">
+Incorrecto, revisa los distintos valores que se pueden utilizar para el parámetro opcional que admite.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-64_63">Opción correcta</a><span> (<a href="#sa0b64_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-64_131">Incorrecto</a><span> (<a href="#sa1b64_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="322_ejecucin_de_consultas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="324_consultas_preparadas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

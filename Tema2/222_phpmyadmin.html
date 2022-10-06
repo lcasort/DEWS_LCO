@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.2.2.- phpMyAdmin. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-6"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li class="current-page-parent"><a href="2_mysql.html" class="current-page-parent daddy">2.- MySQL.</a>
+   <ul>
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li class="current-page-parent"><a href="22_herramientas_de_administracin.html" class="current-page-parent daddy">2.2.- Herramientas de administración.</a>
+      <ul>
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li id="active"><a href="222_phpmyadmin.html" class="active no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul class="other-section">
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li><a href="32_php_data_objects_pdo.html" class="daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul class="other-section">
+         <li><a href="321_establecimiento_de_conexiones.html" class="no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="221_mysql_y_mysqladmin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2.2.2.- phpMyAdmin.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id24">
+<div class="iDevice emphasis0">
+<div id="ta24_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><a title="phpMyAdmin Login." href="DWES03_CONT_R06_phpMyAdmin_Login_miniatura.jpg"><img src="DWES03_CONT_R06_phpMyAdmin_Login_miniatura.jpg" alt="Captura de la página web de inicio de la aplicación phpMyAdmin. Se muestran las siguientes opciones de entrada: idioma, usuario y contraseña." title="phpMyAdmin Login." width="176" height="160" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> Elaboración Propia</div>
+</div>
+<p>Al contrario que las dos herramientas anteriores, <strong>phpMyAdmin</strong> no se instala con el servidor MySQL (aunque sí con XAMPP). Puedes instalarlo de forma individual, en el caso de Ubuntu utilizando el gestor de paquetes:</p>
+<div class="codigo elemento_centrado" style="width: 23.05em;">
+<div class="texto_izquierda">
+<pre><code>sudo apt-get install phpmyadmin</code></pre>
+</div>
+</div>
+<p> </p>
+<p>El proceso de instalación es sencillo. Simplemente te pregunta por el servidor web a utilizar (escoger apache2), y después debes dejar que configure una nueva base de datos propia en el servidor. Una vez instalada la aplicación, podrás acceder vía web con un navegador utilizando la URL "<code>http://localhost/phpmyadmin/</code>".</p>
+<p>Para poder entrar, debes indicar un nombre de usuario y contraseña válidos. Si realizaste el ejercicio anterior, se habrá creado en tu servidor un <strong>usuario</strong> "dwes" con <strong>contraseña</strong> "abc123." con <strong>permisos</strong> para la base de datos "dwes". Si utilizas ese usuario para entrar en la aplicación, ésta te permitirá gestionar la base de datos "dwes".</p>
+<p>El interface de la aplicación se compone de un panel de navegación a la izquierda, donde se muestran las bases de datos, y un panel principal con un menú en la parte superior y una serie de acciones e información en la parte central. Si seleccionas la base de datos "dwes", la información en pantalla cambia.</p>
+<div class="elemento_derecha">
+<div class="elemento_centrado">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><a title="phpMyAdmin Main." href="DWES03_CONT_R06b_phpMyAdmin_Main.jpg" target="_blank" rel="noopener"><img src="DWES03_CONT_R06b_phpMyAdmin_Main_miniatura.jpg" alt="Captura de la página web de inicio de la aplicación phpMyAdmin. Se muestran las siguientes opciones de entrada: idioma, usuario y contraseña." title="phpMyAdmin Main." class="imagen_ampliable" width="200" height="84" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio público" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener"><span class="transparente">Dominio público</span></a> Elaboración Propia</div>
+</div>
+</div>
+</div>
+<p>Utilizando los menús de la parte superior, puedes:</p>
+<ul class="lista_verificacion">
+<li>Ver y modificar la <strong>estructura</strong> de la base de datos.</li>
+<li>Ejecutar sentencias <strong>SQL</strong>.</li>
+<li><strong>Buscar</strong> información en toda la base de datos o en parte de la misma.</li>
+<li><strong>Generar una consulta</strong> utilizando un asistente.</li>
+<li><strong>Exportar</strong> e <strong>importar</strong> información, tanto de la estructura como de los datos.</li>
+<li><strong>Diseñar</strong> las relaciones existentes entre las tablas.</li>
+<li>Otras <strong>operaciones</strong>, como hacer una copia de la base de datos.</li>
+</ul>
+<p>Si seleccionas una tabla en lugar de la base de datos, podrás efectuar a ese nivel operaciones similares a las anteriores. En el siguiente vídeo sobre phpMyAdmin tienes información sobre el manejo básico de la aplicación.</p>
+<p><iframe width="560" height="314" src="//www.youtube.com/embed/by2QxN3HSts" allowfullscreen="allowfullscreen"></iframe></p>
+<p></p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id25">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta25_47" class="block iDevice_content">
+<p>En la página web de la aplicación tienes documentación sobre su configuración y utilización.</p>
+<p class="enlace_centrado"><a href="https://docs.phpmyadmin.net/es/latest/" target="_blank" rel="noopener">Página web de la aplicación.</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EjercicioresueltofpdIdevice em_iDevice" id="id26">
+<div class="iDevice emphasis_ejercicioresueltofpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Ejercicio resuelto</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section id="ta26_67" class="block story iDevice_content">
+
+</section>
+<section id="taquesQuestion0b26" class="block iDevice_content">
+<p>Utiliza phpMyAdmin para ejecutar las consultas del siguiente fichero, que rellenan con datos las tablas de la base de datos "dwes". Esta informaci&oacute;n la utilizaremos en los pr&oacute;ximos ejercicios.</p>
+<div class="enlace_centrado"><a class="paquete" title="Descargar documento de texto con las sentencias SQL necesarias para insertar datos en la base de datos 'dwes'. [pdf - 0.01 MB]" href="DWES03_CONT_R06c_Insertar_datos_en_BD_dwes.zip">&nbsp;&nbsp;&nbsp; Fichero por lotes de SQL para insertar datos en la base de datos "dwes"</a>. <span class="tamano"> (0.01 MB) </span></div>
+</section>
+<form name="feedback-form-quesFeedback0b26" action="#" onsubmit="return false" class="feedback-form">
+<div class="block iDevice_buttons feedback-button js-required">
+<p><script type="text/javascript">var feedbackquesFeedback0b26text = "Mostrar retroalimentación";</script><input type="button" name="toggle-feedback-quesFeedback0b26" value="Mostrar retroalimentación" class="feedbackbutton feedback-toggler" /></p>
+</div>
+<section id="feedback-quesFeedback0b26" class="feedback js-feedback js-hidden">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<p>Selecciona en el panel de la izquierda la base de datos, y utilizando el men&uacute; SQL pega todo el texto del fichero (las consultas a ejecutar) y pulsa el bot&oacute;n "Continuar" para ejecutarlas.</p></section>
+</form>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper AppletIdevice" id="id88">
+<div class="iDevice emphasis0" >
+<div class="iDevice_content">
+<div>
+<object type="application/x-shockwave-flash" id="objlim" data="lim.swf?libro=bbdd_php.lim" width="100%" height="100%" align="top" >
+<param name="allowScriptAccess" value="always" />
+<param name="movie" value="lim.swf?libro=bbdd_php.lim"/>
+<param name="quality" value="high" /> 
+<param name="allowFullScreen" value="true" />
+<param name="FlashVars" value="libro=bbdd_php.lim"/>
+<param name="src" value="lim.swf?libro=bbdd_php.lim"/>
+</object>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="221_mysql_y_mysqladmin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.2.1.- Establecimiento de conexiones. | DWES02 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Jesús Manuel Marín Navarro" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-15"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">DWES02</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Trabajar con bases de datos en PHP.</a></li>
+   <li><a href="1_acceso_a_bases_de_datos_desde_php.html" class="no-ch">1.- Acceso a bases de datos desde PHP.</a></li>
+   <li><a href="2_mysql.html" class="daddy">2.- MySQL.</a>
+   <ul class="other-section">
+      <li><a href="21_instalacin_y_configuracin.html" class="no-ch">2.1.- Instalación y configuración.</a></li>
+      <li><a href="22_herramientas_de_administracin.html" class="daddy">2.2.- Herramientas de administración.</a>
+      <ul class="other-section">
+         <li><a href="221_mysql_y_mysqladmin.html" class="no-ch">2.2.1.- mysql y mysqladmin.</a></li>
+         <li><a href="222_phpmyadmin.html" class="no-ch">2.2.2.- phpMyAdmin.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_utilizacin_de_bases_de_datos_mysql_en_php.html" class="current-page-parent daddy">3.- Utilización de bases de datos MySQL en PHP.</a>
+   <ul>
+      <li><a href="31_extensin_mysqli.html" class="daddy">3.1.- Extensión MySQLi.</a>
+      <ul class="other-section">
+         <li><a href="311_establecimiento_de_conexiones.html" class="no-ch">3.1.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="312_ejecucin_de_consultas.html" class="no-ch">3.1.2.- Ejecución de consultas.</a></li>
+         <li><a href="313_transacciones.html" class="no-ch">3.1.3.- Transacciones.</a></li>
+         <li><a href="314_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.1.4.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="315_consultas_preparadas.html" class="no-ch">3.1.5.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="32_php_data_objects_pdo.html" class="current-page-parent daddy">3.2.- PHP Data Objects (PDO).</a>
+      <ul>
+         <li id="active"><a href="321_establecimiento_de_conexiones.html" class="active no-ch">3.2.1.- Establecimiento de conexiones.</a></li>
+         <li><a href="322_ejecucin_de_consultas.html" class="no-ch">3.2.2.- Ejecución de consultas.</a></li>
+         <li><a href="323_obtencin_y_utilizacin_de_conjuntos_de_resultados.html" class="no-ch">3.2.3.- Obtención y utilización de conjuntos de resultados.</a></li>
+         <li><a href="324_consultas_preparadas.html" class="no-ch">3.2.4.- Consultas preparadas.</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_errores_y_manejo_de_excepciones.html" class="daddy">4.- Errores y manejo de excepciones.</a>
+   <ul class="other-section">
+      <li><a href="41_excepciones.html" class="no-ch">4.1.- Excepciones.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="32_php_data_objects_pdo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="322_ejecucin_de_consultas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.2.1.- Establecimiento de conexiones.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id54">
+<div class="iDevice emphasis0">
+<div id="ta54_73" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES03_CONT_R14_PDO_conexion.png" alt="S&iacute;mbolo de conexi&oacute;n de dos enchufes junto a las letras PDO." title="Conexi&oacute;n PDO." height="160" width="164" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+<p>Para establecer una conexi&oacute;n con una base de datos utilizando PDO, debes instanciar un objeto de la clase PDO pas&aacute;ndole los siguientes par&aacute;metros (s&oacute;lo el primero es obligatorio):</p>
+<ul class="lista_verificacion">
+<li>Origen de datos (<acronym title="Data Source Name." lang="en">DSN</acronym>). Es una cadena de texto que indica qu&eacute; controlador se va a utilizar y a continuaci&oacute;n, separadas por el car&aacute;cter dos puntos, los par&aacute;metros espec&iacute;ficos necesarios por el controlador, como por ejemplo el nombre o direcci&oacute;n IP del servidor y el nombre de la base de datos.</li>
+<li>Nombre de usuario con permisos para establecer la conexi&oacute;n.</li>
+<li>Contrase&ntilde;a del usuario.</li>
+<li>Opciones de conexi&oacute;n, almacenadas en forma de array.</li>
+</ul>
+<p>Por ejemplo, podemos establecer una conexi&oacute;n con la base de datos 'dwes' creada anteriormente de la siguiente forma:</p>
+<div class="codigo elemento_centrado" style="width: 45.05em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = new PDO('mysql:host=localhost;dbname=dwes', 'dwes', 'abc123.');</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Si como en el ejemplo, se utiliza el controlador para MySQL, los par&aacute;metros espec&iacute;ficos para utilizar en la cadena DSN (separadas unas de otras por el car&aacute;cter punto y coma) a continuaci&oacute;n del prefijo <strong>mysql:</strong> son los siguientes:</p>
+<ul class="lista_verificacion">
+<li><strong>host</strong>. Nombre o direcci&oacute;n IP del servidor.</li>
+<li><strong>port</strong>. N&uacute;mero de puerto TCP en el que escucha el servidor.</li>
+<li><strong>dbname</strong>. Nombre de la base de datos.</li>
+<li><strong>unix_socket</strong>. Socket de MySQL en sistemas Unix.</li>
+</ul>
+<p>Si quisieras indicar al servidor MySQL utilice codificaci&oacute;n <acronym title="Unicode Transformation Format." lang="en">UTF</acronym>-8 para los datos que se transmitan, puedes usar una opci&oacute;n espec&iacute;fica de la conexi&oacute;n:</p>
+<div class="codigo elemento_centrado" style="width: 51.1em;">
+<div class="texto_izquierda">
+<pre><code>$opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND =&gt; "SET NAMES utf8");</code>
+</pre>
+<pre><code>$dwes = new PDO('mysql:host=localhost;dbname=dwes', 'dwes', 'abc123.', $opciones);</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id55">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta55_47" class="block iDevice_content">
+<p>
+En el manual de PHP puedes consultar más información sobre los controladores existentes, los parámetros de las cadenas DSN y las opciones de conexión particulares de cada uno.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/pdo.drivers.php" title="Acceder a página del manual de PHP con información sobre los controladores existentes para utilizar con PDO." target="_self">Manual de PHP</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id56">
+<div class="iDevice emphasis0">
+<div id="ta56_73" class="block iDevice_content">
+<p>Una vez establecida la conexi&oacute;n, puedes utilizar el m&eacute;todo <code><strong>getAttribute</strong></code> para obtener informaci&oacute;n del estado de la conexi&oacute;n y <code><strong>setAttribute</strong></code> para modificar algunos par&aacute;metros que afectan a la misma. Por ejemplo, para obtener la versi&oacute;n del servidor puedes hacer:</p>
+<div class="codigo elemento_centrado" style="width: 37.35em;">
+<div class="texto_izquierda">
+<pre><code>$version = $dwes-&gt;getAttribute(PDO::ATTR_SERVER_VERSION);</code>
+</pre>
+<pre><code>print "Versi&oacute;n: $version";</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Y si quieres por ejemplo que te devuelva todos los nombres de columnas en may&uacute;sculas:</p>
+<div class="codigo elemento_centrado" style="width: 41.2em;">
+<div class="texto_izquierda">
+<pre><code>$version = $dwes-&gt;setAttribute(PDO::ATTR_CASE, PDO::CASE_UPPER);</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Si se quiere <strong>liberar recursos</strong>, se debe eliminar la referencia, de la forma:</p>
+<div class="codigo elemento_centrado" style="width: 41.2em;">
+<div class="texto_izquierda">
+<pre><code>$dwes = null;</code>
+</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id57">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta57_47" class="block iDevice_content">
+<p>
+En el manual de PHP, las páginas de las funciones getAttribute y setAttribute te permiten consultar los posibles parámetros que se aplican a cada una.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/pdo.getattribute.php" title="Acceder a página del manual de PHP con información sobre el método getAttribute de PDO." target="_self">getAttribute</a>.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/pdo.setattribute.php" title="Acceder a página del manual de PHP con información sobre el método setAttribute de PDO." target="_self">setAttribute</a>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id58">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-58_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion58_60" class="block question iDevice_content">
+<strong>Para establecer una conexión con MySQL utilizando PDO, ¿dónde se puede indicar el número de puerto TCP? </strong>
+
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i58_63" class="sr-av"><a href="#answer-58_63">Opción 1</a></label><input type="radio" name="option58_60" id="i58_63" class="exe-radio-option exe-radio-option-0-2-58_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-58_63"><div id="taans58_63" class="block iDevice_content">
+En la cadena DSN que indica el origen de datos.
+
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i58_121" class="sr-av"><a href="#answer-58_121">Opción 2</a></label><input type="radio" name="option58_60" id="i58_121" class="exe-radio-option exe-radio-option-1-2-58_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-58_121"><div id="taans58_121" class="block iDevice_content">
+En el array en que figuran las opciones específicas de conexión con el servidor. 
+
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b58_60" class="feedback js-hidden">
+<div id="taf58_63" class=" iDevice_content">
+Correcto. Se incluye como parte de la cadena DSN utilizando el parámetro &quot;port&quot;.
+
+</div>
+</section>
+<section id="sa1b58_60" class="feedback js-hidden">
+<div id="taf58_121" class=" iDevice_content">
+Incorrecto, revisa los parámetros que se utilizan para establecer la conexión.
+
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-58_63">Opción correcta</a><span> (<a href="#sa0b58_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-58_121">Incorrecto</a><span> (<a href="#sa1b58_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="32_php_data_objects_pdo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="322_ejecucin_de_consultas.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>
