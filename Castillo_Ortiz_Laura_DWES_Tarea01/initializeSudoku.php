@@ -20,7 +20,7 @@ function createTable($label) {
 
     $result = '<div class="bloque">';
     $result .= '<h2>' . $label . '</h2>';
-    $result .= '<table width="300px" height="300px">';
+    $result .= '<table>';
     for($i=0; $i<count($tableData); $i++) {
         $result .= '<tr>';
         

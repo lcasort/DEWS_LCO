@@ -4,16 +4,26 @@ table, th, tr {
 }
 
 table {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.conjunto {
+    width: fit-content;
+    text-align: center;
     margin: 0 auto;
 }
 
 .bloque {
-    width: 350px;
+    width: fit-content;
     display: inline-block;
     text-align: center;
     justify-content: center;
+    padding: 0 25px;
 }
 
-.conjunto {
-    text-align: center;
+.form {
+    padding: 20px 0 0 25px;
+    text-align: left;
 }

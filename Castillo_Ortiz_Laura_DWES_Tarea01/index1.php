@@ -14,25 +14,24 @@
     createTable('FÁCIL');
     createTable('MEDIO');
     createTable('DIFÍCIL');
-
-    echo '</div>';
     ?>
+    
+        <div class='form'>
+            <form action="showSelectedSudoku.php" method="POST">
+                <div>
+                    <input type="radio" id="facil" name="dificultad" value="FÁCIL">
+                    <label for="facil">Fácil</label>
 
-    <div class='form'>
-        <form action="showSelectedSudoku.php" method="POST">
-            <div>
-                <input type="radio" id="facil" name="dificultad" value="FÁCIL">
-                <label for="facil">Fácil</label>
+                    <input type="radio" id="medio" name="dificultad" value="MEDIO">
+                    <label for="medio">Medio</label>
 
-                <input type="radio" id="medio" name="dificultad" value="MEDIO">
-                <label for="medio">Medio</label>
+                    <input type="radio" id="dificil" name="dificultad" value="DIFÍCIL">
+                    <label for="dificil">Difícil</label>
 
-                <input type="radio" id="dificil" name="dificultad" value="DIFÍCIL">
-                <label for="dificil">Difícil</label>
-
-                <button type="submit">Elegir</button>
-            </div>
-        </form>
+                    <button type="submit">Elegir</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

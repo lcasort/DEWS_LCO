@@ -14,3 +14,7 @@
     $label = $_POST['dificultad'];
 
     createTable($label);
+    ?>
+    </div>
+</body>
+</html>
