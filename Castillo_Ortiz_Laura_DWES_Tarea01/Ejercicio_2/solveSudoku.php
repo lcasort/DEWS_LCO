@@ -18,9 +18,7 @@
         playSudokuInitialize($label);
     } else {
         $unsSudoku = unserialize(base64_decode($_POST['sudoku']));
-        print_r($unsSudoku);
-        // playSudoku($unsSudoku);
-        // insertar($_POST['row'], $_POST['column'], $_POST['number'], $unsSudoku);
+        insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], $_POST['number']);
     }
 
     

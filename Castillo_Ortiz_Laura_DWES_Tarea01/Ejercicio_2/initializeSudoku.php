@@ -80,12 +80,11 @@ function playSudokuInitialize($label) {
     $result .= '</table>';
     $result .= '</div>';
     $result .= '</div>';
-?>
-    <div class="form">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <div class="inputs">
-    <input type="hidden" name="dificultad" value="<?php echo $label; ?>" />
-    <input type="hidden" name="sudoku" value="<?php echo base64_encode(serialize($tableData)); ?>" />
-<?php
+    $result .= '<div class="form">';
+    $result .= '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+    $result .= '<div class="inputs">';
+    $result .= '<input type="hidden" name="dificultad" value="' . $label . '" />';
+    $result .= '<input type="hidden" name="sudoku" value="' . base64_encode(serialize($tableData)) . '" />';
+
     echo $result;
 }
