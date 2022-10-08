@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/form.css">
     <title>SUDOKU</title>
 </head>
 <body>
@@ -22,34 +23,13 @@
             insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], $_POST['number']);
         } elseif (isset($_POST['delete'])) {
             delete($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
-        } 
-        // elseif (isset($_POST['options'])) {
-
-        // } else {
-
-        // }
-    }
-
-    
+        } elseif (isset($_POST['options'])) {
+            showOptions($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
+        } else {
+            require_once 'errors.php';
+            customError('La acción seleccionada no existe.');
+        }
+    }    
     ?>
-
-    <!-- Aquí debemos incluir el form para poder interactuar con el sudoku -->
-        
-                    <label for="number">Número</label>
-                    <input type="number" min=1 max=9 name="number" />
-                    <label for="row">Fila</label>
-                    <input type="number" min=1 max=9 name="row" />
-                    <label for="column">Columna</label>
-                    <input type="number" min=1 max=9 name="column" />
-                    
-                </div>
-                <div class="buttons">
-                    <input type="submit" name="insertar" value="Insertar" />
-                    <input type="submit" name="delete" value="Eliminar" />
-                    <input type="submit" name="options" value="Candidatos" />
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 </html>

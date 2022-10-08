@@ -1,0 +1,13 @@
+.formPlay {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.candidates {
+    display: inline-block;
+    margin-left: 10px;
+}
