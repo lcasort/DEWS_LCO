@@ -19,7 +19,7 @@
         <div class='form'>
             <form action="solveSudoku.php" method="POST">
                 <div>
-                    <input type="radio" id="facil" name="dificultad" value="FÁCIL">
+                    <input type="radio" id="facil" name="dificultad" value="FÁCIL" checked>
                     <label for="facil">Fácil</label>
 
                     <input type="radio" id="medio" name="dificultad" value="MEDIO">
