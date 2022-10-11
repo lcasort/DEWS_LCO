@@ -11,7 +11,8 @@
     <?php
     $opciones = '';
     $missingData = '';
-    $msg = '';
+    $msgInsert = '';
+    $msgDelete = '';
     require 'initializeSudoku.php';
     require 'actions.php';
 
@@ -22,9 +23,9 @@
     } else {
         $unsSudoku = unserialize(base64_decode($_POST['sudoku']));
         if (isset($_POST['insertar']) && !empty($_POST['number']) && !empty($_POST['row']) && !empty($_POST['column'])) {
-            $msg = insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], $_POST['number']);
+            $msgInsert = insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], $_POST['number']);
         } elseif (isset($_POST['delete']) && !empty($_POST['row']) && !empty($_POST['column'])) {
-            delete($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
+            $msgDelete = delete($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
         } elseif (isset($_POST['options']) && !empty($_POST['row']) && !empty($_POST['column'])) {
             $opciones = showOptions($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
         } elseif (empty($_POST['number']) || empty($_POST['row']) || empty($_POST['column'])) {
@@ -39,11 +40,11 @@
     ?>
 
                     <label for="number">Número </label>
-                    <input type="number" min=1 max=9 name="number" /><br>
+                    <input type="number" min=1 max=9 name="number"  value="<?php if (!empty($_POST["number"] && isset($_POST["number"]))) { echo $_POST["number"]; } ?>" /><br>
                     <label for="row">Fila </label>
-                    <input type="number" min=1 max=9 name="row" required/><br>
+                    <input type="number" min=1 max=9 name="row" value="<?php if (!empty($_POST["row"] && isset($_POST["row"]))) { echo $_POST["row"]; } ?>" required/><br>
                     <label for="column">Columna </label>
-                    <input type="number" min=1 max=9 name="column" required/><br>
+                    <input type="number" min=1 max=9 name="column" value="<?php if (!empty($_POST["column"] && isset($_POST["column"]))) { echo $_POST["column"]; } ?>" required/><br>
                 </div>
                 <div class="buttons">
                     <input type="submit" name="insertar" value="Insertar" /><br>
@@ -53,7 +54,8 @@
                 </div>
             </form>
             <span class="errorMsg"><?php echo $missingData; ?></span>
-            <span class="errorMsg"><?php echo $msg; ?></span>
+            <span class="errorMsg"><?php echo $msgInsert; ?></span>
+            <span class="errorMsg"><?php echo $msgDelete; ?></span>
         </div>
     </div>
 
