@@ -11,9 +11,17 @@
     <?php
     require_once 'initializeSudoku.php';
 
+    /*
+    Recogemos el nivel de dificultad seleccionado y lo
+    guardamos en una variable.
+    */ 
     $label = $_POST['dificultad'];
 
     echo '<div class="conjunto">';
+    /*
+    Llamamos a la función createTable del documento initializeSudoku.php
+    para inprimir por pantalla el sudoku seleccionado.
+    */
     createTable($label);
     ?>
     </div>

@@ -12,11 +12,20 @@
     require_once 'initializeSudoku.php';
 
     echo '<div class="conjunto">';
+
+    /*
+    Llamamos a la función createTable que tenemos en el documento
+    initializeSudoku.php para imprimir por pantalla los tres posibles sudokus.
+    */
     createTable('FÁCIL');
     createTable('MEDIO');
     createTable('DIFÍCIL');
     ?>
     
+    <!--
+        Creamos un formulario que nos permita seleccionar el nivel de dificultad del sudoku.
+        Por defecto siempre estará seleccionado el nivel fácil.
+    -->
         <div class='form'>
             <form action="showSelectedSudoku.php" method="POST">
                 <div>
