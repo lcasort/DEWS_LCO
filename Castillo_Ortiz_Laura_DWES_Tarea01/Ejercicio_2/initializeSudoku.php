@@ -85,21 +85,6 @@ function playSudokuInitialize($label) {
     $result .= '<div class="inputs">';
     $result .= '<input type="hidden" name="dificultad" value="' . $label . '" />';
     $result .= '<input type="hidden" name="sudoku" value="' . base64_encode(serialize($tableData)) . '" />';
-    $result .= '<label for="number">Número </label>';
-    $result .= '<input type="number" min=1 max=9 name="number" /><br>';
-    $result .= '<label for="row">Fila </label>';
-    $result .= '<input type="number" min=1 max=9 name="row" /><br>';
-    $result .= '<label for="column">Columna </label>';
-    $result .= '<input type="number" min=1 max=9 name="column" /><br>';
-    $result .= '</div>';
-    $result .= '<div class="buttons">';
-    $result .= '<input type="submit" name="insertar" value="Insertar" /><br>';
-    $result .= '<input type="submit" name="delete" value="Eliminar" /><br>';
-    $result .= '<input type="submit" name="options" value="Candidatos" />';
-    $result .= '</div>';
-    $result .= '</form>';
-    $result .= '</div>';
-    $result .= '</div>';
 
     echo $result;
 }

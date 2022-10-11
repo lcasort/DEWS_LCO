@@ -9,10 +9,11 @@
 </head>
 <body>
     <?php
-    include 'initializeSudoku.php';
+    require_once 'initializeSudoku.php';
 
     $label = $_POST['dificultad'];
 
+    echo '<div class="conjunto">';
     createTable($label);
     ?>
     </div>

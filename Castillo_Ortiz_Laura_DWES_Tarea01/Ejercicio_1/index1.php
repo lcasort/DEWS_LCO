@@ -11,6 +11,7 @@
     <?php
     require_once 'initializeSudoku.php';
 
+    echo '<div class="conjunto">';
     createTable('FÁCIL');
     createTable('MEDIO');
     createTable('DIFÍCIL');

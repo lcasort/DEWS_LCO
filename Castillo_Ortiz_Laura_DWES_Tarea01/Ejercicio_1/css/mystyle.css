@@ -27,3 +27,11 @@ table {
     padding: 20px 0 0 25px;
     text-align: left;
 }
+
+th.azul {
+    color: blue;
+}
+
+th.rojo {
+    color: red;
+}

@@ -1,6 +1,5 @@
 <?php
 
-echo '<div class="conjunto">';
 function createTable($label) {
     require 'declareSudokus.php';
     $tableData = 0;
@@ -27,9 +26,9 @@ function createTable($label) {
         
         for($j=0; $j< sizeof($tableData[$i]); $j++) {
             if($tableData[$i][$j]===0) {
-                $result .= '<th style="color: blue;">.</td>';
+                $result .= '<th class="azul">.</td>';
             } else {
-                $result .= '<th style="color: red;">' . $tableData[$i][$j] . '</td>';
+                $result .= '<th class="rojo">' . $tableData[$i][$j] . '</td>';
             }
         }
         

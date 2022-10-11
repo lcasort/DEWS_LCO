@@ -27,3 +27,30 @@ table {
     padding: 20px 0 0 25px;
     text-align: left;
 }
+
+th.azul {
+    color: blue;
+}
+
+th.rojo {
+    color: red;
+}
+
+.formPlay {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.candidates {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.errorMsg {
+    color: red;
+    font-size: small;
+}

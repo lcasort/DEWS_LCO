@@ -21,13 +21,17 @@ function insertar($label, $sudoku, $row, $column, $number) {
     $result = '<div class="bloque">';
     $result .= '<h2>' . $label . '</h2>';
     $result .= '<table>';
+    $msg = '';
     for ($i=0; $i<count($tableData); $i++) {
         $result .= '<tr>';
         
         for ($j=0; $j< sizeof($tableData[$i]); $j++) {
-            if ($row-1==$i && $column-1==$j && $tableData[$i][$j] == 0 && $sudoku[$i][$j] == 0) {
+            if ($row-1==$i && $column-1==$j && $tableData[$i][$j] == 0 && $sudoku[$i][$j] == 0 && $number != 0) {
                 $sudoku[$row-1][$column-1] = $number;
                 $result .= '<th style="color: blue;">' . $number . '</th>';
+            } elseif ($row-1==$i && $column-1==$j && $tableData[$i][$j] == 0 && $sudoku[$i][$j] != 0 && $number != 0) {
+                $result .= '<th style="color: blue;">' . $sudoku[$i][$j] . '</th>';
+                $msg = '<b>Error: </b>Elimine el número de la casilla seleccionada antes de sobreescribirlo.';
             } elseif ($sudoku[$i][$j]===0) {
                 $result .= '<th style="color: blue;">.</td>';
             } elseif ($sudoku[$i][$j]!=0 && $tableData[$i][$j]==0) {
@@ -48,23 +52,10 @@ function insertar($label, $sudoku, $row, $column, $number) {
     $result .= '<div class="inputs">';
     $result .= '<input type="hidden" name="dificultad" value="' . $label . '" />';
     $result .= '<input type="hidden" name="sudoku" value="' . base64_encode(serialize($sudoku)) . '" />';
-    $result .= '<label for="number">Número </label>';
-    $result .= '<input type="number" min=1 max=9 name="number" /><br>';
-    $result .= '<label for="row">Fila </label>';
-    $result .= '<input type="number" min=1 max=9 name="row" /><br>';
-    $result .= '<label for="column">Columna </label>';
-    $result .= '<input type="number" min=1 max=9 name="column" /><br>';
-    $result .= '</div>';
-    $result .= '<div class="buttons">';
-    $result .= '<input type="submit" name="insertar" value="Insertar" /><br>';
-    $result .= '<input type="submit" name="delete" value="Eliminar" /><br>';
-    $result .= '<input type="submit" name="options" value="Candidatos" />';
-    $result .= '</div>';
-    $result .= '</form>';
-    $result .= '</div>';
-    $result .= '</div>';
 
     echo $result;
+
+    return $msg;
 }
 
 function delete($label, $sudoku, $row, $column) {
@@ -94,13 +85,13 @@ function delete($label, $sudoku, $row, $column) {
         for ($j=0; $j< sizeof($tableData[$i]); $j++) {
             if ($row-1==$i && $column-1==$j && $tableData[$i][$j] == 0 && $sudoku[$i][$j] != 0) {
                 $sudoku[$row-1][$column-1] = 0;
-                $result .= '<th style="color: blue;">.</th>';
+                $result .= '<th class="azul">.</th>';
             } elseif ($sudoku[$i][$j]===0) {
-                $result .= '<th style="color: blue;">.</th>';
+                $result .= '<th class="azul">.</th>';
             } elseif ($sudoku[$i][$j]!=0 && $tableData[$i][$j]==0) {
-                $result .= '<th style="color: blue;">' . $sudoku[$i][$j] . '</th>';
+                $result .= '<th class="azul">' . $sudoku[$i][$j] . '</th>';
             } else {
-                $result .= '<th style="color: red;">' . $sudoku[$i][$j] . '</th>';
+                $result .= '<th class="rojo">' . $sudoku[$i][$j] . '</th>';
             }
         }
         
@@ -115,21 +106,6 @@ function delete($label, $sudoku, $row, $column) {
     $result .= '<div class="inputs">';
     $result .= '<input type="hidden" name="dificultad" value="' . $label . '" />';
     $result .= '<input type="hidden" name="sudoku" value="' . base64_encode(serialize($sudoku)) . '" />';
-    $result .= '<label for="number">Número </label>';
-    $result .= '<input type="number" min=1 max=9 name="number" /><br>';
-    $result .= '<label for="row">Fila </label>';
-    $result .= '<input type="number" min=1 max=9 name="row" /><br>';
-    $result .= '<label for="column">Columna </label>';
-    $result .= '<input type="number" min=1 max=9 name="column" /><br>';
-    $result .= '</div>';
-    $result .= '<div class="buttons">';
-    $result .= '<input type="submit" name="insertar" value="Insertar" /><br>';
-    $result .= '<input type="submit" name="delete" value="Eliminar" /><br>';
-    $result .= '<input type="submit" name="options" value="Candidatos" />';
-    $result .= '</div>';
-    $result .= '</form>';
-    $result .= '</div>';
-    $result .= '</div>';
 
     echo $result;
 }
@@ -179,17 +155,6 @@ function showOptions($label, $sudoku, $row, $column) {
     $result .= '<div class="inputs">';
     $result .= '<input type="hidden" name="dificultad" value="' . $label . '" />';
     $result .= '<input type="hidden" name="sudoku" value="' . base64_encode(serialize($sudoku)) . '" />';
-    $result .= '<label for="number">Número </label>';
-    $result .= '<input type="number" min=1 max=9 name="number" /><br>';
-    $result .= '<label for="row">Fila </label>';
-    $result .= '<input type="number" min=1 max=9 name="row" /><br>';
-    $result .= '<label for="column">Columna </label>';
-    $result .= '<input type="number" min=1 max=9 name="column" /><br>';
-    $result .= '</div>';
-    $result .= '<div class="buttons">';
-    $result .= '<input type="submit" name="insertar" value="Insertar" /><br>';
-    $result .= '<input type="submit" name="delete" value="Eliminar" /><br>';
-    $result .= '<input type="submit" name="options" value="Candidatos" />';
 
     $candidates = '';
     if($sudoku[$row-1][$column-1]===0) {
@@ -208,13 +173,9 @@ function showOptions($label, $sudoku, $row, $column) {
         $candidates .= 'Casilla ya escrita.';
     }
 
-    $result .= '<div class="candidates">' . $candidates . '</div>';
-    $result .= '</div>';
-    $result .= '</form>';
-    $result .= '</div>';
-    $result .= '</div>';
-
     echo $result;
+
+    return $candidates;
 }
 
 function comprobarLinea($n, $row) {
@@ -251,34 +212,40 @@ function comprobarColumna($n, $columna) {
 }
 
 function selectSquare($sudoku, $row, $column) {
-    $minRow = 0;
-    $maxRow = 0;
-    $minColumn = 0;
-    $maxColumn = 0;
-    if($row>=0 && $row<=2) {
-        $minRow = 0;
-        $maxRow = 2;
-    } elseif($row>=3 && $row<=5) {
-        $minRow = 3;
-        $maxRow = 5;
+    $index = null;
+    if ($row>=0 && $row<=2 && $column>=0 && $column<=2) {
+        $index = 0;
+    } elseif ($row>=0 && $row<=2 && $column>=3 && $column<=5) {
+        $index = 1;
+    } elseif ($row>=0 && $row<=2 && $column>=6 && $column<=8) {
+        $index = 2;
+    } elseif ($row>=3 && $row<=5 && $column>=0 && $column<=2) {
+        $index = 3;
+    } elseif ($row>=3 && $row<=5 && $column>=3 && $column<=5) {
+        $index = 4;
+    } elseif ($row>=3 && $row<=5 && $column>=6 && $column<=8) {
+        $index = 5;
+    } elseif ($row>=6 && $row<=8 && $column>=0 && $column<=2) {
+        $index = 6;
+    } elseif ($row>=6 && $row<=8 && $column>=3 && $column<=5) {
+        $index = 7;
     } else {
-        $minRow = 6;
-        $maxRow = 8;
+        $index = 8;
     }
-    if($column>=0 && $column<=2) {
-        $minColumn = 0;
-        $maxColumn = 2;
-    } elseif($column>=3 && $column<=5) {
-        $minColumn = 3;
-        $maxColumn = 5;
-    } else {
-        $minColumn = 6;
-        $maxColumn = 8;
+
+    $minRow = initialRow($index);
+    $maxRow = finalRow($index);
+    $minColumn = initialColumn($index);
+    $maxColumn = finalColumn($index);
+
+    if ($minRow==-1 || $maxRow==-1 || $minColumn==-1 || $maxColumn==-1) {
+        require_once 'errors.php';
+        customError('Datos introducidos no válidos.');
     }
 
     $res = array();
-    for($i=$minRow; $i<=$maxRow; $i++) {
-        for($j=$minColumn; $j<=$maxColumn; $j++) {
+    for ($i=$minRow; $i<=$maxRow; $i++) {
+        for ($j=$minColumn; $j<=$maxColumn; $j++) {
             array_push($res, $sudoku[$i][$j]);
         }
     }
@@ -288,12 +255,80 @@ function selectSquare($sudoku, $row, $column) {
 
 function comprobarCuadrado($n, $square) {
     $res = true;
-    for($i=0; $i<sizeof($square)-1; $i++) {
-        if($n == $square[$i]) {
+    for ($i=0; $i<sizeof($square)-1; $i++) {
+        if ($n == $square[$i]) {
             $res = false;
             break;
         }
     }
 
     return $res;
+}
+
+function initialRow($index) {
+    $minRow = -1;
+    switch($index) {
+        case 0: case 1: case 2:
+            $minRow = 0;
+            break;
+        case 3: case 4: case 5:
+            $minRow = 3;
+            break;
+        case 6: case 7: case 8:
+            $minRow = 6;
+            break;
+    }
+
+    return $minRow;
+}
+
+function finalRow($index) {
+    $maxRow = -1;
+    switch($index) {
+        case 0: case 1: case 2:
+            $maxRow = 2;
+            break;
+        case 3: case 4: case 5:
+            $maxRow = 5;
+            break;
+        case 6: case 7: case 8:
+            $maxRow = 8;
+            break;
+    }
+
+    return $maxRow;
+}
+
+function initialColumn($index) {
+    $minColumn = -1;
+    switch($index) {
+        case 0: case 3: case 6:
+            $minColumn = 0;
+            break;
+        case 1: case 4: case 7:
+            $minColumn = 3;
+            break;
+        case 2: case 5: case 8:
+            $minColumn = 6;
+            break;
+    }
+
+    return $minColumn;
+}
+
+function finalColumn($index) {
+    $maxColumn = -1;
+    switch($index) {
+        case 0: case 3: case 6:
+            $maxColumn = 2;
+            break;
+        case 1: case 4: case 7:
+            $maxColumn = 5;
+            break;
+        case 2: case 5: case 8:
+            $maxColumn = 8;
+            break;
+    }
+
+    return $maxColumn;
 }
