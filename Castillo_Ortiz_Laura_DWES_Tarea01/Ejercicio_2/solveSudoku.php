@@ -58,14 +58,37 @@
         if (isset($_POST['insertar']) && !empty($_POST['number'])
         && !empty($_POST['row']) && !empty($_POST['column'])) {
             $msgInsert = insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], $_POST['number']);
-        } elseif (isset($_POST['delete']) && !empty($_POST['row']) && !empty($_POST['column'])) {
+        }
+        /*
+        Si clicamos el botón borrar y hemos rellenado los campos 'fila' y
+        'columna', llamamos a la función delete para borrar el número en
+        esa posición en el sudoku y mostrar el sudoku modificado.
+        */
+        elseif (isset($_POST['delete']) && !empty($_POST['row']) && !empty($_POST['column'])) {
             $msgDelete = delete($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
-        } elseif (isset($_POST['options']) && !empty($_POST['row']) && !empty($_POST['column'])) {
+        }
+        /*
+        Si clicamos el botón candidatos y hemos rellenado los campos 'fila' y
+        'columna', llamamos a la función showOptions para mostrar los números
+        que podrían ir en esa posición.
+        */
+        elseif (isset($_POST['options']) && !empty($_POST['row']) && !empty($_POST['column'])) {
             $opciones = showOptions($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column']);
-        } elseif (empty($_POST['number']) && isset($_POST['insertar'])) {
+        }
+        /*
+        Si clicamos el botón insertar y no hemos rellenado el campo número,
+        mostraremos un mensaje por pantalla para avisar al usuario de que
+        debe rellenar todos los datos.
+        */
+        elseif (empty($_POST['number']) && isset($_POST['insertar'])) {
             $msg = insertar($_POST['dificultad'], $unsSudoku, $_POST['row'], $_POST['column'], 0);
             $missingData = '<b>Error: </b>Debe rellenar los datos.';
-        } else {
+        }
+        /*
+        En caso de que no seleccionemos una acción válida, mostraremos
+        una página de error avisando al usuario del error acontecido.
+        */
+        else {
             require_once 'errors.php';
             customError('La acción seleccionada no existe.');
         }
@@ -73,6 +96,11 @@
 
     ?>
 
+    <!--
+        Creamos un formulario que nos permita seleccionar el número, fila y columna,
+        y si queremos insertar, borrar o mostrar los candidatos. Y, en caso de existir,
+        los posibles errores.
+    -->
                     <label for="number">Número </label>
                     <input type="number" min=1 max=9 name="number"  value="
                     <?php
