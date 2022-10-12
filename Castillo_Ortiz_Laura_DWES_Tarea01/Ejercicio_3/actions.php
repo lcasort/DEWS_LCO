@@ -583,3 +583,22 @@ function finalColumn($index)
 
     return $maxColumn;
 }
+
+
+function debug($row, $column)
+{
+    // Calculamos el índice del cuadro que tenemos que comprobar.
+    $index = calculateIndexSquare($row, $column);
+
+    /*
+    Mediante el índice, calculamos las columnas y filas inicial
+    y final del cuadro.
+    */
+    $minRow = initialRow($index);
+    $maxRow = finalRow($index);
+    $minColumn = initialColumn($index);
+    $maxColumn = finalColumn($index);
+
+    echo $row . ',' . $column . ' - ' . $index
+    . ' (' . $minRow . ',' . $minColumn . ')-(' . $maxRow . ',' . $maxColumn . ') | ';
+}
