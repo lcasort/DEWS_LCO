@@ -39,6 +39,7 @@
     playSudokuInitialize en el archivo intializeSudoku.php.
     */
     if (!isset($_POST['insertar']) && !isset($_POST['delete']) && !isset($_POST['options'])) {
+        echo '<div class="conjunto">';
         $label = $_POST['dificultad'];
 
         playSudokuInitialize($label);
