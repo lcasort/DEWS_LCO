@@ -1,4 +1,5 @@
 <?php
+    // Declaración de los arrays de los tres distintos tipos de dificultad.
     $facil = array(array(0,0,1,9,4,8,5,0,0),
                     array(0,0,3,7,0,6,1,0,0),
                     array(0,5,0,0,0,0,0,7,0),
