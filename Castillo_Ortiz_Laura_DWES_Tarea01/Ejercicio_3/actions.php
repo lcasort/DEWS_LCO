@@ -585,6 +585,9 @@ function finalColumn($index)
 }
 
 
+/*
+Función para depurar errores.
+*/
 function debug($row, $column)
 {
     // Calculamos el índice del cuadro que tenemos que comprobar.
@@ -600,5 +603,5 @@ function debug($row, $column)
     $maxColumn = finalColumn($index);
 
     echo $row . ',' . $column . ' - ' . $index
-    . ' (' . $minRow . ',' . $minColumn . ')-(' . $maxRow . ',' . $maxColumn . ') | ';
+    . ' (' . $minRow . ', ' . $minColumn . ') - (' . $maxRow . ', ' . $maxColumn . ')';
 }
