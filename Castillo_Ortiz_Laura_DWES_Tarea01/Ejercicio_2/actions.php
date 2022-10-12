@@ -59,7 +59,7 @@ function insertar($label, $sudoku, $row, $column, $number)
                 posición indicada.
             */
             if ($row-1==$i && $column-1==$j &&
-            $tableData[$i][$j] == 0 && $sudoku[$i][$j] == 0) {
+            $tableData[$i][$j] == 0 && $sudoku[$i][$j] == 0 && $number != 0) {
                 $sudoku[$row-1][$column-1] = $number;
                 $result .= '<th class="azul">' . $number . '</th>';
             }
