@@ -33,13 +33,14 @@
     require 'initializeSudoku.php';
     require 'actions.php';
 
+    echo '<div class="conjunto">';
+
     /*
     Si es la primera vez que se carga la página (no hemos puelsado ningún botón),
     mostramos el sudoku y el formulario para interactuar con él mediante la función
     playSudokuInitialize en el archivo intializeSudoku.php.
     */
     if (!isset($_POST['insertar']) && !isset($_POST['delete']) && !isset($_POST['options'])) {
-        echo '<div class="conjunto">';
         $label = $_POST['dificultad'];
 
         playSudokuInitialize($label);
