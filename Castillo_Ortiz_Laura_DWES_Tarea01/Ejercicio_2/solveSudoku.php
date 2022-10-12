@@ -104,26 +104,20 @@
         los posibles errores.
     -->
                     <label for="number">Número </label>
-                    <input type="number" min=1 max=9 name="number"  value="
-                    <?php
-                        if (!empty($_POST["number"] && isset($_POST["number"]))) {
-                            echo $_POST["number"];
-                        }
-                        ?>" /><br>
+                    <input type="number" min=1 max=9 name="number"
+                    value="<?php if (!empty($_POST["number"] && isset($_POST["number"]))) {
+                        echo $_POST["number"];
+                        } ?>" /><br>
                     <label for="row">Fila </label>
-                    <input type="number" min=1 max=9 name="row" value="
-                        <?php
-                        if (!empty($_POST["row"] && isset($_POST["row"]))) {
+                    <input type="number" min=1 max=9 name="row"
+                    value="<?php if (!empty($_POST["row"] && isset($_POST["row"]))) {
                             echo $_POST["row"];
-                        }
-                        ?>" required/><br>
+                        } ?>" required/><br>
                     <label for="column">Columna </label>
-                    <input type="number" min=1 max=9 name="column" value="
-                        <?php
-                        if (!empty($_POST["column"] && isset($_POST["column"]))) {
+                    <input type="number" min=1 max=9 name="column"
+                    value="<?php if (!empty($_POST["column"] && isset($_POST["column"]))) {
                             echo $_POST["column"];
-                        }
-                        ?>" required/><br>
+                        } ?>" required/><br>
                 </div>
                 <div class="buttons">
                     <input type="submit" name="insertar" value="Insertar" /><br>
