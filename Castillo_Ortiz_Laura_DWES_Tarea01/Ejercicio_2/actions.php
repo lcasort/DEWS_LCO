@@ -196,6 +196,9 @@ function delete($label, $sudoku, $row, $column)
             && $tableData[$i][$j] != 0) {
                 $msg = '<b>Error: </b>No puede eliminar los números en rojo.';
                 $result .= '<th class="rojo">' . $sudoku[$i][$j] . '</th>';
+            } elseif ($row-1==$i && $column-1==$j && $sudoku[$i][$j] == 0) {
+                $msg = '<b>Error: </b>No hay número que eliminar.';
+                $result .= '<th class="azul">.</th>';
             } elseif ($sudoku[$i][$j]===0) {
                 $result .= '<th class="azul">.</th>';
             } elseif ($sudoku[$i][$j]!=0 && $tableData[$i][$j]==0) {
