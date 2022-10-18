@@ -29,21 +29,23 @@
         <h1>DEPARTAMENTOS</h1>
     </div>
 
-    <div class="form">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-
-            <div class="addContainer">
-                <input type="submit" value="+" name="add" />
-                <input type="text" id="newDptName" placeholder="Nuevo departamento" />
-            </div>
-
             <?php
-                @ $conexion = new mysqli('localhost', 'root', '', 'employees');
+                mysqli_report(MYSQLI_REPORT_OFF);
 
-                $error = $conexion->connect_errno;
+                @ $conexion = new mysqli('localhost', 'root', '', 'employees');
                 
-                if ($error == null) {
-                
+                if ($conexion->connect_error) {
+                    echo '<p>Error de conexión a la base de datos.</p>';
+                    echo $conexion->connect_error;
+                    exit();
+                } else {
+                    echo '<div class="form">';
+                    echo '<form method="POST" action="' . $_SERVER['PHP_SELF'] . '">';
+                    echo '<div class="addContainer">';
+                    echo '<input type="submit" value="+" name="add" />';
+                    echo '<input type="text" id="newDptName" placeholder="Nuevo departamento" />';
+                    echo '</div>';
+
                     $resultado = $conexion->query('SELECT * FROM departments');
                     $departamentos = $resultado->fetch_array();
 
@@ -57,14 +59,15 @@
                         $departamentos = $resultado->fetch_array();
                     }
                     echo '</div>';
+
+                    echo '<div class="updContainer">';
+                    echo '<input type="submit" value="Refrerscar" name="update" />';
+                    echo '</div>';
+                    echo '</form>';
+                    $conexion->close();
                 }
+                
             ?>
-
-            <div class="updContainer">
-                <input type="submit" value="Refrerscar" name="update" />
-            </div>
-
-        </form>
     </div>
 
 </body>
