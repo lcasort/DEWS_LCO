@@ -13,6 +13,7 @@
         .regContainer {
             border-right: solid 1px black;
             display: inline-block;
+            padding-right: 10px;
         }
 
         .addContainer {
@@ -21,6 +22,12 @@
         
         .updContainer {
             display: inline-block;
+            padding-left: 10px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
@@ -46,23 +53,29 @@
                     echo '<input type="text" id="newDptName" placeholder="Nuevo departamento" />';
                     echo '</div>';
 
+                    echo '<div class="container">';
+                    echo '<div class="regContainer">';
+
                     $resultado = $conexion->query('SELECT * FROM departments');
                     $departamentos = $resultado->fetch_array();
-
-                    echo '<div class="regContainer">';
+                    
                     while ($departamentos != null) {
-                        echo '<input type="submit" id="delete" value="X" name="delete_'
-                        . $departamentos['dept_no'] . ' />';
+                        echo '<input type="submit" id="delete" value="X"
+                        name="delete_' . $departamentos['dept_no'] . '" />';
+
                         echo '<input type="text" name="' . $departamentos['dept_no']
                         . '" id="nameDpt" value="' . $departamentos['dept_name'] . '" />';
+
                         echo '<br>';
+
                         $departamentos = $resultado->fetch_array();
                     }
+                    
                     echo '</div>';
 
                     echo '<div class="updContainer">';
                     echo '<input type="submit" value="Refrerscar" name="update" />';
-                    echo '</div>';
+                    echo '</div></div>';
                     echo '</form>';
                     $conexion->close();
                 }
