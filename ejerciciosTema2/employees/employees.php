@@ -58,7 +58,13 @@
                     $error_message = "No existe el campo con el id que está intentando borrar.";
                 }
             } else if (isset($_POST['add_button'])) {
-            //Aquí gestionamos añadir
+                require_once 'functions.php';
+                $name = $_POST['new_department_name'];
+                $no = calculate_dept_no($conexion);
+
+                if (!$conexion->query("INSERT INTO departments VALUES ('$no', '$name')")) {
+                    $error_message = "No se puede insertar el campo.";
+                }
             } else if( isset($_POST['update_button'])) {
             //Aquí gestionamos el actualizar
             }
@@ -71,23 +77,25 @@
     <div class="mainCointainer">
         <h1>Departamentos</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
             <div class="addContainer">
-                <input type="submit" value="+" name="add_button"> <input type="text" value=""
+                <input type="submit" value="+" name="add_button">
+                <input type="text" value=""
                     placeholder="Nombre nuevo departamento" name="new_department_name">
             </div>
-            <div class="registrosContainer">
 
+            <div class="registrosContainer">
         <?php
             while ($departamento = $resultado->fetch_array()) {
         ?>
-                <input type="submit" value="x" name="delete[<?php echo $departamento['dept_no']; ?>]"> <input
-                    type="text" value="<?php echo $departamento['dept_name']; ?>"
+                <input type="submit" value="x" name="delete[<?php echo $departamento['dept_no']; ?>]">
+                <input type="text" value="<?php echo $departamento['dept_name']; ?>"
                     name="name[<?php echo $departamento['dept_no']; ?>]"> <br>
         <?php
             }
         ?>
-
             </div>
+
             <div class="updateContainer">
                 <input type="submit" value="Actualizar registros" name="update_button">
             </div>
