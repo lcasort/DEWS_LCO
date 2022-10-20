@@ -22,6 +22,10 @@
             margin: 1rem;
             display: inline-block;
         }
+
+        .error_message {
+            color: red;
+        }
     </style>
 </head>
 
@@ -34,6 +38,7 @@
     $conexion = new mysqli('localhost', 'root', '', 'employees');
 
     $error = $conexion->connect_errno;
+    $error_message = ""; 
 
     if ($error != 0) {
     ?>
@@ -48,7 +53,10 @@
                 $clave = array_keys($_POST['delete']);
                 $clave = $clave[0];
 
-                $conexion->query("DELETE FROM departments WHERE dept_no = '$clave'");
+                if (!$conexion->query("DELETE FROM departments WHERE dept_no = '$clave'")
+                || ($conexion->affected_rows == 0)) {
+                    $error_message = "No existe el campo con el id que está intentando borrar.";
+                }
             } else if (isset($_POST['add_button'])) {
             //Aquí gestionamos añadir
             } else if( isset($_POST['update_button'])) {
@@ -84,6 +92,10 @@
                 <input type="submit" value="Actualizar registros" name="update_button">
             </div>
         </form>
+    </div>
+
+    <div class="error_message">
+            <?php echo $error_message; ?>
     </div>
 
     <?php 
