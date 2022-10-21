@@ -66,7 +66,11 @@
                     $error_message = "No se puede insertar el campo.";
                 }
             } else if( isset($_POST['update_button'])) {
-            //Aquí gestionamos el actualizar
+                foreach ($_POST['name'] as $key => $val) {
+                    if (!$conexion->query("UPDATE departments SET dept_name = '$val' WHERE dept_no = '$key' AND '$val' != ''")) {
+                        $error_message = "No se pudo modificar el campo.";
+                    }
+                }
             }
 
         }
