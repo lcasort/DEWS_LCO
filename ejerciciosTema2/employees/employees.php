@@ -35,6 +35,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+    
     $conexion = new mysqli('localhost', 'root', '', 'employees');
 
     $error = $conexion->connect_errno;
@@ -49,7 +50,7 @@
         // 1.- Recogida y gestión de datos presentes en _POST
         if (isset($_POST)&&!empty($_POST)) {
 
-            if(isset($_POST['delete'])){
+            if (isset($_POST['delete'])) {
                 $clave = array_keys($_POST['delete']);
                 $clave = $clave[0];
 
@@ -65,7 +66,7 @@
                 if (!$conexion->query("INSERT INTO departments VALUES ('$no', '$name')")) {
                     $error_message = "No se puede insertar el campo.";
                 }
-            } else if( isset($_POST['update_button'])) {
+            } else if(isset($_POST['update_button'])) {
                 foreach ($_POST['name'] as $key => $val) {
                     if (!$conexion->query("UPDATE departments SET dept_name = '$val' WHERE dept_no = '$key' AND '$val' != ''")) {
                         $error_message = "No se pudo modificar el campo.";
