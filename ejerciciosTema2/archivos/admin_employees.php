@@ -41,7 +41,18 @@
 
                     sudo chown -R www-data:${USER} html
                     */
-                    exec('sudo chown -R www-data:${USER} /opt/lampp/bin/mysql && cd /home/laucasort/Downloads/test_db-master && sudo /opt/lampp/bin/mysql < employees.sq');
+                    // echo exec('whoami');
+                    // echo exec('chgrp -R www-data /opt/lampp/bin/mysql');
+                    // echo exec('ls -laF /opt/lampp/bin/mysql');
+                    // $command = '/opt/lampp/bin/mysql';
+                    // echo exec('/opt/lampp/bin/mysql -u root -p employees < employees.sql', $out);
+                    // var_dump($out);
+                    $dir = fopen('/home/laucasort/Downloads', 'rx');
+                    exec("ls /home/laucasort", $out);
+                    var_dump($out);
+                    echo shell_exec("ls ~/Downloads");
+                    var_dump($outp);
+                    // echo exec('cd /home/laucasort/Downloads/test_db-master && sudo /opt/lampp/bin/mysql -u root -p < employees.sql');
                     // $sql = readfile('/home/laucasort/Downloads/test_db-master/employees.sql');
                     // mysqli_multi_query($conexion,$sql);
                     // /home/laucasort/Downloads/test_db-master
