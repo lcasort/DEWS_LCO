@@ -1,4 +1,4 @@
-INSERT INTO `employees` VALUES (10001,'Georgi','Facello','/user.png'),
+INSERT INTO `employees` VALUES (10001,'Georgi','Facello','./images/user.png'),
     (10002,'Bezalel','Simmel','./images/user.png'),
     (10003,'Parto','Bamford','./images/user.png'),
     (10004,'Chirstian','Koblick','./images/user.png'),
