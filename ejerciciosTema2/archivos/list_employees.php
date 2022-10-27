@@ -55,6 +55,14 @@
         if (isset($_POST)&&!empty($_POST)) {
             // TODO - Aquí lo que hace al clicar en un usuario.
         } else {
+            $resultado = $conexion->query('SELECT * FROM employees');
+
+            if(empty($resultado->fetch_array())) {
+                $sql = file_get_contents('./my_db/inserts.sql', FILE_USE_INCLUDE_PATH);
+                $conexion->query($sql);
+                $resultado = $conexion->query('SELECT * FROM employees');
+            }
+
             $res = '<div class="container">';
             $res .= '<table>';
             $res .= '<tr>';
@@ -62,8 +70,6 @@
             $res .= '<th>First name</th>';
             $res .= '<th>Last name</th>';
             $res .= '</tr>';
-
-            $resultado = $conexion->query('SELECT * FROM employees');
             
             while ($emp = $resultado->fetch_array()) {
                 $res .= '<tr>';
