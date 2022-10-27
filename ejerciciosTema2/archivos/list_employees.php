@@ -16,25 +16,35 @@
         }
 
         table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 75%;
-        margin: 0 auto;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 75%;
+            margin: 0 auto;
         }
 
         td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
         }
 
         tr:nth-child(even) {
-        background-color: #dddddd;
+            background-color: #dddddd;
         }
 
         .img-icon {
             width: 50px;
             height: 50px;
+        }
+
+        .icon {
+            width: 500px;
+            height: 500px;
+        }
+
+        .dataContainer {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -45,10 +55,10 @@
     error_reporting(E_ALL);
 
     // Para Ubuntu
-    exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
+    // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
 
     // Para Windows
-    // exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
+    exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
 
     // Abrimos la conexión con la base de datos
     @ $conexion = new mysqli('localhost', 'root', '', 'my_employees');
@@ -61,8 +71,20 @@
         echo '<p>Error de conexión a la base de datos. Texto del error: <?php echo $conexion->connect_error; ?></p>';
         exit();
     } else {
-        if (isset($_POST)&&!empty($_POST)) {
-            // TODO - Aquí lo que hace al clicar en un usuario.
+        if (isset($_GET['id_employee'])&&!empty($_GET['id_employee'])) {
+            $id = $_GET['id_employee'];
+            $resultado = $conexion->query("SELECT * FROM employees WHERE id_employee = '$id'");
+            $selectedEmp = $resultado->fetch_array();
+            $inputForm = '<div class="dataContainer">';
+            $inputForm .= '<img src="' . $selectedEmp['picture'] . '" alt="icon" class="icon" />';
+            $inputForm .= '</div>';
+            $inputForm .= '<div class="formContainer">';
+            $inputForm .= '<form>';
+            $inputForm .= '<label for="myImage">Selecciona la imagen:<br></label>';
+            $inputForm .= '<input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />';
+            $inputForm .= '</form>';
+            $inputForm .= '</div>';
+            echo $inputForm;
         } else {
             $resultado = $conexion->query('SELECT * FROM employees');
 
@@ -86,8 +108,9 @@
                 $res .= '<td>' . $emp['id_employee'] . '</td>';
                 $res .= '<td>' . $emp['first_name'] . '</td>';
                 $res .= '<td>' . $emp['last_name'] . '</td>';
-                echo '<img  class="img-icon" scr="file://opt/lampp/htdocs/DEWS_LCO/ejerciciosTema2/archivos/images/user.png" alt="missing" />';
-                $res .= '<td><img  class="img-icon" scr="' . $emp['picture'] . '"></td>';
+                $res .= '<td><a href="' . $_SERVER['PHP_SELF'] . '?id_employee=' . $emp['id_employee']
+                . '" title="Clica para cambiar la imagen"><img  class="img-icon" src="' . $emp['picture']
+                . '" alt="icon" /></a></td>';
                 $res .= '</tr>';
             }
 
