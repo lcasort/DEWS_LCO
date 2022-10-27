@@ -31,6 +31,11 @@
         tr:nth-child(even) {
         background-color: #dddddd;
         }
+
+        .img-icon {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -40,10 +45,10 @@
     error_reporting(E_ALL);
 
     // Para Ubuntu
-    // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
+    exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
 
     // Para Windows
-    exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
+    // exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
 
     // Abrimos la conexión con la base de datos
     @ $conexion = new mysqli('localhost', 'root', '', 'my_employees');
@@ -81,7 +86,8 @@
                 $res .= '<td>' . $emp['id_employee'] . '</td>';
                 $res .= '<td>' . $emp['first_name'] . '</td>';
                 $res .= '<td>' . $emp['last_name'] . '</td>';
-                $res .= '<td><img  class="img-icon" scr="' . $emp['picture'] . '" /></td>';
+                echo '<img  class="img-icon" scr="file://opt/lampp/htdocs/DEWS_LCO/ejerciciosTema2/archivos/images/user.png" alt="missing" />';
+                $res .= '<td><img  class="img-icon" scr="' . $emp['picture'] . '"></td>';
                 $res .= '</tr>';
             }
 
