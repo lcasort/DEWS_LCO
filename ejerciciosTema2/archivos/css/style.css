@@ -1,0 +1,81 @@
+.msg {
+    color: red;
+    font-size: small;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.img-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.icon {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+}
+
+.dataContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.inputFile {
+    width: 170px;
+    padding: 0;
+}
+
+.labelFile {
+    margin: 0 5px;
+}
+
+form {
+    width: fit-content;
+    margin-top: 25px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+.submitButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    color: red;
+    font-size: small;
+}
+
+.back {
+    width: 50px;
+    height: auto;
+}

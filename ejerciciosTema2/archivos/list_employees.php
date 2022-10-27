@@ -5,48 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin DB</title>
-    <style>
-        .msg {
-            color: red;
-            font-size: small;
-        }
-
-        .container {
-            margin-top: 25px;
-        }
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 75%;
-            margin: 0 auto;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        .img-icon {
-            width: 50px;
-            height: 50px;
-        }
-
-        .icon {
-            width: 500px;
-            height: 500px;
-        }
-
-        .dataContainer {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <?php
@@ -64,28 +23,64 @@
     @ $conexion = new mysqli('localhost', 'root', '', 'my_employees');
     
     $msg = '';
+    $msgUploadFile = '';
     
     $error = $conexion->connect_errno;
     $error_message = "";
     if ($error != 0) {
+
         echo '<p>Error de conexión a la base de datos. Texto del error: <?php echo $conexion->connect_error; ?></p>';
         exit();
+
     } else {
+
         if (isset($_GET['id_employee'])&&!empty($_GET['id_employee'])) {
+
             $id = $_GET['id_employee'];
+
+            if (isset($_POST['submit'])&&!empty($_POST['submit'])&&isset($_FILES['myImage'])&&!empty($_FILES['myImage'])) {
+
+                $file = $_FILES['myImage']['tmp_name'];
+                $path = './images/'.basename($_FILES['myImage']['name']);
+
+                if (move_uploaded_file($_FILES['myImage']['tmp_name'], $path)) {
+
+                    $conexion->query("UPDATE employees SET picture = '$path' WHERE id_employee = '$id'");
+                    $msgUploadFile = "File is valid, and was successfully uploaded.";
+
+                } else {
+
+                    $msgUploadFile = "Possible file upload attack!";
+
+                }
+
+            }
+
             $resultado = $conexion->query("SELECT * FROM employees WHERE id_employee = '$id'");
             $selectedEmp = $resultado->fetch_array();
-            $inputForm = '<div class="dataContainer">';
+
+            $inputForm = '<a href="http://localhost/DEWS_LCO/ejerciciosTema2/archivos/list_employees.php" class="button"><img src="./img/back.png" alt="icon" class="back" /></a>';
+            $inputForm .= '<div class="dataContainer">';
             $inputForm .= '<img src="' . $selectedEmp['picture'] . '" alt="icon" class="icon" />';
             $inputForm .= '</div>';
             $inputForm .= '<div class="formContainer">';
-            $inputForm .= '<form>';
-            $inputForm .= '<label for="myImage">Selecciona la imagen:<br></label>';
-            $inputForm .= '<input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />';
+            $inputForm .= '<form enctype="multipart/form-data" action="' . $_SERVER['PHP_SELF'] . '?id_employee=' . $id . '" method="POST">';
+            $inputForm .= '<div class="input">';
+            $inputForm .= '<label class="labelFile" for="myImage">Selecciona la imagen:</label>';
+            $inputForm .= '<input class="inputFile" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />';
+            $inputForm .= '</div>';
+            $inputForm .= '<div class="submitButton">';
+            $inputForm .= '<input class="submit" type="submit" value="Enviar" name="submit" />';
+            $inputForm .= '</div>';
             $inputForm .= '</form>';
             $inputForm .= '</div>';
+
+            $inputForm .= '<span>' . $msgUploadFile . '</span>';
+
             echo $inputForm;
+
         } else {
+
             $resultado = $conexion->query('SELECT * FROM employees');
 
             if(empty($resultado->fetch_array())) {
@@ -118,6 +113,7 @@
             $res .= '</div>';
 
             echo $res;
+
         }
     }
 
