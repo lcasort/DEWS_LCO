@@ -60,6 +60,7 @@
                 $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
                 $p = $p->fetch_array();
                 unlink($p['picture']);
+                
                 $defaultIconPath = $config_params['img']['path'];
                 $conexion->query("UPDATE employees SET picture = '$defaultIconPath' WHERE id_employee = '$id'");
                 $msgDeleteFile = "File was successfully deleted.";
