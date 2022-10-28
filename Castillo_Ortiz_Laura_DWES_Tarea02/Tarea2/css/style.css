@@ -65,6 +65,12 @@ form {
     margin-top: 10px;
 }
 
+.deleteButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .formContainer {
     display: flex;
     justify-content: center;
@@ -73,6 +79,7 @@ form {
 span {
     color: red;
     font-size: small;
+    text-align: center;
 }
 
 .back {

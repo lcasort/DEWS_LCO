@@ -13,18 +13,22 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+
     // Para Ubuntu
     // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
 
     // Para Windows
     exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
 
+
     // Abrimos la conexión con la base de datos
     @ $conexion = new mysqli('localhost', 'root', '', 'my_employees');
     
+
     $msg = '';
     $msgUploadFile = '';
     
+
     $error = $conexion->connect_errno;
     $error_message = "";
     if ($error != 0) {
@@ -40,26 +44,21 @@
 
             if (isset($_POST['submit'])&&!empty($_POST['submit'])&&isset($_FILES['myImage'])&&!empty($_FILES['myImage'])) {
 
+                require_once 'functions.php';
+
                 $file = $_FILES['myImage']['tmp_name'];
                 $path = './images/'.basename($_FILES['myImage']['name']);
 
-                if (move_uploaded_file($_FILES['myImage']['tmp_name'], $path)) {
+                $msgUploadFile = updatePhoto($file, $path, $id, $conexion);
 
-                    $conexion->query("UPDATE employees SET picture = '$path' WHERE id_employee = '$id'");
-                    $msgUploadFile = "File is valid, and was successfully uploaded.";
-
-                } else {
-
-                    $msgUploadFile = "Possible file upload attack!";
-
-                }
-
+            } else if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
+                echo 'lalala';
             }
 
             $resultado = $conexion->query("SELECT * FROM employees WHERE id_employee = '$id'");
             $selectedEmp = $resultado->fetch_array();
 
-            $inputForm = '<a href="http://localhost/DEWS_LCO/ejerciciosTema2/archivos/list_employees.php" class="button"><img src="./img/back.png" alt="icon" class="back" /></a>';
+            $inputForm = '<a href="http://localhost/DEWS_LCO/Castillo_Ortiz_Laura_DWES_Tarea02/Tarea2/employees.php" class="button"><img src="./img/back.png" alt="icon" class="back" /></a>';
             $inputForm .= '<div class="dataContainer">';
             $inputForm .= '<img src="' . $selectedEmp['picture'] . '" alt="icon" class="icon" />';
             $inputForm .= '</div>';
@@ -71,6 +70,9 @@
             $inputForm .= '</div>';
             $inputForm .= '<div class="submitButton">';
             $inputForm .= '<input class="submit" type="submit" value="Enviar" name="submit" />';
+            $inputForm .= '</div>';
+            $inputForm .= '<div class="deleteButton">';
+            $inputForm .= '<input class="delete" type="submit" value="Borrar" name="delete" />';
             $inputForm .= '</div>';
             $inputForm .= '</form>';
             $inputForm .= '</div>';
@@ -97,6 +99,9 @@
             $res .= '<th>Last name</th>';
             $res .= '<th>Picture</th>';
             $res .= '</tr>';
+
+            // Reseteamos el puntero del fetch_array
+            mysqli_data_seek($resultado, 0);
             
             while ($emp = $resultado->fetch_array()) {
                 $res .= '<tr>';

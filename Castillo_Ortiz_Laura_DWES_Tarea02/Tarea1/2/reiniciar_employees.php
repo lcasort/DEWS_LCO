@@ -33,7 +33,11 @@
         } else {
             if (isset($_POST)&&!empty($_POST)) {
                 if (isset($_POST['reboot'])) {
-                    exec('cd ./test_db-master && /opt/lampp/bin/mysql -u root < employees.sql');
+                    // Para Ubuntu
+                    // exec('cd ./test_db-master && /opt/lampp/bin/mysql -u root < employees.sql');
+
+                    // Para Windows
+                    exec('cd ./test_db-master && C:\xampp\mysql\bin\.\mysql -u root < employees.sql');
                     $msg = 'Reboot completed.';
                 }
             }
