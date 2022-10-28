@@ -13,20 +13,26 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    require_once 'config.php';
+    require_once 'functions.php';
+
 
     // Para Ubuntu
-    // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
+    exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
 
     // Para Windows
-    exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
+    // exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
 
 
     // Abrimos la conexión con la base de datos
-    @ $conexion = new mysqli('localhost', 'root', '', 'my_employees');
+    @ $conexion = new mysqli($config_params['db']['host'],
+    $config_params['db']['user'], $config_params['db']['passwd'],
+    $config_params['db']['db_name']);
     
 
     $msg = '';
     $msgUploadFile = '';
+    $msgDeleteFile = '';
     
 
     $error = $conexion->connect_errno;
@@ -44,40 +50,26 @@
 
             if (isset($_POST['submit'])&&!empty($_POST['submit'])&&isset($_FILES['myImage'])&&!empty($_FILES['myImage'])) {
 
-                require_once 'functions.php';
-
                 $file = $_FILES['myImage']['tmp_name'];
-                $path = './images/'.basename($_FILES['myImage']['name']);
+                $path = './images/' . $id . '.' . pathinfo(basename($_FILES['myImage']['name']),PATHINFO_EXTENSION);
 
                 $msgUploadFile = updatePhoto($file, $path, $id, $conexion);
 
             } else if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
-                echo 'lalala';
+
+                $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
+                $p = $p->fetch_array();
+                unlink($p['picture']);
+                $defaultIconPath = $config_params['img']['path'];
+                $conexion->query("UPDATE employees SET picture = '$defaultIconPath' WHERE id_employee = '$id'");
+                $msgDeleteFile = "File was successfully deleted.";
+
             }
 
-            $resultado = $conexion->query("SELECT * FROM employees WHERE id_employee = '$id'");
-            $selectedEmp = $resultado->fetch_array();
-
-            $inputForm = '<a href="http://localhost/DEWS_LCO/Castillo_Ortiz_Laura_DWES_Tarea02/Tarea2/employees.php" class="button"><img src="./img/back.png" alt="icon" class="back" /></a>';
-            $inputForm .= '<div class="dataContainer">';
-            $inputForm .= '<img src="' . $selectedEmp['picture'] . '" alt="icon" class="icon" />';
-            $inputForm .= '</div>';
-            $inputForm .= '<div class="formContainer">';
-            $inputForm .= '<form enctype="multipart/form-data" action="' . $_SERVER['PHP_SELF'] . '?id_employee=' . $id . '" method="POST">';
-            $inputForm .= '<div class="input">';
-            $inputForm .= '<label class="labelFile" for="myImage">Selecciona la imagen:</label>';
-            $inputForm .= '<input class="inputFile" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />';
-            $inputForm .= '</div>';
-            $inputForm .= '<div class="submitButton">';
-            $inputForm .= '<input class="submit" type="submit" value="Enviar" name="submit" />';
-            $inputForm .= '</div>';
-            $inputForm .= '<div class="deleteButton">';
-            $inputForm .= '<input class="delete" type="submit" value="Borrar" name="delete" />';
-            $inputForm .= '</div>';
-            $inputForm .= '</form>';
-            $inputForm .= '</div>';
+            $inputForm = createPageUser($conexion, $id);
 
             $inputForm .= '<span>' . $msgUploadFile . '</span>';
+            $inputForm .= '<span>' . $msgDeleteFile . '</span>';
 
             echo $inputForm;
 
@@ -86,7 +78,7 @@
             $resultado = $conexion->query('SELECT * FROM employees');
 
             if(empty($resultado->fetch_array())) {
-                $sql = file_get_contents('./my_db/inserts.sql', FILE_USE_INCLUDE_PATH);
+                $sql = file_get_contents($config_params['sql']['insert'], FILE_USE_INCLUDE_PATH);
                 $conexion->query($sql);
                 $resultado = $conexion->query('SELECT * FROM employees');
             }
