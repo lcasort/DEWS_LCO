@@ -21,33 +21,51 @@
     // Abrimos la conexión con la base de datos
     $conexion = new mysqli('localhost', 'root', '', 'employees');
 
+    // Mensajes a mostrar por pantalla.
     $msg = '';
 
+    // Control de errores.
     $error = $conexion->connect_errno;
     $error_message = "";
+    // Si existen errores...
     if ($error != 0) {
         ?>
             <p>Error de conexión a la base de datos. Texto del error: <?php echo $conexion->connect_error; ?></p>;
         <?php 
             exit();
-        } else {
-            if (isset($_POST)&&!empty($_POST)) {
-                if (isset($_POST['reboot'])) {
-                    // Para Ubuntu
-                    // exec('cd ./test_db-master && /opt/lampp/bin/mysql -u root < employees.sql');
 
-                    // Para Windows
-                    exec('cd ./test_db-master && C:\xampp\mysql\bin\.\mysql -u root < employees.sql');
-                    
-                    $msg = 'Reboot completed.';
-                }
+    // En cualquier otro caso...
+    } else {
+
+        // Si hemos enviado el formulario y...
+        if (isset($_POST)&&!empty($_POST)) {
+
+            // Si hemos clicado en el botón reboot...
+            if (isset($_POST['reboot'])) {
+
+                // Para Ubuntu
+                // exec('cd ./test_db-master && /opt/lampp/bin/mysql -u root < employees.sql');
+
+                // Para Windows
+                exec('cd ./test_db-master && C:\xampp\mysql\bin\.\mysql -u root < employees.sql');
+                
+                // Guardamos un mensaje para avisar al usuario de que se ha
+                // completando el reinicio de la base de datos. 
+                $msg = 'Reboot completed.';
+
             }
+
+        }
         ?>
+
+    <!-- Imprimimos el formulario por pantalla. -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
         <input type="submit" name="reboot" value="Reboot">
     </form>
     <span class="msg"><?php echo $msg; ?></span>
+
     <?php 
+        // Cerramos la conexión con la base de datos.
         $conexion->close();
     }
     ?>
