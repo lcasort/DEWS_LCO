@@ -18,10 +18,10 @@
 
 
     // Para Ubuntu
-    exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
+    // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
 
     // Para Windows
-    // exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
+    exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
 
 
     // Abrimos la conexión con la base de datos
@@ -50,8 +50,15 @@
 
             if (isset($_POST['submit'])&&!empty($_POST['submit'])&&isset($_FILES['myImage'])&&!empty($_FILES['myImage'])) {
 
+                $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
+                $p = $p->fetch_array();
+                if ($p['picture'] !== $config_params['img']['path']) {
+                    unlink($p['picture']);
+                }
+                
+                $today = date("Y-m-d_H-i-s");
                 $file = $_FILES['myImage']['tmp_name'];
-                $path = './images/' . $id . '.' . pathinfo(basename($_FILES['myImage']['name']),PATHINFO_EXTENSION);
+                $path = './images/' . $id . '_' . $today . '.' . pathinfo(basename($_FILES['myImage']['name']),PATHINFO_EXTENSION);
 
                 $msgUploadFile = updatePhoto($file, $path, $id, $conexion);
 
@@ -59,7 +66,9 @@
 
                 $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
                 $p = $p->fetch_array();
-                unlink($p['picture']);
+                if ($p['picture'] !== $config_params['img']['path']) {
+                    unlink($p['picture']);
+                }
                 
                 $defaultIconPath = $config_params['img']['path'];
                 $conexion->query("UPDATE employees SET picture = '$defaultIconPath' WHERE id_employee = '$id'");
