@@ -17,113 +17,119 @@
     require_once 'functions.php';
 
 
-    // Para Ubuntu
-    // exec('cd ./my_db && /opt/lampp/bin/mysql -u root < create.sql');
+    // Para Ubuntu:
+    // exec($config_params['db']['load']['ubuntu']);
 
-    // Para Windows
-    exec('cd ./my_db && C:\xampp\mysql\bin\.\mysql -u root < create.sql');
+    // Para Windows:
+    exec($config_params['db']['load']['windows']);
 
 
-    // Abrimos la conexión con la base de datos
+    // Abrimos la conexión con la base de datos.
     @ $conexion = new mysqli($config_params['db']['host'],
     $config_params['db']['user'], $config_params['db']['passwd'],
     $config_params['db']['db_name']);
     
 
+    // Mensajes a mostrar por pantalla.
     $msg = '';
     $msgUploadFile = '';
     $msgDeleteFile = '';
     
 
+    // Control de errores.
     $error = $conexion->connect_errno;
     $error_message = "";
+    // Si existen errores...
     if ($error != 0) {
 
         echo '<p>Error de conexión a la base de datos. Texto del error: <?php echo $conexion->connect_error; ?></p>';
         exit();
 
+    // En caso contrario...
     } else {
 
+        // Si hemos accedido a un usuario concreto...
         if (isset($_GET['id_employee'])&&!empty($_GET['id_employee'])) {
 
+            // Guardamos en una variable el id del empleado seleccionado.
             $id = $_GET['id_employee'];
 
+            // Si hemos subido una imagen y hemos clicado en enviar...
             if (isset($_POST['submit'])&&!empty($_POST['submit'])&&isset($_FILES['myImage'])&&!empty($_FILES['myImage'])) {
 
-                $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
-                $p = $p->fetch_array();
-                if ($p['picture'] !== $config_params['img']['path']) {
-                    unlink($p['picture']);
-                }
-                
-                $today = date("Y-m-d_H-i-s");
-                $file = $_FILES['myImage']['tmp_name'];
-                $path = './images/' . $id . '_' . $today . '.' . pathinfo(basename($_FILES['myImage']['name']),PATHINFO_EXTENSION);
+                // Llamamos a la función 'deletePhoto' de 'functions.php'.
+                deletePhoto($conexion, $id);
 
+                // Guardamos la fecha y hora de la subida de la foto en la variable $today.
+                $today = date("Y-m-d_H-i-s");
+                // Guardamos la foto subida en la variable $file.
+                $file = $_FILES['myImage']['tmp_name'];
+                // Guardamos la extensión de la imagen subida en la variable $ext.
+                $ext = pathinfo($_FILES['myImage']['name'])['extension'];
+                // Guardamos en la variable $path la ubicación y el nombre con el que queremos
+                // que se guarde la foto en nuestro sistema de archivos.
+                $path = './images/' . $id . '_' . $today . '.' . $ext;
+
+                // Llamamos a la función 'updatePhoto' de 'functions.php' y
+                // guardamos su retorno en la variable $msgUploadFile.
                 $msgUploadFile = updatePhoto($file, $path, $id, $conexion);
 
+            // Si hemos clicado en borrar...
             } else if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
 
-                $p = $conexion->query("SELECT picture FROM employees WHERE id_employee = '$id'");
-                $p = $p->fetch_array();
-                if ($p['picture'] !== $config_params['img']['path']) {
-                    unlink($p['picture']);
-                }
-                
-                $defaultIconPath = $config_params['img']['path'];
-                $conexion->query("UPDATE employees SET picture = '$defaultIconPath' WHERE id_employee = '$id'");
-                $msgDeleteFile = "File was successfully deleted.";
+                // Llamamos a la función 'deletePhoto' de 'functions.php'.
+                deletePhoto($conexion, $id);
+
+                // Llamamos a la función 'resetPhoto' de 'functions.php' y
+                // guardamos su retorno en la variable $msgDeleteFile.
+                $msgDeleteFile = resetPhoto($conexion, $id);
 
             }
 
+            // Llamamos a la función 'createPageUser' de 'functions.php' y
+            // guardamos su retorno en la variable $inputForm.
             $inputForm = createPageUser($conexion, $id);
 
             $inputForm .= '<span>' . $msgUploadFile . '</span>';
             $inputForm .= '<span>' . $msgDeleteFile . '</span>';
 
+            // Imprimimos por pantalla la variable $inputForm, con todo
+            // el HTML necesario para montar la página.
             echo $inputForm;
 
+        // En caso contrario...
         } else {
 
+            // Recogemos todos los datos que hay en la tabla 'employees' y
+            // los guardamos en la variable $resultado.
             $resultado = $conexion->query('SELECT * FROM employees');
 
+            // Si no hay datos dentro de la tabla...
             if(empty($resultado->fetch_array())) {
+                // Hacemos los inserts iniciales.
                 $sql = file_get_contents($config_params['sql']['insert'], FILE_USE_INCLUDE_PATH);
                 $conexion->query($sql);
+
+                // Volvemos a recoger todos los datos que hay en la tabla 'employees' y
+                // guardarlos en la variable $resultado.
                 $resultado = $conexion->query('SELECT * FROM employees');
             }
 
-            $res = '<div class="container">';
-            $res .= '<table>';
-            $res .= '<tr>';
-            $res .= '<th>ID</th>';
-            $res .= '<th>First name</th>';
-            $res .= '<th>Last name</th>';
-            $res .= '<th>Picture</th>';
-            $res .= '</tr>';
-
-            // Reseteamos el puntero del fetch_array
+            // Reseteamos el puntero del fetch_array.
             mysqli_data_seek($resultado, 0);
-            
-            while ($emp = $resultado->fetch_array()) {
-                $res .= '<tr>';
-                $res .= '<td>' . $emp['id_employee'] . '</td>';
-                $res .= '<td>' . $emp['first_name'] . '</td>';
-                $res .= '<td>' . $emp['last_name'] . '</td>';
-                $res .= '<td><a href="' . $_SERVER['PHP_SELF'] . '?id_employee=' . $emp['id_employee']
-                . '" title="Clica para cambiar la imagen"><img  class="img-icon" src="' . $emp['picture']
-                . '" alt="icon" /></a></td>';
-                $res .= '</tr>';
-            }
 
-            $res .= '</table>';
-            $res .= '</div>';
+            // Llamamos a la función 'printTable' de 'functions.php' y
+            // guardamos su retorno en la variable $res.
+            $res = printTable($resultado);
 
+            // Imprimimos por pantalla la variable $res, con todo
+            // el HTML necesario para montar la página.
             echo $res;
 
         }
     }
 
+    // Cerramos la conexión con la base de datos.
     $conexion->close();
     ?>
 </body>
