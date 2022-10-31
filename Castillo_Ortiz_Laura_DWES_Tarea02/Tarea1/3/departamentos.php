@@ -69,10 +69,12 @@
                 if (!$conexion->query("DELETE FROM departments WHERE dept_no = '$clave'")
                 || ($conexion->affected_rows == 0)) {
                     $error_message = "No existe el campo con el id que está intentando borrar.";
-                }
-
-                // Confimamos los cambios.
-                $conexion->commit();
+                    // Revertimos los cambios.
+                    $conexion->rollback();
+                } else {
+                    // Confimamos los cambios.
+                    $conexion->commit();
+                }                
 
             // Si añadimos un departamento...
             } else if (isset($_POST['add_button'])) {
