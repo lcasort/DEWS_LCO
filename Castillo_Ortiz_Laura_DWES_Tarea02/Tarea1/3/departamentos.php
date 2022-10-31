@@ -108,7 +108,7 @@
 
         }
     
-        // 2.- Generación e impresión del formuilario
+        // 2.- Generación e impresión del formulario
 
         // Guaardamos en la variable $resultado todos los datos que tenemos
         // en la tabla de departamentos.
