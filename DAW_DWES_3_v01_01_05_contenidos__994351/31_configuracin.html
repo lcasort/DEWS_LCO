@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.1.- Configuración. | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-7"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li class="current-page-parent"><a href="3_manejo_de_sesiones.html" class="current-page-parent daddy">3.- Manejo de sesiones.</a>
+   <ul>
+      <li id="active"><a href="31_configuracin.html" class="active no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul class="other-section">
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_herramientas_para_depuracin_de_cdigo.html" class="daddy">4.- Herramientas para depuración de código.</a>
+   <ul class="other-section">
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="3_manejo_de_sesiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_inicio_y_fin_de_una_sesin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.1.- Configuración.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id29">
+<div class="iDevice emphasis0">
+<div id="ta29_73" class="block iDevice_content">
+<p>Por defecto, <span lang="en">PHP</span> incluye soporte de sesiones incorporado. Sin embargo, antes de utilizar sesiones en tu sitio <span lang="en">web</span>, debes configurar correctamente <span lang="en">PHP</span> utilizando las siguientes directivas en el fichero php.ini seg&uacute;n corresponda:</p>
+<table class="tabla" summary="Cuadro o tabla de seis filas por dos columnas, de t&iacute;tulo &ldquo;Directivas de configuraci&oacute;n de PHP relacionadas con el manejo de sesiones&rdquo;, de modo que para cada directiva se indica su significado correspondiente. Debe ser le&iacute;da en filas de izquierda a derecha"><caption>Directivas de configuraci&oacute;n de <span lang="en">PHP</span> relacionadas con el manejo de sesiones.</caption>
+<thead>
+<tr><th scope="col">Directiva</th><th scope="col">Significado</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 16.45em;">
+<div class="texto_izquierda">
+<pre><code>session.use_cookies</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Indica si se deben usar <span lang="en">cookies</span> (1) o propagaci&oacute;n en la <span lang="en">URL</span> (0) para almacenar el <span lang="en">SID</span>.</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 19.2em;">
+<div class="texto_izquierda">
+<pre><code>session.use_only_cookies</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Se debe activar (1) cuando utilizas <span lang="en">cookies</span> para almacenar los <span lang="en">SID</span>, y adem&aacute;s no quieres que se reconozcan los <span lang="en">SID</span> que se puedan pasar como parte de la <span lang="en">URL</span> (este m&eacute;todo se puede usar para usurpar el identificador de otro usuario).</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 17em;">
+<div class="texto_izquierda">
+<pre><code>session.save_handler</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Se utiliza para indicar a <span lang="en">PHP</span> c&oacute;mo debe almacenar los datos de la sesi&oacute;n del usuario. Existen cuatro opciones: en ficheros (<code>files</code>), en memoria (<code>mm</code>), en una base de datos <span lang="en">SQLite</span> (<code>sqlite</code>) o utilizando para ello funciones que debe definir el programador (<code>user</code>). El valor por defecto (<code>files</code>) funcionar&aacute; sin problemas en la mayor&iacute;a de los casos.</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 12.6em;">
+<div class="texto_izquierda">
+<pre><code>session.name</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Determina el nombre de la <span lang="en">cookie</span> que se utilizar&aacute; para guardar el <span lang="en">SID</span>. Su valor por defecto es <code>PHPSESSID</code>.</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 15.9em;">
+<div class="texto_izquierda">
+<pre><code>session.auto_start</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Su valor por defecto es 0, y en este caso deber&aacute;s usar la funci&oacute;n <code>session_start</code> para gestionar el inicio de las sesiones. Si usas sesiones en el sitio <span lang="en">web</span>, puede ser buena idea cambiar su valor a 1 para que <span lang="en">PHP</span> active de forma autom&aacute;tica el manejo de sesiones.</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 18.65em;">
+<div class="texto_izquierda">
+<pre><code>session.cookie_lifetime</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Si utilizas la <span lang="en">URL</span> para propagar el <span lang="en">SID</span>, &eacute;ste se perder&aacute; cuando cierres tu navegador. Sin embargo, si utilizas <span lang="en">cookies</span>, el <span lang="en">SID</span> se mantendr&aacute; mientras no se destruya la <span lang="en">cookie</span>. En su valor por defecto (0), las <span lang="en">cookies</span> se destruyen cuando se cierra el navegador. Si quieres que se mantenga el <span lang="en">SID</span> durante m&aacute;s tiempo, debes indicar en esta directiva ese tiempo en segundos.</td>
+</tr>
+<tr>
+<td>
+<div class="codigo elemento_centrado" style="width: 18.1em;">
+<div class="texto_izquierda">
+<pre><code>session.gc_maxlifetime</code>
+</pre>
+</div>
+</div>
+</td>
+<td>Indica el tiempo en segundos que se debe mantener activa la sesi&oacute;n, aunque no haya ninguna actividad por parte del usuario. Su valor por defecto es 1440. Es decir, pasados 24 minutos desde la &uacute;ltima actividad por parte del usuario, se cierra su sesi&oacute;n autom&aacute;ticamente.</td>
+</tr>
+</tbody>
+</table>
+<p>La funci&oacute;n <code>phpinfo</code>, de la que ya hablamos con anterioridad, te ofrece informaci&oacute;n sobre la configuraci&oacute;n actual de las directivas de sesi&oacute;n.</p>
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a title="Directivas sesiones." href="DWES04_CONT_R06_Directivas_sesiones.jpg" target="_blank"><img src="DWES04_CONT_R06_Directivas_sesiones_miniatura.jpg" alt="Captura de parte del resultado de la ejecuci&oacute;n de la funci&oacute;n phpinfo, que contiene las directivas relacionadas con las sesiones en PHP." title="Directivas sesiones." class="imagen_ampliable" height="188" width="160" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id30">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header" style="background-image:url(icon_parasabermasfpd.png)"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta30_47" class="block iDevice_content">
+<p>
+En la documentación de <span lang="en">PHP</span> tienes información sobre éstas y otras directivas que permiten configurar el manejo de sesiones.
+</p>
+<p class="enlace_centrado">
+<a href="http://es.php.net/manual/es/session.configuration.php" title="Acceder la información sobre directivas para manejo de sesiones en el manual de PHP.">Directivas que permiten configurar el manejo de sesiones.</a>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id31">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<header class="iDevice_header" style="background-image:url(icon_autoevaluacionfpd.gif)"><h1 class="iDeviceTitle">Autoevaluación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<section class="question">
+<form name="multi-choice-form-31_60" action="#" onsubmit="return false" class="activity-form">
+<h1 class="js-sr-av">Pregunta</h1>
+<div id="taquestion31_60" class="block question iDevice_content">
+<p><strong>Si la informaci&oacute;n del usuario que quieres almacenar incluye contenido privado como una contrase&ntilde;a, &iquest;qu&eacute; utilizar&iacute;as, <span lang="en">cookies</span> o la sesi&oacute;n del usuario?</strong></p>
+</div>
+<section class="iDevice_answers">
+<h1 class="js-sr-av">Respuestas</h1>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i31_63" class="sr-av"><a href="#answer-31_63">Opción 1</a></label><input type="radio" name="option31_60" id="i31_63" class="exe-radio-option exe-radio-option-0-2-31_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-31_63"><div id="taans31_63" class="block iDevice_content">
+<p>La sesi&oacute;n del usuario.</p>
+</div>
+</div>
+</section>
+<section class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i31_103" class="sr-av"><a href="#answer-31_103">Opción 2</a></label><input type="radio" name="option31_60" id="i31_103" class="exe-radio-option exe-radio-option-1-2-31_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-31_103"><div id="taans31_103" class="block iDevice_content">
+<p><span lang="en">Cookies</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="iDevice_feedbacks js-feedback">
+<h1 class="js-sr-av">Retroalimentación</h1>
+<section id="sa0b31_60" class="feedback js-hidden">
+<div id="taf31_63" class=" iDevice_content">
+<p>&iexcl;Correcto! La sesi&oacute;n del usuario se almacena y se procesa en el servidor <span lang="en">web</span>, por lo que no es necesario transmitirla hasta el ordenador del usuario, lo que aumenta su seguridad.</p>
+</div>
+</section>
+<section id="sa1b31_60" class="feedback js-hidden">
+<div id="taf31_103" class=" iDevice_content">
+<p>Las <span lang="en">cookies</span> deben transmitirse entre el navegador del usuario, que es d&oacute;nde se almacenan, hasta el servidor web para ser procesadas. Por lo tanto es menos seguro.</p>
+</div>
+</section>
+</section>
+</form>
+<section class="iDevice_solution feedback js-hidden">
+<h1>Solución</h1>
+<ol>
+<li><a href="#answer-31_63">Opción correcta</a><span> (<a href="#sa0b31_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-31_103">Incorrecto</a><span> (<a href="#sa1b31_60">Retroalimentación</a>)</span></li>
+</ol>
+</section>
+</section>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="3_manejo_de_sesiones.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="32_inicio_y_fin_de_una_sesin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

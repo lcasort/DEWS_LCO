@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.1.- Instalación de herramientas de depuración. | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-14"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li><a href="3_manejo_de_sesiones.html" class="daddy">3.- Manejo de sesiones.</a>
+   <ul class="other-section">
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul class="other-section">
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="4_herramientas_para_depuracin_de_cdigo.html" class="current-page-parent daddy">4.- Herramientas para depuración de código.</a>
+   <ul>
+      <li id="active"><a href="41_instalacin_de_herramientas_de_depuracin.html" class="active no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="4_herramientas_para_depuracin_de_cdigo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="42_depuracin_de_cdigo_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.1.- Instalación de herramientas de depuración.</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id55">
+<div class="iDevice emphasis0">
+<div id="ta55_73" class="block iDevice_content">
+<p>
+Concretamente, vas a aprender a preparar un sistema Ubuntu para depurar aplicaciones en lenguaje <span lang="en">PHP</span> utilizando <span lang="en">Xdebug</span> y el <span lang="en">IDE</span> <span lang="en">Netbeans</span>. Los pasos que verás a continuación los puedes seguir también utilizando el tutorial multimedia que figura al final de esta unidad.
+</p>
+<p>
+Aunque existen diversas formas para realizar la instalación de <span lang="en">Xdebug</span>. Probablemente la más sencilla es a través del repositorio de extensiones <acronym lang="en" title="PHP Extension Community Library. PHP Libreria Comunitaria Extendida">PECL</acronym>, del que ya hablamos en la unidad 2. Necesitas por tanto asegurarte de que <span lang="en">PECL</span> está disponible en tu instalación de <span lang="en">PHP</span>. Para instalarlo desde los repositorios de Ubuntu, ejecuta desde una consola:
+</p>
+<div class="codigo elemento_centrado" style="width: 21.95em">
+<div class="texto_izquierda">
+<pre>
+<code>sudo apt-get install php-pear</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id56">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta56_70" class="block iDevice_content">
+Es conveniente mantener actualizados los repositorios ejecutando sudo <code>apt-get update</code> antes de instalar paquetes.
+
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id57">
+<div class="iDevice emphasis0">
+<div id="ta57_73" class="block iDevice_content">
+<p>Adem&aacute;s, para poder compilar las extensiones que descargues con <span lang="en">PECL</span>, debes instalar el paquete con las herramientas de desarrollo php5-dev. Incluye dos programas necesarios para instalar <span lang="en">Xdebug</span>: <code>phpize</code> y <code>php-config</code>.</p>
+<div class="codigo elemento_centrado" style="width: 21.95em;">
+<div class="texto_izquierda">
+<pre><code>sudo apt-get install php5-dev</code>
+</pre>
+</div>
+</div>
+<p>Si todo fue bien, ya tienes el sistema preparado para instalar <span lang="en">Xdebug</span>.</p>
+<div class="codigo elemento_centrado" style="width: 19.2em;">
+<div class="texto_izquierda">
+<pre><code>sudo pecl install xdebug</code>
+</pre>
+</div>
+</div>
+<p>Al finalizar la instalaci&oacute;n ver&aacute;s un mensaje como el siguiente:</p>
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a title="Build Xdebug." href="DWES04_CONT_R13_build_xdebug.jpg" target="_blank"><img src="DWES04_CONT_R13_build_xdebug_miniatura.jpg" alt="Captura de la consola de Ubuntu en la que se muestran las &uacute;ltimas l&iacute;neas resultado de la instalaci&oacute;n de Xdebug. El texto que se muestra es: Build process completed succesfully. Installing '/usr/lib/php5/20090626+lfs/xdebug.so' install ok: channel://pecl.php.net/xdebug-2.1.1 configuration option &ldquo;php.ini&rdquo; is not set to php.ini location You should add &ldquo;extension=xdebug.so&rdquo; to php.ini" title="Build Xdebug." class="imagen_ampliable" width="192" height="32" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+</div>
+</div>
+<p>En esa pantalla figura (tras "<code>Installing</code>") la ruta en que se ha instalado la extensi&oacute;n (fichero <strong>xdebug.so</strong>). Adem&aacute;s te indica que debes modificar el fichero php.ini para activarla. Abre por tanto el fichero php.ini de tu instalaci&oacute;n de <span lang="en">PHP</span>, y a&ntilde;ade las siguientes l&iacute;neas al final.</p>
+<div class="codigo elemento_centrado" style="width: 35.15em;">
+<div class="texto_izquierda">
+<pre><code>[xdebug]</code>
+</pre>
+<pre><code>zend_extension="/usr/lib/php5/20090626+lfs/xdebug.so"</code>
+</pre>
+<pre><code>; Opciones de configuraci&oacute;n</code>
+</pre>
+<pre><code>xdebug.remote_enable=on</code>
+</pre>
+<pre><code>xdebug.remote_handler=dbgp</code>
+</pre>
+<pre><code>xdebug.remote_host=localhost</code>
+</pre>
+<pre><code>xdebug.remote_port=9000</code>
+</pre>
+</div>
+</div>
+<p>Ajusta la ruta anterior al fichero xdebug.so para que sea la misma que has obtenido en tu sistema tras instalar la extensi&oacute;n.</p>
+<blockquote>
+<p>Por ejemplo si est&aacute;s usando XAMP en Ubuntu la l&iacute;nea correcta a editar en /opt/lampp/etc/php.ini ser&iacute;a:</p>
+<p>zend_extension="/opt/lampp/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so"</p>
+</blockquote>
+<div class="gmail_default">&nbsp;</div>
+<p>Por &uacute;ltimo, recuerda reiniciar el servidor <span lang="en">web</span> siempre que modifiques el fichero php.ini para aplicar los cambios.</p>
+<div class="codigo elemento_centrado" style="width: 23.6em;">
+<div class="texto_izquierda">
+<pre><code>sudo /etc/init.d/apache2 restart</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id58">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header" style="background-image:url(icon_parasabermasfpd.png)"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta58_47" class="block iDevice_content">
+<p>
+Si necesitas instalar <span lang="en">Xdebug</span> en sistemas <span lang="en">Windows</span>, puedes encontrar información al respecto en Internet. En la página <span lang="en">web</span> de la extensión <span lang="en">Xdebug</span> tienes información en lenguaje inglés.
+</p>
+<p class="enlace_centrado">
+<a href="http://xdebug.org/docs/install" title="Acceder a la información sobre la instalación de la extensión Xdebug.">Página <span lang="en">web</span> de la extensión <span lang="en">Xdebug</span>.</a>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id64">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header" style="background-image:url(icon_parasabermasfpd.png)"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta64_43" class="block iDevice_content">
+<p>Si quereis Instalar XDebug en Windows 7 y XAMPP aqui teneis informacion de como hacerlo:</p>
+<p style="text-align: center;"><a title="Instalar XDebug en Windows 7 y XAMPP" href="http://ecapy.com/instalar-xdebug-en-windows-7-y-xampp/" target="_blank">instalacion de Xdebug en W7,8 10 y XAMPP</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="4_herramientas_para_depuracin_de_cdigo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="42_depuracin_de_cdigo_en_php.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

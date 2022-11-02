@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4.- Herramientas para depuración de código. | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-13"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li><a href="3_manejo_de_sesiones.html" class="daddy">3.- Manejo de sesiones.</a>
+   <ul class="other-section">
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul class="other-section">
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li id="active"><a href="4_herramientas_para_depuracin_de_cdigo.html" class="active daddy">4.- Herramientas para depuración de código.</a>
+   <ul>
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_instalacin_de_herramientas_de_depuracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4.- Herramientas para depuración de código.</h1></header>
+<article class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id49">
+<div class="iDevice emphasis_casopracticofpd" >
+<header class="iDevice_header" style="background-image:url(icon_casopracticofpd.png)"><h1 class="iDeviceTitle">Caso práctico</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta49_66" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES04_CONT_R12_Buy.jpg" alt="Icono con la palabra Buy y un puntero de rat&oacute;n superpuesto." title="Buy." height="144" width="200" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Stocklib.CD-DVD Num. ECD001.</div>
+</div>
+<p>Con lo que ha aprendido, <strong>Carlos</strong> se ha aventurado por su cuenta en la programaci&oacute;n de una aplicaci&oacute;n <span lang="en">web</span> sencilla. Ahora ya sabe c&oacute;mo y d&oacute;nde almacenar la informaci&oacute;n que genera cada p&aacute;gina, para poderla utilizar m&aacute;s adelante. Ha cogido la p&aacute;gina que hab&iacute;a creado para catalogar su colecci&oacute;n de comics, y ha decidido convertirla en una aplicaci&oacute;n de verdad. Empieza a estructurar el c&oacute;digo que ten&iacute;a y decide programar algunas p&aacute;ginas m&aacute;s y crear un men&uacute; para moverse entre ellas.</p>
+<p>Y entonces&hellip; comienzan a surgir los problemas: p&aacute;ginas que no muestran lo que se supon&iacute;a que deber&iacute;an mostrar, errores inexplicables cuando se intenta conectar a la base de datos, listados que algunas veces funcionan y otras no,&hellip;</p>
+<p>Tras muchas horas intentando encontrar y solucionar los problemas que van apareciendo, busca en Internet y descubre que existen algunas utilidades que pueden ayudarle a arreglar los errores del c&oacute;digo. No se trata de que no vaya a cometer fallos nunca m&aacute;s, sino de que cuando los cometa tenga una forma m&aacute;s c&oacute;moda y r&aacute;pida de resolverlos.</p>
+<p><strong>Carlos</strong> est&aacute; descubriendo por su cuenta c&oacute;mo funciona la depuraci&oacute;n de c&oacute;digo en lenguaje <span lang="en">PHP</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id50">
+<div class="iDevice emphasis0">
+<div id="ta50_73" class="block iDevice_content">
+<p>
+Seguramente en la aplicación de tienda <span lang="en">online</span> que acabas de programar te hayas encontrado con algunos problemas. Algún código que no funcionaba, problemas de conexión a la base de datos, o páginas que no mostraban lo que deberían.
+</p>
+<p>
+Con lo que has visto hasta ahora ya puedes empezar a desarrollar algunas aplicaciones <span lang="en">web</span> sencillas en lenguaje <span lang="en">PHP</span>. Sin embargo, cuando empiezan a surgir problemas tienes que ingeniártelas para poder descubrir qué es lo que está fallando. Puedes poner trozos de código en las páginas que desarrollas para mostrar información interna de la aplicación, que muestren en pantalla la secuencia en que se ejecutan las líneas de código, o el contenido de las variables que usas. Para ello puedes utilizar <code>echo</code>, <code>print</code>, <code>print_r</code> o <code>var_dump</code>.
+</p>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id51">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header" style="background-image:url(icon_parasabermasfpd.png)"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta51_47" class="block iDevice_content">
+<p>
+En la documentación de <span lang="en">PHP</span> puedes consultar información sobre la función <code>var_dump</code>.
+</p>
+<p class="enlace_centrado">
+<a href="http://php.net/manual/es/function.var-dump.php" title="Acceder a la información sobre la función var_dump en la documentación de PHP.">Función <code>var_dump</code>.</a>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id52">
+<div class="iDevice emphasis0">
+<div id="ta52_73" class="block iDevice_content">
+<p>
+Por ejemplo, si quieres ver el contenido de la variable superglobal <code>$_SERVER</code>, puedes introducir una línea como:
+</p>
+<div class="codigo elemento_centrado" style="width: 22.5em">
+<div class="texto_izquierda">
+<pre>
+<code>&lt;?php print_r($_SERVER); ?&gt;</code>
+</pre>
+</div>
+</div>
+<p>
+Este método de depuración es muy tedioso y requiere hacer cambios constantes en el código de la aplicación. También existe la posibilidad de que una vez encontrado el fallo, te olvides de eliminar de tus páginas algunas de las líneas creadas a propósito para la depuración, con los consiguientes problemas.
+</p>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id53">
+<div class="iDevice emphasis_parasabermasfpd" >
+<header class="iDevice_header" style="background-image:url(icon_parasabermasfpd.png)"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta53_47" class="block iDevice_content">
+<p>Si quieres conocer más sobre los principios de la depuración, y la utilización de comandos como echo o print_r para depurar tu código, puedes consultar el siguiente artículo:</p>
+<p class="enlace_centrado"><a href="https://es.ccm.net/faq/3131-php-metodos-de-depuracion">Métodos de depuración en php</a></p>
+<p> </p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id54">
+<div class="iDevice emphasis0">
+<div id="ta54_73" class="block iDevice_content">
+<p>
+Si ya has programado anteriormente en otros lenguajes, seguramente conoces algunas herramientas de depuración específicas que se integran con el entorno de desarrollo, permitiéndote por ejemplo detener la ejecución cuando se llega a cierta línea y ver el contenido de las variables en ese momento. Al usar estas herramientas minimizas o eliminas por completo la necesidad de introducir líneas específicas de depuración en tus programas y agilizas el procedimiento de búsqueda de errores.
+</p>
+<p>
+De las herramientas disponibles que posibilitan la depuración en lenguaje <span lang="en">PHP</span>, en esta unidad aprenderás a configurar y utilizar la extensión <span lang="en">Xdebug</span>. Es una extensión de código libre, bajo licencia propia (<span lang="en">The Xdebug License</span>, basada en la licencia de <span lang="en">PHP</span>) que se integra perfectamente con el <acronym lang="en" title="Integrated Devolopment Environment. Entorno de Desarrollo Integrado.">IDE</acronym> que estás usando, <span lang="en">NetBeans</span>.
+</p>
+<p>
+Si la depuración está activada, <span lang="en">Xdebug</span> controla la ejecución de los guiones en <span lang="en">PHP</span>. Puede pausar, reanudar y detener los programas en cualquier momento. Cuando el programa está pausado, <span lang="en">Xdebug</span> puede obtener información del estado de ejecución, incluyendo el valor de las variables (puede incluso cambiar su valor).
+</p>
+<p>
+<span lang="en">Xdebug</span> es un servidor que recibe instrucciones de un cliente, que en nuestro caso será <span lang="en">NetBeans</span>. De esta forma, no es necesario que el entorno de desarrollo esté en la misma máquina que el servidor <span lang="en">PHP</span> con <span lang="en">Xdebug</span>.
+</p>
+
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_instalacin_de_herramientas_de_depuracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

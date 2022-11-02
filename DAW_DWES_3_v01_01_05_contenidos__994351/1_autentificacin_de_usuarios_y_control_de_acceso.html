@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.- Autentificación de usuarios y control de acceso. | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-1"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li id="active"><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="active daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul>
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li><a href="3_manejo_de_sesiones.html" class="daddy">3.- Manejo de sesiones.</a>
+   <ul class="other-section">
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul class="other-section">
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_herramientas_para_depuracin_de_cdigo.html" class="daddy">4.- Herramientas para depuración de código.</a>
+   <ul class="other-section">
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="11_mecanismos_de_autentificacin_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">1.- Autentificación de usuarios y control de acceso.</h1></header>
+<article class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id2">
+<div class="iDevice emphasis_casopracticofpd" >
+<header class="iDevice_header" style="background-image:url(icon_casopracticofpd.png)"><h1 class="iDeviceTitle">Caso práctico</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta2_66" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES04_CONT_R01b_Programando.png" alt="Manos de una persona sobre un teclado y un rat&oacute;n." title="Programando." height="205" width="205" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Stockbyte.CD-DVD Num. V43.</div>
+</div>
+<p>Tal y como <strong>Esteban</strong> les ha explicado, el objetivo principal del proyecto no es crear una p&aacute;gina <span lang="en">web</span> p&uacute;blica, con informaci&oacute;n sobre la empresa. Necesitan una aplicaci&oacute;n <span lang="en">web</span> con un objetivo m&aacute;s espec&iacute;fico: permitir a clientes y a empleados conocer informaci&oacute;n sobre los productos de la empresa.</p>
+<p><strong>Juan</strong> sabe que con estas condiciones, uno de los puntos fundamentales con los que deber&aacute; tratar en el nuevo proyecto es el control de acceso a la aplicaci&oacute;n <span lang="en">web</span>. Todos los usuarios que accedan habr&aacute;n de identificarse para poder acceder a las p&aacute;ginas del sitio <span lang="en">web</span>. Adem&aacute;s, en funci&oacute;n de si el usuario es un cliente o un empleado, habr&aacute; que darle acceso a una o a otra informaci&oacute;n.</p>
+<p><strong>Juan</strong> nunca ha programado sitios <span lang="en">web</span> con autentificaci&oacute;n de los usuarios. Adem&aacute;s, se encuentra terminando otro proyecto, y no dispone de demasiado tiempo. Por este motivo, le pide a <strong>Carlos</strong> que se documente sobre el tema para poder decidir el camino a tomar.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id3">
+<div class="iDevice emphasis0">
+<div id="ta3_73" class="block iDevice_content">
+<p>Muchas veces es importante verificar la identidad de los dos extremos de una comunicaci&oacute;n. En el caso de una comunicaci&oacute;n <span lang="en">web</span>, existen m&eacute;todos para identificar tanto al servidor en el que se aloja el sitio <span lang="en">web</span>, como al usuario del navegador que se encuentra en el otro extremo.</p>
+<p>Los sitios <span lang="en">web</span> que necesitan emplear identificaci&oacute;n del servidor, como las tiendas o los bancos, utilizan el protocolo <acronym title="HyperText Transfer Protocol Secure.Protocolo Seguro de Transferencia de Hipertexto." lang="en">HTTPS</acronym>. Este protocolo requiere de un certificado v&aacute;lido, firmado por una autoridad confiable, que es verificado por el navegador cuando se accede al sitio <span lang="en">web</span>. Adem&aacute;s, <span lang="en">HTTPS</span> utiliza m&eacute;todos de cifrado para crear un canal seguro entre el navegador y el servidor, de tal forma que no se pueda interceptar la informaci&oacute;n que se transmite por el mismo.</p>
+<p>Para identificar a los usuarios que visitan un sitio <span lang="en">web</span>, se pueden utilizar distintos m&eacute;todos como el <acronym title="Documento Nacional de Identidad.">DNI</acronym> digital o <a class="glosario">certificados digitales de usuario,<span><em>Certificado digital de usuario.</em>Es un documento digital que contiene informaci&oacute;n acerca del usuario como el nombre o la direcci&oacute;n. Esa informaci&oacute;n est&aacute; firmada por otra entidad, llamada entidad certificadora, que debe ser de confianza y garantiza que la informaci&oacute;n que contiene es cierta.</span></a> pero el m&aacute;s extendido es solicitar al usuario cierta informaci&oacute;n que solo &eacute;l conoce: la combinaci&oacute;n de un nombre de usuario y una contrase&ntilde;a.</p>
+<p>En la unidad anterior aprendiste a utilizar aplicaciones <span lang="en">web</span> para gestionar informaci&oacute;n almacenada en bases de datos. En la mayor&iacute;a de los casos es importante implantar en este tipo de aplicaciones <span lang="en">web</span>, las que acceden a bases de datos, alg&uacute;n mecanismo de control de acceso que obligue al usuario a identificarse. Una vez identificado, se puede limitar el uso que puede hacer de la informaci&oacute;n.</p>
+<p>As&iacute;, puede haber sitios <span lang="en">web</span> en los que los usuarios autentificados pueden utilizar s&oacute;lo una parte de la informaci&oacute;n (como los bancos, que permiten a sus clientes acceder &uacute;nicamente a la informaci&oacute;n relativa a sus cuentas). Otros sitios <span lang="en">web</span> necesitan separar en grupos a los usuarios autentificados, de tal forma que la informaci&oacute;n a la que accede un usuario depende del grupo en que &eacute;ste se encuentre. Por ejemplo, una aplicaci&oacute;n de gesti&oacute;n de una empresa puede tener un grupo de usuarios a los que permite visualizar la informaci&oacute;n, y otro grupo de usuarios que, adem&aacute;s de visualizar la informaci&oacute;n, tambi&eacute;n la pueden modificar.</p>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id4">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta4_70" class="block iDevice_content">
+<p>
+Debes distinguir la autentificación de los usuarios y el control de acceso, de la utilización de mecanismos para asegurar las comunicaciones entre el usuario del navegador y el servidor <span lang="en">web</span>. Aunque ambos aspectos suelen ir unidos, son independientes.
+</p>
+<p>
+En los ejemplos de esta unidad, la información de autentificación (nombre y contraseña de los usuarios) se envía en texto plano desde el navegador hasta el servidor <span lang="en">web</span>. <strong>Esta práctica es altamente insegura y nunca debe usarse sin un protocolo como <span lang="en">HTTPS</span> que permita cifrar las comunicaciones con el servidor <span lang="en">web</span></strong>. Sin embargo, la configuración de servidores <span lang="en">web</span> que permitan usar el protocolo <span lang="en">HTTPS</span> para cifrar la información que reciben y transmiten no forma parte de los contenidos de este módulo. Por este motivo, durante esta unidad utilizaremos únicamente el protocolo no seguro <acronym lang="en" title="HyperText Transfer Protocol. Protocolo de Transferencia de Hipertexto.">HTTP</acronym>.
+</p>
+
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="11_mecanismos_de_autentificacin_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>
