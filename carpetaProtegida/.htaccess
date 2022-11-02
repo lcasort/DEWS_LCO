@@ -1,0 +1,9 @@
+AuthName "Contenido restringido"
+
+AuthType Basic
+
+AuthUserFile /opt/lampp/htdocs/DEWS_LCO/carpetaProtegida/users
+
+ 
+
+require valid-user 
