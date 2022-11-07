@@ -1,0 +1,20 @@
+table {
+    width: 50%;
+    height: auto;
+}
+
+tr {
+    height: 100px;
+}
+
+.colorRed {
+    background-color: red;
+}
+
+.colorBlue {
+    background-color: blue;
+}
+
+.colorGreen {
+    background-color: green;
+}

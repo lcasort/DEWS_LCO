@@ -1,0 +1,11 @@
+Un único script php.
+
+
+1º) Solicitamos el número de filas y de columnas.
+
+2º) Pintamos una tabla de ese tamaño.
+    Cada celda puede ser rojo, verde o azul.
+    Coloreamos la tabla con un color aleatorio de esos tres.
+    Creamos un formulario para elegir el color.
+
+3º) Contamos el número de veces que aparece el color seleccionado.
