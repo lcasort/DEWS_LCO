@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Función que nos crea el formulario inicial en el que se pide introducir el
+ * número de filas y columnas de la tabla a crear junto con un botón para
+ * enviar los datos.
+ */
 function createInitialForm()
 {
     $initialForm = '<form action="'. $_SERVER['PHP_SELF'] . '" method="POST">';
@@ -13,6 +18,11 @@ function createInitialForm()
     return $initialForm;
 }
 
+/**
+ * Función para crear una matriz de las filas y columnas introducidas por
+ * el usuario con color azul, verde o rojo escogido de manera aleatoria para
+ * cada celda de la matriz.
+ */
 function createArrayTable($rows, $columns)
 {
     $colors = array(
@@ -41,6 +51,10 @@ function createArrayTable($rows, $columns)
     return $table;
 }
 
+/**
+ * Función para imprimir la tabla con los colores correspondientes a cada celda
+ * por pantalla.
+ */
 function printTable($table)
 {
     $res = '<table>';
@@ -65,6 +79,11 @@ function printTable($table)
     echo $res;
 }
 
+/**
+ * Función para imprimir por pantalla un formulario con en el que se escoja un
+ * color, se envie la matriz que conforma la tabla serializada y un botón para
+ * enviar los datos.
+ */
 function printFormColor($table)
 {
     $formColor = '<form action="'. $_SERVER['PHP_SELF'] . '" method="POST">';
@@ -81,6 +100,9 @@ function printFormColor($table)
     echo $formColor;
 }
 
+/**
+ * Función para contar cuántas veces aparece el color seleccionado en la tabla.
+ */
 function countColor($table, $color)
 {
     $num = 0;
