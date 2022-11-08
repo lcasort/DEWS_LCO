@@ -17,32 +17,28 @@
 
             echo createInitialForm();
 
-        } else {
+        } elseif (isset($_POST['submit']) && !empty($_POST['submit'])) {
 
-            if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+            $rows = $_POST['row'];
+            $columns = $_POST['column'];
 
-                $rows = $_POST['row'];
-                $columns = $_POST['column'];
-
-                $table = createArrayTable($rows, $columns);
+            $table = createArrayTable($rows, $columns);
             
-                printTable($table);
+            printTable($table);
 
-                printFormColor($table);
+            printFormColor($table);
 
-            } else {
+        } elseif (isset($_POST['submitColor']) && !empty($_POST['submitColor'])) {
 
-                $table = unserialize(base64_decode($_POST['table']));
+            $table = unserialize(base64_decode($_POST['table']));
 
-                printTable($table);
+            printTable($table);
 
-                printFormColor($table);
+            printFormColor($table);
 
-                $num = countColor($table, $_POST['color']);
+            $num = countColor($table, $_POST['color']);
     
-                echo '<span>Number of ' . $_POST['color'] . ' square(s): ' . $num . '</span>';
-
-            }
+            echo '<span>Number of ' . $_POST['color'] . ' square(s): ' . $num . '</span>';
 
         }
 
