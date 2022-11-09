@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.3.- Gestión de la información de la sesión (I). | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-9"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li class="current-page-parent"><a href="3_manejo_de_sesiones.html" class="current-page-parent daddy">3.- Manejo de sesiones.</a>
+   <ul>
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li id="active"><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="active daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul>
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_herramientas_para_depuracin_de_cdigo.html" class="daddy">4.- Herramientas para depuración de código.</a>
+   <ul class="other-section">
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="32_inicio_y_fin_de_una_sesin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.3.- Gestión de la información de la sesión (I).</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id38">
+<div class="iDevice emphasis0">
+<div id="ta38_73" class="block iDevice_content">
+<p>En este punto vas a ver paso a paso un ejemplo de utilizaci&oacute;n de sesiones para almacenar la informaci&oacute;n del usuario. Utilizar&aacute;s la base de datos "dwes", creada anteriormente, para crear un prototipo de una tienda <span lang="en">web</span> dedicada a la venta de productos de inform&aacute;tica.</p>
+<p>Las p&aacute;ginas de que constar&aacute; tu tienda <span lang="en">online</span> son las siguientes:</p>
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a title="Diagrama de la aplicaci&oacute;n web." href="DWES04_CONT_R08_diagrama_cesta_compra.png" target="_blank"><img src="DWES04_CONT_R08_diagrama_cesta_compra_miniatura.png" alt="Representaci&oacute;n de las p&aacute;ginas que componen la aplicaci&oacute;n web de compra online y la relaci&oacute;n entre ellas. La superior es &ldquo;Login&rdquo;, de donde se va hacia &ldquo;Listado de productos&rdquo;. Desde &eacute;sta se puede avanzar hacia &ldquo;Logoff&rdquo; o hacia &ldquo;Cesta de compra&rdquo;. Desde &ldquo;Cesta de compra&rdquo; se puede avanzar hacia &ldquo;Pagar&rdquo; o hacia &ldquo;Logoff&rdquo;. Desde &ldquo;Logoff&rdquo; siempre se va hacia &ldquo;Logon&rdquo;." title="Diagrama de la aplicaci&oacute;n web." class="imagen_ampliable" height="120" width="196" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+</div>
+</div>
+<ul class="lista_verificacion">
+<li><strong><span lang="en">Login</span> (login.php)</strong>. Su funci&oacute;n es autentificar al usuario de la aplicaci&oacute;n <span lang="en">web</span>. Todos los usuarios de la aplicaci&oacute;n deber&aacute;n autentificarse utilizando esta p&aacute;gina antes de poder acceder al resto de p&aacute;ginas.</li>
+<li><strong>Listado de productos (productos.php)</strong>. Presenta un listado de los productos de la tienda, y permite al usuario seleccionar aquellos que va a comprar.</li>
+<li><strong>Cesta de compra (cesta.php)</strong>. Muestra un resumen de los productos escogidos por el usuario para su compra y da acceso a la p&aacute;gina de pago.</li>
+<li><strong>Pagar (pagar.php)</strong>. Una vez confirmada la compra, la &uacute;ltima p&aacute;gina deber&iacute;a ser la que permitiera al usuario escoger el m&eacute;todo de pago y la forma de env&iacute;o. En este ejemplo no la vas a implementar como tal. Simplemente mostrar&aacute; un mensaje de tipo "Gracias por su compra" y ofrecer&aacute; un enlace para comenzar una nueva compra.</li>
+<li><strong><span lang="en">Logoff</span> (logoff.php)</strong>. Esta p&aacute;gina desconecta al usuario de la aplicaci&oacute;n y redirige al usuario de forma autom&aacute;tica a la pantalla de autentificaci&oacute;n. No muestra ninguna informaci&oacute;n en pantalla, por lo que no es visible para el usuario.</li>
+</ul>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id39">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta39_70" class="block iDevice_content">
+Recuerda poner a las páginas los nombres que aquí figuran, almacenando todas en la misma carpeta. Si cambias algún nombre o mueves alguna página de lugar, los enlaces internos no funcionarán.
+
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id40">
+<div class="iDevice emphasis0">
+<div id="ta40_73" class="block iDevice_content">
+<p>
+Aunque el aspecto de la aplicación no es importante para nuestro objetivo, utilizaremos una hoja de estilos, tienda.css, común a todas las páginas y una imagen, cesta.png, para ofrecer un interface más amigable.
+</p>
+<div class="enlace_centrado">
+<a class="paquete" href="DWES04_CONT_R08b_tienda.zip" title="Descargar la hoja de estilos para la aplicación web de tienda online. [zip - 3.00 KB]">Hoja de estilos.</a> <span class="tamano"> (3.00 KB) </span> 
+</div>
+<div class="enlace_centrado">
+<a class="imagen" href="DWES04_CONT_R08c_cesta.jpg" title="Imagen para la aplicación web de tienda online.">Imagen</a>
+</div>
+<br />
+<p>
+Antes de comenzar ten en cuenta que la aplicación que vas a desarrollar no es completamente funcional. Además de no desarrollar la página con la información de pago, habrá algunas opciones que no tendrás en cuenta para simplificar el código. Por ejemplo:
+</p>
+<ul class="lista_verificacion">
+	<li>No tendrás en cuenta la posibilidad de que el usuario compre varias unidades de un mismo producto.</li>
+	<li>Una vez añadido un producto a la cesta de compra, no se podrá retirar de la misma. La única posibilidad será vaciar toda la cesta y comenzar de nuevo añadiendo productos.</li>
+	<li>No se mostrarán imágenes de los productos, ni será posible ver el total de la compra hasta que ésta haya finalizado.</li>
+	<li>Se muestran todos los productos en una única página. Sería preferible filtrarlos por familia y mostrarlos en varias páginas, limitando a 10 o 20 productos el número máximo de cada página.</li>
+</ul>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper RecomendacionfpdIdevice em_iDevice" id="id41">
+<div class="iDevice emphasis_recomendacionfpd" >
+<header class="iDevice_header" style="background-image:url(icon_recomendacionfpd.png)"><h1 class="iDeviceTitle">Recomendación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta41_50" class="block iDevice_content">
+<p>
+Aunque reduzcamos en este ejemplo la funcionalidad de la tienda, te animamos a que una vez finalizado el mismo, añadas por tu cuenta todas aquellas opciones que quieras. Recuerda que la mejor forma de aprender programación es… ¡programando!
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper OrientacionesalumnadofpdIdevice em_iDevice" id="id66">
+<div class="iDevice emphasis_orientacionesfpd" >
+<header class="iDevice_header" style="background-image:url(icon_orientacionesfpd.png)"><h1 class="iDeviceTitle">Orientaciones para el alumnado</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta66_67" class="block iDevice_content">
+<p>Aunque a lo largo de los siguientes apartados se van introduciendo los distintos ficheros. Se incluye <a title="Ejemplo Tienda arreglado" href="DWES03-EjemploTienda-arreglado.zip">aqu&iacute; el proyecto de Netbeans completo</a> con todos los archivos necesarios y algunas mejoras c&oacute;mo:</p>
+<p>* Se ver&aacute; una forma de conectar a la base de datos y luego en la p&aacute;gina de productos otra diferente (la que exist&iacute;a en el ejemplo).<br /><br />* Se ha modificado la consulta de la BD en el login para que fuera parametrizada. En el resto del ejemplo se deja como est&aacute;.<br /><br />* Se han insertado m&aacute;s comentarios en el archivo login.php para comprender mejor los pasos.<br /><br />En el paquete se encuentra incluido el archivo SQL con todos los datos (de las tablas, los datos de estas y el user de la base de datos). Listo para usar conectado desde localhost (OJO!! si hubiera que cambiarlos debe hacerse en login.php y productos.php).</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="32_inicio_y_fin_de_una_sesin.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

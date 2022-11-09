@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.3.2.- Gestión de la información de la sesión (III). | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-11"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li class="current-page-parent"><a href="3_manejo_de_sesiones.html" class="current-page-parent daddy">3.- Manejo de sesiones.</a>
+   <ul>
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li class="current-page-parent"><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="current-page-parent daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul>
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li id="active"><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="active no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_herramientas_para_depuracin_de_cdigo.html" class="daddy">4.- Herramientas para depuración de código.</a>
+   <ul class="other-section">
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.3.2.- Gestión de la información de la sesión (III).</h1></header>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id44">
+<div class="iDevice emphasis0">
+<div id="ta44_73" class="block iDevice_content">
+<p>Cuando un usuario proporciona unas credenciales de inicio de sesi&oacute;n correctas (recuerda que t&uacute; ya hab&iacute;as a&ntilde;adido el usuario "dwes" con contrase&ntilde;a "abc123."), se le redirige de forma autom&aacute;tica a la p&aacute;gina del listado de productos (<strong>productos.php</strong>) para que pueda empezar a hacer la compra. Esa es la p&aacute;gina que vas a programar a continuaci&oacute;n.</p>
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a title="Listado de productos." href="DWES04_CONT_R10b_productos.jpg" target="_blank"><img src="DWES04_CONT_R10b_productos_miniatura.jpg" alt="Captura de la p&aacute;gina web de listado de productos. Se muestra una lista con una l&iacute;nea por cada producto, y en la zona derecha la lista de productos que se han seleccionado para comprar. En esa zona figuran do botones, uno para vaciar la lista y otro para realizar la compra." title="Listado de productos." class="imagen_ampliable" height="136" width="200" /></a></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Elaboraci&oacute;n Propia</div>
+</div>
+</div>
+</div>
+<div class="enlace_centrado"><a class="paquete" title="Descargar la p&aacute;gina del listado de productos para la aplicaci&oacute;n web de tienda online. [zip - 2.00 KB]" href="DWES04_CONT_R10_productos.zip">Productos.php.</a> <span class="tamano"> (2.00 KB) </span></div>
+<p>La p&aacute;gina se divide en varias zonas, cada una definida por una etiqueta <code>&lt; div&gt;</code> en el c&oacute;digo HTML:</p>
+<ul class="lista_verificacion">
+<li><strong>encabezado</strong>. Contiene &uacute;nicamente el t&iacute;tulo de la p&aacute;gina.</li>
+<li><strong>productos</strong>. Contiene el listado de todos los productos tal y como figuran en la base de datos. Cada producto figura en una l&iacute;nea (nombre y precio).
+<p>Se crea un formulario por cada producto, con un bot&oacute;n "A&ntilde;adir" que env&iacute;a a esta misma p&aacute;gina los datos c&oacute;digo, nombre y precio del producto. Cuando se abre la p&aacute;gina, se comprueba si se ha enviado este formulario, y si fuera as&iacute; se a&ntilde;ade un elemento al array asociativo <code>$_SESSION['cesta']</code> con los datos del nuevo producto.</p>
+<div class="codigo elemento_centrado" style="width: 39em;">
+<div class="texto_izquierda">
+<pre><code>// Comprobamos si se ha enviado el formulario de a&ntilde;adir</code>
+</pre>
+<pre><code>    if (isset($_POST['enviar'])) {</code>
+</pre>
+<pre><code>        // Creamos un array con los datos del nuevo producto</code>
+</pre>
+<pre><code>        $producto['nombre'] = $_POST['nombre'];</code>
+</pre>
+<pre><code>        $producto['precio'] = $_POST['precio'];</code>
+</pre>
+<pre><code>        //  y lo a&ntilde;adimos</code>
+</pre>
+<pre><code>        $_SESSION['cesta'][$_POST['producto']] = $producto;</code>
+</pre>
+<pre><code>   }</code>
+</pre>
+</div>
+</div>
+<p>El array <code>$_SESSION['cesta']</code> es la variable de sesi&oacute;n en la que guardaremos los datos de todos los productos que va a comprar el usuario. F&iacute;jate que los datos del nuevo producto se incluyen a su vez como un array con dos elementos, el precio y el nombre.</p>
+</li>
+<li><strong>cesta</strong>. Muestra el c&oacute;digo de los productos que se van a&ntilde;adiendo a la cesta.
+<div class="codigo elemento_centrado" style="width: 38.45em;">
+<div class="texto_izquierda">
+<pre><code>   // Si la cesta est&aacute; vac&iacute;a, mostramos un mensaje</code>
+</pre>
+<pre><code>   $cesta_vacia = true;</code>
+</pre>
+<pre><code>   if (count($_SESSION['cesta'])==0) {</code>
+</pre>
+<pre><code>       print "&lt;p&gt;Cesta vac&iacute;a&lt;/p&gt;";</code>
+</pre>
+<pre><code>   }</code>
+</pre>
+<pre>&nbsp;</pre>
+<pre><code>   // Si no est&aacute; vac&iacute;a, mostrar su contenido</code>
+</pre>
+<pre><code>   else {      </code>
+</pre>
+<pre><code>       foreach ($_SESSION['cesta'] as $codigo =&gt; $producto)</code>
+</pre>
+<pre><code>            print "&lt;p&gt;$codigo&lt;/p&gt;";</code>
+</pre>
+<pre><code>       $cesta_vacia = false;</code>
+</pre>
+<pre><code>   }</code>
+</pre>
+</div>
+</div>
+<p>Contiene dos formularios. Uno para vaciar la cesta (bot&oacute;n "Vaciar Cesta"), dirigido a esta misma p&aacute;gina, y otro para realizar la compra (bot&oacute;n "Comprar"), que dirige a la p&aacute;gina <strong>cesta.php</strong>. Para vaciar la cesta, se incluye en la p&aacute;gina el siguiente c&oacute;digo:</p>
+<div class="codigo elemento_centrado" style="width: 41.2em;">
+<div class="texto_izquierda">
+<pre><code>// Comprobamos si se ha enviado el formulario de vaciar la cesta</code>
+</pre>
+<pre><code>    if (isset($_POST['vaciar'])) {</code>
+</pre>
+<pre><code>        unset($_SESSION['cesta']);</code>
+</pre>
+<pre><code>    }</code>
+</pre>
+</div>
+</div>
+</li>
+<li><strong>pie</strong>. Contiene un bot&oacute;n para desconectar al usuario actual. Llama a la p&aacute;gina <strong>logoff.php</strong>, que borra la sesi&oacute;n actual.</li>
+</ul>
+<p>Adem&aacute;s, tanto en esta p&aacute;gina como en todas las dem&aacute;s, es necesario comprobar la variable de sesi&oacute;n <code>$_SESSION['usuario']</code> para verificar que el usuario se ha autentificado correctamente. Para ello, debes incluir el siguiente c&oacute;digo al inicio de la p&aacute;gina.</p>
+<div class="codigo elemento_centrado" style="width: 51.1em;">
+<div class="texto_izquierda">
+<pre><code>&lt;?php</code>
+</pre>
+<pre><code>    // Recuperamos la informaci&oacute;n de la sesi&oacute;n</code>
+</pre>
+<pre><code>    session_start();</code>
+</pre>
+<pre>&nbsp;</pre>
+<pre><code>    // Y comprobamos que el usuario se haya autentificado</code>
+</pre>
+<pre><code>    if (!isset($_SESSION['usuario'])) {</code>
+</pre>
+<pre><code>        die("Error - debe &lt;a href='login.php'&gt;identificarse&lt;/a&gt;.&lt;br /&gt;");</code>
+</pre>
+<pre><code>    }</code>
+</pre>
+<pre><code>?&gt;</code>
+</pre>
+</div>
+</div>
+<p>Si el usuario no se ha autentificado, se muestra un mensaje de error junto con un enlace a la p&aacute;gina <strong>login.php</strong>.</p>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

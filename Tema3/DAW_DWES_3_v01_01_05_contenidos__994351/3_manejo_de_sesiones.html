@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3.- Manejo de sesiones. | Tema 3 </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="NONAME" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" /></head>
+<body class="exe-web-site" id="exe-node-6"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Tema 3</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Desarrollo de aplicaciones web con PHP.</a></li>
+   <li><a href="1_autentificacin_de_usuarios_y_control_de_acceso.html" class="daddy">1.- Autentificación de usuarios y control de acceso.</a>
+   <ul class="other-section">
+      <li><a href="11_mecanismos_de_autentificacin_i.html" class="daddy">1.1.- Mecanismos de autentificación (I).</a>
+      <ul class="other-section">
+         <li><a href="111_mecanismos_de_autentificacin_ii.html" class="no-ch">1.1.1.- Mecanismos de autentificación (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="12_incorporacin_de_mtodos_de_autentificacin_a_una_aplicacin_web.html" class="no-ch">1.2.- Incorporación de métodos de autentificación a una aplicación web.</a></li>
+   </ul>
+   </li>
+   <li><a href="2_cookies.html" class="no-ch">2.- Cookies.</a></li>
+   <li id="active"><a href="3_manejo_de_sesiones.html" class="active daddy">3.- Manejo de sesiones.</a>
+   <ul>
+      <li><a href="31_configuracin.html" class="no-ch">3.1.- Configuración.</a></li>
+      <li><a href="32_inicio_y_fin_de_una_sesin.html" class="no-ch">3.2.- Inicio y fin de una sesión.</a></li>
+      <li><a href="33_gestin_de_la_informacin_de_la_sesin_i.html" class="daddy">3.3.- Gestión de la información de la sesión (I).</a>
+      <ul class="other-section">
+         <li><a href="331_gestin_de_la_informacin_de_la_sesin_ii.html" class="no-ch">3.3.1.- Gestión de la información de la sesión (II).</a></li>
+         <li><a href="332_gestin_de_la_informacin_de_la_sesin_iii.html" class="no-ch">3.3.2.- Gestión de la información de la sesión (III).</a></li>
+         <li><a href="333_gestin_de_la_informacin_de_la_sesin_iv.html" class="no-ch">3.3.3.- Gestión de la información de la sesión (IV).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="4_herramientas_para_depuracin_de_cdigo.html" class="daddy">4.- Herramientas para depuración de código.</a>
+   <ul class="other-section">
+      <li><a href="41_instalacin_de_herramientas_de_depuracin.html" class="no-ch">4.1.- Instalación de herramientas de depuración.</a></li>
+      <li><a href="42_depuracin_de_cdigo_en_php.html" class="no-ch">4.2.- Depuración de código en PHP.</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="2_cookies.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="31_configuracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3.- Manejo de sesiones.</h1></header>
+<article class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id26">
+<div class="iDevice emphasis_casopracticofpd" >
+<header class="iDevice_header" style="background-image:url(icon_casopracticofpd.png)"><h1 class="iDeviceTitle">Caso práctico</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta26_66" class="block iDevice_content">
+<div class="elemento_derecha">
+<div class="elemento_centrado"><img src="DWES04_CONT_R05_Usuarios.png" alt="Grupo de personas mirando hacia arriba." title="Usuarios." height="223" width="223" /></div>
+<div class="elemento_centrado credenciales"><a class="cc0" title="Dominio p&uacute;blico" href="http://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank"><span class="transparente">Dominio p&uacute;blico</span></a>&nbsp;Stockbyte.CD-DVD Num. CD109</div>
+</div>
+<p>Carlos ha aprendido a utilizar las <span lang="en">cookies</span>, y cu&aacute;les son sus limitaciones. Est&aacute; claro que les ser&aacute;n de utilidad, pero tambi&eacute;n que no cubren las necesidades de una aplicaci&oacute;n <span lang="en">web</span>. Al viajar en las cabeceras <span lang="en">HTTP</span>, la informaci&oacute;n que pueden mantener est&aacute; muy limitada.</p>
+<p>Aunque sabe que a&uacute;n le queda mucho por aprender, <strong>Juan</strong> le ha comentado que con los conocimientos que acaba de adquirir ya tiene una buena base para dar los primeros pasos programando en <span lang="en">PHP</span>. Dice que s&oacute;lo le falta aprender c&oacute;mo funcionan las sesiones para empezar a desarrollar aplicaciones <span lang="en">web</span> completas por su cuenta.</p>
+<p>Animado por estos comentarios, <strong>Carlos</strong> decide dar un paso m&aacute;s. Veamos c&oacute;mo funcionan las sesiones en <span lang="en">PHP</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper FreeTextfpdIdevice" id="id27">
+<div class="iDevice emphasis0">
+<div id="ta27_73" class="block iDevice_content">
+<p>
+Como acabas de ver, una forma para guardar información particular de cada usuario es utilizar <span lang="en">cookies</span>. Sin embargo, existen diversos problemas asociados a las <span lang="en">cookies</span>, como el número de ellas que admite el navegador, o su tamaño máximo. Para solventar estos inconvenientes, existen las sesiones. El término sesión hace referencia al conjunto de información relativa a un usuario concreto. Esta información puede ser tan simple como el nombre del propio usuario, o más compleja, como los artículos que ha depositado en la cesta de compra de una tienda <span lang="en">online</span>.
+</p>
+<p>
+Cada usuario distinto de un sitio <span lang="en">web</span> tiene su propia información de sesión. Para distinguir una sesión de otra se usan los identificadores de sesión (<abbr lang="en" title="Session identifier. Sesión identificador.">SID</abbr>). Un <span lang="en">SID</span> es un atributo que se asigna a cada uno de los visitantes de un sitio <span lang="en">web</span> y lo identifica. De esta forma, si el servidor <span lang="en">web</span> conoce el <span lang="en">SID</span> de un usuario, puede relacionarlo con toda la información que posee sobre él, que se mantiene en la sesión del usuario. Esa información se almacena en el servidor <span lang="en">web</span>, generalmente en ficheros aunque también se pueden utilizar otros mecanismos de almacenamiento como bases de datos.
+</p>
+<p>
+Como ya habrás supuesto, la cuestión ahora es: ¿y dónde se almacena ese <span lang="en">SID</span>, el identificador de la sesión, que es único para cada usuario? Pues existen dos maneras de mantener el <span lang="en">SID</span> entre las páginas de un sitio <span lang="en">web</span> que visita el usuario:
+</p>
+<ul class="lista_verificacion">
+	<li>Utilizando <span lang="en">cookies</span>, tal y como ya viste.</li>
+	<li>Propagando el <span lang="en">SID</span> en un parámetro de la <acronym lang="en" title="Uniform Resource Locator. Localizador Uniforme de Recursos.">URL</acronym>. El <span lang="en">SID</span> se añade como una parte más de la <span lang="en">URL</span>, de la forma:</li>
+</ul>
+<div class="codigo elemento_centrado" style="width: 46.7em">
+<div class="texto_izquierda">
+<pre>
+<code>http://www.misitioweb.com/tienda/listado.php&amp;PHPSESSID=34534fg4ffg34ty</code>
+</pre>
+</div>
+</div>
+<p>
+En el ejemplo anterior, el <span lang="en">SID</span> es el valor del parámetro <code>PHPSESSID</code>.
+</p>
+<p>
+Ninguna de las dos maneras es perfecta. Ya sabes los problemas que tiene la utilización de <span lang="en">cookies</span>. Pese a ello, es el mejor método y el más utilizado. Propagar el <span lang="en">SID</span> como parte de la <span lang="en">URL</span> conlleva mayores desventajas, como la imposibilidad de mantener el <span lang="en">SID</span> entre distintas sesiones, o el hecho de que compartir la <span lang="en">URL</span> con otra persona implica compartir también el identificador de sesión.
+</p>
+<p>
+La buena noticia, es que el proceso de manejo de sesiones en <span lang="en">PHP</span> está automatizado en gran medida. Cuando un usuario visita un sitio <span lang="en">web</span>, no es necesario programar un procedimiento para ver si existe un <span lang="en">SID</span> previo y cargar los datos asociados con el mismo. Tampoco tienes que utilizar la función <code>setcookie</code> si quieres almacenar los <span lang="en">SID</span> en <span lang="en">cookies</span>, o ir pasando el <span lang="en">SID</span> entre las páginas <span lang="en">web</span> de tu sitio si te decides por propagarlo. Todo esto <span lang="en">PHP</span> lo hace automáticamente.
+</p>
+
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper DestacadofpdIdevice" id="id28">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta28_70" class="block iDevice_content">
+A la información que se almacena en la sesión de un usuario también se le conoce como <span lang="en">cookies</span> del lado del servidor (<span lang="en">server side cookies</span>). Debes tener en cuenta que aunque esta información no viaja entre el cliente y el servidor, sí lo hace el <span lang="en">SID</span>, bien como parte de la <span lang="en">URL</span> o en un encabezado <span lang="en">HTTP</span> si se guarda en una <span lang="en">cookie</span>. En ambos casos, esto plantea un posible problema de seguridad. El <span lang="en">SID</span> puede ser conseguido por otra persona, y a partir del mismo obtener la información de la sesión del usuario. La manera más segura de utilizar sesiones es almacenando los <span lang="en">SID</span> en <span lang="en">cookies</span> y utilizar <span lang="en">HTTPS</span> para encriptar la información que se transmite entre el servidor <span lang="en">web</span> y el cliente.
+
+</div>
+</div>
+</div>
+</article>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="2_cookies.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="31_configuracin.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_fpd_js.js"></script></body></html>

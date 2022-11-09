@@ -65,13 +65,14 @@
                 $id = array_keys($_POST['reload']);
                 $id = reset($id);
 
-                $name = array_keys($_POST[$id]);
-                $name = reset($name);
+                foreach ($_POST[$id] as $key => $val) {
 
-                if(!$conexion->query("UPDATE city SET Name = '$name' WHERE ID = '$id' AND '$name' != ''")) {
+                    if(!$conexion->query("UPDATE city SET Name = '$val' WHERE ID = '$id' AND '$val' != ''")) {
 
-                    $msg = 'Error al actualizar.';
+                        $msg = 'Error al actualizar.';
 
+                    }
+                    
                 }
 
             } elseif (isset($_POST['add']) && !empty($_POST['add'])
