@@ -1,0 +1,96 @@
+body {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #457b9d;
+    color: #1d3557;
+}
+
+/*Estilo h1 del header y del h2 que esta en el main.*/
+h1 , h2{
+    text-align: center;
+    color: #e63946;
+    background-color: #f1faee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/*Estilo del div del tablero.*/
+
+.caja_tablero {
+    display: flex;
+    justify-content:  center;
+    color: #e63946;
+    background-color: #f1faee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.tablero {
+
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 2em;
+    color:#1d3557;
+
+}
+
+.tablero td {
+    width: 40px;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Div donde se muestra cuantos disparos se estan realizado.
+ni zorra por que no coge el estilo.... */
+
+.disparos{
+    background-color: #f1faee;
+    color:#457b9d;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+
+}
+
+/*El div con el menú para poder jugar. */
+.acciones {
+    color: #e63946;
+    background-color: #f1faee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+.acciones form fieldset{
+    margin: 0 auto;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    color: #f1faee;
+    background-color: #457b9d;
+}
+
+legend{
+    /*Estilo de letra con contorno.*/
+    -webkit-text-stroke: 1px #e63946;
+    color: #f1faee;
+    font-size: 2.5em;
+}
+
+input, label, legend{
+    margin: 5px;
+
+}
+
+
+
+
+
+
