@@ -17,11 +17,17 @@
     require_once 'functions.php';
 
 
+    /*
+    ------------------------------------------------------------------------
+    Esto tenemos que activarlo para cargar la base de datos por primera vez.
+    ------------------------------------------------------------------------
+    */
     // Para Ubuntu:
     // exec($config_params['db']['load']['ubuntu']);
 
     // Para Windows:
     // exec($config_params['db']['load']['windows']);
+    
 
 
     // Abrimos la conexión con la base de datos.
@@ -75,15 +81,27 @@
                     
                 }
 
-            } elseif (isset($_POST['add']) && !empty($_POST['add'])
-            && isset($_POST['newName']) && !empty($_POST['newName'])) {
+            } elseif (isset($_POST['add']) && !empty($_POST['add'])) {
 
                 $name = $_POST['newName'];
+                $country = $_POST['country'];
+                $district = $_POST['district'];
+                $population = $_POST['population'];
 
-                $ids = $conexion->query('SELECT ID FROM city');
-                $id = max(...$ids);
-                $id = intval($id) + 1;
-                echo $id;
+                $countryCode = null;
+                if($country != null) {
+                    $countryCode = $conexion->query("SELECT Code FROM country WHERE Code = '$country'");
+                    $countryCode = $countryCode->fetch_array();
+                    $countryCode = reset($countryCode);
+                }
+                
+                if($name != null && $countryCode != null && $district != null && $population != null) {
+                    if(!$conexion->query("INSERT INTO city(Name,CountryCode,District,Population) VALUES ('$name','$countryCode','$district','$population')")) {
+                        $msg = 'Error al hacer el insert.';
+                    }
+                } else {
+                    $msg = 'Introduce todos los valores.';
+                }
 
             }
         }
@@ -104,7 +122,10 @@
     }
     
     $form .= '<input type="submit" value="&#x2795;" class="add" name="add" />';
-    $form .= '<input type="text" name="newName" class="newName" placeholder="Name of the new country"></input><br>';
+    $form .= '<input type="text" name="newName" class="newName" placeholder="Name of the new city"></input><br>';
+    $form .= '<input type="text" name="country" class="country" placeholder="Code of the country"></input><br>';
+    $form .= '<input type="text" name="district" class="district" placeholder="Name of the district"></input><br>';
+    $form .= '<input type="number" name="population" class="population" placeholder="Population" value="0"></input><br>';
     $form .= '</form>';
     $form .= '</div>';
     $form .= '<span>' . $msg . '</span>';
