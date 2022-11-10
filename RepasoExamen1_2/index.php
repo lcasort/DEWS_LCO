@@ -23,7 +23,7 @@
     ------------------------------------------------------------------------
     */
     // Para Ubuntu:
-    // exec($config_params['db']['load']['ubuntu']);
+    exec($config_params['db']['load']['ubuntu']);
 
     // Para Windows:
     // exec($config_params['db']['load']['windows']);
