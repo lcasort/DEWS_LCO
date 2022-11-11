@@ -23,7 +23,7 @@
     ------------------------------------------------------------------------
     */
     // Para Ubuntu:
-    exec($config_params['db']['load']['ubuntu']);
+    // exec($config_params['db']['load']['ubuntu']);
 
     // Para Windows:
     // exec($config_params['db']['load']['windows']);
@@ -92,14 +92,19 @@
                 if($country != null) {
                     $countryCode = $conexion->query("SELECT Code FROM country WHERE Code = '$country'");
                     $countryCode = $countryCode->fetch_array();
-                    $countryCode = reset($countryCode);
+                    
+                    if ($countryCode != null) {
+                        $countryCode = reset($countryCode);
+                    } else {
+                        $msg = 'Country code entered does not exist.';
+                    }
                 }
                 
                 if($name != null && $countryCode != null && $district != null && $population != null) {
                     if(!$conexion->query("INSERT INTO city(Name,CountryCode,District,Population) VALUES ('$name','$countryCode','$district','$population')")) {
                         $msg = 'Error al hacer el insert.';
                     }
-                } else {
+                } elseif($msg == '') {
                     $msg = 'Introduce todos los valores.';
                 }
 
