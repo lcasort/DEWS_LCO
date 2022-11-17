@@ -1,5 +1,12 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+h2 {text-align: center;}
+
 .container {
-    display: flex;;
+    display: flex;
+}
+
+form {
+    margin: 0 auto;
 }
 
 #products {
@@ -35,7 +42,8 @@
     display: flex;
 }
 
-.buy {
+.buy,
+.pay {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
