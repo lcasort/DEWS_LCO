@@ -52,3 +52,33 @@ form {
     cursor: pointer;
     width: 25%;
 }
+
+form > p {
+    text-align: center;
+}
+
+.log-out {
+    float: right;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.back {
+    float: left;
+    width: 50px;
+    margin-left: 10px;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+}
+
+a {
+    text-decoration: none;
+}

@@ -6,6 +6,10 @@
     if(!isset($_SESSION['login'])) {
         header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
         exit();
+    } elseif(isset($_POST['log-out_x']) || isset($_POST['log-out_y'])) {
+        session_destroy();
+        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
+        exit();
     }
 ?>
 
@@ -19,6 +23,13 @@
     <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
+
+    <div id="header">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <input type="image" src="img/log-out.png" class="log-out" name="log-out" alt="log out" />
+        </form>
+    </div>
+
     <?php
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
@@ -72,8 +83,12 @@
                     $table .= '<tr>';
                     $table .= '<td>'.$p['nombre_corto'].'</td>';
                     $table .= '<td>'.$p['descripcion'].'</td>';
-                    $table .= '<td>'.$p['PVP'].'</td>';
-                    $table .= '<td><input type="checkbox" name="cart['.$p['cod'].']" />&nbsp;</td>';
+                    $table .= '<td>'.$p['PVP'].'€</td>';
+                    if(isset($_SESSION['cart']) && in_array($p['cod'], $_SESSION['cart'])) {
+                        $table .= '<td><input type="checkbox" name="cart['.$p['cod'].']" checked />&nbsp;</td>';
+                    } else {
+                        $table .= '<td><input type="checkbox" name="cart['.$p['cod'].']" />&nbsp;</td>';
+                    }
                     $table .= '</tr>';
                 }
                 $table .= '</table>';
@@ -86,6 +101,8 @@
                 echo $table;
 
             }
+
+            $conexion -> close();
 
         }
 

@@ -11,20 +11,6 @@
 
     } elseif(isset($_POST['submit']) && !empty($_POST['submit'])) {
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
-    <link rel="stylesheet" href="css/login-style.css">
-</head>
-<body>
-    <?php
-
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
@@ -36,8 +22,7 @@
 
         if ($error != 0) {
 
-            echo '<p>Error de conexión a la base de datos. Texto del error:' . $conexion->connect_error . '</p>';
-            exit();
+            $error_message = '<p>Error de conexión a la base de datos. Texto del error:' . $conexion->connect_error . '</p>';
 
         } else {
 
@@ -58,7 +43,18 @@
         }
     }
 
-    ?>
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="css/login-style.css" />
+</head>
+<body>
     <h2>Login Form</h2>
 
     <div class="form-container">
