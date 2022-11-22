@@ -6,7 +6,7 @@
     // 
     if(isset($_SESSION['login'])) {
 
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/productos.php');
+        header('Location: ./productos.php');
         exit();
 
     } elseif(isset($_POST['submit']) && !empty($_POST['submit'])) {
@@ -36,7 +36,7 @@
                 $error_message = 'El usuario y/o contraseñas son erróneos.';
             } else {
                 $_SESSION['login'] = $res['usuario'];
-                header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/productos.php');
+                header('Location: ./productos.php');
                 exit();
             }
 
@@ -46,7 +46,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

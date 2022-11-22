@@ -4,17 +4,53 @@
 
     //
     if(!isset($_SESSION['login'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
+        header('Location: ./login.php');
         exit();
-    } elseif(isset($_POST['log-out_x']) || isset($_POST['log-out_y'])) {
-        session_destroy();
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
-        exit();
+    } elseif(isset($_SESSION['total'])) {
+        unset($_SESSION['cart']);
+        unset($_SESSION['total']);
     }
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $conexion = new mysqli('localhost', 'root', '', 'ejtienda');
+
+    $error = $conexion->connect_errno;
+    $error_message = ""; 
+
+    if ($error != 0) {
+
+        $error_message = '<p>Error de conexión a la base de datos. Texto del error:' . $conexion->connect_error . '</p>';
+        exit();
+
+    } else {
+
+        if(isset($_POST['cart']) && !empty($_POST['cart'])) {
+
+            $values = '(\'' . implode("','", array_keys($_POST['cart'])) . '\')';
+            $res = $conexion -> query("SELECT cod FROM producto WHERE cod IN $values");
+
+            while($cod = $res -> fetch_array()) {
+                if(!isset($_SESSION['cart'])) {
+                    $_SESSION['cart'] = array();
+                    array_push($_SESSION['cart'], $cod['cod']);
+                } else {
+                    if (!in_array($cod['cod'], $_SESSION['cart'])) {
+                        array_push($_SESSION['cart'], $cod['cod']);
+                    }
+                }
+            }
+                
+            header('Location: ./cesta.php');
+            exit();
+
+        } else {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,48 +61,11 @@
 <body>
 
     <div id="header">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="image" src="img/log-out.png" class="log-out" name="log-out" alt="log out" />
-        </form>
+        <a href="./logoff.php"><img src="img/log-out.png" class="log-out" name="log-out" alt="log out" /></a>
     </div>
 
     <?php
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
-        $conexion = new mysqli('localhost', 'root', '', 'ejtienda');
-
-        $error = $conexion->connect_errno;
-        $error_message = ""; 
-
-        if ($error != 0) {
-
-            echo '<p>Error de conexión a la base de datos. Texto del error:' . $conexion->connect_error . '</p>';
-            exit();
-
-        } else {
-
-            if(isset($_POST['cart']) && !empty($_POST['cart'])) {
-
-                $values = '(\'' . implode("','", array_keys($_POST['cart'])) . '\')';
-                $res = $conexion -> query("SELECT cod FROM producto WHERE cod IN $values");
-
-                while($cod = $res -> fetch_array()) {
-                    if(!isset($_SESSION['cart'])) {
-                        $_SESSION['cart'] = array();
-                        array_push($_SESSION['cart'], $cod['cod']);
-                    } else {
-                        if (!in_array($cod['cod'], $_SESSION['cart'])) {
-                            array_push($_SESSION['cart'], $cod['cod']);
-                        }
-                    }
-                }
-                
-                header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/cesta.php');
-                exit();
-
-            } else {
+        
 
                 $res = $conexion -> query("SELECT * FROM producto");
                 
@@ -107,5 +106,7 @@
         }
 
     ?>
+
+    <span><?php echo $error_message; ?></span>
 </body>
 </html>

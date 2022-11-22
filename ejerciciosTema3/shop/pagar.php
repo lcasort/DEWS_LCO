@@ -4,25 +4,18 @@
 
     //
     if(!isset($_SESSION['login'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
+        header('Location: ./login.php');
         exit();
     } elseif(!isset($_SESSION['total'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/cesta.php');
+        header('Location: ./cesta.php');
         exit();
     } elseif(!isset($_SESSION['cart'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/productos.php');
+        header('Location: ./productos.php');
         exit();
     } elseif(isset($_POST['new']) && !empty($_POST['new'])) {
         unset($_SESSION['cart']);
         unset($_SESSION['total']);
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/productos.php');
-        exit();
-    } elseif(isset($_POST['log-out_x']) && !empty($_POST['log-out_y'])) {
-        session_destroy();
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
-        exit();
-    } elseif(isset($_POST['back_x']) || isset($_POST['back_y'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/cesta.php');
+        header('Location: ./productos.php');
         exit();
     }
 ?>
@@ -38,10 +31,8 @@
 </head>
 <body>
     <div id="header">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="image" src="img/log-out.png" class="log-out" name="log-out" alt="log out" />
-            <input type="image" src="img/go-back.png" class="back" name="back" alt="go back" value="go back" />
-        </form>
+        <a href="./logoff.php"><img src="img/log-out.png" class="log-out" name="log-out" alt="log out" /></a>
+        <a href="./productos.php"><img src="img/go-back.png" class="back" name="back" alt="go back" value="go back" /></a>
     </div>
 
     <h2>Gracias por su compra</h2>

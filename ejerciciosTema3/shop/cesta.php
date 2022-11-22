@@ -5,16 +5,12 @@
     $error_msg = '';
     //
     if(!isset($_SESSION['login'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
+        header('Location: ./login.php');
         exit();
     } elseif(!isset($_SESSION['cart'])) {
         $error_msg = '<h2>Cesta vacía</h2><br><a href="./productos.php"><div class="buttonContainer"><button>Volver a productos</button></div></a>';
-    } elseif(isset($_POST['log-out_x']) && !empty($_POST['log-out_y'])) {
-        session_destroy();
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/login.php');
-        exit();
-    } elseif(isset($_POST['back_x']) || isset($_POST['back_y'])) {
-        header('Location: http://localhost/DEWS_LCO/ejerciciosTema3/shop/productos.php');
+    } elseif(isset($_SESSION['total'])) {
+        header('Location: ./productos.php');
         exit();
     }
 ?>
@@ -30,10 +26,8 @@
 </head>
 <body>
     <div id="header">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="image" src="img/log-out.png" class="log-out" name="log-out" alt="log out" />
-            <input type="image" src="img/go-back.png" class="back" name="back" alt="go back" value="go back" />
-        </form>
+        <a href="./logoff.php"><img src="img/log-out.png" class="log-out" name="log-out" alt="log out" /></a>
+        <a href="./productos.php"><img src="img/go-back.png" class="back" name="back" alt="go back" value="go back" /></a>
     </div>
 
     <?php
@@ -83,7 +77,7 @@
             $_SESSION['total'] = $total;
 
             $table .= '</table>';
-            $table .= '<p>Tu total a pagar es: ' . $_SESSION['total'] . '€</p>';
+            $table .= '<p>Tu total a pagar es: ' . $total . '€</p>';
             $table .= '<div class="buttonContainer">';
             $table .= '<input type="submit" name="pay" class="pay" value="Pagar">';
             $table .= '</div>';
