@@ -1,8 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
-http://www.w3.org/TR/html4/loose.dtd">
-<!-- Desarrollo Web en Entorno Servidor -->
-<!-- Tema 4 : Desarrollo de aplicaciones web con PHP -->
-<!-- Ejemplo: Función header para autentificación HTTP -->
 <?php
     if (!isset($_SERVER['PHP_AUTH_USER'])) {
         header('WWW-Authenticate: Basic Realm="Contenido restringido"');
@@ -12,6 +7,8 @@ http://www.w3.org/TR/html4/loose.dtd">
     }
 ?>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
+http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
