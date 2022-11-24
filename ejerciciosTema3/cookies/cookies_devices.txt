@@ -1,0 +1,19 @@
+1º. Number of devices for one user.
+	
+	DB:
+		users => id, user, psswd
+		entries => id_entry, id, date, id_device
+		
+		*Beign id_device: IP_S.O._TIME.
+	
+	- Ask user and psswd.
+	- Check if user in database and login correct:
+		SELECT * FROM users WHERE $user = user AND $psswd = psswd;
+	- Get MAC.
+	- Check database if user and mac entry exists:
+		SELECT * FROM users WHERE $user = user AND $mac = mac;
+	+ If MAC isn't in database:
+		INSERT INTO users VALUES ($user,$psswd,$mac);
+	+ If MAC is in database:
+		Identify user with their device.
+	
