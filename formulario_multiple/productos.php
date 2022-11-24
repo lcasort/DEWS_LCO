@@ -11,6 +11,12 @@
         unset($_SESSION['total']);
     }
 
+    if(isset($_POST['quantity']) && !empty($_POST['quantity'])) {
+
+    } else {
+        $_SESSION['quantity'] = array();
+    }
+
     $htmlText = '';
 
     ini_set('display_errors', 1);
@@ -66,8 +72,9 @@
             $htmlText .= '<td>'.$row['nombre_corto'].'</td>';
             $htmlText .= '<td>'.$row['descripcion'].'</td>';
             $htmlText .= '<td>'.$row['PVP'].'€</td>';
+            $htmlText .= '<td><input type="number" id="quantity" name="quantity["'.$row['cod'].']" min="0"></td>';
             $htmlText .= '</tr>';
-                }
+        }
 
         $conexion -> close();
     }
@@ -90,7 +97,7 @@
 
     <h2>Productos</h2>
     <div class="container">
-        <form action="' . $_SERVER['PHP_SELF'] . '" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <table id="products">
                 <tr>
                     <th>Nombre</th>
@@ -103,21 +110,24 @@
             <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
                 <strong>Page <?php echo $page_no." of ".$total_no_of_pages; ?></strong>
             </div>
-            <div class="pagination">
+            <div class="navButtons">
                 <?php
-                    if($page_no > 1){
-                        echo "<li><a href='?page_no=1'>First Page</a></li>";
-                        echo "<li><a href='?page_no=$previous_page'>Previous</a></li>";
-                    }
+                    echo '<div class="pagination">';
                     if($page_no < $total_no_of_pages) {
-                        echo "<li><a href='?page_no=$next_page'>Next</a></li>";
-                        echo "<li><a href='?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+                        echo "<a href='?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a>";
+                        echo "<a href='?page_no=$next_page'>Next</a>";
+                    }
+                    if($page_no > 1){
+                        echo "<a href='?page_no=$previous_page'>Previous</a>";
+                        echo "<a href='?page_no=1'>&lsaquo;&lsaquo; First Page</a>";
+                    }
+                    echo '</div>';
+                    if($page_no == $total_no_of_pages) {
+                        echo '<div class="buttonContainer">';
+                        echo '<input type="submit" name="buy" class="buy" value="Añadir a la cesta de la compra">';
+                        echo '</div>';
                     }
                 ?>
-</ul>       </div>
-
-            <div class="buttonContainer">
-                <input type="submit" name="buy" class="buy" value="Añadir a la cesta de la compra">
             </div>
         </form>
     </div>

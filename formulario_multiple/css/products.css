@@ -82,3 +82,27 @@ button {
 a {
     text-decoration: none;
 }
+
+.navButtons {
+    display: inline-block;
+    width: 100%;
+}
+
+.pagination {
+    width: fit-content;
+    margin-right: 0;
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.pagination a:hover {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
