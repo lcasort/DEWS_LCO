@@ -6,15 +6,34 @@
     if(!isset($_SESSION['login'])) {
         header('Location: ./login.php');
         exit();
-    } elseif(isset($_SESSION['total'])) {
-        unset($_SESSION['cart']);
+    }
+    if(isset($_SESSION['total'])) {
         unset($_SESSION['total']);
     }
+    if(isset($_SESSION['pay'])) {
+        unset($_SESSION['pay']);
+        unset($_SESSION['cart']);
+        unset($_SESSION['total']);
+        unset($_SESSION['page_no']);
+    }
+    if(!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
 
-    if(isset($_POST['quantity']) && !empty($_POST['quantity'])) {
-
-    } else {
-        $_SESSION['quantity'] = array();
+    if(isset($_POST['cart']) && !empty($_POST['cart']) || isset($_POST['buy'])) {        
+        foreach($_POST['cart'] as $key => $value) {
+            if($value > 0) {
+                if(in_array($key, array_keys($_SESSION['cart']))) {
+                    $_SESSION['cart'][$key] = $value;
+                } else {
+                    $_SESSION['cart'] += [$key => $value];
+                }
+            }
+        }
+        if(isset($_POST['buy'])) {
+            header('Location: ./cesta.php');
+            exit();
+        }
     }
 
     $htmlText = '';
@@ -35,17 +54,27 @@
 
     } else {
 
+        require_once('functions.php');
+
+
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////// PAGINACIÓN //////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+
         // Obtenemos el número de la página en la que estamos.
-        if (isset($_GET['page_no']) && !empty($_GET['page_no'])) {
-            $page_no = $_GET['page_no'];
-            $_SESSION['page'] = $_GET['page_no'];
+        if (isset($_SESSION['page_no']) && !empty($_SESSION['page_no']) &&
+        isset($_POST['page_no']) && !empty($_POST['page_no'])) {
+            $_SESSION['page_no'] = $_POST['page_no'];
+            $page_no = $_SESSION['page_no'];
+        } elseif(isset($_SESSION['page_no']) && !empty($_SESSION['page_no'])) {
+            $page_no = $_SESSION['page_no'];
         } else {
             $page_no = 1;
-            $_SESSION['page'] = $page_no;
+            $_SESSION['page_no'] = $page_no;
         }
 
         // Guardamos el número de productos que queremos enseñar.
-        $total_records_per_page = 3;
+        $total_records_per_page = 5;
 
         // Calculamos el offset
         $offset = ($page_no-1) * $total_records_per_page;
@@ -64,18 +93,17 @@
         // Número total de páginas menos 1.
         $second_last = $total_no_of_pages - 1;
 
-        // Seleccionamos las entradas que queremos enseñar y guardamos el html en
-        // una variable.
-        $result = $conexion -> query("SELECT * FROM producto LIMIT $offset, $total_records_per_page");
-        while($row = $result -> fetch_array()){
-            $htmlText .= '<tr>';
-            $htmlText .= '<td>'.$row['nombre_corto'].'</td>';
-            $htmlText .= '<td>'.$row['descripcion'].'</td>';
-            $htmlText .= '<td>'.$row['PVP'].'€</td>';
-            $htmlText .= '<td><input type="number" id="quantity" name="quantity["'.$row['cod'].']" min="0"></td>';
-            $htmlText .= '</tr>';
-        }
+        ////////////////////////////////////////////////////////////////////////
+        //////////////////////////// FIN PAGINACIÓN ////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
 
+
+        // Seleccionamos las entradas que queremos enseñar y guardamos el html
+        // en una variable.
+        $result = $conexion -> query("SELECT * FROM producto LIMIT $offset, $total_records_per_page");
+        $htmlText .= createHTML($result);
+
+        // Cerramos la conexión con la base de datos.
         $conexion -> close();
     }
 ?>
@@ -107,26 +135,9 @@
                 <?php echo $htmlText; ?>
             </table>
 
-            <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
-                <strong>Page <?php echo $page_no." of ".$total_no_of_pages; ?></strong>
-            </div>
             <div class="navButtons">
                 <?php
-                    echo '<div class="pagination">';
-                    if($page_no < $total_no_of_pages) {
-                        echo "<a href='?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a>";
-                        echo "<a href='?page_no=$next_page'>Next</a>";
-                    }
-                    if($page_no > 1){
-                        echo "<a href='?page_no=$previous_page'>Previous</a>";
-                        echo "<a href='?page_no=1'>&lsaquo;&lsaquo; First Page</a>";
-                    }
-                    echo '</div>';
-                    if($page_no == $total_no_of_pages) {
-                        echo '<div class="buttonContainer">';
-                        echo '<input type="submit" name="buy" class="buy" value="Añadir a la cesta de la compra">';
-                        echo '</div>';
-                    }
+                    echo createNavButtons($page_no,$total_no_of_pages,$next_page,$previous_page);
                 ?>
             </div>
         </form>

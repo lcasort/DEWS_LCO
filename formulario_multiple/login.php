@@ -3,6 +3,8 @@
     // Iniciamos la sesión o recuperamos la anterior sesión existente.
     session_start();
 
+    $error_message = ""; 
+    
     // 
     if(isset($_SESSION['login'])) {
 
@@ -18,7 +20,6 @@
         $conexion = new mysqli('localhost', 'root', '', 'ejtienda');
 
         $error = $conexion->connect_errno;
-        $error_message = ""; 
 
         if ($error != 0) {
 

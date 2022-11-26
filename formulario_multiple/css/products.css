@@ -42,8 +42,7 @@ form {
     display: flex;
 }
 
-.buy,
-.pay {
+.buy {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -69,16 +68,6 @@ form > p {
     margin-left: 10px;
 }
 
-button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px auto;
-    border: none;
-    cursor: pointer;
-    width: 25%;
-}
-
 a {
     text-decoration: none;
 }
@@ -90,10 +79,11 @@ a {
 
 .pagination {
     width: fit-content;
-    margin-right: 0;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 
-.pagination a {
+.page_no {
     color: black;
     padding: 8px 16px;
     text-decoration: none;
@@ -101,8 +91,15 @@ a {
     border: 1px solid #ddd;
 }
 
-.pagination a:hover {
+.page_no:hover {
     background-color: #4CAF50;
     color: white;
     border: 1px solid #4CAF50;
+}
+
+.pages {
+    text-align: center;
+    font-weight: lighter;
+    font-size: small;
+    margin-top: 5px;
 }

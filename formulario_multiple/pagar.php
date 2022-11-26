@@ -12,11 +12,17 @@
     } elseif(!isset($_SESSION['cart'])) {
         header('Location: ./productos.php');
         exit();
-    } elseif(isset($_POST['new']) && !empty($_POST['new'])) {
+    }
+    
+    if(isset($_POST['new']) && !empty($_POST['new'])) {
         unset($_SESSION['cart']);
         unset($_SESSION['total']);
         header('Location: ./productos.php');
         exit();
+    } 
+    
+    if(isset($_POST['pay']) && !empty($_POST['pay'])) {
+        $_SESSION['pay'] = 1;
     }
 ?>
 

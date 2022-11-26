@@ -7,11 +7,8 @@
     if(!isset($_SESSION['login'])) {
         header('Location: ./login.php');
         exit();
-    } elseif(!isset($_SESSION['cart'])) {
+    } elseif(empty($_SESSION['cart'])) {
         $error_msg = '<h2>Cesta vacía</h2><br><a href="./productos.php"><div class="buttonContainer"><button>Volver a productos</button></div></a>';
-    } elseif(isset($_SESSION['total'])) {
-        header('Location: ./productos.php');
-        exit();
     }
 ?>
 
@@ -22,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesta de la compra</title>
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/cesta.css">
 </head>
 <body>
     <div id="header">
@@ -51,12 +48,12 @@
             exit();
 
         } else {
-
-            $values = '(\'' . implode("','", array_values($_SESSION['cart'])) . '\')';
-            $res = $conexion -> query("SELECT * FROM producto WHERE cod IN $values");
-
-            $total = 0;
             
+            $values = '(\'' . implode("','", array_keys($_SESSION['cart'])) . '\')';
+            $res = $conexion -> query("SELECT * FROM producto WHERE cod IN $values");
+    
+            $total = 0;
+                
             $table = '<h2>Cesta de la compra</h2>';
             $table .= '<div class="container">';
             $table .= '<form action="./pagar.php" method="post">';
@@ -69,13 +66,14 @@
                 $table .= '<tr>';
                 $table .= '<td>'.$p['nombre_corto'].'</td>';
                 $table .= '<td>'.$p['PVP'].'€</td>';
+                $table .= '<td>'.$_SESSION['cart'][$p['cod']].'</td>';
                 $table .= '</tr>';
                 
-                $total += floatval($p['PVP']);
+                $total += floatval($p['PVP']) * intval($_SESSION['cart'][$p['cod']]);
             }
-            
+                
             $_SESSION['total'] = $total;
-
+    
             $table .= '</table>';
             $table .= '<p>Tu total a pagar es: ' . $total . '€</p>';
             $table .= '<div class="buttonContainer">';
@@ -83,9 +81,7 @@
             $table .= '</div>';
             $table .= '</form>';
             $table .= '</div>';
-
             echo $table;
-
         }
 
         $conexion -> close();
