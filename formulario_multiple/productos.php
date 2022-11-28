@@ -2,60 +2,79 @@
     // Iniciamos la sesión o recuperamos la anterior sesión existente.
     session_start();
 
-    //
+    ////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////// REQUIRES /////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+
+    require_once('functions.php');
+
+    ////////////////////////////////////////////////////////////////////////////
+
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    ///////////////////////// COMPROBACIONES INICIALES /////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    
+    // Si no hemos iniciado sesión se nos redirige a la página de login.
     if(!isset($_SESSION['login'])) {
         header('Location: ./login.php');
         exit();
     }
+
+    // Si ya hemos pasado por el carro, reseteamos el valor de la variable de
+    // sesión 'total' (dinero total a pagar por los productos seleccionados).
     if(isset($_SESSION['total'])) {
         unset($_SESSION['total']);
     }
+
+    // Si ya hemos pasado por la pantalla de pago, reseteamos todas las
+    // variables de sesión menos la de login.
     if(isset($_SESSION['pay'])) {
         unset($_SESSION['pay']);
         unset($_SESSION['cart']);
         unset($_SESSION['total']);
         unset($_SESSION['page_no']);
     }
+
+    // Si no existe la variable de sesión del carrito de la compra, la
+    // inicializamos como un array vacío.
     if(!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = array();
     }
 
-    if(isset($_POST['cart']) && !empty($_POST['cart']) || isset($_POST['buy'])) {        
-        foreach($_POST['cart'] as $key => $value) {
-            if($value > 0) {
-                if(in_array($key, array_keys($_SESSION['cart']))) {
-                    $_SESSION['cart'][$key] = $value;
-                } else {
-                    $_SESSION['cart'] += [$key => $value];
-                }
-            }
-        }
-        if(isset($_POST['buy'])) {
-            header('Location: ./cesta.php');
-            exit();
-        }
-    }
+    ////////////////////////////////////////////////////////////////////////////
 
+
+
+    // Actualizamos el carro de la compra (variable de sesión $_SESSION['cart']).
+    updateCart();
+
+    // Iniciamos una variable en la que iremos guardando el texto html que
+    // tenemos que mostrar en la página.
     $htmlText = '';
 
+    // Establecemos que se nos muestren los errores.
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    // Abrimos la conexión con la base de datos.
     $conexion = new mysqli('localhost', 'root', '', 'ejtienda');
 
+    // Comprobamos si hay errores.
     $error = $conexion->connect_errno;
+    // Creamos una variable para guardar los mensajes de error e imprimirlos por
+    // pantalla.
     $error_message = "";
 
+    // Si existen errores en la conexión, guardamos el mensaje de error en la
+    // vvariable '$error_message'.
     if ($error != 0) {
 
         $error_message = '<p>Error de conexión a la base de datos. Texto del error:' . $conexion->connect_error . '</p>';
-        exit();
 
     } else {
-
-        require_once('functions.php');
-
 
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////// PAGINACIÓN //////////////////////////////
@@ -94,8 +113,7 @@
         $second_last = $total_no_of_pages - 1;
 
         ////////////////////////////////////////////////////////////////////////
-        //////////////////////////// FIN PAGINACIÓN ////////////////////////////
-        ////////////////////////////////////////////////////////////////////////
+
 
 
         // Seleccionamos las entradas que queremos enseñar y guardamos el html
@@ -103,10 +121,13 @@
         $result = $conexion -> query("SELECT * FROM producto LIMIT $offset, $total_records_per_page");
         $htmlText .= createHTML($result);
 
+
+
         // Cerramos la conexión con la base de datos.
         $conexion -> close();
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -119,12 +140,20 @@
 </head>
 <body>
 
+    <!--
+        Mostramos él botón de logoff.
+    -->
     <div id="header">
         <a href="./logoff.php"><img src="img/log-out.png" class="log-out" name="log-out" alt="log out" /></a>
     </div>
 
+
     <h2>Productos</h2>
     <div class="container">
+        <!--
+            Creamos un formulario con una tabla con la información de los
+            productos.
+        -->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <table id="products">
                 <tr>
@@ -135,6 +164,9 @@
                 <?php echo $htmlText; ?>
             </table>
 
+            <!--
+                Mostramos los botones de navegación de la página.
+            -->
             <div class="navButtons">
                 <?php
                     echo createNavButtons($page_no,$total_no_of_pages,$next_page,$previous_page);
@@ -143,6 +175,9 @@
         </form>
     </div>
 
+    <!--
+        Mostramos el mensaje de error.
+    -->
     <span><?php echo $error_message; ?></span>
 </body>
 </html>

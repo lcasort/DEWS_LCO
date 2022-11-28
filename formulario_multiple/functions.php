@@ -1,4 +1,13 @@
 <?php
+
+/**
+ * Función que almacena en una variable de tipo string el texto html necesario
+ * para crear el cuerpo de la tabla de productos.
+ *
+ * @param  object $result
+ * @return string - Texto para formar el html del cuerpo de la tabla de
+ * productos.
+ */
 function createHTML($result)
 {
     $htmlText = '';
@@ -18,6 +27,17 @@ function createHTML($result)
     return $htmlText;
 }
 
+
+/**
+ * Función que almacena en una variable de tipo string el texto html necesario
+ * para crear los botones de navegación y la retorna.
+ *
+ * @param  int $page_no
+ * @param  int $total_no_of_pages
+ * @param  int $next_page
+ * @param  int $previous_page
+ * @return string - Texto para formar el html de los botones de navegación.
+ */
 function createNavButtons($page_no,$total_no_of_pages,$next_page,$previous_page)
 {
     $res = '<div class="pagination">';
@@ -42,4 +62,39 @@ function createNavButtons($page_no,$total_no_of_pages,$next_page,$previous_page)
     }
 
     return $res;
+}
+
+/**
+ * Función que devuelve true si estamos enviando el formulario, es decir, si
+ * clicamos un botón de navegación para movernos entre las páginas o el botón de
+ * 'añadir a la cesta de la compra', y false en caso contrario.
+ * 
+ * @return bool
+ */
+function sendForm()
+{
+    return (isset($_POST['cart']) && !empty($_POST['cart'])) || isset($_POST['buy']);
+}
+
+
+/**
+ * Función que actualiza el carro con los productos seleccionados.
+ */
+function updateCart()
+{
+    if(sendForm()) {        
+        foreach($_POST['cart'] as $key => $value) {
+            if($value > 0) {
+                if(in_array($key, array_keys($_SESSION['cart']))) {
+                    $_SESSION['cart'][$key] = $value;
+                } else {
+                    $_SESSION['cart'] += [$key => $value];
+                }
+            }
+        }
+        if(isset($_POST['buy'])) {
+            header('Location: ./cesta.php');
+            exit();
+        }
+    }
 }
