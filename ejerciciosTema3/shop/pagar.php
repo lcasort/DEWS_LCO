@@ -18,6 +18,10 @@
         header('Location: ./productos.php');
         exit();
     }
+
+    if(!isset($_SESSION['paid'])) {
+        $_SESSION['paid'] = true;
+    }
 ?>
 
 <!DOCTYPE html>

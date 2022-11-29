@@ -7,9 +7,11 @@
     if(!isset($_SESSION['login'])) {
         header('Location: ./login.php');
         exit();
-    } elseif(!isset($_SESSION['cart'])) {
+    }
+    if(!isset($_SESSION['cart'])) {
         $error_msg = '<h2>Cesta vacía</h2><br><a href="./productos.php"><div class="buttonContainer"><button>Volver a productos</button></div></a>';
-    } elseif(isset($_SESSION['total'])) {
+    }
+    if(isset($_SESSION['total'])) {
         header('Location: ./productos.php');
         exit();
     }

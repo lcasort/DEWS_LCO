@@ -6,9 +6,13 @@
     if(!isset($_SESSION['login'])) {
         header('Location: ./login.php');
         exit();
-    } elseif(isset($_SESSION['total'])) {
-        unset($_SESSION['cart']);
+    }
+    if(isset($_SESSION['total'])) {
         unset($_SESSION['total']);
+    }
+    if(isset($_SESSION['paid'])) {
+        unset($_SESSION['paid']);
+        unset($_SESSION['cart']);
     }
 
     ini_set('display_errors', 1);
