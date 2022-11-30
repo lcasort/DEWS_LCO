@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.3.2.- Utilización de objetos (III). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-9"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="13_utilizacin_de_objetos_i.html" class="current-page-parent daddy">1.3.- Utilización de objetos (I).</a>
+      <ul>
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li id="active"><a href="132_utilizacin_de_objetos_iii.html" class="active no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="131_utilizacin_de_objetos_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.3.2.- Utilización de objetos (III).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id30">
+<div class="iDevice emphasis0">
+<div id="ta30_73" class="block iDevice_content">
+<img alt="Dibujo de varias personas, cada una sosteniendo en alto un objeto gigante similar, con forma circular aunque de distinto color." class="elemento_centrado" height="192" src="DWES05_CONT_R10_Objetos_iguales.jpg" style="width: 144px; height: 192px" title="Objetos iguales." width="144" />
+<br />
+<p>
+A veces tienes dos objetos y quieres saber su relación exacta. Para eso, en <span lang="en">PHP5</span> puedes utilizar los operadores <code>==</code> y <code>===</code>.
+</p>
+<p>
+Si utilizas el operador de comparación <code>==</code>, comparas los valores de los atributos de los objetos. Por tanto dos objetos serán iguales si son instancias de la misma clase y, además, sus atributos tienen los mismos valores.
+</p>
+<div class="codigo elemento_centrado" style="width: 32.95em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+<pre>
+<code>$p-&gt;nombre = 'Samsung Galaxy S';</code>
+</pre>
+<pre>
+<code>$a = clone($p);</code>
+</pre>
+<pre>
+<code>// El resultado de comparar $a == $p da verdadero</code>
+</pre>
+<pre>
+<code>//  pues $a y $p son dos copias idénticas</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Sin embargo, si utilizas el operador <code>===</code>, el resultado de la comparación será <code>true</code> sólo cuando las dos variables sean referencias al mismo objeto.
+</p>
+<div class="codigo elemento_centrado" style="width: 36.8em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+<pre>
+<code>$p-&gt;nombre = 'Samsung Galaxy S';</code>
+</pre>
+<pre>
+<code>$a = clone($p);</code>
+</pre>
+<pre>
+<code>// El resultado de comparar $a === $p da falso</code>
+</pre>
+<pre>
+<code>//  pues $a y $p no hacen referencia al mismo objeto</code>
+</pre>
+<pre>
+<code>$a = &amp; $p;</code>
+</pre>
+<pre>
+<code>// Ahora el resultado de comparar $a === $p da verdadero</code>
+</pre>
+<pre>
+<code>//  pues $a y $p son referencias al mismo objeto.</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper RecomendacionfpdIdevice em_iDevice" id="id31">
+<div class="iDevice emphasis_recomendacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Recomendación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta31_50" class="block iDevice_content">
+<p>Los operadores de comparación <code>==</code> y <code>===</code> no funcionan de la misma manera que acabas de ver en <span lang="en">PHP4</span>. Si utilizas objetos en tus programas, es recomendable que te asegures de la versión del intérprete que los va a ejecutar, utilizando por ejemplo la función phpversion.</p>
+<p class="enlace_centrado"><a href="http://es.php.net/manual/es/function.phpversion.php" title="Acceder a función phpversion en el manual de PHP." target="_blank">Función <span lang="en">phpversion</span>.</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="131_utilizacin_de_objetos_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

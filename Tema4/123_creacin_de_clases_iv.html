@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.2.3.- Creación de clases (IV). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-6"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li class="current-page-parent"><a href="12_creacin_de_clases_i.html" class="current-page-parent daddy">1.2.- Creación de clases (I).</a>
+      <ul>
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li id="active"><a href="123_creacin_de_clases_iv.html" class="active no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="122_creacin_de_clases_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="13_utilizacin_de_objetos_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.2.3.- Creación de clases (IV).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id18">
+<div class="iDevice emphasis0">
+<div id="ta18_73" class="block iDevice_content">
+<img alt="Dibujo de una persona con un ordenador de tamaño minúsculo en el bolsillo de la camiseta." class="elemento_centrado" height="192" src="DWES05_CONT_R07_Ordenador_bolsillo.JPG" style="width: 144px; height: 192px" title="Ordenador en el bolsillo." width="144" />
+<br />
+<p>
+Como ya viste, para instanciar objetos de una clase se utiliza <code>new:</code>
+</p>
+<div class="codigo elemento_centrado" style="width: 17em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+En <span lang="en">PHP5</span> puedes definir en las clases métodos constructores, que se ejecutan cuando se crea el objeto. El constructor de una clase debe llamarse <code>__construct</code>. Se pueden utilizar, por ejemplo, para asignar valores a atributos.
+</p>
+<div class="codigo elemento_centrado" style="width: 27.45em">
+<div class="texto_izquierda">
+<pre>
+<code>class Producto {</code>
+</pre>
+<pre>
+<code>    private static $num_productos = 0; </code>
+</pre>
+<pre>
+<code>    private $codigo;</code>
+</pre>
+<pre>
+<code>        </code>
+</pre>
+<pre>
+<code>    public function __construct() {</code>
+</pre>
+<pre>
+<code>        self::$num_productos++;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>    …</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+El constructor de una clase puede llamar a otros métodos o tener parámetros, en cuyo caso deberán pasarse cuando se crea el objeto. Sin embargo, sólo puede haber un método constructor en cada clase.
+</p>
+<div class="codigo elemento_centrado" style="width: 29.1em">
+<div class="texto_izquierda">
+<pre>
+<code>class Producto {</code>
+</pre>
+<pre>
+<code>    private static $num_productos = 0; </code>
+</pre>
+<pre>
+<code>    private $codigo;</code>
+</pre>
+<pre>
+<code>        </code>
+</pre>
+<pre>
+<code>    public function __construct($codigo) {</code>
+</pre>
+<pre>
+<code>        $this-&gt;$codigo = $codigo;</code>
+</pre>
+<pre>
+<code>        self::$num_productos++;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>    …</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+<pre>
+<code>$p = new Producto('GALAXYS');</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Por ejemplo, si como en este ejemplo, definimos un constructor en el que haya que pasar el código, siempre que instancies un nuevo objeto de esa clase tendrás que indicar su código.
+</p>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id19">
+<div class="iDevice emphasis_debesconocerfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Debes conocer</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta19_48" class="block iDevice_content">
+<p>Una de las posibilidades de los métodos mágicos de <span lang="en">PHP5</span> es utilizar <code>__call</code> para capturar llamadas a métodos que no estén implementados en la clase. Entonces, en función del nombre del método y del número de parámetros que se pasen, se podrían realizar unas acciones u otras.</p>
+<p class="enlace_centrado"><a href="http://es.php.net/manual/es/language.oop5.overloading.php#language.oop5.overloading.methods" title="Acceder a información sobre el método mágico __call en el manual de PHP" target="_blank">Métodos mágicos de <span lang="en">PHP5</span>.</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id20">
+<div class="iDevice emphasis0">
+<div id="ta20_73" class="block iDevice_content">
+<p>
+También es posible definir un método destructor, que debe llamarse <code>__destruct</code> y permite definir acciones que se ejecutarán cuando se elimine el objeto.
+</p>
+<div class="codigo elemento_centrado" style="width: 29.1em">
+<div class="texto_izquierda">
+<pre>
+<code>class Producto {</code>
+</pre>
+<pre>
+<code>    private static $num_productos = 0; </code>
+</pre>
+<pre>
+<code>    private $codigo;</code>
+</pre>
+<pre>
+<code>        </code>
+</pre>
+<pre>
+<code>    public function __construct($codigo) {</code>
+</pre>
+<pre>
+<code>        $this-&gt;$codigo = $codigo;</code>
+</pre>
+<pre>
+<code>        self::$num_productos++;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>        </code>
+</pre>
+<pre>
+<code>    public function __destruct() {</code>
+</pre>
+<pre>
+<code>        self::$num_productos--;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>    …</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+<pre>
+<code>$p = new Producto('GALAXYS');</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DestacadofpdIdevice" id="id21">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta21_70" class="block iDevice_content">
+Los métodos constructores también existen en <span lang="en">PHP4</span>, pero en lugar de llamarse <code>__construct</code>, se deben llamar del mismo modo que la clase. Los métodos destructores son nuevos en <span lang="en">PHP5</span>; no existían en versiones anteriores del lenguaje.
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id22">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Autoevaluación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div class="question">
+<form name="multi-choice-form-22_60" action="#" onsubmit="return false" class="activity-form">
+<h3 class="js-sr-av">Pregunta</h3>
+<div id="taquestion22_60" class="block question iDevice_content">
+<strong>¿Cuál es la utilidad del operador de resolución de ámbito <code>::</code>?</strong>
+
+</div>
+<div class="iDevice_answers">
+<h4 class="js-sr-av">Respuestas</h4>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i22_63" class="sr-av"><a href="#answer-22_63">Opción 1</a></label><input type="radio" name="option22_60" id="i22_63" class="exe-radio-option exe-radio-option-0-2-22_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-22_63"><a name="answer-22_63"></a>
+<div id="taans22_63" class="block iDevice_content">
+Nos permite hacer referencia a la clase del objeto actual.
+
+</div>
+</div>
+</div>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i22_104" class="sr-av"><a href="#answer-22_104">Opción 2</a></label><input type="radio" name="option22_60" id="i22_104" class="exe-radio-option exe-radio-option-1-2-22_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-22_104"><a name="answer-22_104"></a>
+<div id="taans22_104" class="block iDevice_content">
+Se utiliza para acceder a los elementos de una clase, como constantes y miembros estáticos.
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_feedbacks js-feedback">
+<h4 class="js-sr-av">Retroalimentación</h4>
+<div id="sa0b22_60" class="feedback js-hidden"><a name="sa0b22_60"></a>
+<div id="taf22_63" class=" iDevice_content">
+Entonces, ¿cuál es el significado de <code>self</code>?
+
+</div>
+</div>
+<div id="sa1b22_60" class="feedback js-hidden"><a name="sa1b22_60"></a>
+<div id="taf22_104" class=" iDevice_content">
+Sí; y por tanto debe usarse precedido por el nombre de una clase, o por una referencia a una clase como <code>self</code>.
+
+</div>
+</div>
+</div>
+</form>
+<div class="iDevice_solution feedback js-hidden">
+<h4>Solución</h4>
+<ol>
+<li><a href="#answer-22_63">Incorrecto</a><span> (<a href="#sa0b22_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-22_104">Opción correcta</a><span> (<a href="#sa1b22_60">Retroalimentación</a>)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id23">
+<div class="iDevice emphasis0">
+<div id="ta23_73" class="block iDevice_content">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="122_creacin_de_clases_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="13_utilizacin_de_objetos_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

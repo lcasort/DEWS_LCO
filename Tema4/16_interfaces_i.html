@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.6.- Interfaces (I). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-14"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li id="active"><a href="16_interfaces_i.html" class="active daddy">1.6.- Interfaces (I).</a>
+      <ul>
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="152_herencia_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="161_interfaces_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.6.- Interfaces (I).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id44">
+<div class="iDevice emphasis0">
+<div id="ta44_73" class="block iDevice_content">
+<img alt="Dibujo de varias personas, uniendo los trozos de la estructura de una casa." class="elemento_centrado" height="192" src="DWES05_CONT_R15_Construyendo_casa.jpg" style="width: 144px; height: 192px" title="Construyendo una casa." width="144" />
+<br />
+<p>
+Un <span lang="en">interface</span> es como una clase vacía que solamente contiene declaraciones de métodos. Se definen utilizando la palabra <code>interface</code>.
+</p>
+<p>
+Por ejemplo, antes viste que podías crear nuevas clases heredadas de <code>Producto</code>, como <code>TV</code> o <code>Ordenador</code>. También viste que en las subclases podías redefinir el comportamiento del método <code>muestra</code> para que generara una salida en <span lang="en">HTML</span> diferente para cada tipo de producto.
+</p>
+<p>
+Si quieres asegurarte de que todos los tipos de productos tengan un método <code>muestra</code>, puedes crear un <span lang="en">interface</span> como el siguiente.
+</p>
+<div class="codigo elemento_centrado" style="width: 22.5em">
+<div class="texto_izquierda">
+<pre>
+<code>interface iMuestra {</code>
+</pre>
+<pre>
+<code>    public function muestra();</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Y cuando crees las subclases deberás indicar con la palabra <code>implements</code> que tienen que implementar los métodos declarados en este <span lang="en">interface</span>.
+</p>
+<div class="codigo elemento_centrado" style="width: 40.1em">
+<div class="texto_izquierda">
+<pre>
+<code>class TV extends Producto implements iMuestra {</code>
+</pre>
+<pre>
+<code>    …</code>
+</pre>
+<pre>
+<code>    public function muestra() {</code>
+</pre>
+<pre>
+<code>        print &quot;&lt;p&gt;&quot; . $this-&gt;pulgadas . &quot; pulgadas&lt;/p&gt;&quot;;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>    …</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DestacadofpdIdevice" id="id45">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta45_70" class="block iDevice_content">
+Todos los métodos que se declaren en un <span lang="en">interface</span> deben ser públicos. Además de métodos, los <span lang="en">interfaces</span> podrán contener constantes pero no atributos.
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id46">
+<div class="iDevice emphasis0">
+<div id="ta46_73" class="block iDevice_content">
+<p>Un <span lang="en">interface</span> es como un contrato que la clase debe cumplir. Al implementar todos los métodos declarados en el <span lang="en">interface</span> se asegura la interoperabilidad entre clases. Si sabes que una clase implementa un <span lang="en">interface</span> determinado, sabes qué nombre tienen sus métodos, qué parámetros les debes pasar y, probablemente, podrás averiguar fácilmente con qué objetivo han sido escritos.</p>
+<p>Por ejemplo, en la librería de <span lang="en">PHP</span> está definido el <span lang="en">interface</span> <code>Countable</code>.</p>
+<div class="codigo elemento_centrado" style="width: 26.9em;">
+<div class="texto_izquierda">
+<pre><code>interface Countable {</code></pre>
+<pre><code>    public abstract int count ();</code></pre>
+<pre><code>}</code></pre>
+</div>
+</div>
+<p></p>
+<p>Si creas una clase para la cesta de la compra en la tienda <span lang="en">web</span>, podrías implementar este <span lang="en">interface</span> para contar los productos que figuran en la misma.</p>
+<p>Antes aprendiste que en <span lang="en">PHP5</span> una clase sólo puede heredar de otra. En <span lang="en">PHP5</span> no existe la herencia múltiple. Sin embargo, sí es posible crear clases que implementen varios <span lang="en">interfaces</span>, simplemente separando la lista de <span lang="en">interfaces</span> por comas después de la palabra <code>implements</code>.</p>
+<div class="codigo elemento_centrado" style="width: 37.9em;">
+<div class="texto_izquierda">
+<pre><code>class TV extends Producto implements iMuestra, Countable {</code></pre>
+<pre><code>    …</code></pre>
+<pre><code>}</code></pre>
+</div>
+</div>
+<p></p>
+<p>La única restricción es que los nombres de los métodos que se deban implementar en los distintos <span lang="en">interfaces</span> no coincidan. Es decir, en nuestro ejemplo, el <span lang="en">interface</span> <code>iMuestra</code> no podría contener un método <code>count</code>, pues éste ya está declarado en <code>Countable</code>.</p>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id47">
+<div class="iDevice emphasis_debesconocerfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Debes conocer</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta47_48" class="block iDevice_content">
+En <span lang="en">PHP5</span> también se pueden crear nuevos interfaces heredando de otros ya existentes. Se hace de la misma forma que con las clases, utilizando la palabra <code>extends</code>.
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="152_herencia_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="161_interfaces_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

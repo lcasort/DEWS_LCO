@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.2.- Creación de clases (I). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-3"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li id="active"><a href="12_creacin_de_clases_i.html" class="active daddy">1.2.- Creación de clases (I).</a>
+      <ul>
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="121_creacin_de_clases_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.2.- Creación de clases (I).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id7">
+<div class="iDevice emphasis0">
+<div id="ta7_73" class="block iDevice_content">
+<img alt="Dibujo de una persona sosteniendo una representación de una carpeta en la que se encuentran varios ficheros." class="elemento_centrado" height="192" src="DWES05_CONT_R04_Creacion_clases.JPG" style="width: 144px; height: 192px" title="Creación de clases." width="144" /><br />
+<p>
+La declaración de una clase en <span lang="en">PHP</span> se hace utilizando la palabra <code>class</code>. A continuación y entre llaves, deben figurar los miembros de la clase. Conviene hacerlo de forma ordenada, primero las propiedades o atributos, y después los métodos, cada uno con su código respectivo.
+</p>
+<div class="codigo elemento_centrado" style="width: 34.05em">
+<div class="texto_izquierda">
+<pre>
+<code>class Producto {</code>
+</pre>
+<pre>
+<code>    private $codigo;</code>
+</pre>
+<pre>
+<code>    public $nombre;</code>
+</pre>
+<pre>
+<code>    public $PVP;</code>
+</pre>
+<pre>
+<code>        </code>
+</pre>
+<pre>
+<code>    public function muestra() {</code>
+</pre>
+<pre>
+<code>        print &quot;&lt;p&gt;&quot; . $this-&gt;codigo . &quot;&lt;/p&gt;&quot;;</code>
+</pre>
+<pre>
+<code>    }</code>
+</pre>
+<pre>
+<code>}</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Como comentábamos antes, es preferible que cada clase figure en su propio fichero (<code>producto.php</code>). Además, muchos programadores prefieren utilizar para las clases nombres que comiencen por letra mayúscula, para, de esta forma, distinguirlos de los objetos y otras variables.
+</p>
+<p>
+Una vez definida la clase, podemos usar la palabra <code>new</code> para instanciar objetos de la siguiente forma:
+</p>
+<div class="codigo elemento_centrado" style="width: 17em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DestacadofpdIdevice" id="id8">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta8_70" class="block iDevice_content">
+<p>
+Para que la línea anterior se ejecute sin error, previamente debemos haber declarado la clase. Para ello, en ese mismo fichero tendrás que incluir la clase poniendo algo como:
+</p>
+<div class="codigo elemento_centrado" style="width: 21.95em">
+<div class="texto_izquierda">
+<pre>
+<code>require_once('producto.php');</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id9">
+<div class="iDevice emphasis0">
+<div id="ta9_73" class="block iDevice_content">
+<p>
+Los atributos de una clase son similares a las variables de <span lang="en">PHP</span>. Es posible indicar un valor en la declaración de la clase. En este caso, todos los objetos que se instancien a partir de esa clase, partirán con ese valor por defecto en el atributo.
+</p>
+<p>
+Para acceder desde un objeto a sus atributos o a los métodos de la clase, debes utilizar el <strong>operador flecha</strong> (fíjate que sólo se pone el símbolo <code>$</code> delante del nombre del objeto):
+</p>
+<div class="codigo elemento_centrado" style="width: 23.6em">
+<div class="texto_izquierda">
+<pre>
+<code>$p-&gt;nombre = 'Samsung Galaxy S';</code>
+</pre>
+<pre>
+<code>$p-&gt;muestra();</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Cuando se declara un atributo, se debe indicar su nivel de acceso. Los principales niveles son:
+</p>
+<ul class="lista_verificacion">
+	<li><code>public</code>. Los atributos declarados como <code>public</code> pueden utilizarse directamente por los objetos de la clase. Es el caso del atributo <code>$nombre</code> anterior.
+	</li>
+	<li><code>private</code>. Los atributos declarados como <code>private</code> sólo pueden ser accedidos y modificados por los métodos definidos en la clase, no directamente por los objetos de la misma. Es el caso del atributo <code>$codigo</code>.
+	</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DestacadofpdIdevice" id="id10">
+<div class="iDevice emphasis0" >
+<div class="iDevice_destacadofpd">
+<div id="ta10_70" class="block iDevice_content">
+<p>
+En <span lang="en">PHP4</span> no se podía definir nivel de acceso para los atributos de una clase, por lo que todos se precedían de la palabra <code>var</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 12.6em">
+<div class="texto_izquierda">
+<pre>
+<code>var $nombre;</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Hoy en día, aunque aún es aceptado por <span lang="en">PHP5</span>, no se recomienda su uso. Si encuentras algún código que lo utilice, ten en cuenta que tiene el mismo efecto que <code>public</code>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="121_creacin_de_clases_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

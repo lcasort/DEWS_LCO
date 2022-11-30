@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.3.1.- Utilización de objetos (II). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-8"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li class="current-page-parent"><a href="13_utilizacin_de_objetos_i.html" class="current-page-parent daddy">1.3.- Utilización de objetos (I).</a>
+      <ul>
+         <li id="active"><a href="131_utilizacin_de_objetos_ii.html" class="active no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="13_utilizacin_de_objetos_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="132_utilizacin_de_objetos_iii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.3.1.- Utilización de objetos (II).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id26">
+<div class="iDevice emphasis0">
+<div id="ta26_73" class="block iDevice_content">
+<img alt="Dibujo de varias personas enchufando una bombilla gigante." class="elemento_centrado" height="144" src="DWES05_CONT_R09_Enchufar_bombilla.JPG" style="width: 192px; height: 144px" title="Enchufar bombilla." width="192" />
+<br />
+<p>
+Una característica de la POO que debes tener muy en cuenta es qué sucede con los objetos cuando los pasas a una función, o simplemente cuando ejecutas un código como el siguiente:
+</p>
+<div class="codigo elemento_centrado" style="width: 23.6em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+<pre>
+<code>$p-&gt;nombre = 'Samsung Galaxy S';</code>
+</pre>
+<pre>
+<code>$a = $p;</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+En <span lang="en">PHP4</span>, la última línea del código anterior crea un nuevo objeto con los mismos valores del original, de la misma forma que se copia cualquier otro tipo de variable. Si después de hacer la copia se modifica, por ejemplo, el atributo 'nombre' de uno de los objetos, el otro objeto no se vería modificado.
+</p>
+<p>
+Sin embargo, en <span lang="en">PHP5</span> este comportamiento varía. El código anterior simplemente crearía un <strong>nuevo identificador del mismo objeto</strong>. Esto es, en cuanto se utilice uno cualquiera de los identificadores para cambiar el valor de algún atributo, este cambio se vería también reflejado al acceder utilizando el otro identificador. Recuerda que, aunque haya dos o más identificadores del mismo objeto, en realidad todos se refieren a la única copia que se almacena del mismo.
+</p>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id27">
+<div class="iDevice emphasis_debesconocerfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Debes conocer</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta27_48" class="block iDevice_content">
+<p>Para crear nuevos identificadores en <span lang="en">PHP5</span> a un objeto ya existente, se utiliza el operador <code>=</code>. Sin embargo, como ya sabes, este operador aplicado a variables de otros tipos, crea una copia de la misma. En <span lang="en">PHP</span> puedes crear referencias a variables (como números enteros o cadenas de texto), utilizando el operador <code>&amp;</code>:</p>
+<div class="codigo elemento_centrado" style="width: 19.2em;">
+<div class="texto_izquierda">
+<pre><code>$a = 'Samsung Galaxy S';</code>
+</pre>
+<pre><code>$b = &amp; $a;</code>
+</pre>
+</div>
+</div>
+<p></p>
+<p>En el ejemplo anterior, <code>$b</code> es una referencia a la variable <code>$a</code>. Cuando se cambia el valor de una de ellas, este cambio se refleja en la otra.</p>
+<p>Las referencias se pueden utilizar para pasarlas como parámetros a las funciones. Si utilizamos el operador &amp; junto al parámetro, en lugar de pasar una copia de la variable, se pasa una referencia a la misma.</p>
+<div class="codigo elemento_centrado" style="width: 19.2em;">
+<div class="texto_izquierda">
+<pre><code>function suma(&amp;$v) {</code>
+</pre>
+<pre><code>$v ++;</code>
+</pre>
+<pre><code>}</code>
+</pre>
+<pre><code>$a = 3;</code>
+</pre>
+<pre><code>suma ($a);</code>
+</pre>
+<pre><code>echo $a;  // Muestra 4</code>
+</pre>
+</div>
+</div>
+<p></p>
+<p>De esta forma, dentro de la función se puede modificar el contenido de la variable que se pasa, no el de una copia.</p>
+<p class="elemento_centrado"><a href="http://es.php.net/manual/es/language.references.php" title="Acceder a la información sobre las referencias el manual de PHP." target="_blank"> Referencias en PHP5.</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id28">
+<div class="iDevice emphasis0">
+<div id="ta28_73" class="block iDevice_content">
+<p>Por tanto, a partir de <span lang="en">PHP5</span> no puedes copiar un objeto utilizando el operador <code>=</code>. Si necesitas copiar un objeto, debes utilizar <code>clone</code>. Al utilizar <code>clone</code> sobre un objeto existente, se crea una copia de todos los atributos del mismo en un nuevo objeto.</p>
+<div class="codigo elemento_centrado" style="width: 23.6em;">
+<div class="texto_izquierda">
+<pre><code>$p = new Producto();</code></pre>
+<pre><code>$p-&gt;nombre = 'Samsung Galaxy S';</code></pre>
+<pre><code>$a = clone($p);</code></pre>
+</div>
+</div>
+<p></p>
+<p>Además, existe una forma sencilla de personalizar la copia para cada clase particular. Por ejemplo, puede suceder que quieras copiar todos los atributos menos alguno. En nuestro ejemplo, al menos el código de cada producto debe ser distinto y, por tanto, quizás no tenga sentido copiarlo al crear un nuevo objeto. Si éste fuera el caso, puedes crear un método de nombre <code>__clone</code> en la clase. Este método se llamará automáticamente después de copiar todos los atributos en el nuevo objeto.</p>
+<div class="codigo elemento_centrado" style="width: 28em;">
+<div class="texto_izquierda">
+<pre><code>class Producto {</code></pre>
+<pre><code>    …     </code></pre>
+<pre><code>    public function __clone() {</code></pre>
+<pre><code>        $this-&gt;codigo = nuevo_codigo();</code></pre>
+<pre><code>    }</code></pre>
+<pre><code>    …     </code></pre>
+<pre><code>}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id29">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Autoevaluación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div class="question">
+<form name="multi-choice-form-29_60" action="#" onsubmit="return false" class="activity-form">
+<h3 class="js-sr-av">Pregunta</h3>
+<div id="taquestion29_60" class="block question iDevice_content">
+<strong>¿Cuál es el nombre de la función que se utiliza para hacer una copia de un objeto?</strong>
+
+</div>
+<div class="iDevice_answers">
+<h4 class="js-sr-av">Respuestas</h4>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i29_63" class="sr-av"><a href="#answer-29_63">Opción 1</a></label><input type="radio" name="option29_60" id="i29_63" class="exe-radio-option exe-radio-option-0-2-29_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-29_63"><a name="answer-29_63"></a>
+<div id="taans29_63" class="block iDevice_content">
+<code>clone</code>.
+
+</div>
+</div>
+</div>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i29_109" class="sr-av"><a href="#answer-29_109">Opción 2</a></label><input type="radio" name="option29_60" id="i29_109" class="exe-radio-option exe-radio-option-1-2-29_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-29_109"><a name="answer-29_109"></a>
+<div id="taans29_109" class="block iDevice_content">
+<code>__clone</code>. 
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_feedbacks js-feedback">
+<h4 class="js-sr-av">Retroalimentación</h4>
+<div id="sa0b29_60" class="feedback js-hidden"><a name="sa0b29_60"></a>
+<div id="taf29_63" class=" iDevice_content">
+Efectivamente. Además, cuando utilizas la función <code>clone</code>, si la clase tiene definido un método de nombre <code>__clone</code>, se llama automáticamente.
+
+</div>
+</div>
+<div id="sa1b29_60" class="feedback js-hidden"><a name="sa1b29_60"></a>
+<div id="taf29_109" class=" iDevice_content">
+Revisa lo último que acabas de aprender.
+
+</div>
+</div>
+</div>
+</form>
+<div class="iDevice_solution feedback js-hidden">
+<h4>Solución</h4>
+<ol>
+<li><a href="#answer-29_63">Opción correcta</a><span> (<a href="#sa0b29_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-29_109">Incorrecto</a><span> (<a href="#sa1b29_60">Retroalimentación</a>)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="13_utilizacin_de_objetos_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="132_utilizacin_de_objetos_iii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

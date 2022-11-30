@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.1.- Separación de la lógica de negocio (I). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-19"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul class="other-section">
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="2_programacin_en_capas.html" class="current-page-parent daddy">2.- Programación en capas.</a>
+   <ul>
+      <li id="active"><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="active daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul>
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="2_programacin_en_capas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">2.1.- Separación de la lógica de negocio (I).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id55">
+<div class="iDevice emphasis0">
+<div id="ta55_73" class="block iDevice_content">
+<p>Otros mecanismos disponibles en <span lang="en">PHP</span>, menos complejos que la utilización del patrón MVC, y que también permiten la separación de la lógica de presentación y la lógica de negocio, son los llamados motores de plantillas (<span lang="en">template engines</span>).</p>
+<p>Un <strong>motor de plantillas <span lang="en">web</span></strong> es una aplicación que genera una página <span lang="en">web</span> a partir de un fichero con la información de presentación (denominado plantilla o <span lang="en">template</span>, que viene a ser similar a la vista en el patrón MVC) y otro con la lógica interna de la aplicación (similar al modelo de MVC). De esta forma, es sencillo dividir el trabajo de programación de una aplicación <span lang="en">web</span> en dos perfiles: un programador, que debe conocer el lenguaje de programación en el que se implementará la lógica de la aplicación (en nuestro caso <span lang="en">PHP</span>), y un diseñador, que se encargará de elaborar las plantillas, (en el caso de la <span lang="en">web</span> básicamente en <span lang="en">HTML</span>, aunque como veremos la lógica de presentación que se incorpore utilizará un lenguaje propio).</p>
+<p>En <span lang="en">PHP</span> existen varios motores de plantillas con diferentes características. Quizás el más conocido es <span lang="en">Smarty</span>, de código abierto y disponible bajo licencia <acronym title="Lesser General Public License." lang="en">LGPL</acronym>.</p>
+<p class="enlace_centrado"><a href="http://www.smarty.net/" title="Acceder a motor de plantillas Smarty." target="_blank" rel="noopener"><span class="html" lang="en">Smarty</span>.</a></p>
+<p>Entre las características de <span lang="en">Smarty</span> cabe destacar:</p>
+<ul class="lista_verificacion">
+<li>Permite la inclusión en las plantillas de una lógica de presentación compleja.</li>
+<li>Acelera la generación de la página <span lang="en">web</span> resultante. Uno de los problemas de los motores de plantillas es que su utilización influye negativamente en el rendimiento. <span lang="en">Smarty</span> convierte internamente las plantillas a guiones <span lang="en">PHP</span> equivalentes, y posibilita el almacenamiento del resultado obtenido en memoria temporal.</li>
+<li>Al ser usado por una amplia comunidad de desarrolladores, existen multitud de ejemplos y foros para la resolución de los problemas que te vayas encontrando al utilizarlo.</li>
+</ul>
+<p>Para instalar <span lang="en">Smarty</span>, debes descargar la última versión desde su sitio <span lang="en">web</span>, y seguir los siguientes pasos:</p>
+<ol class="lista_esquema">
+<li style="margin-bottom: 10px;">Copiar los archivos de la librería de <span lang="en">Smarty</span> (el directorio <code>libs</code> que obtienes tras descomprimir el fichero que has descargado) en tu sistema; por ejemplo en la carpeta <code>/usr/share/smarty</code>.
+<div class="elemento_centrado"><a href="DWES05_CONT_R20_Instalar_Smarty.jpg" title="Ampliar imagen."><img alt="Captura de pantalla de una consola de sistema en Ubuntu Linux en la que se muestran los pasos para instalar Smarty..." class="imagen_ampliable" src="DWES05_CONT_R20_Instalar_Smarty_miniatura.jpg" style="width: 200px; height: 48px;" title="Instalar Smarty." width="200" height="48" /></a></div>
+<div class="elemento_centrado"><a class="credenciales" href="DWES05_Descripcion_Foto_Instalar_Smarty.html" title="Resumen textual alternativo para &quot;Instalación Smarty&quot;.">Resumen textual alternativo</a></div>
+</li>
+<li style="margin-bottom: 10px;">Modificar el fichero <code>php.ini</code> para que se incluya en la variable <code>include_path</code> de <span lang="en">PHP</span> la ruta en la que acabas de instalar <span lang="en">Smarty</span>, y reiniciar Apache para aplicar los cambios.
+<div class="elemento_centrado"><a href="DWES05_CONT_R21_Smarty_include_path.jpg" title="Ampliar imagen."><img alt="Captura del fichero php.ini de configuración de PHP..." class="imagen_ampliable" src="DWES05_CONT_R21_Smarty_include_path_miniatura.JPG" style="width: 196px; height: 84px;" title="Configurar la ruta de inclusión de PHP." width="196" height="84" /></a></div>
+<div class="elemento_centrado"><a class="credenciales" href="4457455330355f4465736372697063696f6e5f466f746f5f436f6e666967757261725f527574615f496e636c757369c3b36e5f5048502e.html" title="Resumen textual alternativo para &quot;Configurar la ruta de inclusión de PHP&quot;.">Resumen textual alternativo</a></div>
+</li>
+<li style="margin-bottom: 10px;">Crear la estructura de directorios necesaria para <span lang="en">Smarty</span>. Concretamente debes crear cuatro directorios, con nombres <code>templates</code>, <code>templates_c</code>, <code>configs</code> y <code>cache</code>. Es conveniente que estén ubicados en un lugar no accesible por el servidor <span lang="en">web</span>, y en una ubicación distinta para cada aplicación <span lang="en">web</span> que programes. Por ejemplo, puedes crear en la raíz de tu servidor una carpeta llamada <code>smarty</code>, y bajo ella otra con el nombre de cada aplicación (por ejemplo, <code>stienda</code>), que será la que contendrá las carpetas. 
+<div class="elemento_centrado">
+<div class="elemento_centrado"><a href="_para_anadir_a_la_unidad_Captura_de_pantalla_consola_.png" title="Ampliar imagen."><img alt="Captura de pantalla de una consola de sistema en Ubuntu Linux en la que se muestran las carpetas creadas. Se ejecuta el comando ls desde la ruta /web/smarty/stienda, y se obtiene como resultado los nombres de las cuatro carpetas: cache, config, templates y templates_c." class="imagen_ampliable" src="_para_anadir_a_la_unidad_Captura_de_pantalla_consola_.png" style="width: 200px; height: 48px; vertical-align: middle;" title="Creación de las carpetas de plantillas." width="1366" height="768" /></a></div>
+</div>
+</li>
+</ol>
+<p>Al final debe quedar una estructura de carpetas como la de esta imagen:</p>
+<p><a href="_para_anadir_a_la_unidad_Captura_de_pantalla_2017-01-17_12-37-01.png" title="Ampliar imagen."><img alt="Captura de pantalla de una consola de sistema en Ubuntu Linux en la que se muestran las carpetas creadas. Se ejecuta el comando ls desde la ruta /web/smarty/stienda, y se obtiene como resultado los nombres de las cuatro carpetas: cache, config, templates y templates_c." class="imagen_ampliable" src="_para_anadir_a_la_unidad_Captura_de_pantalla_2017-01-17_12-37-01.png" style="width: 200px; height: 48px; vertical-align: middle; display: block; margin-left: auto; margin-right: auto;" title="Creación de las carpetas de plantillas." width="1024" height="768" /></a></p>
+<p>En un sistema Ubuntu tendrías que crear los directorios con estos comandos:</p>
+<blockquote>
+<div class="pre-code">
+<div>
+<pre><code>
+sudo mkdir /web
+sudo mkdir /web/smarty
+sudo mkdir /web/smarty/stienda
+sudo mkdir /web/smarty/stienda/templates/
+sudo mkdir /web/smarty/stienda/templates_c/
+sudo mkdir /web/smarty/stienda/configs/
+sudo mkdir /web/smarty/stienda/cache/
+</code></pre>
+</div>
+</div>
+</blockquote>
+<p>Si tienes problemas con la instalación de <span lang="en">Smarty</span>, consulta el siguiente tutorial multimedia.</p>
+<div class="enlace_centrado"><a class="presentacion" href="DWES05_CONT_R22b_Tutorial_Smarty.swf" title="Acceder al vídeo sobre Smarty.  [swf - 3.65 MB]" target="_blank" rel="noopener"><span lang="en">Smarty</span>.</a> <span class="tamano"> (3.65 MB) </span> <a class="credenciales" href="DWES05_Descripcion_Video_Smarty.html" title="Resumen textual alternativo para &quot;Smarty&quot;.">Resumen textual alternativo</a></div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id56">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Autoevaluación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div class="question">
+<form name="multi-choice-form-56_60" action="#" onsubmit="return false" class="activity-form">
+<h3 class="js-sr-av">Pregunta</h3>
+<div id="taquestion56_60" class="block question iDevice_content">
+<strong>Al utilizar <span lang="en">Smarty</span>, las plantillas que obtienes no precisan ningún tipo de programación; sólo el contenido normal de una página <span lang="en">web</span>.</strong>
+
+</div>
+<div class="iDevice_answers">
+<h4 class="js-sr-av">Respuestas</h4>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i56_63" class="sr-av"><a href="#answer-56_63">Opción 1</a></label><input type="radio" name="option56_60" id="i56_63" class="exe-radio-option exe-radio-option-0-2-56_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-56_63"><a name="answer-56_63"></a>
+<div id="taans56_63" class="block iDevice_content">
+Verdadero
+
+</div>
+</div>
+</div>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i56_90" class="sr-av"><a href="#answer-56_90">Opción 2</a></label><input type="radio" name="option56_60" id="i56_90" class="exe-radio-option exe-radio-option-1-2-56_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-56_90"><a name="answer-56_90"></a>
+<div id="taans56_90" class="block iDevice_content">
+Falso.
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_feedbacks js-feedback">
+<h4 class="js-sr-av">Retroalimentación</h4>
+<div id="sa0b56_60" class="feedback js-hidden"><a name="sa0b56_60"></a>
+<div id="taf56_63" class=" iDevice_content">
+Incorrecto. Piensa cómo harías entonces para mostrar una lista de productos. Si no sabes cuántos son, no podrías crear una tabla o una lista con un número fijo de filas.
+
+</div>
+</div>
+<div id="sa1b56_60" class="feedback js-hidden"><a name="sa1b56_60"></a>
+<div id="taf56_90" class=" iDevice_content">
+Correcto. Al utilizar <span lang="en">Smarty</span> logras separar la lógica de negocio de la información relativa a la presentación; pero en muchas ocasiones,  ésta última sigue necesitando algún código, aunque no necesariamente en lenguaje <span lang="en">PHP</span>.
+
+</div>
+</div>
+</div>
+</form>
+<div class="iDevice_solution feedback js-hidden">
+<h4>Solución</h4>
+<ol>
+<li><a href="#answer-56_63">Incorrecto</a><span> (<a href="#sa0b56_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-56_90">Opción correcta</a><span> (<a href="#sa1b56_60">Retroalimentación</a>)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="2_programacin_en_capas.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

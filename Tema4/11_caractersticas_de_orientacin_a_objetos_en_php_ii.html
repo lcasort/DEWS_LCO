@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.1.- Características de orientación a objetos en PHP (II). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-2"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li id="active"><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="active no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="12_creacin_de_clases_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.1.- Características de orientación a objetos en PHP (II).</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id5">
+<div class="iDevice emphasis0">
+<div id="ta5_73" class="block iDevice_content">
+<p><img alt="Dibujo de una persona sosteniendo una representaci&oacute;n de una carpeta en la que se encuentran varios ficheros." class="elemento_centrado" src="DWES05_CONT_R03_Ficheros.JPG" style="width: 144px; height: 192px;" title="Ficheros." height="192" width="144" /></p>
+<p>Seguramente todo, o la mayor&iacute;a de lo que acabas de ver, ya lo conoc&iacute;as, y es incluso probable que sepas utilizar alg&uacute;n lenguaje de programaci&oacute;n orientado a objetos, as&iacute; que vamos a ver directamente las peculiaridades propias de <span lang="en">PHP</span> en lo que hace referencia a la POO.</p>
+<p>Como ya has visto en las unidades anteriores, especialmente con las extensiones para utilizar bases de datos, con <span lang="en">PHP</span> puedes utilizar dos estilos de programaci&oacute;n: estructurada y orientada a objetos.</p>
+<div class="elemento_centrado" style="width: 600px;">
+<div class="codigo elemento_centrado">
+<div class="texto_izquierda">
+<pre><code>// utilizando programaci&oacute;n estructurada</code>
+</pre>
+<pre><code>$dwes = mysqli_connect('localhost', 'dwes', 'abc123.', 'dwes');</code>
+</pre>
+<pre><code>// utilizando POO</code>
+</pre>
+<pre><code>$dwes = new mysqli();</code>
+</pre>
+<pre><code>$dwes-&gt;connect('localhost', 'dwes', 'abc123.', 'dwes');</code>
+</pre>
+</div>
+</div>
+</div>
+<p>Sin embargo, el lenguaje <span lang="en">PHP</span> original no se dise&ntilde;&oacute; con caracter&iacute;sticas de orientaci&oacute;n a objetos. S&oacute;lo a partir de la versi&oacute;n 3, se empezaron a introducir algunos rasgos de POO en el lenguaje. Esto se potenci&oacute; en la versi&oacute;n 4, aunque todav&iacute;a de forma muy rudimentaria. Por ejemplo, en <acronym title="Hypertext Preprocessor 4." lang="en">PHP4</acronym>:</p>
+<ul class="lista_verificacion">
+<li>Los objetos se pasan siempre por valor, no por referencia.</li>
+<li>No se puede definir el nivel de acceso para los miembros de la clase. Todos son p&uacute;blicos.</li>
+<li>No existen los <span lang="en">interfaces</span>.</li>
+<li>No existen m&eacute;todos destructores.</li>
+</ul>
+<p>A partir de <acronym title="Hypertext Pre-Processor 5." lang="en">PHP5</acronym>, se ha reescrito y potenciado el soporte de orientaci&oacute;n a objetos del lenguaje, ampliando sus caracter&iacute;sticas y mejorando su rendimiento y su funcionamiento general. Aunque iremos detallando y explicando cada una posteriormente con detenimiento, las caracter&iacute;sticas de POO que soporta <span lang="en">PHP5</span> incluyen:</p>
+<ul class="lista_verificacion">
+<li>M&eacute;todos est&aacute;ticos.</li>
+<li>M&eacute;todos constructores y destructores.</li>
+<li>Herencia.</li>
+<li>Interfaces.</li>
+<li>Clases abstractas.</li>
+</ul>
+<p>Entre las caracter&iacute;sticas que no incluye <span lang="en">PHP5</span>, y que puedes conocer de otros lenguajes de programaci&oacute;n, est&aacute;n:</p>
+<ul class="lista_verificacion">
+<li>Herencia m&uacute;ltiple.</li>
+<li><a class="glosario">Sobrecarga de m&eacute;todos<span><em>Sobrecarga de m&eacute;todos</em>Se refiere a la posibilidad de tener dos o m&aacute;s m&eacute;todos con el mismo nombre pero funcionalidad diferente.</span></a> (incluidos los m&eacute;todos constructores).</li>
+<li><a class="glosario">Sobrecarga de operadores<span><em>Sobrecarga de operadores</em>Permite darle m&aacute;s de una implementaci&oacute;n a un operador.</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id6">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Autoevaluación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div class="question">
+<form name="multi-choice-form-6_60" action="#" onsubmit="return false" class="activity-form">
+<h3 class="js-sr-av">Pregunta</h3>
+<div id="taquestion6_60" class="block question iDevice_content">
+<p><strong>Antes de <span lang="en">PHP5</span>, el comportamiento cuando se pasaba una variable a una funci&oacute;n era siempre el mismo, independientemente de si la variable fuera un objeto o de cualquier otro tipo: siempre se creaba una nueva variable copiando los valores de la original.</strong></p>
+</div>
+<div class="iDevice_answers">
+<h4 class="js-sr-av">Respuestas</h4>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i6_63" class="sr-av"><a href="#answer-6_63">Opción 1</a></label><input type="radio" name="option6_60" id="i6_63" class="exe-radio-option exe-radio-option-0-2-6_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-6_63"><a name="answer-6_63"></a>
+<div id="taans6_63" class="block iDevice_content">
+<p>Verdadero.</p>
+</div>
+</div>
+</div>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i6_94" class="sr-av"><a href="#answer-6_94">Opción 2</a></label><input type="radio" name="option6_60" id="i6_94" class="exe-radio-option exe-radio-option-1-2-6_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-6_94"><a name="answer-6_94"></a>
+<div id="taans6_94" class="block iDevice_content">
+<p>Falso.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_feedbacks js-feedback">
+<h4 class="js-sr-av">Retroalimentación</h4>
+<div id="sa0b6_60" class="feedback js-hidden"><a name="sa0b6_60"></a>
+<div id="taf6_63" class=" iDevice_content">
+<p>S&iacute;, es cierto. Solo a partir de <span lang="en">PHP5</span>, cuando se pasa un objeto como par&aacute;metro a una funci&oacute;n, se hace por referencia y no por valor.</p>
+</div>
+</div>
+<div id="sa1b6_60" class="feedback js-hidden"><a name="sa1b6_60"></a>
+<div id="taf6_94" class=" iDevice_content">
+<p>Recuerda que acabas de aprender que en <span lang="en">PHP4</span> los objetos se pasan por valor.</p>
+</div>
+</div>
+</div>
+</form>
+<div class="iDevice_solution feedback js-hidden">
+<h4>Solución</h4>
+<ol>
+<li><a href="#answer-6_63">Opción correcta</a><span> (<a href="#sa0b6_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-6_94">Incorrecto</a><span> (<a href="#sa1b6_60">Retroalimentación</a>)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="12_creacin_de_clases_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

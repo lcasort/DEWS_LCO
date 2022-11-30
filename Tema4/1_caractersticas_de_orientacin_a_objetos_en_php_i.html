@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.- Características de orientación a objetos en PHP (I). </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-1"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li id="active"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="active daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.- Características de orientación a objetos en PHP (I).</h1></div>
+<div class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id2">
+<div class="iDevice emphasis_casopracticofpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Caso práctico</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta2_66" class="block iDevice_content">
+<img alt="Dibujo de una mesa en forma de interrogación, alrededor de la cual hay varias personas trabajando." class="elemento_derecha" height="192" src="DWES05_CONT_R02_Interrogacion.JPG" style="width: 144px; height: 192px" title="Interrogación." width="144" />
+<p>
+<strong>
+Carlos</strong> comenta a <strong>Juan</strong> su problema, y éste le dice que seguramente gran parte del problema se arregle si utiliza programación orientada a objetos en sus aplicaciones. Le explica por encima de qué se trata y cuáles son sus ventajas, pero no puede ayudarlo mucho más. La última vez que programó en <span lang="en">PHP</span>, intentó utilizar objetos en su aplicación, pero las características de orientación a objetos del lenguaje dejaban mucho que desear, por lo que acabó haciéndola como siempre.
+</p>
+<p>
+Sin embargo, por lo que ha oído, parece ser que en las últimas versiones de <span lang="en">PHP</span> eso ha cambiado considerablemente. El lenguaje evoluciona, y él lleva bastante tiempo sin utilizarlo, así que tendrá que actualizarse.
+</p>
+<p>
+Mientras tanto, <strong>Carlos</strong> ya se ha puesto un nuevo reto: debe aprender a utilizar objetos en <span lang="en">PHP</span>. Y cuando tenga cierta soltura, lo primero que hará es modificar el código de su aplicación de comics.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id3">
+<div class="iDevice emphasis0">
+<div id="ta3_73" class="block iDevice_content">
+<p>La programaci&oacute;n orientada a objetos (<acronym title="Programaci&oacute;n Orientada a Objetos.">POO</acronym>, u <acronym title="Object Oriented Programming." lang="en">OOP</acronym> en lenguaje ingl&eacute;s), es una metodolog&iacute;a de programaci&oacute;n basada en objetos. Un objeto es una estructura que contiene datos y el c&oacute;digo que los maneja.</p>
+<p>La estructura de los objetos se define en las clases. En ellas se escribe el c&oacute;digo que define el comportamiento de los objetos y se indican los miembros que formar&aacute;n parte de los objetos de dicha clase. Entre los miembros de una clase puede haber:</p>
+<ul class="lista_verificacion">
+<li><strong>M&eacute;todos</strong>. Son los miembros de la clase que contienen el c&oacute;digo de la misma. Un m&eacute;todo es como una funci&oacute;n. Puede recibir par&aacute;metros y devolver valores.</li>
+<li><strong>Atributos o propiedades</strong>. Almacenan informaci&oacute;n acerca del estado del objeto al que pertenecen (y por tanto, su valor puede ser distinto para cada uno de los objetos de la misma clase).</li>
+</ul>
+<p>A la creaci&oacute;n de un objeto basado en una clase se le llama instanciar una clase y al objeto obtenido tambi&eacute;n se le conoce como <strong>instancia de esa clase</strong>.</p>
+<p>Los pilares fundamentales de la POO son:</p>
+<ul class="lista_verificacion">
+<li><strong>Herencia</strong>. Es el proceso de crear una clase a partir de otra, heredando su comportamiento y caracter&iacute;sticas y pudiendo redefinirlos.</li>
+<li><strong>Abstracci&oacute;n</strong>. Hace referencia a que cada clase oculta en su interior las peculiaridades de su implementaci&oacute;n, y presenta al exterior una serie de m&eacute;todos (<span lang="en">interface</span>) cuyo comportamiento est&aacute; bien definido. Visto desde el exterior, cada objeto es un ente abstracto que realiza un trabajo.</li>
+<li><strong>Polimorfismo</strong>. Un mismo m&eacute;todo puede tener comportamientos distintos en funci&oacute;n del objeto con que se utilice.</li>
+<li><strong>Encapsulaci&oacute;n</strong>. En la POO se juntan en un mismo lugar los datos y el c&oacute;digo que los manipula.</li>
+</ul>
+<p>Las ventajas m&aacute;s importantes que aporta la programaci&oacute;n orientada a objetos son:</p>
+<ul class="lista_verificacion">
+<li><strong>Modularidad</strong>. La POO permite dividir los programas en partes o m&oacute;dulos m&aacute;s peque&ntilde;os, que son independientes unos de otros pero pueden comunicarse entre ellos.</li>
+<li><strong>Extensibilidad</strong>. Si se desean a&ntilde;adir nuevas caracter&iacute;sticas a una aplicaci&oacute;n, la POO facilita esta tarea de dos formas: a&ntilde;adiendo nuevos m&eacute;todos al c&oacute;digo, o creando nuevos objetos que extiendan el comportamiento de los ya existentes.</li>
+<li><strong>Mantenimiento</strong>. Los programas desarrollados utilizando POO son m&aacute;s sencillos de mantener, debido a la modularidad antes comentada. Tambi&eacute;n ayuda seguir ciertas convenciones al escribirlos, por ejemplo, escribir cada clase en un fichero propio. No debe haber dos clases en un mismo fichero, ni otro c&oacute;digo aparte del propio de la clase.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id4">
+<div class="iDevice emphasis_parasabermasfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Para saber más</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta4_47" class="block iDevice_content">
+<p>En este módulo no se pretende realizar un estudio profundo de las ventajas y características de la POO, sino simplemente recordar conceptos que ya deberías haber asimilado con anterioridad. Si tienes dudas sobre algo de lo que acabamos de repasar, puedes consultar este tutorial de la <span lang="en">web</span> desarrolloweb.com.</p>
+<p class="enlace_centrado"><a title="Acceder a tutorial sobre programación orientada a objetos." href="http://www.desarrolloweb.com/articulos/499.php" target="_blank">Tutorial de la <span lang="en">web</span> desarrolloweb.com.</a></p>
+<p class="enlace_centrado" style="text-align: left;">Aquí tienes otro enlace  que repasa los conceptos básicos de la POO.</p>
+<p class="enlace_centrado" style="text-align: center;"><a title="Conceptos básicos de POO" href="https://www.guidacode.com/2017/php/poo-finalidad-herencia-conceptos-basicos/" target="_blank">Conceptos básicos de POO</a></p>
+<p class="enlace_centrado" style="text-align: left;">Y otro enlace con conceptos y ejercicios resueltos sobre POO.</p>
+<p class="enlace_centrado" style="text-align: center;"><a title="POO con PHP" href="http://www.phpya.com.ar/poo/index.php?inicio=0" target="_blank">POO con PHP</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

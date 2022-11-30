@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1.4.- Mecanismos de mantenimiento del estado. </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-10"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li class="current-page-parent"><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="current-page-parent daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul>
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li id="active"><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="active no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li><a href="2_programacin_en_capas.html" class="daddy">2.- Programación en capas.</a>
+   <ul class="other-section">
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="132_utilizacin_de_objetos_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="15_herencia_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">1.4.- Mecanismos de mantenimiento del estado.</h1></div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id32">
+<div class="iDevice emphasis0">
+<div id="ta32_73" class="block iDevice_content">
+<img alt="Dibujo de una persona sosteniendo un sobre gigante delante de un ordenador." class="elemento_centrado" height="192" src="DWES05_CONT_R11_Mantenimiento_estado.JPG" style="width: 144px; height: 192px" title="Mantenimiento del estado." width="144" />
+<br />
+<p>
+En la unidad anterior aprendiste a usar la sesión del usuario para almacenar el estado de las variables, y poder recuperarlo cuando sea necesario. El proceso es muy sencillo; se utiliza el <span lang="en">array</span> superglobal <code>$_SESSION</code>, añadiendo nuevos elementos para ir guardando la información en la sesión.
+</p>
+<p>
+El procedimiento para almacenar objetos es similar, pero hay una diferencia importante. Todas las variables almacenan su información en memoria de una forma u otra según su tipo. Los objetos, sin embargo, no tienen un único tipo. Cada objeto tendrá unos atributos u otros en función de su clase. Por tanto, para almacenar los objetos en la sesión del usuario, hace falta convertirlos a un formato estándar. Este proceso se llama serialización.
+</p>
+<p>
+En <span lang="en">PHP</span>, para serializar un objeto se utiliza la función <code>serialize</code>. El resultado obtenido es un <code>string</code> que contiene un flujo de <span lang="en">bytes</span>, en el que se encuentran definidos todos los valores del objeto.
+</p>
+<div class="codigo elemento_centrado" style="width: 17em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = new Producto();</code>
+</pre>
+<pre>
+<code>$a = serialize($p);</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Esta cadena se puede almacenar en cualquier parte, como puede ser la sesión del usuario, o una base de datos. A partir de ella, es posible reconstruir el objeto original utilizando la función <code>unserialize</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 17.55em">
+<div class="texto_izquierda">
+<pre>
+<code>$p = unserialize($a);</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id33">
+<div class="iDevice emphasis_debesconocerfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Debes conocer</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta33_48" class="block iDevice_content">
+Las funciones <code>serialize</code> y <code>unserialize</code> se utilizan mucho con objetos, pero sirven para convertir en una cadena cualquier tipo de dato, excepto el tipo <code>resource</code>. Cuando se aplican a un objeto, convierten y recuperan toda la información del mismo, incluyendo sus atributos privados. La única información que no se puede mantener utilizando estas funciones es la que contienen los atributos estáticos de las clases.
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id34">
+<div class="iDevice emphasis0">
+<div id="ta34_73" class="block iDevice_content">
+<p>
+Si simplemente queremos almacenar un objeto en la sesión del usuario, deberíamos hacer por tanto:
+</p>
+<div class="codigo elemento_centrado" style="width: 26.9em">
+<div class="texto_izquierda">
+<pre>
+<code>session_start();</code>
+</pre>
+<pre>
+<code>$_SESSION['producto'] = serialize($p);</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Pero en <span lang="en">PHP</span> esto aún es más fácil. Los objetos que se añadan a la sesión del usuario son serializados automáticamente. Por tanto, no es necesario usar <code>serialize</code> ni <code>unserialize</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 20.85em">
+<div class="texto_izquierda">
+<pre>
+<code>session_start();</code>
+</pre>
+<pre>
+<code>$_SESSION['producto'] = $p;</code>
+</pre>
+</div>
+</div>
+<br />
+<p>
+Para poder deserializar un objeto, debe estar definida su clase. Al igual que antes, si lo recuperamos de la información almacenada en la sesión del usuario, no será necesario utilizar la función <code>unserialize</code>.
+</p>
+<div class="codigo elemento_centrado" style="width: 20.85em">
+<div class="texto_izquierda">
+<pre>
+<code>session_start();</code>
+</pre>
+<pre>
+<code>$p = $_SESSION['producto'];</code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper DebesconocerfpdIdevice em_iDevice" id="id35">
+<div class="iDevice emphasis_debesconocerfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Debes conocer</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta35_48" class="block iDevice_content">
+Como ya viste en el tema anterior, el mantenimiento de los datos en la sesión del usuario no es perfecta; tiene sus limitaciones. Si fuera necesario, es posible almacenar esta información en una base de datos. Para ello tendrás que usar las funciones <code>serialize</code> y <code>unserialize</code>, pues en este caso <span lang="en">PHP</span> ya no realiza la serialización automática.
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id36">
+<div class="iDevice emphasis0">
+<div id="ta36_73" class="block iDevice_content">
+<p>En <span lang="en">PHP</span> además tienes la opción de personalizar el proceso de serialización y deserialización de un objeto, utilizando los métodos mágicos <code>__sleep</code> y <code>__wakeup</code>. Si en la clase está definido un método con nombre <code>__sleep</code>, se ejecuta antes de serializar un objeto. Igualmente, si existe un método <code>__wakeup</code>, se ejecuta con cualquier llamada a la función <code>unserialize</code>.</p>
+<p class="enlace_centrado"><a href="http://www.php.net/manual/es/language.oop5.magic.php#language.oop5.magic.sleep" title="Acceder a métodos mágicos en el manual de PHP." target="_blank"> Métodos mágicos <code>__sleep</code> y <code>__wakeup</code>.</a></p>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper EleccionmultiplefpdIdevice em_iDevice" id="id37">
+<div class="iDevice emphasis_autoevaluacionfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Autoevaluación</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div class="question">
+<form name="multi-choice-form-37_60" action="#" onsubmit="return false" class="activity-form">
+<h3 class="js-sr-av">Pregunta</h3>
+<div id="taquestion37_60" class="block question iDevice_content">
+<strong>Si serializas un objeto utilizando <code>serialize</code>, ¿puedes almacenarlo en una base de datos <span lang="en">My<acronym title="Structured Query Language.">SQL</acronym></span>?</strong>
+
+</div>
+<div class="iDevice_answers">
+<h4 class="js-sr-av">Respuestas</h4>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i37_63" class="sr-av"><a href="#answer-37_63">Opción 1</a></label><input type="radio" name="option37_60" id="i37_63" class="exe-radio-option exe-radio-option-0-2-37_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-37_63"><a name="answer-37_63"></a>
+<div id="taans37_63" class="block iDevice_content">
+Verdadero.
+
+</div>
+</div>
+</div>
+<div class="iDevice_answer">
+<p class="iDevice_answer-field js-required">
+<label for="i37_114" class="sr-av"><a href="#answer-37_114">Opción 2</a></label><input type="radio" name="option37_60" id="i37_114" class="exe-radio-option exe-radio-option-1-2-37_60-multi"/>
+</p>
+<div class="iDevice_answer-content" id="answer-37_114"><a name="answer-37_114"></a>
+<div id="taans37_114" class="block iDevice_content">
+Falso.
+
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_feedbacks js-feedback">
+<h4 class="js-sr-av">Retroalimentación</h4>
+<div id="sa0b37_60" class="feedback js-hidden"><a name="sa0b37_60"></a>
+<div id="taf37_63" class=" iDevice_content">
+No solo puedes, sino que además es la forma correcta de hacerlo. <code>serialize</code> convierte el objeto en una cadena, que se puede almacenar donde sea necesario.
+
+</div>
+</div>
+<div id="sa1b37_60" class="feedback js-hidden"><a name="sa1b37_60"></a>
+<div id="taf37_114" class=" iDevice_content">
+Piensa en cómo almacenarías el objeto entonces.
+
+</div>
+</div>
+</div>
+</form>
+<div class="iDevice_solution feedback js-hidden">
+<h4>Solución</h4>
+<ol>
+<li><a href="#answer-37_63">Opción correcta</a><span> (<a href="#sa0b37_60">Retroalimentación</a>)</span></li>
+<li><a href="#answer-37_114">Incorrecto</a><span> (<a href="#sa1b37_60">Retroalimentación</a>)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="132_utilizacin_de_objetos_iii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="15_herencia_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>

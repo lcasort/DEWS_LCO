@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2.- Programación en capas. </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="content-language" content="es" />
+<meta name="generator" content="eXeLearning 2.4.2 - exelearning.net" />
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-18"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<div id="emptyHeader"></div>
+<div id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Programación orientada a objetos en PHP.</a></li>
+   <li><a href="1_caractersticas_de_orientacin_a_objetos_en_php_i.html" class="daddy">1.- Características de orientación a objetos en PHP (I).</a>
+   <ul class="other-section">
+      <li><a href="11_caractersticas_de_orientacin_a_objetos_en_php_ii.html" class="no-ch">1.1.- Características de orientación a objetos en PHP (II).</a></li>
+      <li><a href="12_creacin_de_clases_i.html" class="daddy">1.2.- Creación de clases (I).</a>
+      <ul class="other-section">
+         <li><a href="121_creacin_de_clases_ii.html" class="no-ch">1.2.1.- Creación de clases (II).</a></li>
+         <li><a href="122_creacin_de_clases_iii.html" class="no-ch">1.2.2.- Creación de clases (III).</a></li>
+         <li><a href="123_creacin_de_clases_iv.html" class="no-ch">1.2.3.- Creación de clases (IV).</a></li>
+      </ul>
+      </li>
+      <li><a href="13_utilizacin_de_objetos_i.html" class="daddy">1.3.- Utilización de objetos (I).</a>
+      <ul class="other-section">
+         <li><a href="131_utilizacin_de_objetos_ii.html" class="no-ch">1.3.1.- Utilización de objetos (II).</a></li>
+         <li><a href="132_utilizacin_de_objetos_iii.html" class="no-ch">1.3.2.- Utilización de objetos (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="14_mecanismos_de_mantenimiento_del_estado.html" class="no-ch">1.4.- Mecanismos de mantenimiento del estado.</a></li>
+      <li><a href="15_herencia_i.html" class="daddy">1.5.- Herencia (I).</a>
+      <ul class="other-section">
+         <li><a href="151_herencia_ii.html" class="no-ch">1.5.1.- Herencia (II).</a></li>
+         <li><a href="152_herencia_iii.html" class="no-ch">1.5.2.- Herencia (III).</a></li>
+      </ul>
+      </li>
+      <li><a href="16_interfaces_i.html" class="daddy">1.6.- Interfaces (I).</a>
+      <ul class="other-section">
+         <li><a href="161_interfaces_ii.html" class="no-ch">1.6.1.- Interfaces (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="17_ejemplo_de_poo_en_php_i.html" class="daddy">1.7.- Ejemplo de POO en PHP (I).</a>
+      <ul class="other-section">
+         <li><a href="171_ejemplo_de_poo_en_php_ii.html" class="no-ch">1.7.1.- Ejemplo de POO en PHP (II).</a></li>
+      </ul>
+      </li>
+   </ul>
+   </li>
+   <li id="active"><a href="2_programacin_en_capas.html" class="active daddy">2.- Programación en capas.</a>
+   <ul>
+      <li><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="daddy">2.1.- Separación de la lógica de negocio (I).</a>
+      <ul class="other-section">
+         <li><a href="211_separacin_de_la_lgica_de_negocio_ii.html" class="no-ch">2.1.1.- Separación de la lógica de negocio (II).</a></li>
+      </ul>
+      </li>
+      <li><a href="22_generacin_del_interface_de_usuario.html" class="no-ch">2.2.- Generación del interface de usuario.</a></li>
+   </ul>
+   </li>
+   <li><a href="anexo_licencias_de_recursos.html" class="no-ch">Anexo.- Licencias de recursos.</a></li>
+</ul>
+</div>
+<div id='topPagination'>
+<div class="pagination noprt">
+<a href="171_ejemplo_de_poo_en_php_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+<div id="main-wrapper">
+<div id="main"><a name="main"></a>
+<div id="nodeDecoration"><h1 id="nodeTitle">2.- Programación en capas.</h1></div>
+<div class="iDevice_wrapper CasopracticofpdIdevice em_iDevice" id="id53">
+<div class="iDevice emphasis_casopracticofpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Caso práctico</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta53_66" class="block iDevice_content">
+<p><img alt="Dibujo de varias personas trabajando sobre una mesa con forma de bombilla." class="elemento_derecha" src="DWES05_CONT_R19_Mesa_bombilla.jpg" style="width: 192px; height: 144px;" title="Mesa bombilla." width="192" height="144" /></p>
+<p>Después de unas semanas, <strong>Carlos</strong> ha conseguido reprogramar su aplicación de catalogación utilizando orientación a objetos. Le ha costado bastante esfuerzo, pero reconoce que el resultado merece la pena. El código resultante es mucho más limpio, y cada clase de las que ha creado tiene un cometido concreto y bien definido.</p>
+<p>Ahora es mucho más fácil hacer cambios en el código. Definitivamente, tendrán que utilizar orientación a objetos cuando empiecen el nuevo proyecto. Mientras tanto, se propone volver sobre una asignatura pendiente: mejorar el aspecto de sus páginas. Y aunque conoce el lenguaje <span lang="en"></span><abbr title="HyperText Markup Language">HTML</abbr>, y sabe utilizar las hojas de estilo, decide pedirle consejo a un amigo suyo que se dedica al diseño de <span lang="en">webs</span>.</p>
+<p>Su amigo trabaja en otra empresa y su función es diseñar el aspecto de los sitios <span lang="en">web</span> que crean. Cuando ve la aplicación de <strong>Carlos</strong>, queda muy impresionado por lo que ha avanzado en poco tiempo. Tras examinarla, le indica que tal y como está es muy difícil cambiar su aspecto. Tiene el código <span lang="en">HTML</span> distribuido en diversos ficheros, y entremezclado con el código <span lang="en">PHP</span>.</p>
+<p>Le comenta que en su empresa utilizan mecanismos de separación del código y le anima a que los pruebe. Si lo hace, él se ofrece a darle un diseño más profesional a su aplicación. —¡Manos a la obra!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper FreeTextfpdIdevice" id="id54">
+<div class="iDevice emphasis0">
+<div id="ta54_73" class="block iDevice_content">
+<p>En el ejemplo anterior, hemos programado una aplicación <span lang="en">web</span> sencilla utilizando programación orientada a objetos. Sin embargo, si observaste el resultado obtenido, habrás visto como en muchas ocasiones se mezcla el código propio de la lógica de la aplicación, con el código necesario para crear el <span lang="en">interface web</span> que se presenta a los usuarios.</p>
+<p>Por ejemplo, tanto la clase <code>CestaCompra</code> como la clase <code>Producto</code>, cuyo objetivo debería ser implementar la lógica de la aplicación, tienen un método llamado <code>muestra</code> destinado a generar etiquetas <span lang="en">HTML</span>. E inversamente, en algunas páginas que deberían simplemente generar <span lang="en">HTML</span>, puedes encontrar código que forma parte de la lógica de la aplicación. Por ejemplo, en la página <code>productos.php</code>, el código para incluir un nuevo producto en la cesta de la compra se encuentra mezclado con las etiquetas <span lang="en">HTML</span>.</p>
+<p>Existen varios métodos que permiten separar la lógica de presentación (en nuestro caso, la que genera las etiquetas <span lang="en">HTML</span>) de la lógica de negocio, donde se implementa la lógica propia de cada aplicación. El más extendido es el patrón de diseño Modelo – Vista – Controlador (<acronym title="Modelo Vista Controlador.">MVC</acronym>). Este patrón pretende dividir el código en tres partes, dedicando cada una a una función definida y diferenciada de las otras.</p>
+<ul class="lista_verificacion">
+<li><strong>Modelo</strong>. Es el encargado de manejar los datos propios de la aplicación. Debe proveer mecanismos para obtener y modificar la información del mismo. Si la aplicación utiliza algún tipo de almacenamiento para su información (como un <acronym title="Sistema Gestor de Bases de Datos.">SGBD</acronym>), tendrá que encargarse de almacenarla y recuperarla.</li>
+<li><strong>Vista</strong>. Es la parte del modelo que se encarga de la interacción con el usuario. En esta parte se encuentra el código necesario para generar el <span lang="en">interface</span> de usuario (en nuestro caso en <span lang="en">HTML</span>), según la información obtenida del modelo.</li>
+<li><strong>Controlador</strong>. En este módulo se decide qué se ha de hacer, en función de las acciones del usuario con su <span lang="en">interface</span>. Con esta información, interactúa con el modelo para indicarle las acciones a realizar y, según el resultado obtenido, envía a la vista las instrucciones necesarias para generar el nuevo <span lang="en">interface</span>.</li>
+</ul>
+<p>La gran ventaja de este patrón de programación es que genera código muy estructurado, fácil de comprender y de mantener. En la <span lang="en">web</span> puedes encontrar algunos ejemplos de implementación del modelo MVC en <span lang="en">PHP</span>. Échale un vistazo al siguiente artículo sobre MVC en <span lang="en">PHP</span>.</p>
+<p class="enlace_centrado"><a title="Acceder al ejemplo de programación en PHP utilizando el patrón MVC." href="http://desphpparatodos.blogspot.com.es/2011/03/entendiendo-el-mvc.html" target="_blank" rel="noopener" class="html">Artículo sobre MVC en <span lang="en">PHP</span> de la web desarrolladorsenior.blogspot.com.</a></p>
+<p>Aunque puedes programar utilizando MVC por tu cuenta, es más habitual utilizar el patrón MVC en conjunción con un <span lang="en">framework</span> o marco de desarrollo. Existen numerosos <span lang="en">frameworks</span> disponibles en <span lang="en">PHP</span>, muchos de los cuales incluyen soporte para MVC. En esta unidad no profundizaremos en la utilización de un <span lang="en">framework</span> específico, pero existen numerosos recursos con información en Internet, incluyendo la página bestwebframeworks.com, dedicada exclusivamente a ellos.</p>
+<p class="enlace_centrado"><a title="Acceder a la información sobre frameworks en PHP. " href="https://www.bestwebframeworks.com/" target="_blank" rel="noopener" class="html">Página bestwebframeworks.com.</a></p>
+</div>
+</div>
+</div>
+<div class="iDevice_wrapper ParasabermasfpdIdevice em_iDevice" id="id63">
+<div class="iDevice emphasis_parasabermasfpd" >
+<div class="iDevice_header"><h2 class="iDeviceTitle">Para saber más</h2></div>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta63_43" class="block iDevice_content">
+<p>A la hora de elegir un framework deberás estudiar cuál se adapata mejor a tus necesidades. Algunas características que deberás tener en cuenta es la versión de PHP que soporta, si soporta el MVC, funciones AJAX, autenticación, etc. Para ello te puedes guiar con la información que nos facilita la página de bestwebframeworks.com mencionada anteriormente. </p>
+<p style="text-align: center;"><a class="html" title="Página bestwebframeworks" href="http://www.bestwebframeworks.com/compare-web-frameworks/php/" target="_blank" rel="noopener">Página bestwebframeworks.com</a></p>
+<p style="text-align: left;">Entre los frameworks más usados ultimamente tenemos Yii, CodeIgniter, CakePHP, Zend, Symfony y Laravel. Otro framework que está ganando grandes adeptos es Phalcon, ya que está optimizado para alto rendimiento. Aquí tienes algunos enlaces a documentación de estos frameworks por si quieres profundizar un poco más:</p>
+<p style="text-align: center;"> </p>
+<p style="text-align: center;"><a class="html" title="Documentación en español de Yii" href="https://www.yiiframework.com/doc/guide/1.1/es/quickstart.what-is-yii" target="_blank" rel="noopener">Documentación en español de Yii</a></p>
+<p style="text-align: center;"><a class="html" title="Guía del Usuario de CodeIgniter Versión 2.1.4" href="https://codeigniter.es/documentacion.php" target="_blank" rel="noopener">Guía del Usuario de CodeIgniter</a> </p>
+<p style="text-align: center;"><a class="html" title="Documentación en español de CakePHP" href="http://book.cakephp.org/2.0/es/index.html" target="_blank" rel="noopener">Documentación en español de CakePHP</a></p>
+<p style="text-align: center;"><a class="html" title="Guía Zend en español" href="http://collection.openlibra.com.s3.amazonaws.com/pdf/MDW-Guia-Zend.1.0.pdf" target="_blank" rel="noopener">Guía Zend en español</a></p>
+<p style="text-align: center;"><a class="html" title="Manual de Symfony2 en español" href="https://librosweb.es/libro/symfony_2_0/" target="_blank" rel="noopener">Manual de Symfony2 en español</a></p>
+<p style="text-align: center;"><a class="html" title="Laravel 4 desde cero" href="https://guiadev.com/introduccion-laravel/" target="_blank" rel="noopener">Laravel 4 desde cero (en español)</a></p>
+<p style="text-align: center;"><a class="html" href="https://laravel.com/docs/8.x" target="_blank" rel="noopener">Documentación de Laravel 8.x (en inglés)</a></p>
+<p style="text-align: center;"><a class="html" title="Documentación en español de Phalcon" href="https://docs.phalcon.io/4.0/es-es/introduction" target="_blank" rel="noopener">Documentación en español de Phalcon</a></p>
+<p style="text-align: center;"><a class="html" title="Cursos en videotutoriales de algunos de los frameworks mencionados" href="http://microarticulos.com/cursos-gratis-de-framework-php-en-videotutoriales/" target="_blank" rel="noopener">Enlace a Cursos en videotutoriales de algunos de los frameworks mencionados</a></p>
+<p style="text-align: center;"> </p>
+<p style="text-align: center;"> </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id='bottomPagination'>
+<div class="pagination noprt">
+<a href="171_ejemplo_de_poo_en_php_ii.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="21_separacin_de_la_lgica_de_negocio_i.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="_intef_js.js"></script></body></html>
