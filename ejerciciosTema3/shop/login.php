@@ -3,6 +3,10 @@
     // Iniciamos la sesión o recuperamos la anterior sesión existente.
     session_start();
 
+    // Guardamos en $error_message el mensaje de error que queremos mostrar
+    // por pantalla en caso de que exista.
+    $error_message = "";
+    
     // Si hemos iniciado sesión se nos redirige a 'productos.php'.
     if(isset($_SESSION['login'])) {
 
@@ -22,10 +26,7 @@
 
         // Guardamos en la variable $error el código de error de la última
         // llamada a la base de datos.
-        $error = $conexion->connect_errno;
-        // Guardamos en $error_message el mensaje de error que queremos mostrar
-        // por pantalla en caso de que exista.
-        $error_message = ""; 
+        $error = $conexion->connect_errno; 
 
         // Si hay errores, guardamos en $error_message el mensaje de error.
         if ($error != 0) {

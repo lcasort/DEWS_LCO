@@ -8,7 +8,7 @@
         header('Location: ./login.php');
         exit();
     }
-    if(!isset($_SESSION['cart'])) {
+    if($_SESSION['cart'] == array()) {
         $error_msg = '<h2>Cesta vacía</h2><br><a href="./productos.php"><div class="buttonContainer"><button>Volver a productos</button></div></a>';
     }
     if(isset($_SESSION['total'])) {

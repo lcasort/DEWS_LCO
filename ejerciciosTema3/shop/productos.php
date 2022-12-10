@@ -17,6 +17,10 @@
         unset($_SESSION['paid']);
         unset($_SESSION['cart']);
     }
+    // Si no hemos iniciado variable de sesión 'cart', lo hacemos.
+    if(!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
 
     // Activamos los errores por pantalla.
     ini_set('display_errors', 1);
@@ -63,7 +67,7 @@
             }
             $_SESSION['cart'] = $arrayRes;
             
-            // Redi
+            // Redireccionamos a la página de la cesta.
             header('Location: ./cesta.php');
             exit();
 
