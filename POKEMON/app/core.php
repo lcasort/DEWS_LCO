@@ -22,10 +22,12 @@ class Core
         if(isset($_GET['method']) && !empty($_GET['method'])) {
             $this->method = filter_var($_GET['method'], FILTER_SANITIZE_URL);
         }
-        if(isset($_GET['parameters']) && !empty($_GET['parameters'])) {
-            foreach ($_GET['parameters'] as $key => $value) {
-                $this->parameters += [$key => filter_var($value, FILTER_SANITIZE_URL)];
-            }
-        }
+        // TODO: Filtrar parámetros.
+        $parameters = array_filter(
+            $_GET,
+            fn($elem)=>!in_array($elem, ['controller','method']),
+            ARRAY_FILTER_USE_KEY
+        );
+        print_r($parameters);
     }
 } 
