@@ -55,7 +55,12 @@ INSERT INTO `pokemons` (`no`, `pic`, `name`, `hp`, `att`, `def`, `s_att`, `s_def
 (012, '../public/img/012.png', 'Butterfree', '60', '45', '50', '90', '80', '70'),
 (013, '../public/img/013.png', 'Weedle', '40', '35', '30', '20', '20', '50'),
 (014, '../public/img/014.png', 'Kakuna', '45', '25', '50', '25', '25', '35'),
-(015, '../public/img/015.png', 'Beedrill', '65', '90', '40', '45', '80', '75');
+(015, '../public/img/015.png', 'Beedrill', '65', '90', '40', '45', '80', '75'),
+(011, '../public/img/016.png', 'Pidgey', '40', '45', '40', '35', '35', '56'),
+(012, '../public/img/017.png', 'Pidgeotto', '63', '60', '55', '50', '50', '71'),
+(013, '../public/img/018.png', 'Pidgeot', '83', '80', '75', '70', '70', '101'),
+(014, '../public/img/019.png', 'Rattata', '30', '56', '35', '25', '35', '72'),
+(015, '../public/img/020.png', 'Raticate', '55', '81', '60', '50', '70', '97');
 
 INSERT INTO `type` (`no`, `type`) VALUES
 (001, 'Grass'),
@@ -80,7 +85,15 @@ INSERT INTO `type` (`no`, `type`) VALUES
 (014, 'Bug'),
 (014, 'Poison'),
 (015, 'Bug'),
-(015, 'Poison');
+(015, 'Poison'),
+(016, 'Normal'),
+(016, 'Flying'),
+(017, 'Normal'),
+(017, 'Flying'),
+(018, 'Normal'),
+(018, 'Flying'),
+(019, 'Normal'),
+(020, 'Normal');
 
 INSERT INTO `abilities` (`no`, `ability`) VALUES
 (001, 'Overgrow'),
@@ -110,4 +123,19 @@ INSERT INTO `abilities` (`no`, `ability`) VALUES
 (013, 'Run Away'),
 (014, 'Shed Skin'),
 (015, 'Swarm'),
-(015, 'Sniper');
+(015, 'Sniper'),
+(016, 'Keen Eye'),
+(016, 'Tangled Feet'),
+(016, 'Big Pecks'),
+(017, 'Keen Eye'),
+(017, 'Tangled Feet'),
+(017, 'Big Pecks'),
+(018, 'Keen Eye'),
+(018, 'Tangled Feet'),
+(018, 'Big Pecks'),
+(019, 'Run Away'),
+(019, 'Guts'),
+(019, 'Hustles'),
+(020, 'Run Away'),
+(020, 'Guts'),
+(020, 'Hustles');
