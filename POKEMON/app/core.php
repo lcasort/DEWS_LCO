@@ -51,6 +51,7 @@ class Core
         //                          MANAGING METHODS                          //
         ////////////////////////////////////////////////////////////////////////
         if(method_exists($this->controller, $this->method)) {
+            // Instanciamos el método seleccionado y le pasamos los parámetros.
             $actMethod = $this->method;
             $this->controller->$actMethod($this->parameters);
         }

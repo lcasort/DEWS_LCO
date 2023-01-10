@@ -13,7 +13,6 @@ class PokemonController
     public function __construct()
     {
         // TODO
-        echo 'Controlador pokemon cargado.';
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -21,6 +20,6 @@ class PokemonController
     ////////////////////////////////////////////////////////////////////////////
     public function list($params)
     {
-        echo 'Listando pokemons...';
+        require_once('./app/views/listPokemons.tpl.php');
     }
 }
