@@ -43,8 +43,7 @@ class Core
             $className = ucfirst($this->controller).'Controller';
             $this->controller = new $className();
         } else {
-            // Controlamos los errores en caso de que el controlador no exista.
-            header('HTTP/1.0 404 Not Found', true, 404);
+            throw new Exception('No existe el controlador solicitado.');
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -54,6 +53,8 @@ class Core
             // Instanciamos el método seleccionado y le pasamos los parámetros.
             $actMethod = $this->method;
             $this->controller->$actMethod($this->parameters);
+        } else {
+            throw new Exception('No existe el método solicitado.');
         }
     }
 } 
