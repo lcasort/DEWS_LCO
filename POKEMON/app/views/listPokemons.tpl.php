@@ -10,30 +10,30 @@
                 <th>No.</th>
                 <th>Image</th>
                 <th>Name</th>
-                <th>Description</th>
                 <th>Type</th>
+                <th>HP</th>
             </tr>
         </thead>
         <tbody>
             <?php 
-            foreach ($data as $row):
+            foreach ($data as $key => $value):
             ?>
 
             <tr>
                 <!-- No. -->
-                <td><?php echo $row['id_pokemon']; ?></td>
+                <td><?php echo $key; ?></td>
                 <!-- Image -->
                 <td>
-                    <a href="./?controller=Pokemon&method=view&id=<?php echo $row['id_pokemon']; ?>">
-                        <img src="<?php echo $row['url_imagen']; ?>">
+                    <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
+                        <img src="<?php echo $value['pic']; ?>">
                     </a>
                 </td>
                 <!-- Name -->
-                <td><?php echo $row['nombre']; ?></td>
-                <!-- Description -->
-                <td><?php echo $row['descripcion']; ?></td>
+                <td><?php echo $value['name']; ?></td>
                 <!-- Type -->
-                <td><?php echo $row['tipo_nombre']; ?></td>
+                <td><?php echo implode(', ', $value['types']); ?></td>
+                <!-- HP -->
+                <td><?php echo $value['hp']; ?></td>
             </tr>
             
             <?php
