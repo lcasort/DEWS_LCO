@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+.container_navbar {
+    background-color: white;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    padding: 10px 10px 0;
+}
+
+.navbar {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 60px;
+    padding: 15px 40px;
+    margin-bottom: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar img {
+    width: 150px;
+    height: 60px;
+}
+
+.dropdown img {
+    width: 60px;
+}
+
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+  
+.dropdown {
+    background-color: transparent;
+    position: relative;
+    display: flex;
+}
+  
+.dropdown-content {
+    background-color: white;
+    width: max-content;
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+}
+  
+.dropdown-content a {
+    text-align: center;
+    color: black;
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    margin: 0 5px;
+    height: fit-content;
+}
+  
+.dropdown-content a:hover {
+    background-color: #ff1c1c;
+    color: white;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.dropdown:hover .dropbtn {
+    transform: rotate(45grad);
+}
+
+table {
+    border-collapse: collapse;
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table img {
+    width: 150px;
+}
+
+thead {
+    font-size: large;
+    background-color: #555555;
+    color: white;
+}
+
+th {
+    padding: 25px 30px;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+td {
+    padding: 25px 0;
+}
+
+#types {
+    border-radius: 25px;
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 5px auto;
+    color: white;
+    font-weight: bold;
+}
+
+.type_link {
+    text-decoration: none;
+}
+
+.Grass {
+    background-color: #88be65;
+}
+.Poison {
+    background-color: #8c478d;
+}
+.Fire {
+    background-color: #b22d23;
+}
+.Flying {
+    background-color: #9e90c8;
+}
+.Water {
+    background-color: #6783be;
+}
+.Bug {
+    background-color: #a5b61b;
+}
+.Normal {
+    background-color: #9ba77a;
+}

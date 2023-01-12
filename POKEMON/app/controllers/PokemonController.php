@@ -54,6 +54,14 @@ class PokemonController
     public function view($params) {
         $data = [];
 
+        // Si no existe el parámetro id, lanzamos una nueva excepción.
+        if(!isset($params['id'])) {
+            throw new Exception('Se necesita el parámetro id para acceder a la vista del pokémon.');
+        // Si el parámetro id no es un número entero, lanzamos un nueva excepción.
+        } else if(!is_numeric($params['id']) || !is_int(intval($params['id']))) {
+            throw new Exception('El parámetro id introducido no es válido.');
+        }
+
         // Comprobamos si existe el modelo.
         if(is_file('./app/models/PokemonModel.php')) {
             require_once('./app/models/PokemonModel.php');
