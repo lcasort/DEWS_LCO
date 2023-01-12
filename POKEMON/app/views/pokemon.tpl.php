@@ -1,7 +1,11 @@
 <?php require_once('./app/views/inc/header.php'); ?>
 
+<?php 
+    $row = $data->fetch();
+?>
+
 <div>
-    <h1>Pokemons</h1>
+    <h1><?php echo ucfirst($row['nombre']); ?></h1>
 </div>
 <div>
     <table>
@@ -15,10 +19,6 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
-            foreach ($data as $row):
-            ?>
-
             <tr>
                 <!-- No. -->
                 <td><?php echo $row['id_pokemon']; ?></td>
@@ -35,10 +35,6 @@
                 <!-- Type -->
                 <td><?php echo $row['tipo_nombre']; ?></td>
             </tr>
-            
-            <?php
-            endforeach;
-            ?>
         </tbody>
     </table>
 </div>

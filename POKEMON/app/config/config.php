@@ -3,4 +3,10 @@
 // Obtenemos la ruta completa a la carpeta 'app'.
 define('RUTE_APP', dirname(dirname(__FILE__)));
 
-// Cuando tengamos que hacer uso de la BD metemos aqui las credenciales y tal.
+// Credenciales BD.
+define('DB_CRED', [
+    'host' => 'localhost',
+    'dbname' => 'app_pokemons',
+    'user' => 'root',
+    'psswd' => ''
+]);

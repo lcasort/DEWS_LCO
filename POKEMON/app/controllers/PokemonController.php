@@ -20,23 +20,18 @@ class PokemonController
     ////////////////////////////////////////////////////////////////////////////
     public function list($params)
     {
-        $data = [
-            '001' => [
-                'img' => './public/img/001.png',
-                'name' => 'Bulbasaur',
-                'type' => ['Grass', 'Poison']
-            ],
-            '002' => [
-                'img' => './public/img/002.png',
-                'name' => 'Ivysaur',
-                'type' => ['Grass', 'Poison']
-            ],
-            '003' => [
-                'img' => './public/img/003.png',
-                'name' => 'Venusaur',
-                'type' => ['Grass', 'Poison']
-            ]
-        ];
+        $data = [];
+
+        // Comprobamos si existe el modelo.
+        if(is_file('./app/models/PokemonModel.php')) {
+            require_once('./app/models/PokemonModel.php');
+            // Instanciamos el modelo.
+            $pokemonModel = new PokemonModel();
+            // Llamamos a la función getAllPokemons.
+            $data = $pokemonModel->getAllPokemons();
+        } else {
+            throw new Exception('No se encuentra el modelo.');
+        }
 
         // Comprobamos si existe la vista.
         if(is_file('./app/views/listPokemons.tpl.php')) {
@@ -54,5 +49,27 @@ class PokemonController
             throw new Exception('No existe la vista solicitada.');
         }
         
+    }
+
+    public function view($params) {
+        $data = [];
+
+        // Comprobamos si existe el modelo.
+        if(is_file('./app/models/PokemonModel.php')) {
+            require_once('./app/models/PokemonModel.php');
+            // Instanciamos el modelo.
+            $pokemonModel = new PokemonModel();
+            // Llamamos a la función getAllPokemons.
+            $data = $pokemonModel->getPokemon($params['id']);
+        } else {
+            throw new Exception('No se encuentra el modelo.');
+        }
+
+        // Comprobamos si existe la vista.
+        if(is_file('./app/views/pokemon.tpl.php')) {
+            require_once('./app/views/pokemon.tpl.php');
+        } else {
+            throw new Exception('No existe la vista solicitada.');
+        }
     }
 }
