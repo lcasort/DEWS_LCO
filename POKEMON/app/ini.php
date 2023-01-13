@@ -1,8 +1,5 @@
 <?php
 
-require_once('./app/config/config.php');
-require_once('./app/core.php');
-
 try {
     $ini = new Core();
 } catch(Exception $excpt) {

@@ -130,13 +130,18 @@ class PokemonModel
         $con = $this->con;
         // Hacemos la consulta a la base de datos para traernos todos los
         // pokemons del tipo seleccionado.
-        $qres = $con->query("SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
+        $qres = $con->query("SELECT p.no
         FROM pokemons p 
         LEFT JOIN pokemons_type t
         ON p.no = t.no
         LEFT JOIN type
         ON type.id_type = t.id_type
         WHERE '$type' = type.type");
+
+        // Si no existe el pokemon introducido, lanzamos una excepción.
+        if($qres->rowCount() === 0) {
+            throw new Exception('No existe ese tipo pokemon.');
+        }
         
         // Guardamos todos los resultados de la consulta en $selType.
         $selType = $qres->fetchAll();
