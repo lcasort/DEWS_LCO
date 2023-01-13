@@ -128,7 +128,8 @@ class PokemonModel
     public function getAllTypePokemons($type) {
         // Guardamos en $con la conexión con la base de datos.
         $con = $this->con;
-        // Hacemos la consulta a la base de datos.
+        // Hacemos la consulta a la base de datos para traernos todos los
+        // pokemons del tipo seleccionado.
         $qres = $con->query("SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
         FROM pokemons p 
         LEFT JOIN pokemons_type t
@@ -136,6 +137,26 @@ class PokemonModel
         LEFT JOIN type
         ON type.id_type = t.id_type
         WHERE '$type' = type.type");
+        
+        // Guardamos todos los resultados de la consulta en $selType.
+        $selType = $qres->fetchAll();
+        // Guardamos en $keys un array con los ids de los pokemons del tipo a
+        // consultar.
+        $keys = array_map(fn($p)=>$p['no'], $selType);
+        // Transformamos el array en una cadena separada por comas.
+        $keys = implode(',', array_values($keys));
+
+        // Realizamos una nueva consulta a la base de datos en la que nos
+        // traemos todos los pokemos con uno de los ids obtenidos previamente
+        // para obtener todos los tipos de cada pokemon que cumpla ser del
+        // tipo seleccionado.
+        $fres = $con->query("SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
+        FROM pokemons p 
+        LEFT JOIN pokemons_type t
+        ON p.no = t.no
+        LEFT JOIN type
+        ON type.id_type = t.id_type
+        WHERE p.no IN ($keys)");
 
         // Usamos un id temporal en el que iremos guardando e id del pokémon
         // que estamos tratando.
@@ -146,7 +167,7 @@ class PokemonModel
         // correspondientes al pokémon que estemos tratando.
         $types = [];
         // Recorremos el resultado de la consulta a la base de datos...
-        foreach($qres as $row) {
+        foreach($fres as $row) {
             // Si es el mismo pokémon añadimos a tipos y si no iniciamos el
             // array de tipos con el primer tipo que aparezca.
             if($id_temp == $row['no']) {

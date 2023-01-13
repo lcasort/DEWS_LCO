@@ -80,7 +80,13 @@ INSERT INTO `pokemons` (`no`, `pic`, `name`, `hp`, `att`, `def`, `s_att`, `s_def
 (017, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png', 'Pidgeotto', '63', '60', '55', '50', '50', '71'),
 (018, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png', 'Pidgeot', '83', '80', '75', '70', '70', '101'),
 (019, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png', 'Rattata', '30', '56', '35', '25', '35', '72'),
-(020, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png', 'Raticate', '55', '81', '60', '50', '70', '97');
+(020, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png', 'Raticate', '55', '81', '60', '50', '70', '97'),
+(021, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png', 'Spearow', '40', '60', '30', '31', '31', '70'),
+(022, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png', 'Fearow', '65', '90', '65', '61', '61', '100'),
+(023, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png', 'Ekans', '35', '60', '44', '40', '54', '55'),
+(024, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png', 'Arbok', '60', '95', '69', '65', '79', '80'),
+(025, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png', 'Pikachu', '35', '55', '40', '50', '50', '90'),
+(026, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png', 'Raichu', '60', '90', '55', '90', '80', '110');
 
 INSERT INTO `type` (`id_type`, `type`) VALUES 
 (1, 'Grass'),
@@ -89,7 +95,8 @@ INSERT INTO `type` (`id_type`, `type`) VALUES
 (4, 'Flying'),
 (5, 'Water'),
 (6, 'Bug'),
-(7, 'Normal');
+(7, 'Normal'),
+(8, 'Electric');
 
 INSERT INTO `pokemons_type` (`no`, `id_type`) VALUES 
 (001, 1),
@@ -122,7 +129,15 @@ INSERT INTO `pokemons_type` (`no`, `id_type`) VALUES
 (018, 7),
 (018, 4),
 (019, 7),
-(020, 7);
+(020, 7),
+(021, 4),
+(021, 7),
+(022, 4),
+(022, 7),
+(023, 2),
+(024, 2),
+(025, 8),
+(026, 8);
 
 INSERT INTO `abilities` (`id_ability`, `ability`) VALUES
 (1, 'Overgrow'),
@@ -142,7 +157,11 @@ INSERT INTO `abilities` (`id_ability`, `ability`) VALUES
 (15, 'Tangled Feet'),
 (16, 'Big Pecks'),
 (17, 'Guts'),
-(18, 'Hustles');
+(18, 'Hustles'),
+(19, 'Intimidate'),
+(20, 'Unnerve'),
+(21, 'Static'),
+(22, 'Lightning Rod');
 
 INSERT INTO `pokemons_abilities` (`no`, `id_ability`) VALUES
 (001, 1),
@@ -187,4 +206,18 @@ INSERT INTO `pokemons_abilities` (`no`, `id_ability`) VALUES
 (019, 18),
 (020, 8),
 (020, 17),
-(020, 18);
+(020, 18),
+(021, 14),
+(021, 13),
+(022, 14),
+(022, 13),
+(023, 19),
+(023, 9),
+(023, 20),
+(024, 19),
+(024, 9),
+(024, 20),
+(025, 21),
+(025, 22),
+(026, 21),
+(026, 22);
