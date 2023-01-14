@@ -110,7 +110,7 @@ td {
     padding: 25px 0;
 }
 
-#types {
+#types, #type {
     border-radius: 25px;
     width: fit-content;
     padding: 10px 20px;
@@ -130,7 +130,7 @@ td {
     background-color: #8c478d;
 }
 .Fire {
-    background-color: #b22d23;
+    background-color: #ee6b25;
 }
 .Flying {
     background-color: #9e90c8;
@@ -149,4 +149,81 @@ td {
 }
 .Ground {
     background-color: #dab25d;
+}
+.Fairy {
+    background-color: #dc90db;
+}
+.Fight {
+    background-color: #a91e17;
+}
+.Psychc {
+    background-color: #f93d70;
+}
+.Rock {
+    background-color: #ae8c28;
+}
+.Steel {
+    background-color: #aba8c3;
+}
+.Ice {
+    background-color: #8bcbd4;
+}
+.Ghost {
+    background-color: #60418f;
+}
+.Dragon {
+    background-color: #602afa;
+}
+.pokemon_grid_container {
+    width: 75%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+}
+.id_pokemon, .name_pokemon, .pic_pokemon, .types_pokemon {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.pokemon_grid_container:last-child {
+    border: none;
+}
+.id_pokemon {
+    grid-column: 1;
+}
+.name_pokemon {
+    grid-column: 2;
+}
+.pic_pokemon, .types_pokemon, .stats_pokemon {
+    grid-column: 1 / span 2;
+}
+.pic_pokemon img {
+    width: 15%;
+}
+.stats_pokemon {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+.stats_pokemon > div {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+#type {
+    display: inline-block;
+    margin: 10px;
+}
+.item_name {
+    height: fit-content;
+    background-color: #555555;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+.item_name h3 {
+    display: inline-block;
+    margin: 2px auto;
+}
+.hp, .att, .def, .s_def, .s_att, .spd, .info {
+    padding: 10px 0;
 }
