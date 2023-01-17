@@ -1,12 +1,13 @@
 <?php
 
-// Hacemos todos los require iniciales requeridos.
-function customAutoloader($class) {
-    require_once('./app/config/config.php');
-    require_once('./app/core.php');
-    
-    $file = $class . '.php';
+require_once('./app/config/config.php');
+require_once('./app/core.php');
 
+// Hacemos todos los require iniciales requeridos.
+function customAutoloader($class) {    
+    // Recorremos recursivamente las carpetas para hacer los require_once de las
+    // clases necesarias.
+    $file = $class . '.php';
     $directory = new \RecursiveDirectoryIterator(RUTE_APP);
     $iterator = new \RecursiveIteratorIterator($directory);
     foreach ($iterator as $info) {
@@ -23,6 +24,10 @@ require_once('./app/ini.php');
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// AUX METHODS ///////////////////////////////// 
 ////////////////////////////////////////////////////////////////////////////////
+/**
+ * Método recursivo para recorrer las carpetas y hacer los require_once
+ * necesarios.
+ */
 function search_file($dir,$file_to_search){
 
     $files = scandir($dir);
@@ -33,7 +38,7 @@ function search_file($dir,$file_to_search){
     
         if(!is_dir($path)) {
             if($file_to_search == $value){
-                include $dir . '/' . $file_to_search;
+                require_once $dir . '/' . $file_to_search;
                 break;
             }
         } else if($value != "." && $value != "..") {
