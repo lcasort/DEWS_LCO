@@ -43,18 +43,22 @@ PRIMARY KEY ( `no` , `id_ability` )
 ALTER TABLE `pokemons_type`
 ADD CONSTRAINT `pokemons_type_ibfk_1`
 FOREIGN KEY (`no`) REFERENCES `pokemons` (`no`)
+ON DELETE CASCADE
 ON UPDATE CASCADE;
 ALTER TABLE `pokemons_type`
 ADD CONSTRAINT `pokemons_type_ibfk_2`
 FOREIGN KEY (`id_type`) REFERENCES `type` (`id_type`)
+ON DELETE CASCADE
 ON UPDATE CASCADE;
 ALTER TABLE `pokemons_abilities`
 ADD CONSTRAINT `pokemons_abilities_ibfk_1`
 FOREIGN KEY (`no`) REFERENCES `pokemons` (`no`)
+ON DELETE CASCADE
 ON UPDATE CASCADE;
 ALTER TABLE `pokemons_abilities`
 ADD CONSTRAINT `pokemons_abilities_ibfk_2`
 FOREIGN KEY (`id_ability`) REFERENCES `abilities` (`id_ability`)
+ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 -- Insertamos datos de ejemplo en la tienda

@@ -78,4 +78,34 @@ class PokemonController
             throw new Exception('No existe la vista solicitada.');
         }
     }
+
+    public function delete($params) {
+        if(isset($_POST['delete']) && !empty($_POST['delete'])) {
+            $id = array_keys($_POST['delete'])[0];
+            // Comprobamos si existe el modelo.
+            if(is_file('./app/models/PokemonModel.php')) {
+                // Instanciamos el modelo.
+                $pokemonModel = new PokemonModel();
+                // Llamamos a la función getAllPokemons.
+                $data = $pokemonModel->deletePokemon($id);
+            } else {
+                throw new Exception('No se encuentra el modelo.');
+            }
+        }
+
+        $this->list($params);
+    }
+
+    public function add($params) {
+        
+    }
+
+    public function form() {
+        // Comprobamos si existe la vista.
+        if(is_file('./app/views/addPokemonForm.tpl.php')) {
+            require_once('./app/views/addPokemonForm.tpl.php');
+        } else {
+            throw new Exception('No existe la vista solicitada.');
+        }
+    }
 }

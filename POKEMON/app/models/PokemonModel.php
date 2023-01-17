@@ -199,4 +199,12 @@ class PokemonModel
 
         return $res;
     }
+
+    public function deletePokemon($id) {
+        // Guardamos en $con la conexión con la base de datos.
+        $con = $this->con;
+        // Hacemos la consulta a la base de datos para traernos todos los
+        // pokemons del tipo seleccionado.
+        $qres = $con->query("DELETE FROM pokemons WHERE no = $id");
+    }
 }

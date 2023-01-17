@@ -186,6 +186,9 @@ td {
 .Dragon {
     background-color: #602afa;
 }
+#types:hover, #type:hover {
+    filter: brightness(75%);
+}
 .pokemon_grid_container {
     width: 75%;
     margin: 0 auto;
@@ -235,4 +238,11 @@ td {
 }
 .hp, .att, .def, .s_def, .s_att, .spd, .info {
     padding: 10px 0;
+}
+
+.delete_button {
+    border: none;
+    background-color: transparent;
+    font-size: x-large;
+    font-weight: 900;
 }
