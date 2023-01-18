@@ -37,8 +37,6 @@ class Core
         ////////////////////////////////////////////////////////////////////////
         // Comprobamos si existe el controlador.
         if(is_file('./app/controllers/'.ucfirst($this->controller).'Controller.php')) {
-            require_once('./app/controllers/'.ucfirst($this->controller).'Controller.php');
-
             // Instanciamos el controlador.
             $className = ucfirst($this->controller).'Controller';
             $this->controller = new $className();

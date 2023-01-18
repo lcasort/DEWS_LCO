@@ -24,7 +24,6 @@ class PokemonTypeController
 
         // Comprobamos si existe el modelo.
         if(is_file('./app/models/PokemonModel.php')) {
-            require_once('./app/models/PokemonModel.php');
             // Instanciamos el modelo.
             $pokemonModel = new PokemonModel();
             // Llamamos a la función getAllPokemons.
