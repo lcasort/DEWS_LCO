@@ -206,5 +206,7 @@ class PokemonModel
         // Hacemos la consulta a la base de datos para traernos todos los
         // pokemons del tipo seleccionado.
         $qres = $con->query("DELETE FROM pokemons WHERE no = $id");
+
+        return $qres;
     }
 }

@@ -24,3 +24,7 @@
             </div>
         </div>
     </div>
+
+    <div class="system_messages">
+        <span><?php echo $system_messages; ?></span>
+    </div>
