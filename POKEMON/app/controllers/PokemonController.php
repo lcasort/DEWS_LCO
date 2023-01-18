@@ -62,10 +62,12 @@ class PokemonController
         // Si no existe el parámetro id, lanzamos una nueva excepción.
         if(!isset($params['id'])) {
             $this->system_messages = 'Se necesita el parámetro id para acceder a la vista del pokémon.';
+            $_SESSION['system_messages'] = $this->system_messages;
             header('Location: ./?controller=Pokemon$method=list');
         // Si el parámetro id no es un número entero, lanzamos un nueva excepción.
         } else if(!ctype_digit($params['id'])) {
             $this->system_messages = 'El parámetro id introducido no es válido.';
+            $_SESSION['system_messages'] = $this->system_messages;
             header('Location: ./?controller=Pokemon&method=list');
         }
 
@@ -105,8 +107,10 @@ class PokemonController
                 // Llamamos a la función getAllPokemons.
                 if($data = $pokemonModel->deletePokemon($id)) {
                     $this->system_messages = 'Pokemon eliminado.';
+                    $_SESSION['system_messages'] = $this->system_messages;
                 } else {
                     $this->system_messages = 'El pokemon a eliminar no existe.';
+                    $_SESSION['system_messages'] = $this->system_messages;
                 }
             } else {
                 throw new Exception('No se encuentra el modelo.');
