@@ -26,7 +26,7 @@
             ?>
                 <tr>
                     <!-- No. -->
-                    <td><?php echo $key; ?></td>
+                    <td><?php echo $value['no']; ?></td>
                     <!-- Image -->
                     <td>
                         <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
@@ -38,7 +38,7 @@
                     <!-- Type -->
                     <td>
                     <?php foreach($value['types'] as $type): ?>
-                        <a href="./?controller=PokemonType&method=list&type=<?php echo $type; ?>" class="type_link">
+                        <a href="./?controller=Pokemon&method=listType&type=<?php echo $type; ?>" class="type_link">
                             <div id="types" class="<?php echo $type; ?>"><?php echo $type; ?></div>
                         </a>
                     <?php endforeach; ?>

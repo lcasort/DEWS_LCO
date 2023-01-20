@@ -27,10 +27,10 @@ class PokemonModel
         // Guardamos en $con la conexión con la base de datos.
         $con = $this->con;
         // Hacemos la consulta a la base de datos.
-        $qres = $con->query('SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
+        $qres = $con->query('SELECT p.id, p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
         FROM pokemons p 
         LEFT JOIN pokemons_type t
-        ON p.no = t.no
+        ON p.id = t.id
         LEFT JOIN type
         ON type.id_type = t.id_type');
 
@@ -46,13 +46,14 @@ class PokemonModel
         foreach($qres as $row) {
             // Si es el mismo pokémon añadimos a tipos y si no iniciamos el
             // array de tipos con el primer tipo que aparezca.
-            if($id_temp == $row['no']) {
+            if($id_temp == $row['id']) {
                 $types[] = $row['type'];
             } else {
                 $types = [$row['type']];
             }
             // Guardamos en res los datos del pokémon indexados por su id.
-            $res[$row['no']] = [
+            $res[$row['id']] = [
+                'no' => $row['no'],
                 'pic' => $row['pic'],
                 'name' => $row['name'],
                 'hp' => $row['hp'],
@@ -65,7 +66,7 @@ class PokemonModel
             ];
             
             // Actualizamos el id temporal.
-            $id_temp = $row['no'];
+            $id_temp = $row['id'];
         }
 
         return $res;
@@ -75,13 +76,13 @@ class PokemonModel
         // Guardamos en $con la conexión con la base de datos.
         $con = $this->con;
         // Hacemos la consulta a la base de datos.
-        $qres = $con->query("SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
+        $qres = $con->query("SELECT p.id, p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
         FROM pokemons p 
         LEFT JOIN pokemons_type t
-        ON p.no = t.no
+        ON p.id = t.id
         LEFT JOIN type
         ON type.id_type = t.id_type  
-        WHERE '$id' = p.no");
+        WHERE '$id' = p.id");
 
         // Si no existe el pokemon introducido, lanzamos una excepción.
         if($qres->rowCount() === 0) {
@@ -100,13 +101,14 @@ class PokemonModel
         foreach($qres as $row) {
             // Si es el mismo pokémon añadimos a tipos y si no iniciamos el
             // array de tipos con el primer tipo que aparezca.
-            if($id_temp == $row['no']) {
+            if($id_temp == $row['id']) {
                 $types[] = $row['type'];
             } else {
                 $types = [$row['type']];
             }
             // Guardamos en res los datos del pokémon indexados por su id.
-            $res[$row['no']] = [
+            $res[$row['id']] = [
+                'no' => $row['no'],
                 'pic' => $row['pic'],
                 'name' => $row['name'],
                 'hp' => $row['hp'],
@@ -119,7 +121,7 @@ class PokemonModel
             ];
             
             // Actualizamos el id temporal.
-            $id_temp = $row['no'];
+            $id_temp = $row['id'];
         }
 
         return $res;
@@ -130,71 +132,73 @@ class PokemonModel
         $con = $this->con;
         // Hacemos la consulta a la base de datos para traernos todos los
         // pokemons del tipo seleccionado.
-        $qres = $con->query("SELECT p.no
+        $qres = $con->query("SELECT p.id
         FROM pokemons p 
         LEFT JOIN pokemons_type t
-        ON p.no = t.no
+        ON p.id = t.id
         LEFT JOIN type
         ON type.id_type = t.id_type
-        WHERE '$type' = type.type");
+        WHERE '$type' = type.type")->fetchAll(PDO::FETCH_ASSOC);
 
-        // Si no existe el pokemon introducido, lanzamos una excepción.
-        if($qres->rowCount() === 0) {
-            throw new Exception('No existe ese tipo pokemon.');
-        }
-        
-        // Guardamos todos los resultados de la consulta en $selType.
-        $selType = $qres->fetchAll();
-        // Guardamos en $keys un array con los ids de los pokemons del tipo a
-        // consultar.
-        $keys = array_map(fn($p)=>$p['no'], $selType);
-        // Transformamos el array en una cadena separada por comas.
-        $keys = implode(',', array_values($keys));
-
-        // Realizamos una nueva consulta a la base de datos en la que nos
-        // traemos todos los pokemos con uno de los ids obtenidos previamente
-        // para obtener todos los tipos de cada pokemon que cumpla ser del
-        // tipo seleccionado.
-        $fres = $con->query("SELECT p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
-        FROM pokemons p 
-        LEFT JOIN pokemons_type t
-        ON p.no = t.no
-        LEFT JOIN type
-        ON type.id_type = t.id_type
-        WHERE p.no IN ($keys)");
-
-        // Usamos un id temporal en el que iremos guardando e id del pokémon
-        // que estamos tratando.
-        $id_temp = -1;
         // Creamos un array vacío que será el que devolveremos.
         $res = [];
-        // Creamos un array vacío en el que guardaremos los tipos
-        // correspondientes al pokémon que estemos tratando.
-        $types = [];
-        // Recorremos el resultado de la consulta a la base de datos...
-        foreach($fres as $row) {
-            // Si es el mismo pokémon añadimos a tipos y si no iniciamos el
-            // array de tipos con el primer tipo que aparezca.
-            if($id_temp == $row['no']) {
-                $types[] = $row['type'];
-            } else {
-                $types = [$row['type']];
-            }
-            // Guardamos en res los datos del pokémon indexados por su id.
-            $res[$row['no']] = [
-                'pic' => $row['pic'],
-                'name' => $row['name'],
-                'hp' => $row['hp'],
-                'att' => $row['att'],
-                'def' => $row['def'],
-                's_att' => $row['s_att'],
-                's_def' => $row['s_def'],
-                'spd' => $row['spd'],
-                'types' => $types
-            ];
+
+        // Si no existe el pokemon introducido, lanzamos una excepción.
+        if($qres) {
+            // Guardamos en $keys un array con los ids de los pokemons del tipo a
+            // consultar.
+            $keys = array_map(fn($p)=>$p['id'], $qres);
+            // Transformamos el array en una cadena separada por comas.
+            $keys = implode(',', array_values($keys));
+
+            // Realizamos una nueva consulta a la base de datos en la que nos
+            // traemos todos los pokemos con uno de los ids obtenidos previamente
+            // para obtener todos los tipos de cada pokemon que cumpla ser del
+            // tipo seleccionado.
+            $fres = $con->query("SELECT p.id, p.no, p.pic, p.name, p.hp, p.att, p.def, p.s_att, p.s_def, p.spd, type.type
+            FROM pokemons p 
+            LEFT JOIN pokemons_type t
+            ON p.id = t.id
+            LEFT JOIN type
+            ON type.id_type = t.id_type
+            WHERE p.id IN ($keys)");
+
+            // Usamos un id temporal en el que iremos guardando e id del pokémon
+            // que estamos tratando.
+            $id_temp = -1;
             
-            // Actualizamos el id temporal.
-            $id_temp = $row['no'];
+            // Creamos un array vacío en el que guardaremos los tipos
+            // correspondientes al pokémon que estemos tratando.
+            $types = [];
+            // Recorremos el resultado de la consulta a la base de datos...
+            foreach($fres as $row) {
+                // Si es el mismo pokémon añadimos a tipos y si no iniciamos el
+                // array de tipos con el primer tipo que aparezca.
+                if($id_temp == $row['id']) {
+                    $types[] = $row['type'];
+                } else {
+                    $types = [$row['type']];
+                }
+                // Guardamos en res los datos del pokémon indexados por su id.
+                $res[$row['id']] = [
+                    'no' => $row['no'],
+                    'pic' => $row['pic'],
+                    'name' => $row['name'],
+                    'hp' => $row['hp'],
+                    'att' => $row['att'],
+                    'def' => $row['def'],
+                    's_att' => $row['s_att'],
+                    's_def' => $row['s_def'],
+                    'spd' => $row['spd'],
+                    'types' => $types
+                ];
+                
+                // Actualizamos el id temporal.
+                $id_temp = $row['id'];
+            }
+
+        } else {
+            $res = $qres;
         }
 
         return $res;
@@ -205,7 +209,7 @@ class PokemonModel
         $con = $this->con;
         // Hacemos la consulta a la base de datos para traernos todos los
         // pokemons del tipo seleccionado.
-        $qres = $con->query("DELETE FROM pokemons WHERE no = $id");
+        $qres = $con->query("DELETE FROM pokemons WHERE id = $id");
 
         return $qres;
     }

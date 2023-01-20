@@ -41,6 +41,48 @@ class PokemonController
         if(is_file('./app/views/listPokemons.tpl.php')) {
             // CON RUTA RELATIVA
             require_once('./app/views/listPokemons.tpl.php');
+            
+            // CON RUTA ABSOLUTA
+            /*
+            // Obtenemos la ruta absoluta del archivo que queremos cargar.
+            $rute = RUTE_APP . '/views/listPokemons.tpl.php';
+            // Instanciamos desde la ruta absoluta.
+            require_once($rute);
+            */
+        } else {
+            throw new Exception('No existe la vista solicitada.');
+        }
+
+        $_SESSION['system_messages'] = '';
+        
+    }
+
+    public function listType($params)
+    {
+        $system_messages = $this->system_messages;
+        $data = [];
+
+        // Comprobamos si existe el modelo.
+        if(is_file('./app/models/PokemonModel.php')) {
+            // Instanciamos el modelo.
+            $pokemonModel = new PokemonModel();
+            // Llamamos a la función getAllPokemons.
+            $data = $pokemonModel->getAllTypePokemons($params['type']);
+
+            if(!$data) {
+                $this->system_messages = 'No se encuentra el tipo especificado.';
+                $system_messages = $this->system_messages;
+                $_SESSION['system_messages'] = $this->system_messages;
+                header('Location: ./?controller=Pokemon&method=list');
+            }
+        } else {
+            throw new Exception('No se encuentra el modelo.');
+        }
+
+        // Comprobamos si existe la vista.
+        if(is_file('./app/views/listTypePokemons.tpl.php')) {
+            // CON RUTA RELATIVA
+            require_once('./app/views/listTypePokemons.tpl.php');
 
             // CON RUTA ABSOLUTA
             /*
@@ -53,6 +95,7 @@ class PokemonController
             throw new Exception('No existe la vista solicitada.');
         }
         
+        $_SESSION['system_messages'] = '';
     }
 
     public function view($params) {
@@ -87,6 +130,8 @@ class PokemonController
         } else {
             throw new Exception('No existe la vista solicitada.');
         }
+
+        $_SESSION['system_messages'] = '';
     }
 
     public function delete($params) {

@@ -23,7 +23,7 @@
 
             <tr>
                 <!-- No. -->
-                <td><?php echo $key; ?></td>
+                <td><?php echo $value['no']; ?></td>
                 <!-- Image -->
                 <td>
                     <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
