@@ -180,7 +180,7 @@ INSERT INTO `type` (`id_type`, `type`) VALUES
 (9, 'Ground'),
 (10, 'Fairy'),
 (11, 'Fight'),
-(12, 'Psychc'),
+(12, 'Psychic'),
 (13, 'Rock'),
 (14, 'Steel'),
 (15, 'Ice'),

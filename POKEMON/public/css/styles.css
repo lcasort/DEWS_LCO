@@ -168,7 +168,7 @@ td {
 .Fight {
     background-color: #a91e17;
 }
-.Psychc {
+.Psychic {
     background-color: #f93d70;
 }
 .Rock {
@@ -245,4 +245,28 @@ td {
     background-color: transparent;
     font-size: x-large;
     font-weight: 900;
+}
+
+.addPokemonButton {
+    margin: 0 auto;
+    border: 2px solid #555555;
+    width: 10%;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.addPokemonButton:hover {
+    background-color: #555555;
+}
+
+.addPokemonButton:hover a {
+    color: white;
+}
+
+.addPokemonButton a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: bolder;
 }

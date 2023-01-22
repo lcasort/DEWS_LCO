@@ -1,7 +1,11 @@
 <?php require_once('./app/views/inc/header.php'); ?>
 
 <div>
-    <a class="add_pokemon" href="./?controller=Pokemon&method=form">&#43; Add new pokémon</a>
+    <?php if($server === 'db') { ?>
+    <div class="addPokemonButton">
+        <a class="add_pokemon" href="./?controller=Pokemon&method=showForm">Add new pokémon</a>
+    </div>
+    <?php } ?>
     
     <table>
         <thead>
@@ -16,7 +20,9 @@
                 <th>Sp. Att.</th>
                 <th>Sp. Def.</th>
                 <th>Speed</th>
+                <?php if($server === 'db') { ?>
                 <th></th>
+                <?php } ?>
             </tr>
         </thead>
         <tbody>
@@ -50,9 +56,11 @@
                     <td><?php echo $value['s_att']; ?></td>
                     <td><?php echo $value['s_def']; ?></td>
                     <td><?php echo $value['spd']; ?></td>
+                    <?php if($server === 'db') { ?>
                     <td>
                         <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
                     </td>
+                    <?php } ?>
                 </tr>
             </form>
             

@@ -26,13 +26,26 @@ class PokemonController
     {
         $system_messages = $this->system_messages;
         $data = [];
+        $server = '';
 
         // Comprobamos si existe el modelo.
         if(is_file('./app/models/PokemonModel.php')) {
             // Instanciamos el modelo.
             $pokemonModel = new PokemonModel();
-            // Llamamos a la función getAllPokemons.
-            $data = $pokemonModel->getAllPokemons();
+
+            if($params['server'] === 'api') {
+                $server = $params['server'];
+                // Llamamos a la función getAllPokemonsFromAPI.
+                $data = $pokemonModel->getAllPokemonsFromAPI();
+            } else if($params['server'] === 'db') {
+                $server = $params['server'];
+                // Llamamos a la función getAllPokemons.
+                $data = $pokemonModel->getAllPokemons();
+            } else {
+                $this->system_messages = 'El servidor seleccionado no existe. Mostrando datos desde la base de datos local...';
+                $_SESSION['system_messages'] = $this->system_messages;
+                header('Location: ./');
+            }
         } else {
             throw new Exception('No se encuentra el modelo.');
         }
@@ -54,7 +67,7 @@ class PokemonController
         }
 
         $_SESSION['system_messages'] = '';
-        
+
     }
 
     public function listType($params)
@@ -169,7 +182,8 @@ class PokemonController
         
     }
 
-    public function form() {
+    public function showForm() {
+        $system_messages = $this->system_messages;
         // Comprobamos si existe la vista.
         if(is_file('./app/views/addPokemonForm.tpl.php')) {
             require_once('./app/views/addPokemonForm.tpl.php');

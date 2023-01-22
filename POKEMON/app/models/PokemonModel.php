@@ -23,7 +23,8 @@ class PokemonModel
     ////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////// METHODS //////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    public function getAllPokemons() {
+    public function getAllPokemons()
+    {
         // Guardamos en $con la conexión con la base de datos.
         $con = $this->con;
         // Hacemos la consulta a la base de datos.
@@ -70,6 +71,57 @@ class PokemonModel
         }
 
         return $res;
+    }
+
+    public function getAllPokemonsFromAPI()
+    {
+        $allData = $this->callAPI('https://pokeapi.co/api/v2/pokemon/?limit=151');
+        foreach ($allData['results'] as $key => $value) {
+            $dataPokemon = $this->callAPI($value['url']);
+            $types = [];
+            foreach ($dataPokemon['types'] as $key => $value) {
+                $types[] = ucfirst($value['type']['name']);
+            }
+            $stats = [];
+            foreach ($dataPokemon['stats'] as $key => $value) {
+                $stats[$value['stat']['name']] = $value['base_stat'];
+            }
+            $data[] = array(
+                'no' => $dataPokemon['id'],
+                'name' => ucfirst($dataPokemon['name']),
+                'pic' => $dataPokemon['sprites']['front_default'],
+                'hp' => $stats['hp'],
+                'att' => $stats['attack'],
+                'def' => $stats['defense'],
+                's_att' => $stats['special-attack'],
+                's_def' => $stats['special-defense'],
+                'spd' => $stats['speed'],
+                'types' => $types
+            );
+        }
+
+        return $data;
+    }
+
+    private function callAPI($url)
+    {
+        // Abrimos conexión cURL y la almacenamos en la variable $ch.
+        $ch = curl_init();
+        // Configuramos mediante CURLOPT_URL la URL de nuestra API.
+        curl_setopt($ch, CURLOPT_URL, $url);
+        //Abrimos conexión cURL y la almacenamos en la variable $ch.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // 0 o 1, indicamos que no queremos al Header en nuestra respuesta.
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        // Ejecuta la petición HTTP y almacena la respuesta en la variable $data.
+        $data = curl_exec($ch);
+        // Cerramos la conexión cURL.
+        curl_close($ch);
+
+        // Pasamos los datos obtenidos (string) a array.
+        $data = json_decode($data,true);
+
+        return $data;
     }
 
     public function getPokemon($id) {
