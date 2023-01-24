@@ -114,6 +114,7 @@ class PokemonController
     public function view($params) {
         $system_messages = $this->system_messages;
         $data = [];
+        $server = '';
 
         // Si no existe el parámetro id, lanzamos una nueva excepción.
         if(!isset($params['id'])) {
@@ -131,8 +132,21 @@ class PokemonController
         if(is_file('./app/models/PokemonModel.php')) {
             // Instanciamos el modelo.
             $pokemonModel = new PokemonModel();
-            // Llamamos a la función getAllPokemons.
-            $data = $pokemonModel->getPokemon($params['id']);
+
+            if($params['server'] === 'api') {
+                $server = $params['server'];
+                // Llamamos a la función getAllPokemonsFromAPI.
+                $data = $pokemonModel->getPokemonAPI($params['id']);
+            } else if($params['server'] === 'db') {
+                $server = $params['server'];
+                // Llamamos a la función getAllPokemons.
+                $data = $pokemonModel->getPokemon($params['id']);
+            } else {
+                $this->system_messages = 'El servidor seleccionado no existe. Mostrando datos desde la base de datos local...';
+                $_SESSION['system_messages'] = $this->system_messages;
+                header('Location: ./');
+            }
+            
         } else {
             throw new Exception('No se encuentra el modelo.');
         }

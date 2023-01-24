@@ -179,6 +179,34 @@ class PokemonModel
         return $res;
     }
 
+    public function getPokemonAPI($id) {
+        $url = 'https://pokeapi.co/api/v2/pokemon/'.$id.'/';
+        $res = $this->callAPI($url);
+
+        $types = [];
+        foreach ($res['types'] as $key => $value) {
+            $types[] = ucfirst($value['type']['name']);
+        }
+        $stats = [];
+        foreach ($res['stats'] as $key => $value) {
+            $stats[$value['stat']['name']] = $value['base_stat'];
+        }
+        $data[] = array(
+            'no' => $res['id'],
+            'name' => ucfirst($res['name']),
+            'pic' => $res['sprites']['front_default'],
+            'hp' => $stats['hp'],
+            'att' => $stats['attack'],
+            'def' => $stats['defense'],
+            's_att' => $stats['special-attack'],
+            's_def' => $stats['special-defense'],
+            'spd' => $stats['speed'],
+            'types' => $types
+        );
+
+        return $data;
+    }
+
     public function getAllTypePokemons($type) {
         // Guardamos en $con la conexión con la base de datos.
         $con = $this->con;
