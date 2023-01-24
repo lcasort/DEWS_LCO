@@ -240,7 +240,7 @@ td {
     padding: 10px 0;
 }
 
-.delete_button {
+.delete_button, .add_from_api_button {
     border: none;
     background-color: transparent;
     font-size: x-large;

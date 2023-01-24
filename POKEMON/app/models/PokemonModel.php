@@ -75,7 +75,7 @@ class PokemonModel
 
     public function getAllPokemonsFromAPI()
     {
-        $allData = $this->callAPI('https://pokeapi.co/api/v2/pokemon/?limit=151');
+        $allData = $this->callAPI('https://pokeapi.co/api/v2/pokemon/?limit=15');
         foreach ($allData['results'] as $key => $value) {
             $dataPokemon = $this->callAPI($value['url']);
             $types = [];
@@ -292,5 +292,14 @@ class PokemonModel
         $qres = $con->query("DELETE FROM pokemons WHERE id = $id");
 
         return $qres;
+    }
+
+    public function addPokemonFromAPI($id) {
+        $data = $this->getPokemonAPI($id);
+
+        // TODO: Mirar si los datos se recogen bien y hacer el insert.
+        print_r($data);
+
+        return $data;
     }
 }

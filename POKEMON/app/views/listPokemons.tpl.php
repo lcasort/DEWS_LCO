@@ -20,13 +20,11 @@
                 <th>Sp. Att.</th>
                 <th>Sp. Def.</th>
                 <th>Speed</th>
-                <?php if($server === 'db') { ?>
                 <th></th>
-                <?php } ?>
             </tr>
         </thead>
         <tbody>
-            <form action="./?controller=Pokemon&method=delete" method="post">
+            <form action="./?controller=Pokemon&method=<?php if($server==='db') { echo 'delete';} else { echo 'addFromAPI'; }?>" method="post">
             <?php 
             foreach ($data as $key => $value):
             ?>
@@ -60,11 +58,13 @@
                     <td><?php echo $value['s_att']; ?></td>
                     <td><?php echo $value['s_def']; ?></td>
                     <td><?php echo $value['spd']; ?></td>
-                    <?php if($server === 'db') { ?>
                     <td>
+                    <?php if($server === 'db') { ?>
                         <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
-                    </td>
+                    <?php } else { ?>
+                        <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
                     <?php } ?>
+                    </td>
                 </tr>
             </form>
             

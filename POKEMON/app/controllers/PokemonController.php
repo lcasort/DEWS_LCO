@@ -192,6 +192,37 @@ class PokemonController
         header('Location: ./?controller=Pokemon&method=list');
     }
 
+    public function addFromAPI($params) {
+        $system_messages = $this->system_messages;
+        if(isset($_POST['add']) && !empty($_POST['add'])) {
+            // Obtenemos el id del pokemon a borrar.
+            $id = array_keys($_POST['add'])[0];
+
+            // Comprobamos que el id pasado por el post es un número entero.
+            if(!ctype_digit($id)) {
+                $this->system_messages = 'El id no es válido.';
+            }
+
+            // Comprobamos si existe el modelo.
+            if(is_file('./app/models/PokemonModel.php')) {
+                // Instanciamos el modelo.
+                $pokemonModel = new PokemonModel();
+                // Llamamos a la función getAllPokemons.
+                if($data = $pokemonModel->addPokemonFromAPI($id)) {
+                    $this->system_messages = 'Pokemon añadido.';
+                    $_SESSION['system_messages'] = $this->system_messages;
+                } else {
+                    $this->system_messages = 'El pokemon a añadir no existe.';
+                    $_SESSION['system_messages'] = $this->system_messages;
+                }
+            } else {
+                throw new Exception('No se encuentra el modelo.');
+            }
+        }
+
+        // header('Location: ./?controller=Pokemon&method=list&server=api');
+    }
+
     public function add($params) {
         
     }
