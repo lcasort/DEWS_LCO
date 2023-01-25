@@ -220,7 +220,7 @@ class PokemonController
             }
         }
 
-        // header('Location: ./?controller=Pokemon&method=list&server=api');
+        header('Location: ./?controller=Pokemon&method=list&server=api');
     }
 
     public function add($params) {

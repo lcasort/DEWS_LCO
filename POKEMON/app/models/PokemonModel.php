@@ -33,7 +33,8 @@ class PokemonModel
         LEFT JOIN pokemons_type t
         ON p.id = t.id
         LEFT JOIN type
-        ON type.id_type = t.id_type');
+        ON type.id_type = t.id_type
+        ORDER BY p.no');
 
         // Usamos un id temporal en el que iremos guardando e id del pokémon
         // que estamos tratando.
@@ -296,10 +297,39 @@ class PokemonModel
 
     public function addPokemonFromAPI($id) {
         $data = $this->getPokemonAPI($id);
+        $data = reset($data);
 
-        // TODO: Mirar si los datos se recogen bien y hacer el insert.
-        print_r($data);
+        $no = $data['no'];
+        $name = $data['name'];
+        $pic = $data['pic'];
+        $hp = $data['hp'];
+        $att = $data['att'];
+        $def = $data['def'];
+        $s_att = $data['s_att'];
+        $s_def = $data['s_def'];
+        $spd = $data['spd'];
+        $types = $data['types'];
+        $types = array_map(fn($t)=>"'".$t."'", $types);
+        $types = implode(',', array_values($types));
 
-        return $data;
+        // Guardamos en $con la conexión con la base de datos.
+        $con = $this->con;
+        // Hacemos la consulta a la base de datos para traernos todos los
+        // pokemons del tipo seleccionado.
+        $resPokemon = $con->query("INSERT INTO pokemons (id,no,pic,name,hp,att,def,s_att,s_def,spd)
+        VALUES (NULL,$no,'$pic','$name',$hp,$att,$def,$s_att,$s_def,$spd)");
+
+        $resIdTypes = $con->query("SELECT id_type FROM `type` t WHERE t.type IN ($types)")->fetchAll(PDO::FETCH_ASSOC);
+        $resIdTypes = array_map(fn($t)=>$t['id_type'],$resIdTypes);
+        $newId = $con->query("SELECT id FROM pokemons p WHERE p.no = $no ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+        $newId = reset($newId)['id'];
+
+        $resIdTypes = array_map(fn($t)=>'('.$newId.','.$t.')', $resIdTypes);
+        $resIdTypes = implode(',', array_values($resIdTypes));
+
+        $resPokemon = $con->query("INSERT INTO pokemons_type (id,id_type)
+        VALUES $resIdTypes");
+
+        return $resPokemon;
     }
 }
