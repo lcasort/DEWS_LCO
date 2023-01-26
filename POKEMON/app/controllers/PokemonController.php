@@ -195,6 +195,8 @@ class PokemonController
 
     public function addFromAPI($params) {
         $system_messages = $this->system_messages;
+        $server = $params['server'];
+
         if(isset($_POST['add']) && !empty($_POST['add'])) {
             // Obtenemos el id del pokemon a borrar.
             $id = array_keys($_POST['add'])[0];
@@ -224,10 +226,74 @@ class PokemonController
         header('Location: ./?controller=Pokemon&method=list&server=api');
     }
 
+    /**
+     * Método del controlador que sirve para añadir nuevos pokemons a nuestra
+     * base de datos.
+     * @param mixed $params
+     * @throws Exception
+     * @return void
+     */
     public function add($params) {
-        
+        $system_messages = $this->system_messages;
+        $server = $params['server'];
+
+        if(isset($_POST['add']) && !empty($_POST['add'])) {
+
+            // Comprobamos si existe el modelo.
+            if(is_file('./app/models/PokemonModel.php')) {
+                // Instanciamos el modelo.
+                $pokemonModel = new PokemonModel();
+                
+                //*********************** DESDE LA API ***********************//
+                // Recogemos el id desde el $_POST['add'].                    //
+                ////////////////////////////////////////////////////////////////
+                if($params['server'] === 'api') {
+                    $server = $params['server'];
+                    // Obtenemos el id del pokemon a borrar.
+                    $id = array_keys($_POST['add'])[0];
+                //*********************** DESDE LA BD ************************//
+                // Recogemos el id desde el input 'no' del $_POST.            //
+                ////////////////////////////////////////////////////////////////
+                } else if($params['server'] === 'db') {
+                    $server = $params['server'];
+                    // Obtenemos el id del pokemon a borrar.
+                    $id = $_POST['no'];
+                //********************** EN OTROS CASOS **********************//
+                // Utilizaremos por defecto la base de datos como servidor.   //
+                ////////////////////////////////////////////////////////////////
+                } else {
+                    $this->system_messages = 'El servidor seleccionado no existe. Mostrando datos desde la base de datos local...';
+                    $_SESSION['system_messages'] = $this->system_messages;
+                    header('Location: ./?controller=Pokemon&method=showForm');
+                }
+
+                // Comprobamos que el id pasado por el post es un número entero.
+                if(!ctype_digit($id)) {
+                    $this->system_messages = 'El id no es válido.';
+                }
+                // Llamamos a la función addPokemonFromAPI.
+                if($data = $pokemonModel->addPokemonFromAPI($id)) {
+                    $this->system_messages = 'Pokemon añadido.';
+                    $_SESSION['system_messages'] = $this->system_messages;
+                } else {
+                    $this->system_messages = 'El pokemon a añadir no existe.';
+                    $_SESSION['system_messages'] = $this->system_messages;
+                }
+            } else {
+                throw new Exception('No se encuentra el modelo.');
+            }
+
+            // Redirigimos a la paǵina de listado de los pokemons correspondiente.
+            header('Location: ./?controller=Pokemon&method=list&server='.$server);
+        }
     }
 
+    /**
+     * Método del controlador que sirve para mostrar el formulario para añadir
+     * pokemons nuevos.
+     * @throws Exception
+     * @return void
+     */
     public function showForm() {
         $system_messages = $this->system_messages;
         // Comprobamos si existe la vista.

@@ -2,8 +2,12 @@
 
 <div>
     <?php if($server === 'db') { ?>
-    <div class="addPokemonButton">
-        <a class="add_pokemon" href="./?controller=Pokemon&method=showForm">Add new pokémon</a>
+    <div class="form_add_pokemon">
+        <form action="./?controller=Pokemon&method=add&server=db" method="post">
+            <input name="no" type="number" min="1" max="151" placeholder="No" required>
+
+            <input type="submit" class="add_pokemon" name="add" value="Add Pokemon">
+        </form>
     </div>
     <?php } ?>
     
