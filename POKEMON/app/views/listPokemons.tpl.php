@@ -7,71 +7,77 @@
     </div>
     <?php } ?>
     
-    <table>
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>HP</th>
-                <th>Attack</th>
-                <th>Defence</th>
-                <th>Sp. Att.</th>
-                <th>Sp. Def.</th>
-                <th>Speed</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <form action="./?controller=Pokemon&method=<?php if($server==='db') { echo 'delete'; } else { echo 'addFromAPI'; }?>" method="post">
+    <form action="./?controller=Pokemon&method=<?php if($server==='db') { echo 'delete'; } else { echo 'addFromAPI'; }?>" method="post">
+        <div class="container-grid">
             <?php 
             foreach ($data as $key => $value):
             ?>
-                <tr>
+                <div class="container-cell">
+
+                    <!-- Action button -->
+                    <div class="action-button">
+                        <?php if($server === 'db') { ?>
+                        <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
+                        <?php } else { ?>
+                        <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
+                        <?php } ?>
+                    </div>
+
                     <!-- No. -->
-                    <td><?php echo $value['no']; ?></td>
+                    <div class="info no">
+                        <?php echo 'No. ' . $value['no']; ?>
+                    </div>
+
                     <!-- Image -->
-                    <td>
-                    <?php if($server === 'db') { ?>
+                    <div class="info pic">
+                        <?php if($server === 'db') { ?>
                         <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
-                    <?php } else { ?>
+                        <?php } else { ?>
                         <a href="./?controller=Pokemon&method=view&server=api&id=<?php echo $value['no']; ?>">
-                    <?php } ?>
+                        <?php } ?>
                             <img src="<?php echo $value['pic']; ?>">
                         </a>
-                    </td>
+                    </div>
+
                     <!-- Name -->
-                    <td><?php echo $value['name']; ?></td>
+                    <div class="info name">
+                        <?php echo $value['name']; ?>
+                    </div>
+
                     <!-- Type -->
-                    <td>
-                    <?php foreach($value['types'] as $type): ?>
+                    <div class="info types">
+                        <?php foreach($value['types'] as $type): ?>
                         <a href="./?controller=Pokemon&method=listType&type=<?php echo $type; ?>" class="type_link">                        
                             <div id="types" class="<?php echo $type; ?>"><?php echo $type; ?></div>
                         </a>
-                    <?php endforeach; ?>
-                    </td>
-                    <!-- HP -->
-                    <td><?php echo $value['hp']; ?></td>
-                    <td><?php echo $value['att']; ?></td>
-                    <td><?php echo $value['def']; ?></td>
-                    <td><?php echo $value['s_att']; ?></td>
-                    <td><?php echo $value['s_def']; ?></td>
-                    <td><?php echo $value['spd']; ?></td>
-                    <td>
-                    <?php if($server === 'db') { ?>
-                        <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
-                    <?php } else { ?>
-                        <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
-                    <?php } ?>
-                    </td>
-                </tr>            
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="info stats hp">
+                        <?php echo 'HP: '.$value['hp']; ?>
+                    </div>
+                    <div class="info stats att">
+                        <?php echo 'Att.: '.$value['att']; ?>
+                    </div>
+                    <div class="info stats def">
+                        <?php echo 'Def.: '.$value['def']; ?>
+                    </div>
+                    <div class="info stats satt">
+                        <?php echo 'S. Att.: '.$value['s_att']; ?>
+                    </div>
+                    <div class="info stats sdef">
+                        <?php echo 'S. Def.: '.$value['s_def']; ?>
+                    </div>
+                    <div class="info stats spd">
+                        <?php echo 'Speed: '.$value['spd']; ?>
+                    </div>
+                </div>            
             <?php
             endforeach;
             ?>
-            </form>
-        </tbody>
-    </table>
+        </div>
+    </form>
 </div>
 
 <?php require_once('./app/views/inc/footer.php'); ?>
