@@ -74,6 +74,7 @@ class PokemonController
     {
         $system_messages = $this->system_messages;
         $data = [];
+        $server = $params['server'];
 
         // Comprobamos si existe el modelo.
         if(is_file('./app/models/PokemonModel.php')) {

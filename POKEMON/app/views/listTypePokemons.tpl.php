@@ -26,7 +26,11 @@
                 <td><?php echo $value['no']; ?></td>
                 <!-- Image -->
                 <td>
+                <?php if($server === 'db') { ?>
                     <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
+                <?php } else { ?>
+                    <a href="./?controller=Pokemon&method=view&server=api&id=<?php echo $value['no']; ?>">
+                <?php } ?>
                         <img src="<?php echo $value['pic']; ?>">
                     </a>
                 </td>
@@ -35,7 +39,7 @@
                 <!-- Type -->
                 <td>
                 <?php foreach($value['types'] as $type): ?>
-                    <a href="./?controller=PokemonType&method=list&type=<?php echo $type; ?>" class="type_link">
+                    <a href="./?controller=Pokemon&method=listType&type=<?php echo $type; ?>" class="type_link">
                         <div id="types" class="<?php echo $type; ?>"><?php echo $type; ?></div>
                     </a>
                 <?php endforeach; ?>

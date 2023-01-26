@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <form action="./?controller=Pokemon&method=<?php if($server==='db') { echo 'delete';} else { echo 'addFromAPI'; }?>" method="post">
+            <form action="./?controller=Pokemon&method=<?php if($server==='db') { echo 'delete'; } else { echo 'addFromAPI'; }?>" method="post">
             <?php 
             foreach ($data as $key => $value):
             ?>
@@ -65,12 +65,11 @@
                         <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
                     <?php } ?>
                     </td>
-                </tr>
-            </form>
-            
+                </tr>            
             <?php
             endforeach;
             ?>
+            </form>
         </tbody>
     </table>
 </div>
