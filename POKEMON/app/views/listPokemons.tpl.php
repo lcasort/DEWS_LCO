@@ -1,6 +1,10 @@
 <?php require_once('./app/views/inc/header.php'); ?>
 
 <div>
+    <!--
+        Formulario para introducir nuevos pokemons a nuestra base de datos
+        desde la API mediante su número.
+    -->
     <?php if($server === 'db') { ?>
     <div class="form_add_pokemon">
         <form action="./?controller=Pokemon&method=add&server=db" method="post">
@@ -18,63 +22,70 @@
             ?>
                 <div class="container-cell">
 
-                    <!-- Action button -->
-                    <div class="action-button">
-                        <?php if($server === 'db') { ?>
-                        <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
-                        <?php } else { ?>
-                        <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
-                        <?php } ?>
+                    <div class="head-line">
+                        <!-- No. -->
+                        <div class="info no">
+                            <?php echo 'No. ' . $value['no']; ?>
+                        </div>
+
+                        <!-- Action button -->
+                        <div class="action-button">
+                            <?php if($server === 'db') { ?>
+                            <input class="delete_button" type="submit" name="delete[<?php echo $key; ?>]" value="&#10060;" />
+                            <?php } else { ?>
+                            <input class="add_from_api_button" type="submit" name="add[<?php echo $value['no']; ?>]" value="&#128215;" />
+                            <?php } ?>
+                        </div>
                     </div>
 
-                    <!-- No. -->
-                    <div class="info no">
-                        <?php echo 'No. ' . $value['no']; ?>
-                    </div>
+                    <div class="info-container">
+                        <!-- Image -->
+                        <div class="info pic">
+                            <?php if($server === 'db') { ?>
+                            <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
+                            <?php } else { ?>
+                            <a href="./?controller=Pokemon&method=view&server=api&id=<?php echo $value['no']; ?>">
+                            <?php } ?>
+                                <img src="<?php echo $value['pic']; ?>">
+                            </a>
+                        </div>
 
-                    <!-- Image -->
-                    <div class="info pic">
-                        <?php if($server === 'db') { ?>
-                        <a href="./?controller=Pokemon&method=view&id=<?php echo $key; ?>">
-                        <?php } else { ?>
-                        <a href="./?controller=Pokemon&method=view&server=api&id=<?php echo $value['no']; ?>">
-                        <?php } ?>
-                            <img src="<?php echo $value['pic']; ?>">
-                        </a>
-                    </div>
+                        <!-- Name -->
+                        <div class="info name">
+                            <?php echo $value['name']; ?>
+                        </div>
 
-                    <!-- Name -->
-                    <div class="info name">
-                        <?php echo $value['name']; ?>
-                    </div>
+                        <!-- Type -->
+                        <div class="info types">
+                            <?php foreach($value['types'] as $type): ?>
+                            <a href="./?controller=Pokemon&method=listType&type=<?php echo $type; ?>" class="type_link">                        
+                                <div id="types" class="<?php echo $type; ?>"><?php echo $type; ?></div>
+                            </a>
+                            <?php endforeach; ?>
+                        </div>
 
-                    <!-- Type -->
-                    <div class="info types">
-                        <?php foreach($value['types'] as $type): ?>
-                        <a href="./?controller=Pokemon&method=listType&type=<?php echo $type; ?>" class="type_link">                        
-                            <div id="types" class="<?php echo $type; ?>"><?php echo $type; ?></div>
-                        </a>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="info stats hp">
-                        <?php echo 'HP: '.$value['hp']; ?>
-                    </div>
-                    <div class="info stats att">
-                        <?php echo 'Att.: '.$value['att']; ?>
-                    </div>
-                    <div class="info stats def">
-                        <?php echo 'Def.: '.$value['def']; ?>
-                    </div>
-                    <div class="info stats satt">
-                        <?php echo 'S. Att.: '.$value['s_att']; ?>
-                    </div>
-                    <div class="info stats sdef">
-                        <?php echo 'S. Def.: '.$value['s_def']; ?>
-                    </div>
-                    <div class="info stats spd">
-                        <?php echo 'Speed: '.$value['spd']; ?>
+                        <!-- Stats -->
+                        <div class="info stats">
+                            <h2>STATS</h2>
+                            <div class="info stats_hp">
+                                <?php echo 'HP: '.$value['hp']; ?>
+                            </div>
+                            <div class="info stats_att">
+                                <?php echo 'Att.: '.$value['att']; ?>
+                            </div>
+                            <div class="info stats_def">
+                                <?php echo 'Def.: '.$value['def']; ?>
+                            </div>
+                            <div class="info stats_satt">
+                                <?php echo 'S. Att.: '.$value['s_att']; ?>
+                            </div>
+                            <div class="info stats_sdef">
+                                <?php echo 'S. Def.: '.$value['s_def']; ?>
+                            </div>
+                            <div class="info stats_spd">
+                                <?php echo 'Speed: '.$value['spd']; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>            
             <?php
