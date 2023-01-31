@@ -49,6 +49,19 @@ class RestApiController
                         }
 
                         break;
+
+                        case 'DELETE':
+                            if(isset($path[1]) && ctype_digit($path[1]) &&
+                            $pokemonModel->getPokemon($path[1])) {
+                                $pokemonModel->deletePokemon($path[1]);
+                                echo 'Pokemon eliminado con éxito.';
+                                http_response_code(200);
+                            } else {
+                                echo 'No existe el pokemon que se quiere borrar.';
+                                http_response_code(409);
+                            }
+    
+                            break;
                     
                     default:
                         # code...
@@ -62,9 +75,9 @@ class RestApiController
 
     private function create_array_convert($data) {
         $res = array();
-        
+
         foreach($data as $key => $p) {
-            $url = 'http://localhost/DEWS_LCO/POKEMON/?controller=RestApi&method=process&path=pokemon/' . $p['no'];
+            $url = 'http://localhost/DEWS_LCO/POKEMON/?controller=RestApi&method=process&path=pokemon/' . $key;
             $res[$key] = array(
                 'name' => $p['name'],
                 'url' => $url
