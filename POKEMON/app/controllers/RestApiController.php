@@ -62,6 +62,7 @@ class RestApiController
 
     private function create_array_convert($data) {
         $res = array();
+        
         foreach($data as $key => $p) {
             $url = 'http://localhost/DEWS_LCO/POKEMON/?controller=RestApi&method=process&path=pokemon/' . $p['no'];
             $res[$key] = array(
