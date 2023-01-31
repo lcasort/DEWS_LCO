@@ -12,7 +12,7 @@ class RestApiController
     ///////////////////////////////////////////////////////////////////////////
     public function __construct()
     {
-        // TODO
+        header("Content-type: application/json; charset=utf-8");
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -41,13 +41,13 @@ class RestApiController
 
                         if($method === 'view') {
                             $data = $pokemonModel->getPokemon($path[1]);
+                            echo json_encode($data);
                         } else {
                             $data = $pokemonModel->getAllPokemons();
+                            $res = $this->create_array_convert($data);
+                            echo json_encode($res);   
                         }
 
-                        print_r($data);
-                        echo json_encode($data);
-                        header('Content-type: application/json');
                         break;
                     
                     default:
@@ -58,5 +58,23 @@ class RestApiController
                 throw new Exception('No se encuentra el modelo.');
             }
         }
+    }
+
+    private function create_array_convert($data) {
+        $res = array();
+        foreach($data as $key => $p) {
+            $url = 'http://localhost/DEWS_LCO/POKEMON/?controller=RestApi&method=process&path=pokemon/' . $p['no'];
+            $res[$key] = array(
+                'name' => $p['name'],
+                'url' => $url
+            );
+        }
+
+        $res = [
+            'total' => count($res),
+            'results' => $res
+        ];
+
+        return $res;
     }
 }
