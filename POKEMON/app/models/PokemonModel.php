@@ -332,4 +332,8 @@ class PokemonModel
 
         return $resPokemon;
     }
+
+    public function updatePokemon($id, $attr) {
+        // TODO
+    }
 }

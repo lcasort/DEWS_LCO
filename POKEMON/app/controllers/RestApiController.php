@@ -50,21 +50,43 @@ class RestApiController
 
                         break;
 
-                        case 'DELETE':
-                            if(isset($path[1]) && ctype_digit($path[1]) &&
-                            $pokemonModel->getPokemon($path[1])) {
-                                $pokemonModel->deletePokemon($path[1]);
-                                echo 'Pokemon eliminado con éxito.';
-                                http_response_code(200);
-                            } else {
-                                echo 'No existe el pokemon que se quiere borrar.';
-                                http_response_code(409);
-                            }
-    
-                            break;
+                    case 'DELETE':
+                        if(isset($path[1]) && ctype_digit($path[1]) &&
+                        $pokemonModel->getPokemon($path[1])) {
+                            $pokemonModel->deletePokemon($path[1]);
+                            echo 'Pokemon eliminado con éxito.';
+                            http_response_code(200);
+                        } else {
+                            echo 'No existe el pokemon que se quiere borrar.';
+                            http_response_code(409);
+                        }
+
+                        break;
+
+                    case 'POST':
+                        if(isset($_POST['no']) && !empty($_POST['no']) &&
+                        $_POST['no']>0 && $_POST['no']<152) {
+                            $pokemonModel->addPokemonFromAPI($_POST['no']);
+                            echo 'Pokemon añadido con éxito.';
+                            http_response_code(200);
+                        } else {
+                            echo 'No existe el pokemon que se quiere añadir.';
+                            http_response_code(409);
+                        }
+
+                        break;
                     
-                    default:
-                        # code...
+                    case 'UPDATE':
+                        if(isset($path[1]) && ctype_digit($path[1]) &&
+                        $pokemonModel->getPokemon($path[1])) {
+                            $pokemonModel->updatePokemon($path[1]);
+                            echo 'Pokemon actualizado con éxito.';
+                            http_response_code(200);
+                        } else {
+                            echo 'No existe el pokemon que se quiere actualizar.';
+                            http_response_code(409);
+                        }
+
                         break;
                 }
             } else {
