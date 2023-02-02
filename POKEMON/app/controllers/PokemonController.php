@@ -6,6 +6,7 @@ class PokemonController
     //////////////////////////////// VARIABLES ////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
     private $system_messages;
+    private $offset;
 
     ///////////////////////////////////////////////////////////////////////////
     /////////////////////////////// CONSTRUCTOR ///////////////////////////////
@@ -16,6 +17,12 @@ class PokemonController
             $this->system_messages = $_SESSION['system_messages'];
         } else {
             $this->system_messages = '';
+        }
+
+        if(isset($_SESSION['offset'])) {
+            $this->offset = intval($_SESSION['offset']);
+        } else {
+            $this->offset = 0;
         }
     }
 
@@ -35,8 +42,10 @@ class PokemonController
 
             if($params['server'] === 'api') {
                 $server = $params['server'];
+                $_SESSION['offset'] = 0;
+                $offset = 0;
                 // Llamamos a la función getAllPokemonsFromAPI.
-                $data = $pokemonModel->getAllPokemonsFromAPI();
+                $data = $pokemonModel->getAllPokemonsFromAPI($offset);
             } else if($params['server'] === 'db') {
                 $server = $params['server'];
                 // Llamamos a la función getAllPokemons.
@@ -68,6 +77,43 @@ class PokemonController
 
         $_SESSION['system_messages'] = '';
 
+    }
+
+    public function listPaginated($params)
+    {
+        $system_messages = $this->system_messages;
+        $data = [];
+        $server = '';
+
+        // Comprobamos si existe el modelo.
+        if(is_file('./app/models/PokemonModel.php')) {
+            // Instanciamos el modelo.
+            $pokemonModel = new PokemonModel();
+
+            if($params['server'] === 'api') {
+                $server = $params['server'];
+
+                $offset = $_SESSION['offset'] + 15;
+                $this->offset = $offset;
+                // Llamamos a la función getAllPokemonsFromAPI.
+                $data = $pokemonModel->getAllPokemonsFromAPI($offset);
+            } else if($params['server'] === 'db') {
+                $server = $params['server'];
+                // Llamamos a la función getAllPokemons.
+                $data = $pokemonModel->getAllPokemons();
+            } else {
+                $this->system_messages = 'El servidor seleccionado no existe. Mostrando datos desde la base de datos local...';
+                $_SESSION['system_messages'] = $this->system_messages;
+                header('Location: ./');
+            }
+        } else {
+            throw new Exception('No se encuentra el modelo.');
+        }
+
+        $_SESSION['system_messages'] = '';
+        $_SESSION['offset'] = $this->offset;
+
+        echo json_encode($data);
     }
 
     public function listType($params)

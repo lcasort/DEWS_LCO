@@ -74,9 +74,10 @@ class PokemonModel
         return $res;
     }
 
-    public function getAllPokemonsFromAPI()
+    public function getAllPokemonsFromAPI($offset)
     {
-        $allData = $this->callAPI('https://pokeapi.co/api/v2/pokemon/?limit=15');
+        $url = 'https://pokeapi.co/api/v2/pokemon/?limit=15&offset='.$offset;
+        $allData = $this->callAPI($url);
         foreach ($allData['results'] as $key => $value) {
             $dataPokemon = $this->callAPI($value['url']);
             $types = [];

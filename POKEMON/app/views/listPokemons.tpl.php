@@ -96,7 +96,7 @@
 
     <!-- Botón carga asíncrona. -->
     <div class="load">
-        <input class="load_button" type="button" value="Load next 20 Pokémons">
+        <input class="load_button" type="button" value="Load next 15 Pokémons">
     </div>
 </div>
 
