@@ -93,6 +93,13 @@
             ?>
         </div>
     </form>
+
+    <!-- Botón carga asíncrona. -->
+    <div class="load">
+        <input class="load_button" type="button" value="Load next 20 Pokémons">
+    </div>
 </div>
+
+<script src="./public/js/async.js"></script>
 
 <?php require_once('./app/views/inc/footer.php'); ?>
