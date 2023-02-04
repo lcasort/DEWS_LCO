@@ -1,80 +1,96 @@
 document.querySelector(".load_button").addEventListener("click", getNext15, false);
 
+/**
+ * Método que muestra por pantalla los siguientes 15 pokemons.
+ */
 function getNext15()
 {
+    // Creamos la XMLHttpRequest.
     var xhttp = new XMLHttpRequest();
 
+    // Hacemos la petición a nuestro controlador que nos trae los datos de la
+    // API.
     xhttp.open("GET", "./?server=api&controller=Pokemon&method=listPaginated", true);
     xhttp.send();
 
+    // Una vez obtenemos la respuesta...
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            // Typical action to be performed when the document is ready:
-            //$('#example').append(xhttp.responseText);
-            const end = Number.parseInt(xhttp['response'].toString().length) - 1;
-            console.log(end);
-            let pokemonsStr = xhttp['response'].toString().substring(1, end);
-            const pokemons = JSON.parse(pokemonsStr);
+            // Parseamos el JSON que obtenemos desde el controlador a objeto
+            // JSON.
+            const pokemons = JSON.parse(xhttp['response']);
             
-            let res = '';
-            for (let k=0; k<pokemons.lenght; k++) {
-                res = '<div class="container-cell">';
-                res += '<div class="head-line">';
-                res += '<!-- No. -->';
-                res += '<div class="info no">';
-                res += 'No. ' + pokemons[k].no;
-                res += '</div>';
-                res += '<!-- Action button -->';
-                res += '<div class="action-button">';
-                res += '<input class="add_from_api_button" type="submit" name="add[' + pokemons[k].no + '" value="&#128215;" />';
-                res += '</div>';
-                res += '</div>';
-                res += '<div class="info-container">';
-                res += '<!-- Image -->';
-                res += '<div class="info pic">';
-                res += '<a href="./?controller=Pokemon&method=view&server=api&id='+ pokemons[k].no +'">';
-                res += '<img src="' + pokemons[k].pic + '">';
-                res += '</a>';
-                res += '</div>';
-                res += '<!-- Name -->';
-                res += '<div class="info name">';
-                res += pokemons[k].name;
-                res += '</div>';
-                res += '<!-- Type -->';
-                res += '<div class="info types">';
-                for (const type of pokemons[k].types) {
-                    res += '<a href="./?controller=Pokemon&method=listType&type=' + type + '" class="type_link">';
-                    res += '<div id="types" class="' + type + '">' + type + '</div>';
-                    res += '</a>';
-                }
-                res += '</div>';
-                res += '<!-- Stats -->';
-                res += '<div class="info stats">';
-                res += '<h2>STATS</h2>';
-                res += '<div class="info stats_hp">';
-                res += 'HP: ' + pokemons[k].hp;
-                res += '</div>';
-                res += '<div class="info stats_att">';
-                res += 'Att.: ' + pokemons[k].att;
-                res += '</div>';
-                res += '<div class="info stats_def">';
-                res += 'Def.: ' + pokemons[k].def;
-                res += '</div>';
-                res += '<div class="info stats_satt">';
-                res += 'S. Att.: ' + pokemons[k].s_att;
-                res += '</div>';
-                res += '<div class="info stats_sdef">';
-                res += 'S. Def.: ' + pokemons[k].s_def;
-                res += '</div>';
-                res += '<div class="info stats_spd">';
-                res += 'Speed: ' + pokemons[k].spd;
-                res += '</div>';
-                res += '</div>';
-                res += '</div>';
-                res += '</div>';
-            }
+            // Montamos el HTML de manera dinámica.
+            const res = generateHTML(pokemons);
             
+            // Añadimos el nuevo HTML al que ya teníamos anteriormente.
             document.querySelector('.container-grid').innerHTML += res;
         }
     }
+}
+
+/**
+ * Método que retorna un String que contiene el HTML de los 15 siguientes
+ * pokemons.
+ * @param {Object} pokemons 
+ * @returns 
+ */
+function generateHTML(pokemons) {
+    let res = '';
+    for (const [k, value] of Object.entries(pokemons)) {
+        res += '<div class="container-cell">'
+        + '<div class="head-line">'
+        + '<!-- No. -->'
+        + '<div class="info no">'
+        + 'No. ' + value.no
+        + '</div>'
+        + '<!-- Action button -->'
+        + '<div class="action-button">'
+        + '<input class="add_from_api_button" type="submit" name="add[' + value.no + '" value="&#128215;" />'
+        + '</div>'
+        + '</div>'
+        + '<div class="info-container">'
+        + '<!-- Image -->'
+        + '<div class="info pic">'
+        + '<a href="./?controller=Pokemon&method=view&server=api&id='+ value.no +'">'
+        + '<img src="' + value.pic + '">'
+        + '</a>'
+        + '</div>'
+        + '<!-- Name -->'
+        + '<div class="info name">' + value.name + '</div>'
+        + '<!-- Type -->'
+        + '<div class="info types">';
+        for (const [kk, type] of Object.entries(value.types)) {
+            res += '<a href="./?controller=Pokemon&method=listType&type=' + type + '" class="type_link">'
+            + '<div id="types" class="' + type + '">' + type + '</div>'
+            + '</a>';
+        }
+        res += '</div>'
+        + '<!-- Stats -->'
+        + '<div class="info stats">'
+        + '<h2>STATS</h2>'
+        + '<div class="info stats_hp">'
+        +  'HP: ' + value.hp
+        + '</div>'
+        + '<div class="info stats_att">'
+        + 'Att.: ' + value.att
+        + '</div>'
+        + '<div class="info stats_def">'
+        + 'Def.: ' + value.def
+        + '</div>'
+        + '<div class="info stats_satt">'
+        + 'S. Att.: ' + value.s_att
+        + '</div>'
+        + '<div class="info stats_sdef">'
+        + 'S. Def.: ' + value.s_def
+        + '</div>'
+        + '<div class="info stats_spd">'
+        + 'Speed: ' + value.spd
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+    }
+
+    return res;
 }

@@ -113,14 +113,7 @@ class PokemonController
         $_SESSION['system_messages'] = '';
         $_SESSION['offset'] = $this->offset;
 
-        $res = '';
-        foreach ($data as $key => $value) {
-            $res .= '<div class="container-cell">';
-            $res .= '<div class="head-line">';
-            
-        }
-
-        echo json_encode($data);
+        echo json_encode($data, JSON_FORCE_OBJECT);
     }
 
     public function listType($params)
