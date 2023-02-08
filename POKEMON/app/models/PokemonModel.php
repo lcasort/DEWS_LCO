@@ -334,7 +334,13 @@ class PokemonModel
         return $resPokemon;
     }
 
-    public function updatePokemon($id, $attr) {
-        // TODO
+    public function updatePokemon($id, $name) {
+        // Guardamos en $con la conexión con la base de datos.
+        $con = $this->con;
+        // Hacemos la consulta a la base de datos para traernos todos los
+        // pokemons del tipo seleccionado.
+        $resPokemon = $con->query("UPDATE pokemons SET name = $name WHERE id = $id");
+
+        return $resPokemon;
     }
 }

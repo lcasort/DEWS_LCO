@@ -77,9 +77,11 @@ class RestApiController
                         break;
                     
                     case 'UPDATE':
-                        if(isset($path[1]) && ctype_digit($path[1]) &&
-                        $pokemonModel->getPokemon($path[1])) {
-                            $pokemonModel->updatePokemon($path[1]);
+                        if(isset($_POST['id']) && !empty($_POST['id']) &&
+                        isset($_POST['name']) && !empty($_POST['name']) &&
+                        $_POST['id']>0 && $_POST['id']<152 &&
+                        $pokemonModel->getPokemon($_POST['id'])) {
+                            $pokemonModel->updatePokemon($_POST['id'], $_POST['name']);                            
                             echo 'Pokemon actualizado con éxito.';
                             http_response_code(200);
                         } else {
