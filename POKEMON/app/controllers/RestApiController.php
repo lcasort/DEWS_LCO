@@ -12,7 +12,6 @@ class RestApiController
     ///////////////////////////////////////////////////////////////////////////
     public function __construct()
     {
-        header("Content-type: application/json; charset=utf-8");
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -20,6 +19,8 @@ class RestApiController
     ////////////////////////////////////////////////////////////////////////////
     public function process($params)
     {
+        header("Content-type: application/json; charset=utf-8");
+        
         if($params['path']) {
             $path = explode('/', $params['path']);
             if(isset($path[0]) && !ctype_digit($path[0])) {
@@ -97,7 +98,8 @@ class RestApiController
         }
     }
 
-    private function create_array_convert($data) {
+    private function create_array_convert($data)
+    {
         $res = array();
 
         foreach($data as $key => $p) {
@@ -114,5 +116,25 @@ class RestApiController
         ];
 
         return $res;
+    }
+
+
+    public function showDocumentation()
+    {
+         // Comprobamos si existe la vista.
+         if(is_file('./app/views/documentationRestApi.tpl.php')) {
+            // CON RUTA RELATIVA
+            require_once('./app/views/documentationRestApi.tpl.php');
+            
+            // CON RUTA ABSOLUTA
+            /*
+            // Obtenemos la ruta absoluta del archivo que queremos cargar.
+            $rute = RUTE_APP . '/views/listPokemons.tpl.php';
+            // Instanciamos desde la ruta absoluta.
+            require_once($rute);
+            */
+        } else {
+            throw new Exception('No existe la vista solicitada.');
+        }
     }
 }

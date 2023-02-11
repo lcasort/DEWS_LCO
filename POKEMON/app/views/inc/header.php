@@ -11,25 +11,16 @@
 
     <div class="container_navbar">
         <div class="navbar">
-            <a href="./<?php if($server != 'db') {echo '?server='.$server;} ?>">
+            <a href="./<?php if(isset($server) && $server != 'db') {echo '?server='.$server;} ?>">
                 <img src="./public/img/pokemon_logo.png" class="logo" alt="Pokémon">
             </a>
             <div class="dropdown" style="float:right;">
                 <img src="./public/img/pokeball.png" class="dropbtn" alt="Menu">
                 <div class="dropdown-content">
-                    <a href="./<?php if($server != 'db') {echo '?server='.$server;} ?>">Home</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="./<?php if(isset($server) && $server != 'db') {echo '?server='.$server;} ?>">Home</a>
+                    <a href="./<?php if(isset($server) && $server == 'db') {echo '?server=api';} ?>"><?php if(isset($server) && $server == 'db') {echo 'API';} else {echo 'DB';} ?></a>
+                    <a href="./?controller=RestApi&method=showDocumentation">API v1.0</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <?php if($system_messages != ''): ?>
-    <div class="system_messages">
-        <span>
-            <?php echo $system_messages; ?>
-        </span>
-        <a name="close-message" id="close-message" class="close-message">&#10005;</a>
-    </div>
-    <?php endif; ?>
