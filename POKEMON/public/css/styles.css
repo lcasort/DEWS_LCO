@@ -350,6 +350,7 @@
 .load_button {
     padding: 10px 20px; 
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .load {

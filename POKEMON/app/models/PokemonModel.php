@@ -339,7 +339,7 @@ class PokemonModel
         $con = $this->con;
         // Hacemos la consulta a la base de datos para traernos todos los
         // pokemons del tipo seleccionado.
-        $resPokemon = $con->query("UPDATE pokemons SET name = $name WHERE id = $id");
+        $resPokemon = $con->query("UPDATE pokemons SET pokemons.name = '$name' WHERE pokemons.id = $id");
 
         return $resPokemon;
     }
