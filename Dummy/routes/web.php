@@ -1,6 +1,10 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+////////////////////////////////////////////////////////////////////////////////
+// Este fichero se va leyendo de arriba hacia abajo, si el resultado devuelto //
+// no es el esperado tenemos que cambiar el orden de las rutas.               //
+////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/', HomeController::class);
+
+Route::controller(CursoController::class)->group(function () {
+    Route::get('cursos', 'index');
+    Route::get('cursos/create', 'create');
+    Route::get('cursos/{curso}', 'show');
 });
