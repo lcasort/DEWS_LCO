@@ -8,21 +8,21 @@ class GameController extends Controller
 {
     public function index()
     {
-        return "Vista principal del listado de partidas.";
+        return view('games.index');
     }
 
     public function create()
     {
-        return "Vista del formulario de registro de una partida.";
+        return view('games.create');
     }
 
     public function show($id)
     {
-        return "Vista de la partida: $id.";
+        return view('games.show', compact('id'));
     }
 
     public function list($id)
     {
-        return "Vista de las partidas del juegador: $id.";
+        return view('games.list', compact('id'));
     }
 }

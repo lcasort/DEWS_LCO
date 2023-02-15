@@ -8,16 +8,17 @@ class PlayerController extends Controller
 {
     public function index()
     {
-        return "Vista principal del listado de jugadores.";
+        return view('players.index');
     }
 
     public function create()
     {
-        return "Vista del formulario de registro de un jugador.";
+        return view('players.create');
     }
 
     public function show($id)
     {
-        return "Vista del perfil del jugador: $id.";
+        // return view('players.show', ['id' => $id]);
+        return view('players.show', compact('id'));
     }
 }
