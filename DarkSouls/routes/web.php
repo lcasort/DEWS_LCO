@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CursoController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,15 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/', HomeController::class);
 
-Route::controller(CursoController::class)->group(function () {
-    Route::get('cursos', 'index');
-    Route::get('cursos/create', 'create');
-    Route::get('cursos/{curso}', 'show');
+Route::controller(PlayerController::class)->group(function () {
+    Route::get('players', 'index');
+    Route::get('players/create', 'create');
+    Route::get('players/{id}', 'show');
+});
+
+Route::controller(GameController::class)->group(function () {
+    Route::get('games', 'index');
+    Route::get('games/create', 'create');
+    Route::get('games/{id}', 'show');
+    Route::get('games/player/{id}', 'list');
 });
