@@ -20,8 +20,10 @@ class CreateGameTable extends Migration
             $table->integer('enemy_hits');
             $table->integer('scenary_hits');
             $table->integer('finishing_level');
-            $table->foreignIdFor(CreatePlayerTable::class);
-            $table->foreignIdFor(CreateClassTable::class);
+            $table->unsignedBigInteger('player_id');
+            $table->unsignedBigInteger('class_id');
+            $table->foreign('player_id')->references('id')->on('player')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }

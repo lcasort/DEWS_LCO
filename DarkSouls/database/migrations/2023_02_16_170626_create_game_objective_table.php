@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('game_objective', function (Blueprint $table) {
-            $table->foreignId('game_id')->constrained('game');
-            $table->foreignId('objective_id')->constrained('objective');
+            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('objective_id');
+            $table->foreign('game_id')->references('id')->on('game')->onDelete('cascade');
+            $table->foreign('objective_id')->references('id')->on('objective')->onDelete('cascade');
             $table->primary(['game_id','objective_id']);
             $table->timestamps();
         });
