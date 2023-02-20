@@ -15,5 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Player::factory(25)->create();
+
+        $this->call(ClassesSeeder::class);
+        $this->call(ObjectiveSeeder::class);
+
+        \App\Models\Game::factory(50)->create();
+        \App\Models\GameObjective::factory(100)->create();
     }
 }
