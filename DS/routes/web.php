@@ -23,17 +23,17 @@ use App\Http\Controllers\PlayerController;
 // no es el esperado tenemos que cambiar el orden de las rutas.               //
 ////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::controller(PlayerController::class)->group(function () {
-    Route::get('players', 'index');
-    Route::get('players/create', 'create');
-    Route::get('players/{id}', 'show');
+    Route::get('players', 'index')->name('players');
+    Route::get('players/create', 'create')->name('player.create');
+    Route::get('players/{id}', 'show')->name('player');
 });
 
 Route::controller(GameController::class)->group(function () {
-    Route::get('games', 'index');
-    Route::get('games/create', 'create');
-    Route::get('games/{id}', 'show');
-    Route::get('games/player/{id}', 'list');
+    Route::get('games', 'index')->name('games');
+    Route::get('games/create', 'create')->name('game.create');
+    Route::get('games/{id}', 'show')->name('game');
+    Route::get('games/player/{id}', 'list')->name('games.player');
 });

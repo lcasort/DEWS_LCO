@@ -15,12 +15,11 @@
     <!-- nav -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">DARK SOULS</a>
+          <a class="navbar-brand" href="{{route('home')}}">DARK SOULS</a>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Players</a>
-              <a class="nav-link" href="#">Games</a>
+              <a class="nav-link" href="{{route('players')}}">Players</a>
+              <a class="nav-link" href="{{route('games')}}">Games</a>
             </div>
           </div>
         </div>
