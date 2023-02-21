@@ -9,5 +9,10 @@ class Classes extends Model
 {
     use HasFactory;
 
-    protected $table = "classes"; 
+    protected $table = "classes";
+    
+    public function class_games()
+    {
+        return $this->hasMany(Game::class);
+    }
 }
