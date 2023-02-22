@@ -21,6 +21,12 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="{{route('players')}}">Players</a>
                     <a class="nav-link" href="{{route('games')}}">Games</a>
+                    @if (Route::has('login'))
+                        @auth
+                        <a class="nav-link" href="{{route('player.create')}}">Create player</a>
+                        <a class="nav-link" href="{{route('game.create')}}">Create game</a>
+                        @endauth
+                    @endif
                 </div>
                 <div class="navbar-nav">
                     @if (Route::has('login'))
