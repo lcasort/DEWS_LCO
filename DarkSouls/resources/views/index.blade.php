@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-<img src="../resources/img/dark-souls-brand_banner.jpg" alt="Dark Souls Banner"
+<img src="{{asset('img/dark-souls-brand_banner.jpg')}}" alt="Dark Souls Banner"
 class="img-fluid">
 
 <div class="quote-container my-5">

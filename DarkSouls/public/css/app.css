@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+    background-color: #7c5c3c;
+}
+
+.navbar-brand {
+    color: white;
+    font-family: 'Labrada', serif;
+}
+.navbar-brand:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: black;
+    opacity: 80%;
+}
+
+.contenerdor-index {
+    background-color: black;
+}
+.btn-outline {
+    color: #7c5c3c;
+    font-weight: bolder;
+    border: 2px #7c5c3c solid;
+}
+.btn-outline:hover {
+    color: white;
+    background-color: #7c5c3c;
+}
+
+.card-img-top {
+    height: 12rem;
+}
+
+h1 {
+    font-family: 'Labrada', serif;
+    color: #7c5c3c;
+}
+hr {
+    width: 80%;
+    background-color: #7c5c3c;
+}
+
+.card-body {
+    background-color: #7c5c3c;
+    color: white;
+}
+.card {
+    border: 2px solid #7c5c3c;
+}
+.see-profile {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+.see-profile:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+.card-title {
+    font-weight: bold;
+}
+
+.page-content {
+    background-color: black;
+}
