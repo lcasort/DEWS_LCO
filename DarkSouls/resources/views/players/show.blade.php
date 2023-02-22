@@ -3,5 +3,10 @@
 @section('title', 'Player')
 
 @section('content')
-    <h1>Vista del perfil del jugador: {{$id}}.</h1>
+<div>
+    <h1>{{$player->name}}</h1>
+    <div>
+        <h2>{{$player->nick}}</h2>
+    </div>
+</div>
 @endsection
