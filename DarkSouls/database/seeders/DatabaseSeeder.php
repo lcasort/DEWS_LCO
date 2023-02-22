@@ -18,5 +18,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        \App\Models\Player::factory(25)->create();
+
+        $this->call(ClassesSeeder::class);
+        $this->call(ObjectiveSeeder::class);
+
+        \App\Models\Game::factory(50)->create();
+        \App\Models\GameObjective::factory(100)->create();
     }
 }

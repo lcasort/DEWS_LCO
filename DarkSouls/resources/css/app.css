@@ -35,3 +35,41 @@
     color: white;
     background-color: #7c5c3c;
 }
+
+.card-img-top {
+    height: 12rem;
+}
+
+h1 {
+    font-family: 'Labrada', serif;
+    color: #7c5c3c;
+}
+hr {
+    width: 80%;
+    background-color: #7c5c3c;
+}
+
+.card-body {
+    background-color: #7c5c3c;
+    color: white;
+}
+.card {
+    border: 2px solid #7c5c3c;
+}
+.see-profile {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+.see-profile:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+.card-title {
+    font-weight: bold;
+}
+
+.page-content {
+    background-color: black;
+}

@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.indexLayout')
 
 @section('title', 'Home')
 
@@ -6,7 +6,7 @@
 <img src="../resources/img/dark-souls-brand_banner.jpg" alt="Dark Souls Banner"
 class="img-fluid">
 
-<div class="my-5">
+<div class="quote-container my-5">
     <figure class="text-center">
         <blockquote class="blockquote">
           <p>"Once, the Lord of Light banished Dark, and all that stemmed from humanity. And men assumed a fleeting form. These are the roots of our world. Men are props on the stage of life, and no matter how tender, how exquisite... A lie will remain a lie!"</p>
