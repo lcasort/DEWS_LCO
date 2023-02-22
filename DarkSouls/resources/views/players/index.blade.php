@@ -14,7 +14,7 @@
                         <div class="card-body">
                         <h5 class="card-title">{{$p->name}}</h5>
                         <p class="card-text">{{$p->nick}}</p>
-                        <a href="#" class="btn see-profile">See profile</a>
+                        <a href="{{route('player',$p->id)}}" class="btn see-profile">See profile</a>
                         </div>
                     </div>
                 </div>
