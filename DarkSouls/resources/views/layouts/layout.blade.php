@@ -34,16 +34,24 @@
                 <div class="navbar-nav">
                     @if (Route::has('login'))
                         @auth
-                        <div class="btn-group dropstart">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropstart
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Action two</a></li>
-                                <li><a class="dropdown-item" href="#">Action three</a></li>                            
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                          
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+            
+                                        <a class="dropdown-item" href="{{route('logout')}}"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">Log out</a>
+                                    </form>
+                                </li>
                             </ul>
-                          </div>
+                        </div>
                             
                         {{-- <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a> --}}
                     @else
@@ -58,6 +66,10 @@
           </div>
         </div>
     </nav>
+    <div>
+        <h1 class="text-center display-4 mt-4">@yield('header')</h1>
+        <hr class="hr-blurry mx-auto">
+    </div>
 
     @yield('content')
     <!-- footer -->

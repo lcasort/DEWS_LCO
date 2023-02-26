@@ -73,3 +73,18 @@ hr {
 .page-content {
     background-color: black;
 }
+
+.dropdown-toggle {
+    background-color: #7c5c3c;
+    border: 2px solid white;
+    color: white;
+}
+.dropdown-toggle:hover, .dropdown-toggle:focus, .show:focus, .show:hover {
+    border: 2px solid white;
+    background-color: white;
+    color: #7c5c3c;
+}
+
+.table {
+    --bs-table-hover-color: #7c5c3c;
+}

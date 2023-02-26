@@ -2,9 +2,9 @@
 
 @section('title', 'Players')
 
+@section('header', 'PLAYERS')
+
 @section('content')
-    <h1 class="text-center display-4 mt-4">PLAYERS</h1>
-    <hr class="hr-blurry">
     <div class="container">
         <div class="row">
             @foreach ($players as $p)
