@@ -2,6 +2,37 @@
 
 @section('title', 'Player Games')
 
+@section('header', 'GAMES OF PLAYER')
+
 @section('content')
-    <h1>Vista de las partidas del jugador: {{$id}}.</h1>
+    <div>
+        <h1 class="text-center">{{$player->nick}}</h1>
+    </div>
+    
+    <div class="mt-5">
+        <table class="table text-white table-hover w-75 mx-auto">
+            <thead>
+                <tr>
+                    <th scope="col">Class</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Total Hits</th>
+                    <th scope="col">Enemy Hits</th>
+                    <th scope="col">Scenary Hits</th>
+                    <th scope="col">Finishing Level</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($games as $g)
+                <tr>
+                    <td>{{$g->class_name}}</td>
+                    <td>{{$g->time}}</td>
+                    <td>{{$g->total_hits}}</td>
+                    <td>{{$g->enemy_hits}}</td>
+                    <td>{{$g->scenary_hits}}</td>
+                    <td>{{$g->finishing_level}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

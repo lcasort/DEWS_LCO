@@ -1,6 +1,8 @@
-@extends('layouts.indexLayout')
+@extends('layouts.layout')
 
 @section('title', 'Home')
+
+@section('header', 'Welcome to DSTracker')
 
 @section('content')
 <img src="{{asset('img/dark-souls-brand_banner.jpg')}}" alt="Dark Souls Banner"
@@ -20,9 +22,9 @@ class="img-fluid">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="d-block w-100">
-                <div class="quote-container my-5 px-5">
+                <div class="quote-container my-5 px-5 w-75 mx-auto">
                     <figure class="text-center">
-                        <blockquote class="blockquote">
+                        <blockquote class="blockquote text-white">
                         <p>"Once, the Lord of Light banished Dark, and all that stemmed from humanity. And men assumed a fleeting form. These are the roots of our world. Men are props on the stage of life, and no matter how tender, how exquisite... A lie will remain a lie!"</p>
                         </blockquote>
                         <figcaption class="blockquote-footer">
@@ -34,9 +36,9 @@ class="img-fluid">
         </div>
         <div class="carousel-item">
             <div class="d-block w-100">
-                <div class="quote-container my-5 px-5">
+                <div class="quote-container my-5 px-5 w-75 mx-auto">
                     <figure class="text-center">
-                        <blockquote class="blockquote">
+                        <blockquote class="blockquote text-white">
                         <p>"The dragons shall never be forgotten… We knights fought valiantly, but for every one of them, we lost three score of our own. Exhiliration, pride, hatred, rage… The dragons teased out our dearest emotions. …Thou will understand, one day. At thy twilight, old thoughts return, in great waves of nostalgia."</p>
                         </blockquote>
                         <figcaption class="blockquote-footer">
@@ -48,9 +50,9 @@ class="img-fluid">
         </div>
         <div class="carousel-item">
             <div class="d-block w-100">
-                <div class="quote-container my-5 px-5">
+                <div class="quote-container my-5 px-5 w-75 mx-auto">
                     <figure class="text-center">
-                        <blockquote class="blockquote">
+                        <blockquote class="blockquote text-white">
                         <p>"Choose thy fate alone. Seize it with thine own hands. All the more, should thy fate entail such foul betrayal."</p>
                         </blockquote>
                         <figcaption class="blockquote-footer">

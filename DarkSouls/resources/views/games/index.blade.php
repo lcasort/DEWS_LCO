@@ -21,8 +21,8 @@
             <tbody>
             @foreach ($games as $g)
                 <tr>
-                    <th scope="row">{{$g->player_id}}</th>
-                    <td>{{$g->class_id}}</td>
+                    <th scope="row">{{$g->player_nick}}</th>
+                    <td>{{$g->class_name}}</td>
                     <td>{{$g->time}}</td>
                     <td>{{$g->total_hits}}</td>
                     <td>{{$g->enemy_hits}}</td>
