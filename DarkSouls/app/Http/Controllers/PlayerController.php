@@ -20,8 +20,7 @@ class PlayerController extends Controller
 
     public function show($id)
     {
-        $player = Player::where('id', $id)->get();
-        $player = $player[0];
+        $player = Player::where('id', $id)->first();
         return view('players.show', compact('player'));
     }
 }

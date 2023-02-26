@@ -88,3 +88,24 @@ hr {
 .table {
     --bs-table-hover-color: #7c5c3c;
 }
+
+.display-8 {
+    color: #7c5c3c;
+}
+.profile-view.icon {
+    height: 20em;
+}
+.location {
+    color: #7c5c3c;
+}
+
+.see-games {
+    border: 2px #7c5c3c solid;
+    background-color: transparent;
+    color: #7c5c3c;
+    font-weight: bold;
+}
+.see-games:hover {
+    background-color: #7c5c3c;
+    color: white;
+}

@@ -20,25 +20,25 @@ return new class extends Migration
             $table->string('nick');
             $table->string('email')->unique();
             $table->enum('pic', [
-                '../public/img/bosses/abyss-watcher.jpg',
-                '../public/img/bosses/aldrich-devourer-of-gods.jpg',
-                '../public/img/bosses/ancient-wyvern.jpg',
-                '../public/img/bosses/champion-gundyr.jpg',
-                '../public/img/bosses/crystal-sage.jpg',
-                '../public/img/bosses/curse-rotted-greatwood.jpg',
-                '../public/img/bosses/dancer-of-the-boreal-valley.jpg',
-                '../public/img/bosses/deacon-of-the-deep.jpg',
-                '../public/img/bosses/dragonslayer-armor.jpg',
-                '../public/img/bosses/high-lord-wolnir.jpg',
-                '../public/img/bosses/iudex-gundyr.jpg',
-                '../public/img/bosses/lothric-younger-prince.jpg',
-                '../public/img/bosses/ocelot.jpg',
-                '../public/img/bosses/old_demon_king.jpg',
-                '../public/img/bosses/pontiff_sulyvahn.jpg',
-                '../public/img/bosses/soul-of-cinder.jpg',
-                '../public/img/bosses/the-nameless-king.jpg',
-                '../public/img/bosses/vordt.jpg',
-                '../public/img/bosses/yhorm-the-giant.jpg'
+                'img/bosses/abyss-watcher.jpg',
+                'img/bosses/aldrich-devourer-of-gods.jpg',
+                'img/bosses/ancient-wyvern.jpg',
+                'img/bosses/champion-gundyr.jpg',
+                'img/bosses/crystal-sage.jpg',
+                'img/bosses/curse-rotted-greatwood.jpg',
+                'img/bosses/dancer-of-the-boreal-valley.jpg',
+                'img/bosses/deacon-of-the-deep.jpg',
+                'img/bosses/dragonslayer-armor.jpg',
+                'img/bosses/high-lord-wolnir.jpg',
+                'img/bosses/iudex-gundyr.jpg',
+                'img/bosses/lothric-younger-prince.jpg',
+                'img/bosses/ocelot.jpg',
+                'img/bosses/old_demon_king.jpg',
+                'img/bosses/pontiff_sulyvahn.jpg',
+                'img/bosses/soul-of-cinder.jpg',
+                'img/bosses/the-nameless-king.jpg',
+                'img/bosses/vordt.jpg',
+                'img/bosses/yhorm-the-giant.jpg'
             ]);
             $table->timestamps();
         });

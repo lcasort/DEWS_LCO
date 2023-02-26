@@ -2,13 +2,9 @@
 
 @section('title', 'Player Games')
 
-@section('header', 'GAMES OF PLAYER')
+@section('header')GAMES OF {{strtoupper($player->nick)}}@endsection
 
 @section('content')
-    <div>
-        <h1 class="text-center">{{$player->nick}}</h1>
-    </div>
-    
     <div class="mt-5">
         <table class="table text-white table-hover w-75 mx-auto">
             <thead>
@@ -34,5 +30,8 @@
             @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="text-center mt-5">
+        <a href="{{route('player',$g->player_id)}}" class="btn see-games">Player's profile</a>
     </div>
 @endsection
