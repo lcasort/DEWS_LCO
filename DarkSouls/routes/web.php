@@ -24,22 +24,28 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::controller(PlayerController::class)->group(function () {
+    Route::get('players', 'index')->name('players');
+    Route::get('players/{id}', 'show')->name('player');
+});
+
+Route::controller(GameController::class)->group(function () {
+    Route::get('games', 'index')->name('games');
+    Route::get('games/{id}', 'show')->name('game');
+    Route::get('games/player/{id}', 'list')->name('games.player');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::controller(PlayerController::class)->group(function () {
-        Route::get('players', 'index')->name('players');
         Route::get('players/create', 'create')->name('player.create');
-        Route::get('players/{id}', 'show')->name('player');
     });
     
     Route::controller(GameController::class)->group(function () {
-        Route::get('games', 'index')->name('games');
         Route::get('games/create', 'create')->name('game.create');
-        Route::get('games/{id}', 'show')->name('game');
-        Route::get('games/player/{id}', 'list')->name('games.player');
     });
 });
 

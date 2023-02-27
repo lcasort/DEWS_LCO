@@ -7,28 +7,6 @@ GAME NO.{{$game->id}}
 @endsection
 
 @section('content')
-{{--
-game : [
-    {
-        "time":"05:30:52",
-        "total_hits":205850900,
-        "enemy_hits":57,
-        "scenary_hits":22,
-        "finishing_level":90077171,
-        "player_nick":"suscipit",
-        "class_name":"Sorcerer"
-    }
-]
-
-objectives : [
-    {
-        "objective_name":"Aldrich, Devourer of Gods"
-    },
-    {
-        "objective_name":"Lothric, Younger Prince"
-    }
-]
---}}
 <div class="w-75 mx-auto">
     <div class="container text-center">
         <div class="row">
