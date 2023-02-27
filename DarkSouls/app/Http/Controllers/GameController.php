@@ -30,7 +30,13 @@ class GameController extends Controller
 
     public function show($id)
     {
-        $game = Game::where('id',$id)->first();
+        $game = Game::where('id',$id)->addSelect([
+            'player_nick' => Player::select('nick')
+            ->whereColumn('id', 'games.player_id')
+        ])->addSelect([
+            'class_name' => Classes::select('name')
+            ->whereColumn('id', 'games.class_id')
+        ])->first();
         $objectives = GameObjective::where('game_id',$id)->addSelect([
             'objective_name' => Objective::select('name')
             ->whereColumn('id', 'game_objectives.objective_id')
