@@ -9,6 +9,7 @@
         <table class="table text-white table-hover w-75 mx-auto">
             <thead>
                 <tr>
+                    <th></th>
                     <th scope="col">Player</th>
                     <th scope="col">Class</th>
                     <th scope="col">Time</th>
@@ -21,7 +22,16 @@
             <tbody>
             @foreach ($games as $g)
                 <tr>
-                    <th scope="row">{{$g->player_nick}}</th>
+                    <td>
+                        <a href="{{route('game',$g->id)}}" class="see-game">
+                            <i class="fa-solid fa-square-caret-right"></i>
+                        </a>
+                    </td>
+                    <th scope="row">
+                        <a href="{{route('player',$g->player_id)}}" class="link-light">
+                            {{$g->player_nick}}
+                        </a>
+                    </th>
                     <td>{{$g->class_name}}</td>
                     <td>{{$g->time}}</td>
                     <td>{{$g->total_hits}}</td>

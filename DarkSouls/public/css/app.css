@@ -109,3 +109,10 @@ hr {
     background-color: #7c5c3c;
     color: white;
 }
+.see-game {
+    color: #7c5c3c;
+}
+.see-game:hover {
+    color: #7c5c3c;
+    opacity: 50%;
+}
