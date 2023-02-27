@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Classes;
 use App\Models\Game;
+use App\Models\GameObjective;
+use App\Models\Objective;
 use App\Models\Player;
 use Illuminate\Http\Request;
 
@@ -28,7 +30,12 @@ class GameController extends Controller
 
     public function show($id)
     {
-        return view('games.show', compact('id'));
+        $game = Game::where('id',$id)->first();
+        $objectives = GameObjective::where('game_id',$id)->addSelect([
+            'objective_name' => Objective::select('name')
+            ->whereColumn('id', 'game_objectives.objective_id')
+        ])->get();
+        return view('games.show', compact('game', 'objectives'));
     }
 
     public function list($id)
