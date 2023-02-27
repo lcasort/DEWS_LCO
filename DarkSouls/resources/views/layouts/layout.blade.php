@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script src="https://kit.fontawesome.com/ce9a4ec5f2.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js/script.js')}}" type="module"></script>
 </head>
 <body>
     <!-- header -->

@@ -116,3 +116,11 @@ hr {
     color: #7c5c3c;
     opacity: 50%;
 }
+
+.selected-pic {
+    border: 2px solid #7c5c3c;
+}
+
+label, legend {
+    color: #7c5c3c;
+}
