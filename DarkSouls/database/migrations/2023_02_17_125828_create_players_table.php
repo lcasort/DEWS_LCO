@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('country');
-            $table->string('nick');
+            $table->string('nick')->unique();
             $table->string('email')->unique();
             $table->enum('pic', [
                 'img/bosses/abyss-watcher.jpg',

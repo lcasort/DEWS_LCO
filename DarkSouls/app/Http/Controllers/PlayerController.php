@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller
 {
@@ -45,24 +46,35 @@ class PlayerController extends Controller
         return view('players.show', compact('player'));
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required|min:2|max:30',
-    //         'country' => 'required|min:2|max:60',
-    //         'nick' => 'required|min:2|max:30|unique:players',
-    //         'email' => 'required|unique:players|regex:/^[a-z0-9+%ª\-\._]{3,}@([a-z0-9\.\-]{1,})\.*[a-z]{2,}$/',
-    //         'pic' => 'required',
-    //     ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:2|max:30',
+            'country' => 'required|min:2|max:60',
+            'nick' => 'required|min:2|max:30|unique:players',
+            'email' => 'required|unique:players|regex:/^[a-z0-9+%ª\-\._]{3,}@([a-z0-9\.\-]{1,})\.*[a-z]{2,}$/',
+            'pic' => 'required',
+        ]);
 
-    //     $player = new Player;
-    //     $player->name = $request->name;
-    //     $player->country = $request->country;
-    //     $player->nick = $request->nick;
-    //     $player->email = $request->email;        
-    //     $player->pic = $request->pic;
-    //     $player->save();
+        $player = new Player;
+        $player->user_id = Auth::user()->id;
+        $player->name = $request->name;
+        $player->country = $request->country;
+        $player->nick = $request->nick;
+        $player->email = $request->email;        
+        $player->pic = $request->pic;
+        $player->save();
 
-    //     return redirect()->route('players');
-    // }
+        return redirect()->route('players');
+    }
+
+    public function destroy(Player $p)
+    {
+        if ($p->user_id === Auth::user()->id) {
+            $p->delete();
+            return redirect()->route('player.index');
+        } else {
+            return redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes borrar un jugador que no has creado tu.']);
+        }
+    }
 }

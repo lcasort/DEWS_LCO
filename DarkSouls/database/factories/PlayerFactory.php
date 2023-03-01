@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class PlayerFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => $this->faker->randomElement(User::pluck('id')->toArray()),
             'name' => $this->faker->firstName(),
             'country' => $this->faker->country(),
             'nick' => $this->faker->unique()->word(),

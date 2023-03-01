@@ -2,19 +2,17 @@
 
 @section('title', 'Create Player')
 
+@push('child-scripts')
+<script src="{{asset('js/script.js')}}" type="module"></script>
+@endpush
+
 @section('header', 'CREATE NEW PLAYER')
 
 @section('content')
 <div class="d-flex justify-content-center">
     <form action="{{route('player.store')}}" method="POST" class="w-75">
-        {{--
-            TODO :
-                    name    (required|min:2|max:30)
-                    country (required|min:2|max:60)
-                    nick    (required|min:2|max:30)
-                    email   (required)
-                    pic     (required)
-        --}}
+        @csrf
+        
         <div class="container">
             <div class="row">
                 <div class="col mb-3">
@@ -45,7 +43,7 @@
             <hr class="w-100">
             <div class="d-flex flex-wrap justify-content-center">
             @foreach ($pics as $pic)
-            <input type="radio" class="btn-check" name="pic" id="{{$pic}}" autocomplete="off" required>
+            <input type="radio" class="btn-check" name="pic" id="{{$pic}}" autocomplete="off" value="{{$pic}}" required>
             <label class="btn btn-light rounded p-0 selected-pic mx-2" for="{{$pic}}">
                 <img src="{{asset($pic)}}" style="object-fit: cover; width: 100px; height: 100px;" class="rounded">
             </label>
