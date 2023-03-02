@@ -68,13 +68,40 @@ class PlayerController extends Controller
         return redirect()->route('players');
     }
 
-    public function destroy(Player $p)
+    public function destroy(Player $player)
     {
-        if ($p->user_id === Auth::user()->id) {
-            $p->delete();
-            return redirect()->route('player.index');
+        if ($player->user_id === Auth::user()->id) {
+            $player->delete();
+            return redirect()->route('players');
         } else {
             return redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes borrar un jugador que no has creado tu.']);
         }
+    }
+
+    public function edit($id)
+    {
+        $player = Player::where('id', $id)->first();
+        $pics = [
+            'img/bosses/abyss-watcher.jpg',
+            'img/bosses/aldrich-devourer-of-gods.jpg',
+            'img/bosses/ancient-wyvern.jpg',
+            'img/bosses/champion-gundyr.jpg',
+            'img/bosses/crystal-sage.jpg',
+            'img/bosses/curse-rotted-greatwood.jpg',
+            'img/bosses/dancer-of-the-boreal-valley.jpg',
+            'img/bosses/deacon-of-the-deep.jpg',
+            'img/bosses/dragonslayer-armor.jpg',
+            'img/bosses/high-lord-wolnir.jpg',
+            'img/bosses/iudex-gundyr.jpg',
+            'img/bosses/lothric-younger-prince.jpg',
+            'img/bosses/ocelot.jpg',
+            'img/bosses/old_demon_king.jpg',
+            'img/bosses/pontiff_sulyvahn.jpg',
+            'img/bosses/soul-of-cinder.jpg',
+            'img/bosses/the-nameless-king.jpg',
+            'img/bosses/vordt.jpg',
+            'img/bosses/yhorm-the-giant.jpg'
+        ];
+        return view('players.edit', compact('player','pics'));
     }
 }
