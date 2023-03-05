@@ -38,6 +38,6 @@
         </table>
     </div>
     <div class="text-center mt-5">
-        <a href="{{route('player',$g->player_id)}}" class="btn see-games">Player's profile</a>
+        <a href="{{route('player',$player->id)}}" class="btn see-games">Player's profile</a>
     </div>
 @endsection
