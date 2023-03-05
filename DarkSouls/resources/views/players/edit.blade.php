@@ -12,7 +12,7 @@ EDIT PLAYER {{strtoupper($player->name)}}
 
 @section('content')
 <div class="d-flex justify-content-center">
-    <form action="#" method="POST" class="w-75">
+    <form action="{{route('player.update', $player)}}" method="POST" class="w-75">
         @csrf
         @method('put')
 

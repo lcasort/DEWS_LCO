@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/player/{player}/edit', 'edit')->name('player.edit');
         Route::delete('players/{player}', 'destroy')->name('player.destroy');
         Route::post('players', 'store')->name('player.store');
+        Route::put('player/{player}', 'update')->name('player.update');
     });
     
     Route::controller(GameController::class)->group(function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PlayerController extends Controller
 {
@@ -103,5 +104,25 @@ class PlayerController extends Controller
             'img/bosses/yhorm-the-giant.jpg'
         ];
         return view('players.edit', compact('player','pics'));
+    }
+
+    public function update(Request $request, Player $player)
+    {
+
+        if ($player->user_id === Auth::user()->id) {
+            $request->validate([
+                'name' => 'required|min:2|max:30',
+                'country' => 'required|min:2|max:60',
+                'nick' => 'required|min:2|max:30',
+                'email' => 'required|regex:/^[a-z0-9+%ª\-\._]{3,}@([a-z0-9\.\-]{1,})\.*[a-z]{2,}$/',
+                'pic' => 'required',
+            ]);
+
+            DB::update('update players set name = ?, country = ?, nick = ?, email = ?, pic = ? where id = ?',[$request->name,$request->country,$request->nick,$request->email,$request->pic,$player->id]);
+
+            return redirect()->route('player', $player->id);
+        } else {
+            return  redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes editar un jugador que no has creado tu.']);
+        }
     }
 }
