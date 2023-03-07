@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('enemy_hits');
             $table->integer('scenary_hits');
             $table->integer('finishing_level');
-            $table->foreignId('player_id')->constrained();
-            $table->foreignId('class_id')->constrained();
+            $table->foreignId('player_id')->constrained()->onDelete('cascade');
+            $table->foreignId('class_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

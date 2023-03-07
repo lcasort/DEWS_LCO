@@ -2,6 +2,10 @@
 
 @section('title', 'Players')
 
+@push('child-scripts')
+<script src="{{asset('js/confirm.js')}}" type="module"></script>
+@endpush
+
 @section('header', 'PLAYERS')
 
 @section('content')
@@ -17,7 +21,7 @@
                                     <form action="{{route('player.destroy', $p)}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="p-0 fs-5 btn bg-transparent button-delete-player" value="ELIMINAR"><i class='fa-solid fa-square-xmark'></i></button>
+                                        <button type="submit" class="p-0 fs-5 btn bg-transparent button-delete-player" value="ELIMINAR"><i class='fa-solid fa-square-xmark delete'></i></button>
                                     </form>
                                     @else
                                     <div class="card-header mt-2"></div>                                    
