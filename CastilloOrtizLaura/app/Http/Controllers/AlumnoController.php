@@ -53,11 +53,14 @@ class AlumnoController extends Controller
             $alumno->save();
         }
 
-        $moduloAlumno = new ModuloAlumno;
         $alumnoID = Alumno::where('email',$alumno->email)->first();
-        $moduloAlumno->alumno_id = $alumnoID->id;
-        $moduloAlumno->modulo_id = $modulo->id;
-        $moduloAlumno->save();
+        $moduloAlumno = ModuloAlumno::where('modulo_id', $modulo->id)->where('alumno_id', $alumnoID->id)->first();
+        if(!$moduloAlumno){
+            $moduloAlumno = new ModuloAlumno;
+            $moduloAlumno->alumno_id = $alumnoID->id;
+            $moduloAlumno->modulo_id = $modulo->id;
+            $moduloAlumno->save();
+        }
 
         return redirect()->route('modulo.alumnos', $modulo->id);
     }
