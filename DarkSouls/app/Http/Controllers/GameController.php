@@ -8,6 +8,7 @@ use App\Models\GameObjective;
 use App\Models\Objective;
 use App\Models\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
@@ -25,7 +26,11 @@ class GameController extends Controller
 
     public function create()
     {
-        return view('games.create');
+        $auth = Auth::user()->id;
+        $players = Player::where('user_id',$auth)->select('id','nick')->get();
+        $classes = Classes::all();
+        $objectives = Objective::all();
+        return view('games.create', compact('players','classes','objectives'));
     }
 
     public function show($id)

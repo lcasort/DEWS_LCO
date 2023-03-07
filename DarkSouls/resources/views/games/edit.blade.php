@@ -1,13 +1,20 @@
 @extends('layouts.layout')
 
-@section('title', 'Create Game')
+@section('title', 'Edit Game')
 
-@section('header', 'CREATE GAME')
+@push('child-scripts')
+<script src="{{asset('js/games.js')}}" type="module"></script>
+@endpush
+
+@section('header')
+EDIT GAME 
+@endsection
 
 @section('content')
 <div class="d-flex justify-content-center">
-    <form action="{{route('game.store')}}" method="POST" class="w-75">
+    <form action="{{route('game.update')}}" method="POST" class="w-75">
         @csrf
+        @method('put')
         
         <div class="container">
             <div class="row">
