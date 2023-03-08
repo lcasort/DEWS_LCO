@@ -9,6 +9,7 @@ use App\Models\Objective;
 use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
@@ -40,6 +41,9 @@ class GameController extends Controller
     {
         $game = Game::where('id',$id)->addSelect([
             'player_nick' => Player::select('nick')
+            ->whereColumn('id', 'games.player_id')
+        ])->addSelect([
+            'player_user_id' => Player::select('user_id')
             ->whereColumn('id', 'games.player_id')
         ])->addSelect([
             'class_name' => Classes::select('name')
@@ -107,6 +111,66 @@ class GameController extends Controller
             return redirect()->route('games');
         } else {
             return redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes borrar una partida que no has creado tu.']);
+        }
+    }
+
+    public function edit($id)
+    {
+        $auth = Auth::user()->id;
+        $game = Game::where('id',$id)->first();
+        $classes = Classes::all();
+        $objectives = Objective::all();
+        $objectives_selected = GameObjective::where('game_id',$id)->select('objective_id')->get();
+        $objs_sel = [];
+        foreach ($objectives_selected as $obj) {
+            array_push($objs_sel, $obj['objective_id']);
+        }
+        return view('games.edit', compact('game','classes','objectives','objs_sel'));
+    }
+
+    public function update(Request $request, Game $game)
+    {
+        $userId = Player::where('id', $game->player_id)->first();
+        if ($userId->user_id === Auth::user()->id) {
+            $request->validate([
+                'class' => 'required',
+                'hrs' => 'required|min:0',
+                'min' => 'required|min:0',
+                'secs' => 'required|min:0|max:59',
+                'total_hits' => 'required|min:0',
+                'enemy_hits' => 'required|min:0',
+                'scenary_hits' => 'required|min:0',
+                'finishing_level' => 'required|min:0',
+            ]);
+
+            $time = $request->hrs . ':' . $request->min . ':' . $request->secs;
+
+            DB::update('update games set time = ?, total_hits = ?, enemy_hits = ?, scenary_hits = ?, finishing_level = ?, class_id = ? where id = ?',
+            [
+                $time,
+                $request->total_hits,
+                $request->enemy_hits,
+                $request->scenary_hits,
+                $request->finishing_level,
+                $request->class,
+                $game->id
+            ]);
+
+            $go = GameObjective::where('game_id',$game->id)->get();
+            foreach ($go as $godel) {
+                $godel->delete();
+            }
+            $objectives = $request->objective;
+            foreach ($objectives as $key => $value) {
+                $o = new GameObjective;
+                $o->game_id = $game->id;
+                $o->objective_id = $value;
+                $o->save();
+            }
+
+            return redirect()->route('game', $game->id);
+        } else {
+            return  redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes editar un jugador que no has creado tu.']);
         }
     }
 }

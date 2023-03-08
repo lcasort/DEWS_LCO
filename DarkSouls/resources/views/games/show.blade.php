@@ -67,6 +67,13 @@ GAME NO.{{$game->id}}
 
     <div class="text-center mt-5">
         <a href="{{route('games.player',$game->player_id)}}" class="btn see-games">Player's games</a>
+        @if (Route::has('login'))
+            @auth
+                @if($game->player_user_id === Auth::user()->id)
+                <a href="{{route('game.edit',$game->id)}}" class="btn see-games">Edit</a>
+                @endif
+            @endauth
+        @endif
     </div>
 </div>
 @endsection
