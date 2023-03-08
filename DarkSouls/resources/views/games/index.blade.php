@@ -2,9 +2,21 @@
 
 @section('title', 'Games')
 
+@push('child-scripts')
+<script src="{{asset('js/confirm-game.js')}}" type="module"></script>
+@endpush
+
 @section('header', 'GAMES')
 
 @section('content')
+@if (Route::has('login'))
+    @auth
+    <div class="my-3 text-center">
+        <a href="{{route('game.create')}}" class="btn see-games">Create game</a>
+    </div>
+    @endauth
+@endif
+
     <div>
         <table class="table text-white table-hover w-75 mx-auto">
             <thead>
@@ -17,6 +29,7 @@
                     <th scope="col">Enemy Hits</th>
                     <th scope="col">Scenary Hits</th>
                     <th scope="col">Finishing Level</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +51,19 @@
                     <td>{{$g->enemy_hits}}</td>
                     <td>{{$g->scenary_hits}}</td>
                     <td>{{$g->finishing_level}}</td>
+                    <td>
+                        @if (Route::has('login'))
+                            @auth
+                                @if($g->player_user_id === Auth::user()->id)
+                                <form action="{{route('game.destroy', $g)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="p-0 fs-5 btn bg-transparent button-delete-game delete" value="ELIMINAR"><i class="fa-solid fa-trash delete"></i></button>
+                                </form>                                  
+                                @endif
+                            @endauth
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>

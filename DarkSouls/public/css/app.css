@@ -132,3 +132,10 @@ label, legend {
     color: black;
     opacity: 50%;
 }
+
+.button-delete-game {
+    color: white;
+}
+.button-delete-game:hover {
+    color: #7c5c3c;
+}

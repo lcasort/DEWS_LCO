@@ -2,6 +2,10 @@
 
 @section('title', 'Create Game')
 
+@push('child-scripts')
+<script src="{{asset('js/games.js')}}" type="module"></script>
+@endpush
+
 @section('header', 'CREATE GAME')
 
 @section('content')
@@ -50,34 +54,39 @@
             </div>
             <div class="row">
                 <div class="col mb-3">
-                    <label for="name" class="form-label">Total hits</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                    placeholder="John Doe" minlength="2" maxlength="30" required>
+                    <label for="finishing_level" class="form-label">Finishing Level</label>
+                    <input type="number" class="form-control" id="finishing_level"
+                    name="finishing_level" min="0" required>
+                </div>
+                <div class="col mb-3">
+                    <label for="total_hits" class="form-label">Total hits</label>
+                    <input type="number" class="form-control" id="total_hits"
+                    name="total_hits" min="0" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
-                    <label for="name" class="form-label">Enemy hits</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                    placeholder="John Doe" minlength="2" maxlength="30" required>
+                    <label for="enemy_hits" class="form-label">Enemy hits</label>
+                    <input type="number" class="form-control" id="enemy_hits"
+                    name="enemy_hits" min="0" required>
                 </div>
                 <div class="col mb-3">
-                    <label for="name" class="form-label">Scenary hits</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                    placeholder="John Doe" minlength="2" maxlength="30" required>
+                    <label for="scenary_hits" class="form-label">Scenary hits</label>
+                    <input type="number" class="form-control" id="scenary_hits"
+                    name="scenary_hits" min="0" required>
                 </div>
             </div>
         </div>
 
-        <fieldset class="mt-3">
+        <fieldset class="mt-3 objectives-fieldset">
             <legend>Objectives</legend>
             <hr class="w-100">
             <div class="container">
-                <div class="d-flex flex-wrap flex-row justify-content-evenly mx-auto">
+                <div class="d-flex flex-wrap flex-row justify-content-start mx-auto">
                 @foreach ($objectives as $obj)
                     <div class="form-check objectives w-25">
-                        <input class="form-check-input" type="checkbox"
-                        id="{{$obj->name}}" name="{{$obj->name}}" value="{{$obj->id}}">
+                        <input class="form-check-input objective" type="checkbox"
+                        id="{{$obj->name}}" name="objective[{{$obj->name}}]" value="{{$obj->id}}">
                         <label class="form-check-label" for="{{$obj->name}}">
                             {{$obj->name}}
                         </label>
@@ -86,9 +95,10 @@
                 </div>
             </div>
         </fieldset>
+        <div class="objectives-error text-danger"></div>
 
         <div class="text-center mt-5">
-            <input type="submit" class="btn see-games" value="Submit">
+            <input type="submit" class="btn see-games create-game" value="Submit">
         </div>
     </form>
 </div>

@@ -18,6 +18,9 @@ class GameController extends Controller
             'player_nick' => Player::select('nick')
             ->whereColumn('id', 'games.player_id')
         ])->addSelect([
+            'player_user_id' => Player::select('user_id')
+            ->whereColumn('id', 'games.player_id')
+        ])->addSelect([
             'class_name' => Classes::select('name')
             ->whereColumn('id', 'games.class_id')
         ])->get();
@@ -57,5 +60,53 @@ class GameController extends Controller
         ])->get();
         $player = Player::where('id', $id)->first();
         return view('games.list', compact('games', 'player'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nick' => 'required',
+            'class' => 'required',
+            'hrs' => 'required|min:0',
+            'min' => 'required|min:0',
+            'secs' => 'required|min:0|max:59',
+            'total_hits' => 'required|min:0',
+            'enemy_hits' => 'required|min:0',
+            'scenary_hits' => 'required|min:0',
+            'finishing_level' => 'required|min:0',
+        ]);
+
+        $time = $request->hrs . ':' . $request->min . ':' . $request->secs;
+        $game = new Game;
+        $game->time = $time;
+        $game->total_hits = $request->total_hits;
+        $game->enemy_hits = $request->enemy_hits;
+        $game->scenary_hits = $request->scenary_hits;
+        $game->finishing_level = $request->finishing_level;        
+        $game->player_id = $request->nick;
+        $game->class_id = $request->class;
+        $game->save();
+
+        $gameID = Game::all()->sortByDesc('id')->first();
+        $objectives = $request->objective;
+        foreach ($objectives as $key => $value) {
+            $o = new GameObjective;
+            $o->game_id = $gameID->id;
+            $o->objective_id = $value;
+            $o->save();
+        }
+
+        return redirect()->route('games');
+    }
+
+    public function destroy(Game $game)
+    {
+        $userId = Player::where('id', $game->player_id)->first();
+        if ($userId->user_id === Auth::user()->id) {
+            $game->delete();
+            return redirect()->route('games');
+        } else {
+            return redirect()->back()->withErrors(['msg' => 'EH QUÉ TE PENSABAS. No puedes borrar una partida que no has creado tu.']);
+        }
     }
 }
