@@ -5,8 +5,7 @@
         $_SESSION['posiciones'] = array();
     }
 
-    if(isset($_POST['x']) && !empty($_POST['x']) &&
-    isset($_POST['y']) && !empty($_POST['y'])) {
+    if(isset($_POST['x']) && isset($_POST['y'])) {
         if(is_numeric($_POST['x']) && is_numeric($_POST['y']) &&
         is_int(intval($_POST['x'])) && is_int(intval($_POST['y'])) &&
         intval($_POST['x'])>=0 && intval($_POST['x'])<=9 &&
