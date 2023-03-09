@@ -14,7 +14,12 @@
 
     <h2>Editar</h2>
 
-	<!-- Completa aquí el código -->
+    <form action="./editar_2.php" method="post">
+      <label for="id">Identificador: </label>
+      <input type="text" name="id" id="id" class="id">
+
+      <input type="submit" value="Enviar">
+    </form>
 
     <footer><p>Examen de febrero - Desarrollo Web en Entorno Servidor a distancia - 2022-2023.</p></footer>
 

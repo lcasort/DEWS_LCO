@@ -14,7 +14,27 @@
 
     <h2>Editar</h2>
 
-	<!-- Completa aquí el código -->
+    <?php
+
+    require_once('connect_db.php');
+
+    $id = $_POST['id'];
+    $titulo = $_POST['titulo'];
+    $fecha_estreno = $_POST['fecha_estreno'];
+    $duracion = $_POST['duracion'];
+    $genero = $_POST['genero'];
+    $director = $_POST['director'];
+    $sql = "UPDATE peliculas SET titulo='$titulo', fecha_estreno='$fecha_estreno', duracion='$duracion', genero='$genero', director='$director' WHERE id='$id' ";
+
+    $sth = $dbh->prepare($sql);
+
+    if($sth->execute()) {
+      echo 'Película actualizada correctamente.';
+    } else {
+      echo 'ERROR al hacer el update.';
+    }
+
+    ?>
 
     <footer><p>Examen de febrero - Desarrollo Web en Entorno Servidor a distancia - 2022-2023.</p></footer>
 
